@@ -1,0 +1,10 @@
+
+.dialog-container{
+    
+    padding: 15px;
+    border: 9px double #ffc0cbc4;
+    direction: rtl;
+}
+div h2{
+    text-align: center;
+}

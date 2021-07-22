@@ -1,0 +1,145 @@
+
+.container{
+  
+    width: 100%;
+  }
+
+  mat-toolbar{
+    margin: 0;
+    direction: rtl;
+    border-bottom: 2px solid rgb(0 0 0 / 12%);
+    justify-content: space-between;
+}
+mat-toolbar button{
+    background-color: whitesmoke;
+}
+
+  table{
+  width: 100%;
+  }
+  .table{
+      width: 57%;
+      height: 560px;
+    direction: rtl;
+    text-align: end;
+    display: inline-table;
+
+    box-shadow: 0px 0px 9px 3px #80808087;
+    /* width: 27%; */
+    margin: 38px;
+    /* display: inline-block; */
+    /* float: right; */
+    background-color: white;
+
+  }
+ /* mat-icon{
+   cursor: pointer;
+ } */
+
+ div label{
+  margin-bottom: 10px;
+  font-size: 16px;
+  display: block;
+  font-weight: bold;
+}
+mat-option{
+   /* background-color: yellow; */
+   border-color:rgba(0,0,0,.1);
+
+ }
+ 
+div input  {  
+  width: 100%;
+/* border:none; */
+/* border-bottom:1px solid #fff; */
+/* background: transparent;
+outline: none; */
+height: 20px;
+/* color:bl; */
+font-size: 16px;
+height: 38px;
+transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+resize: vertical;
+background: white;
+border-radius: .25rem;
+border-color:rgba(0,0,0,.1);
+
+}
+  .content{
+    height: 100%;
+    display: inline-block;
+  }
+  .add{
+    margin: 12px 0px;
+    font-weight: 600;
+    display: flex;
+    font-family: system-ui;
+}  
+
+
+
+
+.details{
+  width: 35%;
+  float: left;
+}
+
+  div.form{
+    direction: rtl;
+    box-shadow: 0px 0px 9px 3px #80808087;
+    padding: 43px 34px;
+    /* width: 27%; */
+    margin: 38px;
+    /* display: inline-block; */
+    /* float: right; */
+    background-color: white;
+   }
+   /* div.form label{
+     color: black;
+     font-size: 20px;
+   } */
+   /* div.form input ,textarea{
+    font-size: 18px;
+    display:block;
+    margin-top: 5px;
+    color: black;
+    background: none;
+    height: 38px;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid;
+} */
+div.form input:focus ,textarea:focus{
+ box-shadow: 0px 0px 5px gold;
+}
+div.form textarea{
+  height: auto;
+  resize: none;
+  width: 100%;
+  height: 122px;
+}
+/* div.form div{
+  width: 47%;
+  float: right;
+  margin: 13px;
+} */
+div.content{
+  width: 42%;
+  direction: rtl;
+    box-shadow: 0px 0px 9px 3px #80808087;
+    padding: 43px 34px;
+    margin: 38px;
+    background-color: white;
+}
+
+  /* div.form mat-form-field{
+    font-weight: 600;
+    font-family: system-ui; 
+    display: block;
+    text-align: right;
+    font-size:15px;
+  }
+  div.form mat-form-field input , div.form mat-form-field textarea {
+  color:black
+  } */
+  

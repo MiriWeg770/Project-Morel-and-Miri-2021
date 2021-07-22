@@ -1,0 +1,222 @@
+
+ <div class="container_page">
+  <div class="page_box">
+    <div class="search-input">
+      <input (keyup)="applyFilter($event)" #input type="text" placeholder="חפש במנות שלי"/>   
+      </div> 
+       <div>  
+          <mat-icon (click)="openDialog()" >add_circle_outline</mat-icon>
+         המנות שלי({{length}})
+        </div>
+  </div>
+      <!--  <div class="page_content">
+         <div class="page_content_data">
+            <div  *ngIf="!showDetails && !add">
+              <mat-toolbar>
+                  <div class="icons">
+            
+                   <div class="search-box">
+                      <button class="btn-search"><i class="fas fa-search"></i></button>
+                    </div>
+                  
+                        
+                      <mat-icon class="search">search</mat-icon> 
+                    <mat-icon (click)="changeViewOfList=!changeViewOfList">menu_open</mat-icon>
+                    <mat-icon (click)="open()" >add_circle_outline</mat-icon>
+                    <mat-icon *ngIf="!choose" matTooltip="בחר" matTooltipPosition="below"(click)="choose=!choose">check_box_outline_blank</mat-icon>
+                    <div *ngIf="choose" class="select"><mat-icon  (click)="choose=!choose">check_box</mat-icon>
+                    <mat-icon [matMenuTriggerFor]="menu">arrow_drop_down</mat-icon>
+                    <mat-menu #menu="matMenu">
+                      <button mat-menu-item>הוסף לתפריט קיים</button>
+                      <button mat-menu-item>הוסף לתפריט חדש</button>
+                      <button mat-menu-item> מחק</button>
+                      <button mat-menu-item> שתף</button>
+            
+                    </mat-menu>
+                  </div>
+                  </div>
+              <button mat-raised-button (click)="openDialog()">  מנה חדשה </button></div> 
+                 </mat-toolbar>  
+                 
+            
+              <div *ngIf="u!=null && listMeals!=null" float="right" class="list">
+                 <div  *ngFor="let x of listMeals">
+                   
+                  <div *ngIf="!changeViewOfList" class="cards-show">
+                         <mat-card >{{x}}</mat-card>
+                   </div>
+                   
+                   <div *ngIf="changeViewOfList" class="list-show">
+                    <mat-card  class="item">  
+                        <mat-checkbox *ngIf="choose" [color]="primary" [(ngModel)]="clicked"></mat-checkbox>
+                      <span><b>שם המנה :</b> {{x.MealName}}</span>
+                      <span><b> מרכיבים :</b> {{countIngredients(x)}}</span>
+                      <span><b>סועדים : </b>{{x.NumberOfDiners}}</span>
+                       <span>12:31 נוצר בתאריך</span> 
+                      <div class="link"><span>/MyHome/MyHistory</span></div> 
+                     <div class="item-icons">
+                      <mat-icon matTooltip="הורד"> file_download</mat-icon> 
+                      <mat-icon matTooltip="עדכן" (click)="showDetails=!showDetails"> edit</mat-icon>   
+                     <mat-icon matTooltip="מחק" (click)="delet()"> delete</mat-icon> 
+                      </div>
+                  </mat-card>
+                   </div>
+                 </div>  
+            
+            
+                 <div class="model" id="new">
+                  <div class="add" >
+                    <mat-toolbar> <mat-icon (click)="close()"  >close</mat-icon><span> הוסף מנה חדשה</span></mat-toolbar>
+                    <div>
+                      <span>שם המנה</span>
+                      <input type=" text" placeholder="הכנס שם מנה" [(ngModel)]="name">
+                    </div>
+                    
+                      <button mat-button (click)="new()"> צור</button>
+                      <button mat-button (click)="close()"> בטל</button>
+                    
+                  </div>
+                 </div>
+              </div>
+              
+              <div *ngIf="listMeals==null && u!=null" class="empty">
+                <mat-icon>list_alt</mat-icon><h1>רשימת המנות שלך ריקה </h1>
+            </div>
+            </div>
+
+
+
+          </div>     
+               
+ </div> -->
+ <div class="page_content">
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="MealName">
+      <th mat-header-cell *matHeaderCellDef> שם מוצר </th>
+      <td mat-cell *matCellDef="let element"> {{element.MealName}}1 </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="NumberOfDiners">
+      <th mat-header-cell *matHeaderCellDef> כמות </th>
+      <td mat-cell *matCellDef="let element"> {{element.NumberOfDiners}}1 </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="countIngredients">
+      <th mat-header-cell *matHeaderCellDef> מרכיבים</th>
+      <td mat-cell *matCellDef="let element"> s </td>
+    </ng-container>
+  
+  
+    <ng-container matColumnDef="x">
+      <th mat-header-cell *matHeaderCellDef>  </th>
+      <td mat-cell *matCellDef="let element">
+        <button  mat-mini-fab color="white" (click)="click=!click" >
+          <mat-icon *ngIf="!click">more_horiz</mat-icon>
+          <mat-icon *ngIf="click">close</mat-icon>   
+        <div *ngIf="click">   
+           <ul>
+            <li>מחק</li>
+          </ul>
+       </div> 
+    </button> 
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  
+    <!-- Row shown when there is no matching data. -->
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+  
+
+ </div>
+
+</div>
+
+
+
+<!-- <div class="body">
+<div class="container" *ngIf="u!=null ">
+
+
+
+
+
+
+
+
+
+<div  *ngIf="showDetails" class="showDetails">
+  <div class="header">
+  <img src="../../assets/2.jpg" alt="">
+  <button mat-button (click)="save()">שמור</button>
+  </div>
+
+  <div>
+    <mat-form-field appearance="fill">
+      <mat-label>Select me</mat-label>
+      <mat-select>
+        <mat-option value="option">Option</mat-option>
+      </mat-select>
+      <mat-hint align="end">Here's the dropdown arrow ^</mat-hint>
+    </mat-form-field>
+    <mat-icon matTooltip="הורד"> file_download</mat-icon> 
+    <mat-icon matTooltip="שבץ בלוח"> edit_calendar</mat-icon> 
+    <mat-icon matTooltip="עדכן"> edit</mat-icon>   
+   <mat-icon matTooltip="מחק" (click)="delet()"> delete</mat-icon> 
+  </div>
+
+
+  
+  <div class="details" id="Ingredients">
+    <div class="title"><div> <span> מרכיבים(4)</span></div> </div>
+   <div class="items">
+     <ul *ngFor="let x of listMeals">
+       <li><div>18</div><div><span>מוצר1</span><mat-checkbox  [color]="primary"></mat-checkbox></div>
+       </li>
+     </ul>
+   </div>
+
+  </div>
+  <div class="details">
+    <div class="title"><div> <span> אופן ההכנה</span></div> </div>
+   <div >
+      <p></p>
+   </div>
+
+  </div>
+</div>
+
+<div *ngIf="add">
+<app-add-meal></app-add-meal>
+</div>
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div *ngIf="u==null" class="user">
+    <mat-icon>ballot</mat-icon>
+<h1>כאן אפשר לצפות ברשימת המנות שיצרת   </h1>
+<button mat-raised-button routerLink="/SignIn">כניסה<mat-icon class="user">account_circle</mat-icon></button>
+
+
+</div>
+</div> -->
