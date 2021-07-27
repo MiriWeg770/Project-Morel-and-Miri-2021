@@ -1,25 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Project-2021-Morel-and-Miri\\MenuCalucator\\DTO\\DTO.csproj": {}
+    "C:\\Users\\Morel\\Desktop\\MenuCalucator\\MenuCalucator\\DTO\\DTO.csproj": {}
   },
   "projects": {
-    "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Project-2021-Morel-and-Miri\\MenuCalucator\\DAL\\DAL.csproj": {
+    "C:\\Users\\Morel\\Desktop\\MenuCalucator\\MenuCalucator\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Project-2021-Morel-and-Miri\\MenuCalucator\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Morel\\Desktop\\MenuCalucator\\MenuCalucator\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Project-2021-Morel-and-Miri\\MenuCalucator\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\מירי\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Project-2021-Morel-and-Miri\\MenuCalucator\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\Morel\\Desktop\\MenuCalucator\\MenuCalucator\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\Morel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Morel\\Desktop\\MenuCalucator\\MenuCalucator\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\מירי\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Morel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -30,7 +30,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -42,11 +41,20 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.0, )"
+            },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[3.1.0, )"
+              "version": "[5.0.0, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.0, )"
             }
           },
           "imports": [
@@ -64,26 +72,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.411\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Project-2021-Morel-and-Miri\\MenuCalucator\\DTO\\DTO.csproj": {
+    "C:\\Users\\Morel\\Desktop\\MenuCalucator\\MenuCalucator\\DTO\\DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Project-2021-Morel-and-Miri\\MenuCalucator\\DTO\\DTO.csproj",
+        "projectUniqueName": "C:\\Users\\Morel\\Desktop\\MenuCalucator\\MenuCalucator\\DTO\\DTO.csproj",
         "projectName": "DTO",
-        "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Project-2021-Morel-and-Miri\\MenuCalucator\\DTO\\DTO.csproj",
-        "packagesPath": "C:\\Users\\מירי\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Project-2021-Morel-and-Miri\\MenuCalucator\\DTO\\obj\\",
+        "projectPath": "C:\\Users\\Morel\\Desktop\\MenuCalucator\\MenuCalucator\\DTO\\DTO.csproj",
+        "packagesPath": "C:\\Users\\Morel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Morel\\Desktop\\MenuCalucator\\MenuCalucator\\DTO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\מירי\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Morel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -94,10 +102,9 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Project-2021-Morel-and-Miri\\MenuCalucator\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Project-2021-Morel-and-Miri\\MenuCalucator\\DAL\\DAL.csproj"
+              "C:\\Users\\Morel\\Desktop\\MenuCalucator\\MenuCalucator\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\Morel\\Desktop\\MenuCalucator\\MenuCalucator\\DAL\\DAL.csproj"
               }
             }
           }
@@ -110,7 +117,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -126,7 +132,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.411\\RuntimeIdentifierGraph.json"
         }
       }
     }

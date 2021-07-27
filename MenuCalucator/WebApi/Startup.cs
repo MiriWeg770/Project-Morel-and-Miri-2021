@@ -27,9 +27,8 @@ namespace WebApi
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        { 
-            
-
+        {
+       
             services.AddControllers();
             services.AddDbContext<MenuCalculatorContext>(options => options.UseSqlServer("Data Source=.;Initial Catalog=MenuCalculator;Integrated Security=True"));
             services.AddTransient<IUserLogic, UserLogic>();

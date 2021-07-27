@@ -14,12 +14,15 @@ namespace DTO.Convertors
                 Discription = m.Discription,
                 Instructions = m.Instructions,
                 MealCategoryCode = m.MealCategoryCode,
-                MealCode = m.MealCode,
+                //MealCode = m.MealCode,
                 MealName = m.MealName,
                 NumberOfDiners = m.NumberOfDiners,
                 NumberOfViews = m.NumberOfViews,
                 UserCode = m.UserCode,
+                MealProducts = ProductConvertors.ToProductList(m.Products)
+                
             };
+            
 
         }
         public static MealDto ToMealDto(Meal m)
@@ -34,6 +37,8 @@ namespace DTO.Convertors
                 NumberOfDiners = m.NumberOfDiners,
                 NumberOfViews = m.NumberOfViews,
                 UserCode = m.UserCode,
+                //Products=ProductConvertors.ToProductDtoList(m.MealProducts)
+                
             };
         }
 

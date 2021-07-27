@@ -11,6 +11,8 @@ namespace BLL
         List<MealDto> GetAllMeals();
         MealDto GetMealById(int id);
         MealDto AddMeal(MealDto u);
+        MealDto AddMealToUser(MealDto u);
+        List<MealDto> GetUserMeals(int id);
         MealDto DeletMeal(MealDto u);
         MealDto UpdateMeal(MealDto u);
       //  MealDto IsExists(MealDto b);
