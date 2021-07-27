@@ -1,0 +1,55 @@
+:host{
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+mat-drawer{
+  width: 200px;
+}
+mat-drawer-container{
+  height: 100%;
+}
+mat-toolbar{
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: white;
+  box-shadow: 2px 3px 11px 2px;   
+
+}
+mat-toolbar-row{
+  display: flex;
+  justify-content: space-between;
+}
+ul li{
+  list-style: none;
+  
+}
+button{
+  border: 0;
+  outline: none;
+  background: transparent;
+}
+.user{
+  font-size: 14px;
+}
+.user-image{
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+
+}
+.user-image-icon{
+  height: 18px;
+  font-size: 16px; 
+}
+.nav button.active-link{
+  background-color: gold;
+  border-bottom: 2px solid;
+  border-top: 2px solid;
+}
+.nav button:hover{
+  border-bottom: 2px solid;
+  border-top: 2px solid;
+}
+

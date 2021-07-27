@@ -1,0 +1,19 @@
+div{
+    text-align: center;
+    padding: 20px;
+    margin-top: 157px;
+    width: 100%;
+}
+mat-icon{
+    font-size: 130px;
+    color: #b0b0b0;
+    margin-right: 109px;
+}
+.user{
+    padding-left: 10px;
+font-size: 20px;
+    color: #b0b0b0;
+}
+button{
+    width: 86px;
+}

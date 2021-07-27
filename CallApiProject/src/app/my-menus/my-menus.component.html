@@ -1,0 +1,47 @@
+
+                      
+ <div class="container_page">
+  <div class="page_box">
+    <div class="search-input"><input (keyup)="applyFilter($event)" #input type="text" placeholder="חפש בתפריטים שלי"/></div>   
+       <div>התפריטים שלי({{length}})</div>
+  </div>
+
+  <div class="icons">
+    <mat-icon *ngIf="!choose" matTooltip="בחר" matTooltipPosition="below"(click)="choose=!choose">check_box_outline_blank</mat-icon>
+    <div *ngIf="choose" class="select"><mat-icon  (click)="choose=!choose">check_box</mat-icon>
+    <mat-icon [matMenuTriggerFor]="menu">arrow_drop_down</mat-icon>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item (click)="DeletItems()"> מחק</button>
+      <button mat-menu-item> שתף</button>
+    </mat-menu></div>
+     </div>  
+ <div *ngIf="length!=0" class="list">
+  <ul  >
+    <li *ngFor="let x of listMenus"><mat-card>
+      <mat-card-header><h1> שם המנה</h1> 
+        <button mat-button [matMenuTriggerFor]="menu"><mat-icon>more_vert</mat-icon></button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>Item 1</button>
+          <button mat-menu-item>Item 2</button>
+        </mat-menu>
+      
+      </mat-card-header>
+      <mat-card-content>
+        <h2>קטגוריה</h2>
+        <h2>כמות סועדים:</h2>
+        <p>תיאור</p>
+      </mat-card-content>
+    </mat-card></li>
+  
+  </ul>
+  
+ 
+ </div>
+  <div *ngIf="length==0" class="empty">
+    <mat-icon>list_alt</mat-icon><h1>רשימת התפריטים שלך ריקה </h1>
+</div>
+
+<button id="add" (click)="AddMenu()">
+  <mat-icon>add</mat-icon>
+</button>
+
