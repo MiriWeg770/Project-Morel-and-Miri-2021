@@ -83,9 +83,9 @@
 
 
 <mat-drawer-container >
-  <mat-drawer mode="side" opened position="end">
+  <!-- <mat-drawer mode="side" opened position="end">
     <app-sidenav></app-sidenav>
-  </mat-drawer>
+  </mat-drawer> -->
   <mat-drawer-content>
    <mat-toolbar>
        <!-- <div class="search">
@@ -100,10 +100,7 @@
     </div> -->
 
     <mat-toolbar-row>
-      <button mat-icon-button><mat-icon>menu</mat-icon></button>
       <div class="row mr-2 ml-auto">
-        <ul>
-          <li>
             <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
               <img src="../../assets/585e4beacb11b227491c3399.png" alt="user" class="user-image mr-1 p-2"> 
              {{u.UserName}}
@@ -115,9 +112,18 @@
                 Hציאה
               </button>
             </mat-menu>
-          </li>
-        </ul>
       </div>
+      <div>
+        MenuCalculator
+      </div>
+      <div class="nav">
+      <button matTooltip="דף הבית" mat-icon-button routerLink="/MyHome/AllLists" ><mat-icon>home</mat-icon></button>
+      <button matTooltip=" מנות" mat-icon-button routerLink="/User/MyMeals"  routerLinkActive="active-link"><mat-icon>ballot</mat-icon></button>
+      <button matTooltip="תפריטים " mat-icon-button routerLink="/User/MyMenus" routerLinkActive="active-link"><mat-icon>list_alt</mat-icon></button>
+      <button matTooltip="תפריטים " mat-icon-button routerLink="/User/AddEvent" routerLinkActive="active-link"><mat-icon>event</mat-icon></button>
+      </div>
+     
+
     </mat-toolbar-row>
     </mat-toolbar>
     <router-outlet></router-outlet>

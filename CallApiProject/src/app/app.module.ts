@@ -43,8 +43,6 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { AllListsComponent } from './all-lists/all-lists.component';
 import { ShowMenuDetailsComponent } from './show-menu-details/show-menu-details.component';
 import { MyAccountComponent } from './my-account/my-account.component';
-import { NavComponent } from './nav/nav.component';
-import { NewComponent } from './new/new.component';
 import { MyListsComponent } from './my-lists/my-lists.component';
 import { MyHistoryComponent } from './my-history/my-history.component';
 import {MatButtonModule} from '@angular/material/button';
@@ -56,6 +54,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { DeletMealComponent } from './delet-meal/delet-meal.component';
 import { UserComponent } from './user/user.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { CalendarComponent } from './calendar/calendar.component';
 
 @NgModule({
   declarations: [
@@ -78,8 +77,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     AllListsComponent,
     ShowMenuDetailsComponent,
     MyAccountComponent,
-    NavComponent,
-    NewComponent,
     MyListsComponent,
     MyHistoryComponent,
     SettingsComponent,
@@ -87,7 +84,8 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MySharesComponent,
     ShowMealDetailsComponent,
     DeletMealComponent,
-    UserComponent
+    UserComponent,
+    CalendarComponent
     
   ],
   imports: [

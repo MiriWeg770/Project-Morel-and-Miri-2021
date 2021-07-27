@@ -12,10 +12,13 @@
   /* background-color: white; */
 }
 ul{
-  display: inline-block;
   list-style: none;
 }
+ul li{
+  display: inline-block;
+  margin: 11px;
 
+}
 
 .container {
   position: relative;
@@ -23,19 +26,10 @@ ul{
 }
 
 .image {
-  /* opacity: 1; */
-  /* width: 100%; */
-  /* height: auto; */
-  /* transition: .5s ease; */
-  /* border: 10px solid; */
-  /* -webkit-backface-visibility: hidden; */
-  /* backface-visibility: hidden; */
+
   width: 248px;
   margin: 2px;
   text-align: center;
-  /* height: 314px; */
-  /* vertical-align: top; */
-  /* border: black 2px solid; */
   box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
 
 

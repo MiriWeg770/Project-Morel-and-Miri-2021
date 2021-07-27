@@ -1,26 +1,36 @@
-@import "../my-menus/my-menus.component.css";
-/* header{
-    background-color: #cccccc94;
-    height: 50px;
+/* @import "../my-menus/my-menus.component.css"; */
+
+.container_page{
+  color: white;
+  padding: 0 2rem;
+  background: #f1f5f9;
 }
-header span{
-    font-size: 33px;
-    float: right;
-    padding: 15px 0;
-    font-family: system-ui;
-    font-weight: 400;
+.page_box{
+  min-height: 94px;
+  background: gold;
+  color: black;
+  font-size: 24px;
+  margin: 0 -2rem;
+  text-align: end;
+  padding: 25px 29px;
+  font-family: system-ui;
+  font-weight: bolder;    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page_content{
+  position: relative;
+  box-shadow: 1px 0px 1px 3px black;
+  /* min-height: calc(100vh - 160px); */
+  margin-top: -15px;
+  background: white;
+ color: black; 
+  font-size: 2rem;
+;
+
 }
 
-
-header button{
-    float: left;
-    margin: 7px 113px;} */
-
-
-
-    /* .body{
-        background-color:white;
-      } */
       .model{
         width: 100%;
         height: 100%;
@@ -88,14 +98,7 @@ header button{
         display: inline-block;
         
     }
-    div.empty, div.user{
-        text-align: center;
-        /* padding: 20px; */
-        margin-top: 157px;
-        width: 100%;
-                /* background-color: white; */
-
-    }
+    
     /* mat-icon{
         font-size: 130px;
         color: #b0b0b0;
@@ -113,8 +116,7 @@ header button{
         background-color: white;
         margin: 0;
         direction: rtl;
-        /* border-bottom: 2px solid rgb(0 0 0 / 12%); */
-        justify-content: space-between;
+     justify-content: space-between;
     }
     mat-toolbar mat-icon{
         font-size: 26px;
@@ -149,20 +151,7 @@ header button{
     
     }
     
-    /* .icons .search input::after{
-        content: "";
-        position: absolute;
-        top: -10px;
-        right: 30px;
-        width: 16px;
-        height: 16px;
-        border-right: 1px solid #f3f3f3;
-        border-top: 1px solid #f3f3f3;
-        background: rgb(43, 13, 13);
-        transform: rotate(
-    -45deg
-    );
-    } */
+ 
     mat-toolbar button{
         background-color: whitesmoke;
     }
@@ -181,93 +170,20 @@ header button{
     
 
 
-    /* .search-box{
-        width: fit-content;
-        height: fit-content;
-        position: relative;
-      }
-      .input-search{
-        height: 50px;
-        width: 50px;
-        border-style: none;
-        padding: 10px;
-        font-size: 18px;
-        letter-spacing: 2px;
-        outline: none;
-        border-radius: 25px;
-        transition: all .5s ease-in-out;
-        background-color: #22a6b3;
-        padding-right: 40px;
-        color:#fff;
-      }
-      .input-search::placeholder{
-        color:rgba(255,255,255,.5);
-        font-size: 18px;
-        letter-spacing: 2px;
-        font-weight: 100;
-      }
-      .btn-search{
-        width: 50px;
-        height: 50px;
-        border-style: none;
-        font-size: 20px;
-        font-weight: bold;
-        outline: none;
-        cursor: pointer;
-        border-radius: 50%;
-        position: absolute;
-        right: 0px;
-        color:#ffffff ;
-        background-color:transparent;
-        pointer-events: painted;  
-      }
-      .btn-search:focus ~ .input-search{
-        width: 300px;
-        border-radius: 0px;
-        background-color: transparent;
-        border-bottom:1px solid rgba(255,255,255,.5);
-        transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-      }
-      .input-search:focus{
-        width: 300px;
-        border-radius: 0px;
-        background-color: transparent;
-        border-bottom:1px solid rgba(255,255,255,.5);
-        transition: all 500ms cubic-bezier(0, 0.110, 0.35, 2);
-      } */
-      
-    .list-show mat-card.item{
-        align-items: center;
-        display: flex;
-        direction: rtl;
-        margin-bottom: 8px;
-        justify-content: space-between;
-    }
-   .list-show mat-card.item span{
-    text-align: center;
-    border-left: 1px solid;
-    width: 28%;
-    text-align: center;
-    }
-    .list-show mat-card .item .link a{
-       margin: 0 10px;
-       cursor: pointer;
-        }
-   .list-show mat-card.item .menu {
-    align-items: center;
-    }
+   
     
     .mat-menu-item{
         background: white;
         box-shadow: 0px 0px 2px #b0b0b0;
-    }
-    .select{
+        width: 100%;
+    } 
+     /* .select{
         display: inline-block;
-    }
-    .select mat-icon{
+    } 
+     .select mat-icon{
     margin: 0;
     height: 0;
-    }
+    } */
 
   
   .mat-menu-item:hover{
@@ -275,18 +191,17 @@ header button{
   }
   .item-icons mat-icon{
     color: rgb(0 0 0 / 42%);
-    /* padding: 0 11px; */
     cursor: pointer;
     font-size: 23px;
     width: 35px; 
- }
- .item-icons mat-icon:hover{
+ } 
+ /* .item-icons mat-icon:hover{
      color: gold;
  }
  .item span b{
     font-size: 15px;
     font-family: system-ui;
- }
+ } */
 
 
 
@@ -299,6 +214,14 @@ header button{
 
 
  /* ################################## */
+.page_box{
+padding-top: 0px;
+}
+.page_content{
+  margin-top: -1px;
+  direction: rtl;
+}
+
 .showDetails .header img{
     display: block;
     width: 164px;
@@ -310,7 +233,8 @@ header button{
     padding: 20px;
     margin: 35px 0;
 
-} #Ingredients{
+} 
+#Ingredients{
     border-left: 1px solid #e3e3e3;
 
  }
@@ -362,19 +286,22 @@ table {
 }
 table td{
   cursor: pointer;
-  width: 25%;
+  /* border: 2px solid; */
+  width: 0px;
+  text-align: center;
+  padding: 0;
 }
-table td button{
-  width: 46px;
-  display: none;
+table td mat-icon{
+  color: #b0b0b0;
+  text-align: center;
+  margin: 5px;
+  cursor: pointer;
 }
-
-tr:hover{
-  background-color: 2px solid blue;
+table td mat-icon:hover{
+ color: black;
 }
 
 .mat-row .mat-cell {
-  border-bottom: 1px solid transparent;
   border-top: 1px solid transparent;
   cursor: pointer;
 }
@@ -384,4 +311,69 @@ tr:hover{
 }
 .mat-row:hover button {
  display: block;
+}
+.mat-header-cell{
+  background-color: gold;
+  text-align: center;
+  font-size: 17px;
+  font-family: system-ui;
+  color: black;
+  border-bottom: 2px solid;
+}
+.icons{
+  /* margin: 0px; */
+  /* width: 100%; */
+  height: 19px;
+  position: absolute;
+  top: 119px;
+  width: 100%;
+  /* left: 50%; */
+  right: 0%;
+  padding: 0 33px;
+  text-align: end;
+  color: black
+}
+.icons mat-icon{
+  color: white;
+  cursor: pointer;
+}
+.check_box{
+width: 50px;
+}
+#add{
+  position: fixed;
+  right: 30px;
+  bottom: 18px;
+  width: 50px;
+  height: 50px;
+  background: gold;
+  box-shadow: 0 0 10px black;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  transition: all ease 0.3s;
+  border-radius: 50%;
+  border: 1px solid;
+}
+#add:hover{
+  height: 60px;
+  width: 60px;
+  border: 2px solid;
+  color: black;
+
+}
+div.empty{
+  text-align: center;
+  margin-top: 157px;
+  width: 100%;
+}
+div.empty mat-icon{
+  color: rgb(0 0 0 / 42%);
+  font-size: 142px;
+  width: 138px;
+  height: 138px;
+}
+div.empty h1{
+  font-family: system-ui;
+  font-weight: 500;
 }

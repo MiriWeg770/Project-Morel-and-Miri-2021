@@ -13,7 +13,7 @@ import { UserService } from '../user.service';
 export class SignUpComponent implements OnInit {
   pro:boolean=false;
   hide:boolean=true;
-  myUser:User= new User(45,null,null,null);
+  myUser:User= new User(1,null,null,null);
   usersArr:User[]=[];
 
   constructor(private ser:UserService,private router:Router,private _snackBar: MatSnackBar) {
@@ -37,7 +37,7 @@ export class SignUpComponent implements OnInit {
     if(this.myUser.Password==pass){
     this.ser.SignUp(this.myUser).subscribe(succ => {  
           console.log(succ);
-          this.myUser=succ
+          this.myUser=succ        
       localStorage.setItem("user", JSON.stringify(this.myUser));    
        this.router.navigate(["/MyHome/AllLists"])
     }, err => {

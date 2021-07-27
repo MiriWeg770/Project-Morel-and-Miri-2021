@@ -12,7 +12,7 @@ import { UserService } from '../user.service';
 })
 export class SignInComponent implements OnInit {
 
-  user:User;
+  // user:User;
   hide:boolean=true;
   flag:boolean=true;
   pro:boolean=false;
@@ -46,7 +46,7 @@ export class SignInComponent implements OnInit {
     this.pro=!this.pro;
     this.ser.SignIn(this.myUser).subscribe(succ => { 
        this.myUser=succ
-       console.log(this.myUser)
+       console.log(this.myUser)    
       localStorage.setItem("user", JSON.stringify(this.myUser));    
        this.router.navigate(["/MyHome/AllLists"])
     }, err => {
@@ -54,6 +54,7 @@ export class SignInComponent implements OnInit {
       this.pro=!this.pro
       this.openSnackBar()
     })   
+   
        
   }
 

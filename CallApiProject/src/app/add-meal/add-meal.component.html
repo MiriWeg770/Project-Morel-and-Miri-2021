@@ -3,127 +3,80 @@
     
      <div class="container" >
       <mat-toolbar>
-        <h2> הוסף מנה</h2>
-        <button  mat-raised-button (click)="saveMeal()">  שמור  </button>
+        <h2 *ngIf="data==null"> הוסף מנה</h2>
+        <h2 *ngIf="data!=null"> עדכן מנה</h2>
+        <div>
+          <button  *ngIf="data==null" mat-raised-button (click)="saveMeal()" mat-dialog-close>  שמור  </button>
+          <button *ngIf="data!=null"  mat-raised-button (click)="updateMeal()" mat-dialog-close>  עדכן  </button>
+          <mat-icon mat-dialog-close class="close">close</mat-icon>
+        </div>
        </mat-toolbar>  
-        <!-- <div class="header">
-          <button (click)="showIngredients()" >פרטים</button> 
-          <button (click)="showDetails()" >מרכיבים</button>
-         </div>  -->
-         <!-- <mat-tab-group mat-align-tabs="center" animationDuration="0ms"> -->
 
-            <!-- <mat-tab label="פרטים">  -->
-             
-         <!-- <div class="details" *ngIf="details"> -->
-           <div class="table">
-          <table mat-table [dataSource]="ELEMENT_DATA"  class="mat-elevation-z8">
-
-            <ng-container matColumnDef="position">
-            <th mat-header-cell *matHeaderCellDef>  </th>
-            <td mat-cell *matCellDef="let element"> {{element.ProductCode}} </td>
-            </ng-container>
-            
-            <ng-container matColumnDef="name">
-            <th mat-header-cell *matHeaderCellDef> שם </th>
-            <td mat-cell *matCellDef="let element"> {{element.ProductName}} </td>
-            </ng-container>
-            
-            <ng-container matColumnDef="amount">
-            <th mat-header-cell *matHeaderCellDef> כמות </th>
-            <td mat-cell *matCellDef="let element"> {{element.Amount}} </td>
-            </ng-container>
-            
-            <ng-container matColumnDef="amount_name">
-            <th mat-header-cell *matHeaderCellDef> שם יחידה </th>
-            <td mat-cell *matCellDef="let element"> {{element.AmountName}} </td>
-            </ng-container>
-            
-            <ng-container matColumnDef="company">
-            <th mat-header-cell *matHeaderCellDef> שם חברה </th>
-            <td mat-cell *matCellDef="let element"> {{element.Company}} </td>
-            </ng-container>
-            
-            <ng-container matColumnDef="edit">
-            <th mat-header-cell *matHeaderCellDef>   </th>
-            <td mat-cell *matCellDef="let element"> <mat-icon (click)="editPro()"> edit</mat-icon> </td>
-            </ng-container>
-            
-            <ng-container matColumnDef="delet">
-            <th mat-header-cell *matHeaderCellDef></th>
-            <td mat-cell *matCellDef="let element"> <mat-icon (click)="deletePro()"> delete </mat-icon></td>
-            </ng-container>
-            
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row (click)='onRowClicked(row)' *matRowDef="let row; columns: displayedColumns;"></tr>
-            </table>
-</div>
-
-           <!-- <div class="info"> -->
        <div class="details"  >
         
-         <div class="form">
+         <div class="form s">
 
           <label>שם המנה</label>
           <input  type="text" name ="" [(ngModel)]="newMeal.MealName"/>
           <label >קטגוריה</label>
-   
-            <mat-select [(ngModel)]="selectedValue" name="food">
-              <mat-option *ngFor="let food of foods" [value]="food.value">
-                {{food.viewValue}}
-              </mat-option>
-            </mat-select>
-          <input type="text"  [(ngModel)]="newMeal.MealCategoryCode" > 
+            <select name=" " >
+              <option value="">...</option>
+              <option value="">כ</option>
+              <option value="">כ</option>
+              <option value="">כ</option>
+              <option value="">כ</option>
+              <option value="">הוסף קטגוריה</option>
+            </select>
+          <!-- <input type="text"  [(ngModel)]="newMeal.MealCategoryCode" >  -->
           <label> זמן הכנה</label>
-          <input type="text"  [(ngModel)]="newMeal.NumberOfDiners" >
+          <input type="text"  >
           <label>דרגת קושי </label>
-          <input type="text"  [(ngModel)]="newMeal.NumberOfDiners" > 
-          <label>כמות סועדים</label>
+          <select name=" " >
+            <option value="">...</option>
+            <option value="">קל</option>
+            <option value="">בינוני</option>
+            <option value="">קשה</option>
+            
+          </select>
+           <label>כמות סועדים</label>
           <input type="text"  [(ngModel)]="newMeal.NumberOfDiners" >
         </div>  
-        <div class="form ">
+        <div class="form s">
         <label>תאור המנה</label>
-        <textarea    [(ngModel)]="newMeal.Discription" ></textarea>
-        <label> אופן ההכנה</label>
-        <textarea   [(ngModel)]="newMeal.Instructions" ></textarea>
+        <textarea id="discription"    [(ngModel)]="newMeal.Discription" ></textarea>
+        <label> אופן ההכנה </label>
+        <textarea  id="how"[(ngModel)]="newMeal.Instructions" ></textarea>
+      </div>
+      <div class="form products">
+       <div class="title"> מוצרים </div>
+       <div class="list">
+         <table>
+        <tr>
+          <th>שם מוצר</th>
+          <th>כמות</th>
+          <th>שם יחידה</th>
+        </tr>
+        <tr *ngFor="let x of ELEMENT_DATA">
+          <td>{{x.ProductName}}</td>
+          <td>{{x.Amount}} </td>
+          <td>{{x.AmountName}}</td>
+        </tr></table>
+          <div class="input">          
+          <input type="text" placeholder="שם מוצר" [(ngModel)]="newProduct. ProductName">
+            <input type="number" placeholder="כמות" [(ngModel)]="newProduct.Amount" >
+            <select name=" x"  [(ngModel)]="newProduct.AmountName" >
+              <option value="">...</option>
+              <option value="">גרם </option>
+              <option value="">ליטר</option>
+              <option value="">יחידה</option>    
+            </select>
+            <button (click)="addProduct()"><mat-icon>add_circle_outline</mat-icon></button>
+
+        </div>  
+      
+           </div>
       </div>
     </div> 
-  <!-- </div> -->
-        <!-- </mat-tab> -->
 
-<!-- <mat-tab label="מרכיבים">  -->
-  <!-- <div class="Ingredients" *ngIf="Ingredients"  > -->
-      <button class="add" mat-raised-button (click)="addPro()" (myAddEvent)="addProduct($event)">הוסף מוצר</button>
-
-   
-<!-- </div> -->
-<!-- </div> -->
-    <!-- </mat-tab> -->
-
-
-          
-      <!-- </mat-tab-group>  -->
-    
-        <!-- <div class="page_box">הוסף מנה        
-        <button (click)="saveMeal()"
-        matTooltip="שמור">
-       <mat-icon>save</mat-icon>
-       </button>
-        </div> -->
-
-<!--     
-         
-            
-              
-              <div class="content">
-                </div>
-              
-              
-
-
-
-
-              
-         
-     -->
             
 </div> 

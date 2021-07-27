@@ -1,4 +1,5 @@
 import { Meal } from "./Meal";
+import { Menu } from "./Menu";
 
 export class User{
 

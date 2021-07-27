@@ -20,4 +20,13 @@ export class MealService {
   AddMeal(m:Meal):Observable<Meal> {
     return this.http.post<Meal>(environment.url +"/api/Meals/AddMeal",m);
   }
+  DeleteMeal(m:Meal):Observable<Meal> {
+    return this.http.put<Meal>(environment.url +"/api/Meals/DeleteMeal",m);
+  }
+  UpdateMeal(m:Meal):Observable<Meal> {
+    return this.http.put<Meal>(environment.url +"/api/Meals/UpdateMeal",m);
+  }
+  AddMealToUser(m:Meal):Observable<Meal>{
+    return this.http.post<Meal>(environment.url +"/api/Meals/AddMealToUser",m);
+  }
 }

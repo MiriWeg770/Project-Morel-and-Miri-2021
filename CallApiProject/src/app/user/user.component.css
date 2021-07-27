@@ -14,6 +14,12 @@ mat-toolbar{
   top: 0;
   z-index: 100;
   background: white;
+  box-shadow: 2px 3px 11px 2px;   
+
+}
+mat-toolbar-row{
+  display: flex;
+  justify-content: space-between;
 }
 ul li{
   list-style: none;
@@ -37,3 +43,13 @@ button{
   height: 18px;
   font-size: 16px; 
 }
+.nav button.active-link{
+  background-color: gold;
+  border-bottom: 2px solid;
+  border-top: 2px solid;
+}
+.nav button:hover{
+  border-bottom: 2px solid;
+  border-top: 2px solid;
+}
+

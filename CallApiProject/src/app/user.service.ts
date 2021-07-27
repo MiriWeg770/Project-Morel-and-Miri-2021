@@ -30,5 +30,8 @@ export class UserService {
   GetUserMeals(id:number): Observable<Meal[]>{
     return this.http.get<Meal[]>(environment.url +"/api/Meals/GetUserMeals/"+id);
   }
+  // AddMeal(u:User,m:Meal):Observable<User>{
+  //   return this.http.post<User>(environment.url + "/api/Users/AddMeal",u);
+  // }
   
 }

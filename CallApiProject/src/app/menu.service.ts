@@ -10,7 +10,7 @@ export class MenuService {
 
   constructor(private http:HttpClient) { }
 
-  GetAllMenus():Observable<Menu[]>{
+  GetAllMenus(id:number):Observable<Menu[]>{
     return this.http.get<Menu[]>("");
   }
   GetMenuById(id:number):Observable<Menu>{

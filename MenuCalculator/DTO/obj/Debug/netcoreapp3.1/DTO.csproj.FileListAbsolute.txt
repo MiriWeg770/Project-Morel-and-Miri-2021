@@ -1,0 +1,60 @@
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DTO.deps.json
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DTO.dll
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DTO.pdb
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.csprojAssemblyReference.cache
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfoInputs.cache
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfo.cs
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CoreCompileInputs.cache
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.dll
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.pdb
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DAL.dll
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DAL.pdb
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CopyComplete
+D:\מוראל ומירי\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DTO.deps.json
+D:\מוראל ומירי\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DTO.dll
+D:\מוראל ומירי\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DTO.pdb
+D:\מוראל ומירי\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DAL.dll
+D:\מוראל ומירי\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DAL.pdb
+D:\מוראל ומירי\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.csprojAssemblyReference.cache
+D:\מוראל ומירי\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfoInputs.cache
+D:\מוראל ומירי\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfo.cs
+D:\מוראל ומירי\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CoreCompileInputs.cache
+D:\מוראל ומירי\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CopyComplete
+D:\מוראל ומירי\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.dll
+D:\מוראל ומירי\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.pdb
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator-הקודם\DTO\obj\Debug\netcoreapp3.1\DTO.dll
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator-הקודם\DTO\obj\Debug\netcoreapp3.1\DTO.pdb
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator-הקודם\DTO\bin\Debug\netcoreapp3.1\DTO.deps.json
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator-הקודם\DTO\bin\Debug\netcoreapp3.1\DTO.dll
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator-הקודם\DTO\bin\Debug\netcoreapp3.1\DTO.pdb
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator-הקודם\DTO\bin\Debug\netcoreapp3.1\DAL.dll
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator-הקודם\DTO\bin\Debug\netcoreapp3.1\DAL.pdb
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator-הקודם\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfoInputs.cache
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator-הקודם\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfo.cs
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator-הקודם\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CoreCompileInputs.cache
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator-הקודם\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CopyComplete
+M:\מרכז חרדי\מסלולי נשים\הנדסת תוכנה\מחזור תשפ\'פרוייקט גמר ה'תשפ''א שנה ב\מוראל ומירי\MenuCalucator-הקודם\DTO\obj\Debug\netcoreapp3.1\DTO.csprojAssemblyReference.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DTO.deps.json
+C:\Users\מירי\Desktop\לימודים\פרוייקט\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DTO.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.csprojAssemblyReference.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfoInputs.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfo.cs
+C:\Users\מירי\Desktop\לימודים\פרוייקט\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CoreCompileInputs.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CopyComplete
+C:\Users\מירי\Desktop\לימודים\פרוייקט\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\Morel\Desktop\MenuCalucator\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DTO.deps.json
+C:\Users\Morel\Desktop\MenuCalucator\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DTO.dll
+C:\Users\Morel\Desktop\MenuCalucator\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\Morel\Desktop\MenuCalucator\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\Morel\Desktop\MenuCalucator\MenuCalucator\DTO\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\Morel\Desktop\MenuCalucator\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.csprojAssemblyReference.cache
+C:\Users\Morel\Desktop\MenuCalucator\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfoInputs.cache
+C:\Users\Morel\Desktop\MenuCalucator\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfo.cs
+C:\Users\Morel\Desktop\MenuCalucator\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CoreCompileInputs.cache
+C:\Users\Morel\Desktop\MenuCalucator\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CopyComplete
+C:\Users\Morel\Desktop\MenuCalucator\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.dll
+C:\Users\Morel\Desktop\MenuCalucator\MenuCalucator\DTO\obj\Debug\netcoreapp3.1\DTO.pdb

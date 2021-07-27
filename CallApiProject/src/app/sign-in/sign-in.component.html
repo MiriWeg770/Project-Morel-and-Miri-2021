@@ -17,7 +17,7 @@
         <form #myForm="ngForm" (ngSubmit)="SignIn()">
           <!-- שם משתמש -->
           <div>
-            <label> הכנס שם משתמש   </label>
+            <label> הכנס שם משתמש  </label>
               <input  type="text"  name="userName"  [(ngModel)]="myUser.UserName"  pattern="[A-Za-z]{4,20}" required #userName="ngModel">
           </div>
              <div  *ngIf="userName.hasError('required') && userName.touched" >
