@@ -67,8 +67,8 @@ displayedColumns: string[] = ['y','MealName', 'NumberOfDiners', 'countIngredient
       console.log('The dialog was closed');    
         this.GetAllMeals()
    });  
-
   }
+  
   UpdateMeal(x:Meal){
     const dialogRef = this.dialog.open(AddMealComponent, {
     disableClose:true,

@@ -34,9 +34,6 @@ dataSource;
   ngOnInit(): void {
   }
 
-
-
-  
   GetAllMenus(){
     this.ser.GetAllMenus(this.u.UserCode).subscribe(succ => {
    }, err => {
@@ -44,8 +41,6 @@ dataSource;
     }) 
  }
 
-  
- 
    applyFilter(event: Event) {
      const filterValue = (event.target as HTMLInputElement).value;
      this.dataSource.filter = filterValue.trim().toLowerCase();

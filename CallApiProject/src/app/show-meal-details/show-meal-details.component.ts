@@ -9,8 +9,9 @@ import { MealService } from '../meal.service';
   styleUrls: ['./show-meal-details.component.css']
 })
 export class ShowMealDetailsComponent implements OnInit {
-  meal: Meal= new Meal(null,null,null,null,null,null,null,null,null);
-
+  meal: Meal= new Meal(null,null,null,null,null,null,null,null,null,null);
+  bgVariable:Boolean=false
+  headerVariable:boolean=false
   constructor(private router:ActivatedRoute,private ser:MealService) { }
 
   ngOnInit(): void {
@@ -18,6 +19,7 @@ export class ShowMealDetailsComponent implements OnInit {
   //     this.meal.MealCode = parseInt(id);
   //     this.ser.GetMealById(id).subscribe(dataList => this.meal = dataList);
   // });
+  window.scrollTo(0,0)
 }
  close(){
    document.getElementById("send").style.display="none";
