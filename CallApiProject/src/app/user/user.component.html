@@ -1,91 +1,5 @@
-<!-- 
-<mat-toolbar>
-       </mat-toolbar>
-    <mat-sidenav-container>
-      <mat-sidenav mode="side" opened position="end" [ngClass]="show?'close':'open' " >
-        <div class="logo_content">
-          <div class="logo">
-              ggg
-          </div>
-          <mat-icon id="btn" (click)="show=!show">menu</mat-icon>
-        </div>
-        <ul>
-            <li>
-                <mat-icon id="btn-search">search</mat-icon>
-                <input type="text" placeholder="חפש...">
-            </li>
-            <li routerLink="/User/AddMeal" >
-                <a>
-                <mat-icon>home</mat-icon>
-                <span> בית</span>
-                <span class="toolip">בית</span>
-               </a>
-            </li>
-            <li>
-                <a>
-                <mat-icon>home</mat-icon>
-                <span> בית</span>
-               </a>
-            </li>
-           
-        </ul>
-
-
-       
-         <button mat-button class="menu-button" routerLink="/MyHome/AllLists" routerLinkActive="list-item-active" >
-         </button>
-       
-        <button mat-button class="menu-button" routerLink="/MyHome/AllLists" routerLinkActive="list-item-active" >
-            <mat-icon>info</mat-icon>
-            <span *ngIf="show"> אודות</span>
-        </button>
-    
-            <button mat-button class="menu-button" routerLink="/MyHome/MyMeals" routerLinkActive="list-item-active"  > 
-              <mat-icon>ballot</mat-icon> <span *ngIf="show"> המנות שלי</span>
-            </button>
-            <button mat-button class="menu-button" routerLinkActive="list-item-active"  > 
-                <mat-icon>ballot</mat-icon> <span *ngIf="show">  הוסף מנה</span>
-              </button>
-            <button mat-button class="menu-button" routerLink="/MyHome/MyMenus" routerLinkActive="list-item-active" > 
-              <mat-icon>list_alt</mat-icon> <span *ngIf="show"> התפריטים שלי</span>
-            </button>
-            <button mat-button class="menu-button" routerLink="/MyHome/MyShares" routerLinkActive="list-item-active"  > 
-              <mat-icon>present_to_all</mat-icon> <span *ngIf="show"> שיתפתי</span>
-            </button> 
-            <button mat-button class="menu-button"  routerLink="/MyHome/delet" routerLinkActive="list-item-active"  > 
-               <mat-icon>delete</mat-icon> <span *ngIf="show"> המנות שלי</span>
-            </button>
-          
-            <button mat-button class="menu-button" routerLink="/MyAccount/Help" routerLinkActive="list-item-active"  > 
-            <mat-icon>help</mat-icon>
-         </button> 
-    
-    
-        
-        </mat-sidenav> 
-        <mat-sidenav-content>
-            
-             mat-elevation-z4 
-            
-             <router-outlet></router-outlet>
-        </mat-sidenav-content>
-    </mat-sidenav-container>
-    
-    
-    
-      
-    
-    
-     -->
-
-
-<!-- Created by CodingLab |www.youtube.com/c/CodingLabYT-->
-
 
 <mat-drawer-container >
-  <!-- <mat-drawer mode="side" opened position="end">
-    <app-sidenav></app-sidenav>
-  </mat-drawer> -->
   <mat-drawer-content>
    <mat-toolbar>
        <!-- <div class="search">
@@ -100,8 +14,8 @@
     </div> -->
 
     <mat-toolbar-row>
-      <div class="row mr-2 ml-auto">
-            <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
+      <div class="nav">
+            <!-- <button mat-icon-button routerLink="/User/MyAccount"  [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
               <img src="../../assets/585e4beacb11b227491c3399.png" alt="user" class="user-image mr-1 p-2"> 
              {{u.UserName}}
             <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon> 
@@ -111,8 +25,10 @@
                 <mat-icon>exit_to_app</mat-icon>
                 Hציאה
               </button>
-            </mat-menu>
-      </div>
+            </mat-menu> -->
+            <button matTooltip="{{u.UserName}}" mat-icon-button (click)="on()"><mat-icon>account_circle</mat-icon></button>
+            <button matTooltip="היסטוריית צפייה" mat-icon-button routerLink="/User/MyHistory"  routerLinkActive="active-link" ><mat-icon>history</mat-icon></button>
+          </div>
       <div>
         MenuCalculator
       </div>
@@ -120,10 +36,9 @@
       <button matTooltip="דף הבית" mat-icon-button routerLink="/MyHome/AllLists" ><mat-icon>home</mat-icon></button>
       <button matTooltip=" מנות" mat-icon-button routerLink="/User/MyMeals"  routerLinkActive="active-link"><mat-icon>ballot</mat-icon></button>
       <button matTooltip="תפריטים " mat-icon-button routerLink="/User/MyMenus" routerLinkActive="active-link"><mat-icon>list_alt</mat-icon></button>
-      <button matTooltip="תפריטים " mat-icon-button routerLink="/User/AddEvent" routerLinkActive="active-link"><mat-icon>event</mat-icon></button>
+      <button matTooltip="ארועים " mat-icon-button routerLink="/User/AddEvent" routerLinkActive="active-link"><mat-icon>event</mat-icon></button>
       </div>
      
-
     </mat-toolbar-row>
     </mat-toolbar>
     <router-outlet></router-outlet>
@@ -132,10 +47,10 @@
 
 
 
-  
+<div id="overlay" (click)="off()">
+  <app-my-account></app-my-account>
+</div>
 
   
-  <!-- <section class="home-section">
-      <router-outlet></router-outlet>
-  </section> -->
+  
 

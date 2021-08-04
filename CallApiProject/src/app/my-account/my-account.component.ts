@@ -9,42 +9,13 @@ import { User } from 'src/Models/User';
   styleUrls: ['./my-account.component.css']
 })
 export class MyAccountComponent implements OnInit {
-name:string;
-mail:string;
-letter:string
-menus:Menu[]=[
-  new Menu(null,null,null,null,null,null,null,null),
-  new Menu(null,null,null,null,null,null,null,null),
-  new Menu(null,null,null,null,null,null,null,null),
-  new Menu(null,null,null,null,null,null,null,null),
-  new Menu(null,null,null,null,null,null,null,null),
-]
+u:User= new User(null,"morel","1","morel@gmail.com")
   constructor(private router:Router) { 
-    // this.router.navigate(["/MyAccount"])
-    let u:User= JSON.parse(localStorage.getItem("user"));
-    this.name= u.UserName;
-    this.mail=u.Mail;
-    this.letter=this.name[0]
-  }
-  meal;menu=true;setting;
+    // let u:User= JSON.parse(localStorage.getItem("user"));
   
-  fmeal(){
-  this.meal=true;
-  this.menu=false;
-  this.setting=false
+  }
+  
 
-  }
-  fmenu(){
-    this.meal=false;
-    this.menu=true;
-    this.setting=false
-
-  }
-  fsetting(){
-    this.meal=false;
-    this.menu=false;
-    this.setting=true
-  }
   ngOnInit(): void {
   }
 

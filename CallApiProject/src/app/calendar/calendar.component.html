@@ -1,1 +1,96 @@
-<p>calendar works!</p>
+
+    <mat-drawer-container *ngIf="!showEvent">
+        <mat-drawer mode="side" [opened]="toggle" position="start">
+            <div class="calendar_events">
+                <div class="event_header">
+                    <p>{{event}}</p>
+                </div>
+                <div class="event_list">
+                 <div class="event_container" *ngFor="let x of listEvents" (click)="openEvent(x)">
+                     <mat-icon >circle</mat-icon>
+                      <div class="event_info">
+                        <p class="event_title">{{x.EventName}} <span> {{DaysLeft(x.EventDate)}} </span></p>
+                        <p class="event_desc">{{x.discription}}</p>
+                    </div>
+                    </div>
+                    <div  *ngIf="listEvents.length==0">
+                    <div class="no_event">
+                     <p>!אין לך ארועים ליום הזה, קח מנוחה</p>
+                    </div>               
+                    </div>
+                    <div class="add_event">
+                        <button mat-raised-button (click)="AddEvent()">צור אירוע חדש</button>
+                       </div>
+                </div>
+          <button class="sidebar_toggle_event" (click)="toggle=!toggle"><mat-icon>arrow_forward_ios</mat-icon></button>
+          </div>
+        </mat-drawer>
+        <mat-drawer mode="side" opened position="end">
+            <div class="calendar_sidebar">
+                <mat-icon (click)="showEvent=!showEvent" class="menu">dehaze</mat-icon>
+                <div class="calendar_year">
+                    <button (click)="YearBefor()"><mat-icon>arrow_back_ios</mat-icon></button>
+                    <p>{{year}}</p>
+                    <button  (click)="nextYear()"><mat-icon>arrow_forward_ios</mat-icon></button>
+                </div>
+                <div class="month_list">
+                    <ul class="calendar_month">
+                      <li  *ngFor="let x of months; let i=index" (click)="ChangeMonth(i)">{{x}}</li>
+                    </ul>
+                </div>
+            </div>
+        </mat-drawer>
+        <mat-drawer-content>
+<div class="calendar">
+    <div class="calendar_inner">
+        <table>
+            <tbody>
+                <button mat-button class="today" (click)="Today()">היום</button>
+                <div class="month">{{month}}</div>
+                <tr class="calendar_header">
+                    <td *ngFor="let x of weekdays">{{x}}</td>                   
+                </tr>
+                <tr class="calendar_body" >
+                    <td *ngFor="let x of monthDays let i=index" [ngClass]="CheckDay(x)?'day':''"  [ngClass]="x==0?'ss':''" (click)="select(x)" ><div id={{x}} *ngIf="x!=0" >{{x}}</div></td>     
+                </tr>        
+            </tbody>
+        </table>
+    </div>
+</div>
+</mat-drawer-content>
+</mat-drawer-container>
+
+
+
+
+
+
+
+<!------------------------------------------------------------------>
+
+<mat-drawer-container *ngIf="showEvent">
+    
+    <mat-drawer mode="side" opened position="end">
+        <div class="calendar_sidebar">
+            <mat-icon (click)="showEvent=!showEvent" class="menu">close</mat-icon>
+            <div class="calendar_year">
+                <button (click)="YearBefor()"><mat-icon>arrow_back_ios</mat-icon></button>
+                <p>{{year}}</p>
+                <button  (click)="nextYear()"><mat-icon>arrow_forward_ios</mat-icon></button>
+            </div>
+            <div class="month_list">
+                <ul class="calendar_month">
+                  <li  *ngFor="let x of months; let i=index" (click)="ChangeMonth(i)">{{x}}</li>
+                </ul>
+            </div>
+        </div>
+    </mat-drawer>
+    <mat-drawer-content>
+<div class="calendar">
+<div class="calendar_event">
+        <h1>כל האירועים</h1>
+    <mat-card *ngFor="let x of list"></mat-card>
+</div>
+</div>
+</mat-drawer-content>
+</mat-drawer-container>

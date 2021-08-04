@@ -1,29 +1,26 @@
-<div class="body">
-    <mat-drawer-container class="container">
-        <mat-drawer mode="side" opened position="end">
-      <app-sidenav></app-sidenav>
-        </mat-drawer>
-        <mat-drawer-content>
-            
-            <router-outlet></router-outlet>
-    
-        </mat-drawer-content>
-      </mat-drawer-container>
-    
-    </div>
-    
-    
-        
-         <!----     <div *ngIf="meal">
-                <app-my-meals></app-my-meals>
-            </div>
-            <div *ngIf="menu">
-                <app-my-menus></app-my-menus>
-            </div>
-    
-            <div *ngIf="setting">
-                <app-settings></app-settings>
-                </div> -->
-    
-    
-    
+ 
+   <div class="body">
+     
+     <div class="signInbox">
+         <div id="avatar" class='fas fa-user-circle' style='font-size:100px;'></div>
+         <h1>הגדרות</h1>
+         <form #myForm="ngForm" (ngSubmit)="SignIn()">
+            <div>
+             <label> שם משתמש  </label>
+               <input  type="text"  name="userName"  [(ngModel)]="u.UserName"  >
+           </div>
+           <div>
+            <label>אמייל</label>
+              <input  type="text"  name="mail"  [(ngModel)]="u.Mail"  >
+          </div>
+              <div>
+               <label> סיסמה</label>
+                <input  type="password"  name="password"  [(ngModel)]="u.password"  >
+               </div>
+              
+ 
+     </form>
+       </div>
+     </div>
+ 
+ 

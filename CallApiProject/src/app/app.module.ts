@@ -55,6 +55,7 @@ import { DeletMealComponent } from './delet-meal/delet-meal.component';
 import { UserComponent } from './user/user.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CalendarComponent } from './calendar/calendar.component';
+import { AddEventComponent } from './add-event/add-event.component';
 
 @NgModule({
   declarations: [
@@ -85,7 +86,8 @@ import { CalendarComponent } from './calendar/calendar.component';
     ShowMealDetailsComponent,
     DeletMealComponent,
     UserComponent,
-    CalendarComponent
+    CalendarComponent,
+    AddEventComponent
     
   ],
   imports: [
