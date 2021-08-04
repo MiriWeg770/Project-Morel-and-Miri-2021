@@ -29,24 +29,24 @@ const routes: Routes = [
    
     {path:"AllLists",component:AllListsComponent},
     {path:"MyLists",component:MyListsComponent},
-    {path:"MyHistory",component:MyHistoryComponent},
     {path:"Settings",component:SettingsComponent},
     {path:"Help",component:HelpComponent},
     {path:"MyShares",component:MySharesComponent},
     {path:"ShowMealDetails",component:ShowMealDetailsComponent}, 
+    {path:"ShowMenuDetails",component:ShowMenuDetailsComponent}, 
+    {path:"MyAccount",component:MyAccountComponent},
 
     {path:"", redirectTo:"MyHome", pathMatch:"full"},
     {path:"**", redirectTo:"MyHome", pathMatch:"full"}
   ]},
-  {path:"MyAccount",component:MyAccountComponent},
   {path:"ResetPassword",component:ResetPasswordComponent},
   {path:"User",component:UserComponent,children:[
-    // {path:"AddMeal/:name", component:AddMealComponent},
-     {path:"AddMeal", component:AddMealComponent},
+    {path:"AddMeal", component:AddMealComponent},
     {path:"MyMeals",component:MyMealsComponent},
     {path:"MyMenus", component:MyMenusComponent},
     {path:"AddMenu", component:AddMenuComponent},
     {path:"AddEvent", component:CalendarComponent},
+    {path:"MyHistory",component:MyHistoryComponent},
   ]},
   {path:"", redirectTo:"Home", pathMatch:"full"},
   {path:"**", redirectTo:"SignIn", pathMatch:"full"}
