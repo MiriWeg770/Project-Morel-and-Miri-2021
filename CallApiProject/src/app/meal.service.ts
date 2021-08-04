@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Meal} from 'src/Models/Meal';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -30,3 +30,4 @@ export class MealService {
     return this.http.post<Meal>(environment.url +"/api/Meals/AddMealToUser",m);
   }
 }
+

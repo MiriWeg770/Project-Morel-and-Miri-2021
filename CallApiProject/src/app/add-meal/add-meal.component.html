@@ -60,13 +60,14 @@
           </tr>
         </table>
         <div class="input">
-          <input type="text" placeholder="שם מוצר" [(ngModel)]="newProduct. ProductName">
-          <input type="number" placeholder="כמות" [(ngModel)]="newProduct.Amount">
+          <input type="text" placeholder="שם מוצר" name="ProductName" [(ngModel)]="newProduct.ProductName">
+          <input type="number" placeholder="כמות" name="Amount" [(ngModel)]="newProduct.Amount">
           <select name="AmountName" [(ngModel)]="newProduct.AmountName">
             <option value="">...</option>
-            <option value="">גרם </option>
+            <option value="">קילו גרם</option>
             <option value="">ליטר</option>
             <option value="">יחידה</option>
+\
           </select>
           <button (click)="addProduct()">
             <mat-icon>add_circle_outline</mat-icon>
