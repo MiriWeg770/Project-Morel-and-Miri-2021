@@ -31,36 +31,29 @@ namespace WebApi.Controllers
         {
             return Ok(_logic.GetUserById(id));
         }
-        //[HttpPost]
-        //public IActionResult AddUser([FromBody] UserDto b)
-        //{
-        //    if (_logic.IsExists(b))
-        //        return StatusCode(409, "קיים כבר משתמש בשם זה");
-        //    return Ok(_logic.AddUser(b));
-        //}
-        [HttpPost("SignIn")]
-        public  IActionResult SignIn(UserDto u)
+        [HttpPost]
+        public IActionResult AddUser([FromBody] UserDto b)
+        {
+           if( _logic.IsExists(b))
+                return StatusCode(409, "קיים כבר משתמש בשם זה");
+            return Ok(_logic.AddUser(b));
+        }
+        [HttpPost("/SignIn")]
+        public IActionResult SignIn(UserDto u)
         {
             if (!_logic.IsExists(u))
-                return NotFound( "מצטערים אין כזה משתמש");
+                return NotFound("מצטערים אין כזה משתמש");
             return Ok(_logic.SignIn(u.UserName, u.Password));
 
         }
-        [HttpPost("SignUp")]
-        public IActionResult SignUp([FromBody] UserDto u)
+        [HttpPost("/SignUp")]
+        public IActionResult SignUp(UserDto u)
         {
-            try
-            {
-                if (_logic.IsExists(u))
-                    return Conflict("מצטערים כבר יש כזה משתמש");
-                return Ok(_logic.SignUp(u.UserName, u.Mail, u.Password));
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            if (_logic.IsExists(u))
+                return Conflict("מצטערים כבר יש כזה משתמש");
+            return Ok(_logic.SignUp(u.UserName, u.Mail, u.Password));
+
         }
-       
     }
 }
 

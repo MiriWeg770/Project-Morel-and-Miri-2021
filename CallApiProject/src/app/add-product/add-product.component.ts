@@ -9,22 +9,37 @@ import { AddMealComponent } from '../add-meal/add-meal.component';
   styleUrls: ['./add-product.component.css']
 })
 export class AddProductComponent implements OnInit {
-  // @Output()
-  // myAddEvent: EventEmitter<Product> = new EventEmitter<Product>();
-  // @Input()
-  // newProduct:Product=new Product(null,null,null,null,null);
-  // a=true;
-  // e=true;
-  // d=true;
-  // reciveRow:Product
-  // editProduct:Product
-  new:Product;
+  @Output()
+  myAddEvent: EventEmitter<Product> = new EventEmitter<Product>();
+  @Input()
+  newProduct:Product=new Product(null,null,null,null,null);
+  a=true;
+  e=true;
+  d=true;
+  reciveRow:Product
+  editProduct:Product
   constructor(public dialogRef: MatDialogRef<AddProductComponent>,
     @Inject(MAT_DIALOG_DATA) public data:Product) {
+    // console.log(this.reciveRow)
    }
 
   ngOnInit(): void {
   }
 
- 
+  closeDialog(){
+    this.dialogRef.close();
+   }
+   saveProduct(){
+    alert("המוצר התווסף בהצלחה!!");
+    // this.myAddEvent.emit(this.newProduct);
+    // this.newProduct=new Product(null,null,null,null,null); 
+    
+    // this.closeDialog();
+    this.data=this.editProduct
+
+    this.dialogRef.close()
+   }
+
+
+   
 }

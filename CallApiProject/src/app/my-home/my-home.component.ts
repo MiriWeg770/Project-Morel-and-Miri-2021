@@ -32,15 +32,15 @@ export class MyHomeComponent implements OnInit {
   // ];
  
 // name:string;
-u:User;
+// u:User;
  constructor(public dialog:MatDialog){
-  this.u= JSON.parse(localStorage.getItem("user"));
+  // this.u= JSON.parse(localStorage.getItem("user"));
 
 }
- sideBarToggler(){
-  this.sideBarOpen=!this.sideBarOpen;
-} 
- sideBarOpen=false;
+//  sideBarToggler(){
+//   this.sideBarOpen=!this.sideBarOpen;
+// } 
+//  sideBarOpen=true;
 
   ngOnInit(): void {   
   //   let u:User= JSON.parse(localStorage.getItem("user"));

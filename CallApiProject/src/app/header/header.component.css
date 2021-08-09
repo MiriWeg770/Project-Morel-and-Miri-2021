@@ -7,6 +7,8 @@
     align-items: center;
     padding: 20px;
     border: 1px solid #e1e1e1;
+    width: 840px;
+    transition: width 0.4s ease-in-out;
     color: #4b4b4b;
     direction: rtl;
   }
@@ -24,6 +26,7 @@
     font-size: 18px; 
      padding-left: 10px; 
      text-align: right; 
+     width: 625px;
     background: none;
   }
   .sort{
@@ -37,24 +40,27 @@
     list-style: none;
     text-decoration: none;
     box-sizing: border-box;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
   }
- 
+  /* body{
+    background-color: #fff;
+  } */
   .wrapper .header{
     z-index: 1;
-    background: #13181b;
-    border-bottom: 2px solid white;
+    background: #22242A;
+    /* position: fixed; */
     width: 100%;
     height: 70px;
     display: flex;
     top: 0;
-    position: fixed;
-    z-index: 2;
   }
   .wrapper .header .header_menu{
  width: 100%;
+ /* height: 100%; */
  display: flex;
  justify-content: space-between;
  align-items: center;
+ /* padding:  0 20px; */
   }
   .wrapper .header .header_menu .title{
     color:#fff;
@@ -71,76 +77,43 @@
 .wrapper .header .header_menu .sidebar-btn:hover {
  color:gold ;
 }
-.icons{
-padding: 18px 0;
- display: flex;
+.wrapper .header .header_menu ul{
+  display: flex;
   justify-content: space-between;
-  padding-right: 30px;
 }
-
-
+.wrapper .header .header_menu ul li a{
+  background: #fff;
+  color: #000;
+  display: block;
+  margin: 0 10px;
+  font-size: 18px;
+  width: 34px;
+  height: 34px;
+  text-align: center;
+  border-radius: 50%;
+}
+.wrapper .header .header_menu ul li a:hover{
+background: #4CCEE8;
+color:#fff;
+}
 mat-icon{
   color: white;
-  display: block;
-  font-size: 45px;
-  height: 42px;
-
 }
 
-.mat-fab mat-icon{
-  color: #000;
+
+button.mat-menu-item{
+  margin: 0;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+margin: 10px; 
+  box-shadow: 0px 0px 11px -2px cornflowerblue;
+  background-color: white;
 }
-button .mat-fab{
+button.mat-menu-item:hover{
   background-color: #4CCEE8;
 }
+ button.mat-menu-item:hover mat-icon{
+  color: white;
+} 
 
-
-.model{
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 999;
-  display: none;
-  background: rgba(0,0,0,0.8);
-  
-}
-.details{
-  width: 750px;
-  height: 500px;
-  position: fixed;
-  top: calc(50% - 250px);
-  left: calc(50% - 375px);
-  box-shadow: 4px 4px 16px rgb(0 0 0 / 38%);
-  background: #fff;
-  display: flex;
-}
-
-
-
-/***********************************************************/
-mat-toolbar{
-  position: fixed;
-  left: 0;
-  top: 0;
-  right: 0;
-  z-index: 999;
-  transition: all ease 0.4s;
-  justify-content: space-between;
-  background: black;
-}
-.mat-button{
-  background: gold;
-  font-family: system-ui;
-  font-weight: 800;
-  font-size: 18px;
-  box-shadow: 0px 0px 10px 0px lightgoldenrodyellow;
-  margin-left: 14px;
-}
-.mat-button:hover{
-  background: rgb(255, 230, 92);
-}
-.logo {
-  color: gold;
-}

@@ -1,4 +1,4 @@
-/* nav{
+nav{
     background-color: #222;
     height: 48px;
     line-height: 48px;
@@ -15,7 +15,9 @@ nav ul li{
 a{
     text-decoration: none;
 }
+/* .container{
 
+} */
 .title{
     color: black; 
     font-size: 25px;
@@ -30,14 +32,22 @@ a{
      margin-right: 30px;
    }
 .banner{
-    background: rgb(21 20 20);
-  
+    width: 100%;
+    height: 100%;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image:url( https://image.freepik.com/free-vector/flat-design-blue-comic-style-background_23-2148797743.jpg)
+    /* background-color: gray; */
+    /* background-position: center; */
+    /* background-size: cover; */
 }
 
 .content{
     width: 100%;
     height: 380px;
-   
+    /* position: absolute; */
+    /* top: 50%; */
     transform: transform(-50%);
     text-align: center;
     color: #fff;
@@ -56,117 +66,6 @@ a{
     font-weight: 100;
     line-height: 25px;
 }
- */
-.body{
- height: 100%;
- width: 100%;  
- /* overflow: hidden; */
-}
 
-.content{
-    /* background-color: rgb(171 78 78); */
-    height: 100%;
-    background: url("http://vecurosoft.com/products/html/grillinator/assets/img/hero-img.jpg");
-    background-blend-mode: luminosity;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-}
-.search{
-    position: absolute;
-    top: 20%;
-    right: 50%;
-    transform: translate(50%, 50%);
-    text-align: center;
-}
-.search h1{
-    color: white;
-    text-shadow: 1px -1px 15px gold;
-    font-size: 41px;
-    font-weight: 700;
-    font-family: system-ui;;
-}
-.search-input{
-    padding: 20px;
-    display: contents;
-
-    }
-  
-     .search-input input{
-        max-width: 100%;
-        width: 498px;
-        height: 45px;
-        border: 1px solid #e3e3e3;
-        border-radius: 14px;
-        font-size: 25px;
-        /* color: white; */
-        /* font-size: 15px; */
-        background: white;
-        margin: 24px;
-        padding: 10px 10px 10px 50px;
-        direction: rtl;
-        background-repeat: no-repeat;
-        background-position: 12px 10px;
-        background-size: 24px 24px;
-        background-image: url(../../assets/search.png);
-        outline: none;
-    
-    }
-    .search-input input:focus{
-        border: 3px solid gold;
-    }
-   
-    mat-icon{
-        color: gold;
-        font-size: 34px;
-        padding: 7px;
-        cursor: pointer;
-        width: 50px;
-        height: 50px;
-        }
-        .wave{
-            height: 50px;
-            position: relative;
-            background: linear-gradient(90deg, #27b6b9 0%, #0f4061 100%);
-          }
-          
-          /* Wave text css */
-          #wave {
-            /* color:#fff;
-            text-align:center;
-            font-weight:bold;
-            font-size:24px; */
-            padding-top:25px;
-            padding-bottom:25px;
-            background: #f1f5f9;
-            
-          }
-          /* */
-          
-          
-          #wave::before{
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background-repeat: repeat;
-            height: 10px;
-            background-size: 20px 20px;
-            background-image:
-             radial-gradient(circle at 10px -5px, transparent 12px, #f1f5f9 13px);
-          }
-          #wave::after{
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            right: 0;
-            background-repeat: repeat;
-            height: 15px;
-            background-size: 40px 20px;
-            background-image:
-              radial-gradient(circle at 10px 15px, #f1f5f9 12px, transparent 13px);
-          }
+/* .info{
+} */

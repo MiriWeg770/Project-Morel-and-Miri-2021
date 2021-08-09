@@ -1,9 +1,9 @@
-<!-- 
+
 <div class="banner">
   <nav>
     <ul> 
-      <li><a >התחבר</a></li>
-      <li><a >הירשם</a></li>
+      <li><a routerLink="/SignIn">התחבר</a></li>
+      <li><a routerLink="/SignUp">הירשם</a></li>
     </ul> 
   </nav>
   <div class="container">
@@ -12,25 +12,11 @@
   </div>
   <div class="content">
     <h1> ארגן את האירוע שלך בקלות</h1>
+    <!-- <input type="hidden" > -->
     <button (click)="continue()" > המשך</button>
   </div>
 </div>
   <div class="info">
   
   </div>
-</div> -->
-<div class="body">
-
-<app-header></app-header>
-<div class="content">
-  <div class="search">
- <h1>חפש מנה / תפריט</h1>
-  
-  <div class="search-input"><input (keyup)="applyFilter($event)" #input type="text" placeholder="חפש"/></div>   
-</div>
-</div>
-<div id="wave"></div>
-<section>
-  <app-all-lists></app-all-lists>
-</section>
 </div>

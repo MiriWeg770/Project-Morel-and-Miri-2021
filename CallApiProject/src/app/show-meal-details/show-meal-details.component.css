@@ -1,53 +1,22 @@
 *{
     font-family:  system-ui;
-    
 }
 mat-icon{
     font-family: 'Material Icons';
     cursor: pointer;
 }
-.body{
-    background: rgba(0,0,0,0.7)url(https://cdn.pixabay.com/photo/2017/01/11/11/33/cake-1971552_960_720.jpg);
-    background: rgba(0,0,0,0.7)url(https://cdn.pixabay.com/photo/2016/11/12/21/15/pasta-1819782_640.jpg);
-    
-    /* background-image: ; */
-background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: darken ;
-    color: white;
-}
-
-
 .header{
-    background-blend-mode: normal;
-    background: rgb(0 0 0 / 69%)url(https://cdn.pixabay.com/photo/2016/11/12/21/15/pasta-1819782_640.jpg);
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    display: flex;
-    background-position-y: 0;
+    background-color: gold;
+  display: flex;
     align-items: center;
     justify-content: center;
-    height: 584px;
+    min-height: 350px;
 }
-
-
 .header-content{
     max-width: 980px;
     text-align: center;
     margin: 40px 0;
-    /* border: 2px solid; */
-    animation: text 3s 1;
-    border-radius: 50px 0px 50px;
-    padding: 35px;
-   
 }
-
-
 .header-content label{
     text-align: center;
     color: #fff;
@@ -67,14 +36,10 @@ background-attachment: fixed;
 .headline{
     min-height: 74px;
     line-height: 74px;
-    font-size: 84px;
+    font-size: 74px;
     font-family: 'Barlev';
-    font-weight: 600;
     letter-spacing: 1px;
     margin-bottom: 0;
-    color: gold;
-    text-shadow: 2px 3px 2px black;
-
 }
 .underline{
     margin-top: 10px;
@@ -100,10 +65,6 @@ background-attachment: fixed;
     font-weight: 300;
     color: rgba(0,0,0,0.7);
 }
-
-
-
-
 .container{
     
     width: 1140px;
@@ -155,9 +116,10 @@ ul.social-share li{
 }
 .ingredients{
     text-align: right;
+    /* display: inline-block; */
     width: 49%;
     margin: 5px;
-    background-color: #f1f1f12e;
+    background-color: #f1f1f1;
     padding: 18px;
 }
 .ingredients label{
@@ -177,23 +139,18 @@ ul.social-share li{
 .text-divider{
     line-height: 0;
     text-align: center;
-    color: gold;
 }
 .text-divider span{
     
-    background-color: rgb(0 0 0);
-    padding: 17px;
-    border: 2px solid;
-    box-shadow: 0px 0px 8px 2px white;
-    border-radius: 12px 0px;
-
+    background-color: #ffffff;
+    padding: 1em;
 }
-/* .text-divider::before{
+.text-divider::before{
     content: " ";
     display: block;
     border-top: 1px solid #e3e3e3;
     border-bottom: 1px solid #f7f7f7;
-} */
+}
 .level{
     margin: 45px 0px;
 }
@@ -280,6 +237,7 @@ ul.social-share li{
 .email .details form textarea{
     resize: none;
     width: 293px;
+    /* max-height: 76px; */
     height: 107px;
 
 }
@@ -326,54 +284,3 @@ input[type="submit"]{
     box-sizing: border-box;
 cursor: pointer;
 }
-
-/* 
-.parallax{
-    background: url(../../assets/2.jpg) no-repeat center;
-    background-size: cover;
-    background-attachment:fixed ;
-    height: 500px;
-}
- */
-.comments{
-
-border: 2px dashed gold;
-background: rgb(0 0 0 / 54%);}
- .comments h5{
-  font-size: 16px;
-  text-align: end;
- }
-.comments li{
-    text-align: right;
-    /* float: right; */
-    direction: rtl;
-    font-size: 20px;
-    padding: 13px;
-    display: flex;
-    /* border-bottom: 1px solid #eee; */
-}
-.comments li mat-icon{
-    background-color: #b0b0b0;
-    border-radius: 50%;
-    padding: 7px;
-    display: inline;
-    margin-left: 26px;
-}
-.comments li span{
-    display: block;
-    padding-bottom: 13px;
-}
-.new-comment {
-    width: 400px;
-    height: 20px;
-    font-size: 16px;
-    height: 38px;
-    /* transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; */
-    resize: none;
-    background: white;
-    /* float: right; */
-    direction: rtl;
-    border-radius: .25rem;
-    border-color: rgba(0,0,0,.1);
-}
-

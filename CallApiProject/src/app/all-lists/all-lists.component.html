@@ -1,86 +1,80 @@
-
+<div class="s">
+  <ul>
+    <li><span> פופולרי</span>
+      <mat-selection-list #shoes>
+        <mat-list-option *ngFor="let shoe of typesOfShoes">
+          {{shoe}}
+        </mat-list-option>
+      </mat-selection-list>
+    </li>
+    <li><span> פופולרי</span>
+      <mat-selection-list #shoes>
+        <mat-list-option *ngFor="let shoe of typesOfShoes">
+          {{shoe}}
+        </mat-list-option>
+      </mat-selection-list>
+    </li>
+    <li><span> פופולרי</span>
+      <mat-selection-list #shoes>
+        <mat-list-option *ngFor="let shoe of typesOfShoes">
+          {{shoe}}
+        </mat-list-option>
+      </mat-selection-list>
+    </li>
+    <li><span> פופולרי</span>
+      <mat-selection-list #shoes>
+        <mat-list-option *ngFor="let shoe of typesOfShoes">
+          {{shoe}}
+        </mat-list-option>
+      </mat-selection-list>
+    </li>
+  </ul>
+</div>
 
 <div class="body">
-<button id="back-to-top" (click)="backToTop()"><mat-icon>arrow_upward</mat-icon></button>
-   <div class="searchResult">
-  <label class="result_message">
+
+  <!-- <div class="searchResult">
+  <p class="result_message">
     454 תוצאות
-  </label>
-  <div class="search_sort">
-  
-    <label> <span>מיין:</span><span>
-        <form>
-      <select  >
-      <option  *ngFor="let x of sort">{{x}}</option>
-      </select>
-      </form></span></label> 
-    <label> <span>הצג:</span><span>
-      <form>
-      <select>
-      <option  *ngFor="let x of show">{{x}}</option>
-      </select>
-      </form></span></label> 
-  </div>
-  </div> 
-
-<div class="list-items">
-  <div class="list">
-  <ul > 
-    <li *ngFor="let item of listMeals">
-      <div class="container" >               
-<div class="card" >
-  <div class="content">
-    <div class="title">
-      <span>מתכון</span>
-       </div>
-  <img src="../../assets/3.jpg" alt="Avatar" style="width:100%"routerLink="/MyHome/ShowMealDetails">
-  <div class="container">
-    <h5> <mat-icon>schedule</mat-icon>50 דק'</h5>
-    <h4><b> עוגת חלבה</b></h4> 
-    <div class="user_comment">
-      <div> <mat-icon>person</mat-icon></div>
-      <div class="d">
-      <div>
-        <span>שם</span> <span>18/08/200</span>
-      </div>
-      <div class="icons">
-        <mat-icon id="down">download</mat-icon>
-        <mat-icon id="save">favorite</mat-icon>
-      </div></div>
-    </div>
-  </div>
-   </div>
-</div>      
-</div>
-</li>
-<li>
-  <div class="container" >               
-    <div class="card" >
-      <div class="content">
-        <div class="title">
-          <span>תפריט</span>
-           </div>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqw8YOBN2bEAhlTt0t7BZsG4OhYgan28-FZA&usqp=CAU" alt="Avatar" style="width:100%"routerLink="/MyHome/ShowMenuDetails">
-      <div class="container">
-        <h4><b>ארוחת צהריים</b></h4> 
-        <div class="user_comment">
-          <div> <mat-icon>person</mat-icon></div>
-          <div class="d">
-          <div>
-            <span>שם</span> <span>18/08/200</span>
+  </p>
+  <div class="search_sort"></div>
+  </div> -->
+  <div class="list-items">
+    <ul *ngFor="let item of listMeals">
+      <li>
+        {{item}}
+        <div class="container">
+          <div class="image">
+            <div class="type">
+              <img src="../../assets/3.jpg" alt="Avatar" style="width:100%">
+            </div>
+            <div class="text">
+              <span><a routerLink="/MyHome/ShowMealDetails/" +item.mealCode>מתכון</a> </span>
+              <h2> עוגת חלבה </h2>
+              <!-- <strong> תיאור</strong> -->
+              <div>
+                <ul>
+                  <li>45 דקות </li>
+                  <!-- <li>כשר</li> -->
+                  <li>קל</li>
+                </ul>
+                <div>
+                  <mat-icon>star_outline</mat-icon>
+                  <mat-icon>star_rate</mat-icon>
+                  <mat-icon>star_rate</mat-icon>
+                  <mat-icon>star_rate</mat-icon>
+                  <mat-icon>star_rate</mat-icon>
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="icons">
-            <mat-icon id="down">download</mat-icon>
-            <mat-icon id="save">favorite</mat-icon>
-          </div></div>
+          <div class="middle">
+            <mat-icon>favorite</mat-icon>
+            <mat-icon>add_circle</mat-icon>
+            <mat-icon>download</mat-icon>
+          </div>
         </div>
-      </div>
-       </div>
-    </div>      
-    </div>
-</li>
-  </ul>
+      </li>
+    </ul>
   </div>
 </div>
-</div>
-

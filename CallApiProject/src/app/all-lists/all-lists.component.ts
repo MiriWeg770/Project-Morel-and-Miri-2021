@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Meal } from 'src/Models/Meal';
 import { Menu } from 'src/Models/Menu';
 import { Product } from 'src/Models/Product';
+import { MealService } from '../meal.service';
 import { ShowMenuDetailsComponent } from '../show-menu-details/show-menu-details.component';
 
 @Component({
@@ -11,48 +12,51 @@ import { ShowMenuDetailsComponent } from '../show-menu-details/show-menu-details
   styleUrls: ['./all-lists.component.css']
 })
 export class AllListsComponent implements OnInit {
+  typesOfShoes: string[] = ['Boots', 'Clogs', 'Loafers', 'Moccasins', 'Sneakers'];
+  listMeals: Meal[] = [];
+  listMenus: Menu[] = [
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j"),
+    new Menu(1, "menu", "discription", 1, new Date(1, 1, 1), "1", 1, "j")
 
-  show:string[]=["הכל","לפי מנות","לפי תפריטים"]
-  sort:string[]=["הכל","פופולרי","לפי תאריך"]
 
-  listMenus:Menu[]=[
-    new Menu(1,"menu","discription",1,new Date(1,1,1),"1",1,"j"),
-    new Menu(1,"menu","discription",1,new Date(1,1,1),"1",1,"j"),
-    new Menu(1,"menu","discription",1,new Date(1,1,1),"1",1,"j"),
-    new Menu(1,"menu","discription",1,new Date(1,1,1),"1",1,"j"),
-    new Menu(1,"menu","discription",1,new Date(1,1,1),"1",1,"j"),
   ];
-  listMeals:Meal[]=[
-    new Meal(1,"meal","j",12,"j",1,12,12,null,"k"),
-    new Meal(1,"meal","j",12,"j",1,12,12,null,"k"),
-    new Meal(1,"meal","j",12,"j",1,12,12,null,"k"),
-    new Meal(1,"meal","j",12,"j",1,12,12,null,"k"),
-    new Meal(1,"meal","j",12,"j",1,12,12,null,"k"),
-    new Meal(1,"meal","j",12,"j",1,12,12,null,"k"),
-  ]
-  
-  
-  constructor(public dialog:MatDialog) {
-   }
+
+  constructor(public dialog: MatDialog, private mealService: MealService) {
+    this.mealService.GetAllMeals().subscribe(dataList => {
+      this.listMeals = dataList; console.log(this.listMeals);
+    });
+  }
 
   ngOnInit(): void {
-    window.addEventListener("scroll",this.scroll)
-  }
-  
-  
-  scroll(){
-    if(window.pageYOffset>300){
-      document.getElementById("back-to-top").style.display="block";
-    }
-    else{
-      document.getElementById("back-to-top").style.display="none";
 
-    }
   }
-  backToTop(){
-    window.scrollTo(0,0);
-  }
-  
+  // showDetails(){
+  //   const dialogRef=this.dialog.open(ShowMenuDetailsComponent,{
+  //     width:'1000px',
+  //     panelClass: '.dialog-container',
+  //     data:{
+  //       data:{
 
-  
+  //    }
+
+  //   }}); 
+  // }
+
+
+
 }

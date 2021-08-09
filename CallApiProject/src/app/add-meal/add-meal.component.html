@@ -1,81 +1,104 @@
-<div class="container">
-  <mat-toolbar>
-    <h2 *ngIf="data==null"> הוסף מנה</h2>
-    <h2 *ngIf="data!=null"> עדכן מנה</h2>
-    <div>
-      <button *ngIf="data==null" mat-raised-button (click)="saveMeal()" mat-dialog-close> שמור </button>
-      <button *ngIf="data!=null" mat-raised-button (click)="updateMeal()" mat-dialog-close> עדכן </button>
-      <mat-icon mat-dialog-close class="close">close</mat-icon>
-    </div>
-  </mat-toolbar>
-
-  <div class="details">
-
-    <div class="form s">
-
-      <label>שם המנה</label>
-      <input type="text" name="MealName" [(ngModel)]="newMeal.MealName" />
-      <label>קטגוריה</label>
-      <select name=" ">
-        <option value="">...</option>
-        <option value="">כ</option>
-        <option value="">כ</option>
-        <option value="">כ</option>
-        <option value="">כ</option>
-        <option value="">הוסף קטגוריה</option>
-      </select>
-      <!-- <input type="text"  [(ngModel)]="newMeal.MealCategoryCode" >  -->
-      <label> זמן הכנה</label>
-      <input type="text">
-      <label>דרגת קושי</label>
-      <select name=" ">
-        <option value="">...</option>
-        <option value="">קל</option>
-        <option value="">בינוני</option>
-        <option value="">קשה</option>
-
-      </select>
-      <label>כמות סועדים</label>
-      <input type="text" name="NumberOfDiners" [(ngModel)]="newMeal.NumberOfDiners">
-    </div>
-    <div class="form s">
-      <label>תאור המנה</label>
-      <textarea id="discription" name="Discription" [(ngModel)]="newMeal.Discription"></textarea>
-      <label> אופן ההכנה </label>
-      <textarea id="how" name="Instructions" [(ngModel)]="newMeal.Instructions"></textarea>
-    </div>
-    <div class="form products">
-      <div class="title"> מוצרים </div>
-      <div class="list">
-        <table>
-          <tr>
-            <th>שם מוצר</th>
-            <th>כמות</th>
-            <th>שם יחידה</th>
-          </tr>
-          <tr *ngFor="let x of ELEMENT_DATA">
-            <td>{{x.ProductName}}</td>
-            <td>{{x.Amount}} </td>
-            <td>{{x.AmountName}}</td>
-          </tr>
-        </table>
-        <div class="input">
-          <input type="text" placeholder="שם מוצר" name="ProductName" [(ngModel)]="newProduct.ProductName">
-          <input type="number" placeholder="כמות" name="Amount" [(ngModel)]="newProduct.Amount">
-          <select name="AmountName" [(ngModel)]="newProduct.AmountName">
-            <option value="">...</option>
-            <option value="">קילו גרם</option>
-            <option value="">ליטר</option>
-            <option value="">יחידה</option>
-\
-          </select>
-          <button (click)="addProduct()">
-            <mat-icon>add_circle_outline</mat-icon>
-          </button>
-
+     <div class="container" >
+      
+        <div class="page_box">הוסף מנה 
+          <button mat-button mat-dialog-close >
+     <mat-icon>close</mat-icon>
+     </button>    
+        <button (click)="saveMeal()"
+        matTooltip="שמור">
+       <mat-icon>save</mat-icon>
+       </button>
         </div>
 
-      </div>
-    </div>
-  </div>
+    
+          <mat-tab-group mat-align-tabs="end" animationDuration="0ms">
+
+            <mat-tab label="מרכיבים"> 
+              <div class="content">
+                <button class="add" mat-raised-button (click)="addPro()" (myAddEvent)="addProduct($event)">הוסף מוצר</button>
+   
+                <table mat-table [dataSource]="ELEMENT_DATA"  class="mat-elevation-z8">
+
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef>  </th>
+    <td mat-cell *matCellDef="let element"> {{element.ProductCode}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> שם </th>
+    <td mat-cell *matCellDef="let element"> {{element.ProductName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="amount">
+    <th mat-header-cell *matHeaderCellDef> כמות </th>
+    <td mat-cell *matCellDef="let element"> {{element.Amount}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="amount_name">
+    <th mat-header-cell *matHeaderCellDef> שם יחידה </th>
+    <td mat-cell *matCellDef="let element"> {{element.AmountName}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="company">
+    <th mat-header-cell *matHeaderCellDef> שם חברה </th>
+    <td mat-cell *matCellDef="let element"> {{element.Company}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="edit">
+    <th mat-header-cell *matHeaderCellDef>   </th>
+    <td mat-cell *matCellDef="let element"> <mat-icon (click)="editPro()"> edit</mat-icon> </td>
+  </ng-container>
+
+  <ng-container matColumnDef="delet">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element"> <mat-icon (click)="deletePro()"> delete </mat-icon></td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row (click)='onRowClicked($event)' *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+            
+              </div>
+          </mat-tab>
+            <mat-tab label="פרטים"> 
+              
+              <div class="content">
+                <form>
+                  <mat-form-field>
+                    <mat-label>שם המנה</mat-label>
+                    <input matInput type="text" [(ngModel)]="newMeal.MealName"/>            
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>קטגוריה</mat-label>
+                    <input type="text" matInput required [(ngModel)]="newMeal.MealCategoryCode"> 
+                  </mat-form-field>
+                  <mat-form-field>
+                    <mat-label>כמות סועדים</mat-label>
+                    <input type="text" matInput required [(ngModel)]="newMeal.NumberOfDiners"> 
+                  </mat-form-field>                                      
+                
+                <mat-form-field> 
+                  <mat-label>תאור המנה</mat-label>
+                  <textarea matInput cdkTextareaAutosize [(ngModel)]="newMeal.Discription"></textarea>
+                </mat-form-field> 
+                
+                <mat-form-field> 
+                  <mat-label> אופן ההכנה</mat-label>
+                  <textarea matInput cdkTextareaAutosize [(ngModel)]="newMeal.Instructions" ></textarea>
+                </mat-form-field> 
+              </form> </div>    
+           </mat-tab> 
+      </mat-tab-group> 
+    
+              
+          
+          
+          
+
+
+
+        
+       
+
 </div>

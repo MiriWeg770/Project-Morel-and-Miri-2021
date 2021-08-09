@@ -1,26 +1,27 @@
- 
-   <div class="body">
-     
-     <div class="signInbox">
-         <div id="avatar" class='fas fa-user-circle' style='font-size:100px;'></div>
-         <h1>הגדרות</h1>
-         <form #myForm="ngForm" (ngSubmit)="SignIn()">
-            <div>
-             <label> שם משתמש  </label>
-               <input  type="text"  name="userName"  [(ngModel)]="u.UserName"  >
-           </div>
-           <div>
-            <label>אמייל</label>
-              <input  type="text"  name="mail"  [(ngModel)]="u.Mail"  >
-          </div>
-              <div>
-               <label> סיסמה</label>
-                <input  type="password"  name="password"  [(ngModel)]="u.password"  >
-               </div>
-              
- 
-     </form>
-       </div>
-     </div>
- 
- 
+<div class="profile">
+<div class="letter">
+    <b>{{letter}}</b>
+</div>
+<h1>{{name}}</h1>
+<h3>{{mail}}</h3>
+<h3>עוקבים</h3>
+</div>
+
+<div class="nav">
+<mat-icon>control_point</mat-icon>
+</div>
+<div class="list">
+    <h2>תפריטים</h2>
+    <ul *ngFor="let x of menus">
+        <li>1</li>
+    </ul>
+</div>
+<div class="nav">
+    <mat-icon>control_point</mat-icon>
+    </div>
+<div class="list">
+    <h2>מנות</h2>
+    <ul *ngFor="let x of menus">
+        <li>1</li>
+    </ul>
+</div>

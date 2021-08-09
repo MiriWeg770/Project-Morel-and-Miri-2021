@@ -3,7 +3,6 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { User } from 'src/Models/User';
 import { LogOutComponent } from '../log-out/log-out.component';
-import { MyAccountComponent } from '../my-account/my-account.component';
 // import { LogOutComponent } from '../log-out/log-out.component';
 
 @Component({
@@ -28,22 +27,11 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-
-
-  
-  toggleSidebar(){
-    this.toggleSidebarForMe.emit();
-  }
+  // toggleSidebar(){
+  //   this.toggleSidebarForMe.emit();
+  // }
     openDialog(){
       
-      const dialogRef = this.dialog.open(MyAccountComponent, {
-        width: '80%',
-        // height:'100%',
-        // data: {name: this.name, animal: this.animal},
-        backdropClass: 'backdropBackground',
-        panelClass:'s'// This is the "wanted" line
-      });     }
+      this.dialog.open(LogOutComponent);
+     }
 }
-
-

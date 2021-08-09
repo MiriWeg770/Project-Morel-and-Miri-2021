@@ -43,6 +43,8 @@ import { EditProductComponent } from './edit-product/edit-product.component';
 import { AllListsComponent } from './all-lists/all-lists.component';
 import { ShowMenuDetailsComponent } from './show-menu-details/show-menu-details.component';
 import { MyAccountComponent } from './my-account/my-account.component';
+import { NavComponent } from './nav/nav.component';
+import { NewComponent } from './new/new.component';
 import { MyListsComponent } from './my-lists/my-lists.component';
 import { MyHistoryComponent } from './my-history/my-history.component';
 import {MatButtonModule} from '@angular/material/button';
@@ -50,12 +52,6 @@ import { SettingsComponent } from './settings/settings.component';
 import { HelpComponent } from './help/help.component';
 import { MySharesComponent } from './my-shares/my-shares.component';
 import { ShowMealDetailsComponent } from './show-meal-details/show-meal-details.component';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import { DeletMealComponent } from './delet-meal/delet-meal.component';
-import { UserComponent } from './user/user.component';
-import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { CalendarComponent } from './calendar/calendar.component';
-import { AddEventComponent } from './add-event/add-event.component';
 
 @NgModule({
   declarations: [
@@ -78,16 +74,14 @@ import { AddEventComponent } from './add-event/add-event.component';
     AllListsComponent,
     ShowMenuDetailsComponent,
     MyAccountComponent,
+    NavComponent,
+    NewComponent,
     MyListsComponent,
     MyHistoryComponent,
     SettingsComponent,
     HelpComponent,
     MySharesComponent,
-    ShowMealDetailsComponent,
-    DeletMealComponent,
-    UserComponent,
-    CalendarComponent,
-    AddEventComponent
+    ShowMealDetailsComponent
     
   ],
   imports: [
@@ -114,9 +108,8 @@ import { AddEventComponent } from './add-event/add-event.component';
     MatSelectModule,
     MatTableModule,
     MatPaginatorModule,
-    MatButtonModule,
-    MatCheckboxModule ,
-    MatSnackBarModule
+    MatButtonModule
+   
  
   ],
   providers: [UserService],

@@ -14,7 +14,6 @@ namespace DTO
         public int? MealCategoryCode { get; set; }
         public int? UserCode { get; set; }
         public int? NumberOfViews { get; set; }
-        public List<ProductDto> Products { get; set; }
         public String UserName { get; set; }
     }
 }

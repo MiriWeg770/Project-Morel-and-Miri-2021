@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { User } from 'src/Models/User';
 import { UserService } from '../user.service';
@@ -13,19 +12,11 @@ import { UserService } from '../user.service';
 export class SignUpComponent implements OnInit {
   pro:boolean=false;
   hide:boolean=true;
-  myUser:User= new User(1,null,null,null);
+  myUser:User= new User(null,null,null,null);
   usersArr:User[]=[];
 
-  constructor(private ser:UserService,private router:Router,private _snackBar: MatSnackBar) {
+  constructor(private ser:UserService,private router:Router) {
   }
-
-  openSnackBar() {
-    this._snackBar.open("קיים כבר משתמש כזה", "סגור",{
-        horizontalPosition: 'center',
-        verticalPosition:'top' 
-    });
-  }
-
     
   ngOnInit(): void { 
     
@@ -35,17 +26,14 @@ export class SignUpComponent implements OnInit {
   SignUp(pass){
     this.pro=!this.pro;
     if(this.myUser.Password==pass){
-    this.ser.SignUp(this.myUser).subscribe(succ => {  
-          console.log(succ);
-          this.myUser=succ        
-      localStorage.setItem("user", JSON.stringify(this.myUser));    
-       this.router.navigate(["/MyHome/AllLists"])
+    this.ser.AddUser(this.myUser).subscribe(succ => {
+      console.log(succ);
     }, err => {
       console.log(err);
-      this.pro=!this.pro
-      this.openSnackBar()
+      // console.log(this.usersArr);
     })   
-       
+       localStorage.setItem("user", JSON.stringify(this.myUser));    
+       this.router.navigate(["/MyHome/AllLists"])
   }
 else{
   this.pro=!this.pro;

@@ -1,16 +1,16 @@
-<div class="container" >
+<div class="container" *ngIf="a">
 <div class="page_box">הוסף מוצר 
     <button  mat-button mat-dialog-close >
 <mat-icon>close</mat-icon>
 </button>    
-  <button  [mat-dialog-close] ="data">הוסף
+  <button (click)="saveProduct()" >הוסף
  </button>
   </div>
 <div >
-      <input  type="text" placeholder="שם מוצר" [(ngModel)]="data.ProductName">
-      <input  type="text" placeholder=" כמות" [(ngModel)]="data.Amount">
-      <input  type="text" placeholder="שם יחידה" [(ngModel)]="data.AmountName">
-      <input  type="text" placeholder="חברה " [(ngModel)]="data.ProductCode">
+      <input  type="text" placeholder="שם מוצר" [(ngModel)]="editProduct.ProductName">
+      <input  type="text" placeholder=" כמות" [(ngModel)]="editProduct.Amount">
+      <input  type="text" placeholder="שם יחידה" [(ngModel)]="editProduct.AmountName">
+      <input  type="text" placeholder="חברה " [(ngModel)]="editProduct.ProductCode">
 
   </div>
 </div>

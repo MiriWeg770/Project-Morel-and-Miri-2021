@@ -1,51 +1,54 @@
-<div class="container">
-    <div class="page_box">הוסף תפריט
-        <button (click)="closeDialog()">
-            <mat-icon>close</mat-icon>
-        </button>
-        <button *ngIf="data==null" mat-raised-button (click)="saveMenu()" mat-dialog-close matTooltip="שמור">
-            <mat-icon>save</mat-icon>
-        </button>
-    </div>
 
-    <div class="page_content">
+     <div class="container">
+        <div class="page_box">הוסף תפריט 
+            <button (click)="closeDialog()" >
+                <mat-icon>close</mat-icon>
+                </button>        
+        <button
+        matTooltip="שמור">
+       <mat-icon>save</mat-icon>
+       </button>
+        </div>
+
+        <div class="page_content">
         <div class="page_content_data">
-            <h1>פרטים</h1>
-            <hr>
+            <h1>פרטים</h1><hr>
             <b>שם תפריט</b>
-            <input type="text" name="MenuName" [(ngModel)]="newMenu.MenuName" />
-            <b>קטגוריה</b>MenuName
-            <input type="text" />
+            <input type="text" [(ngModel)]="newMenu.MenuName"/>
+            <b>קטגוריה</b>
+            <input type="text"/>
             <b>קישורים רלוונטים</b>
-            <input type="text" name="Links" [(ngModel)]="newMenu.Links" />
-        </div>
-        <div class="products">
-            <h1> מרכיבים</h1>
-            <hr>
-            <input type="button" value="+הוסף מוצר" />
-            <table>
-                <tr>
-                    <td>שם חברה
-                    <td>
-                    <td>שם יחידה
-                    <td>
-                    <td> כמות
-                    <td>
-                    <td>שם מוצר
-                    <td></td>
-                </tr>
-            </table>
-        </div>
+            <input type="text" [(ngModel)]="newMenu.Links"/>
+            </div>
+            <div class="products">
+                <h1> מרכיבים</h1><hr>
+                <input type="button" value="+הוסף מוצר"/>
+                <table>
+                    <tr><td>שם חברה<td><td>שם יחידה<td><td> כמות<td><td>שם מוצר<td></td></tr>
+                </table>
+               </div>
+            
+            <div class="Preparation">
+                <h1>אופן ההכנה </h1><hr>
+                <input type="text"/>
+            </div>
+            <div class="discription">
+                <h1>תיאור תפריט</h1><hr>
+                <input type="text" [(ngModel)]="newMenu.Discription"/>
+            
+            
+          
+          
+         
+              
+            
+          
+          
 
-        <div class="Preparation">
-            <h1>אופן ההכנה </h1>
-            <hr>
-            <input type="text" />
-        </div>
-        <div class="discription">
-            <h1>תיאור תפריט</h1>
-            <hr>
-            <input type="text" name="Discription" [(ngModel)]="newMenu.Discription" />
-        </div>
-    </div>
+
+
+        
+       
+
 </div>
+</div></div>

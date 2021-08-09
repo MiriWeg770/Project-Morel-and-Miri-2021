@@ -14,7 +14,7 @@ namespace BLL
         UserDto AddUser(UserDto u);
         UserDto DeletUser(UserDto u);
         UserDto UpdateUser(UserDto u);
-        UserDto  SignIn(string Name, string password);
+        UserDto SignIn(string Name, string password);
         UserDto SignUp(string Name, string Mail,string Password );
         bool IsExists(UserDto b);
 

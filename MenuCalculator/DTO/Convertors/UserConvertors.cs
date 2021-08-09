@@ -7,8 +7,7 @@ namespace DTO.Convertors
 {
    public class UserConvertors
     {
-        
-
+       
         public static Users ToUser(UserDto u)
         {
             return new Users()
@@ -16,8 +15,7 @@ namespace DTO.Convertors
                 Mail = u.Mail,
                 Password = u.Password,
                 UserCode = u.UserCode,
-                UserName = u.UserName,
-                
+                UserName = u.UserName
             };
 
         }
@@ -28,8 +26,7 @@ namespace DTO.Convertors
                 Mail = u.Mail,
                 Password = u.Password,
                 UserCode = u.UserCode,
-                UserName = u.UserName,
-                
+                UserName = u.UserName
             };
         }
 

@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 namespace BLL
 {
@@ -73,8 +72,8 @@ namespace BLL
 
         public UserDto SignIn(string Name, string password)
         { 
-            var t =  _context.Users.FirstOrDefault(o => o.UserName == Name && o.Password == password);
-            return  UserConvertors.ToUserDto(t);
+            var t = _context.Users.FirstOrDefault(o => o.UserName == Name && o.Password == password);
+            return UserConvertors.ToUserDto(t);
         }
 
     
@@ -83,7 +82,7 @@ namespace BLL
             UserDto u = new UserDto();
             u.UserName = Name;
             u.Mail = Mail;
-            u.Password = Password;          
+            u.Password = Password;
             _context.Users.Add(UserConvertors.ToUser(u));
             _context.SaveChanges();
             return u;
@@ -99,7 +98,6 @@ namespace BLL
             _context.SaveChanges();
             return UserConvertors.ToUserDto(U);
         }
-
 
     }
 }
