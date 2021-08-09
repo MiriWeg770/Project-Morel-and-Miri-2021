@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Meal } from 'src/Models/Meal';
 import { MealService } from '../meal.service';
-import { User } from 'src/Models/User';
 
 @Component({
   selector: 'app-show-meal-details',
@@ -10,22 +9,23 @@ import { User } from 'src/Models/User';
   styleUrls: ['./show-meal-details.component.css']
 })
 export class ShowMealDetailsComponent implements OnInit {
-  meal: Meal = new Meal(null, null, null, null, null, null, null, null, null);
-  constructor(private route: ActivatedRoute, private mealServic: MealService) { }
+  meal: Meal= new Meal(null,null,null,null,null,null,null,null,null,null);
+  bgVariable:Boolean=false
+  headerVariable:boolean=false
+  constructor(private router:ActivatedRoute,private ser:MealService) { }
 
   ngOnInit(): void {
-    this.route.params.subscribe(params => {
-      let id = +params['id'];
-      this.mealServic.GetMealById(id).subscribe(dataList => this.meal = dataList);
-    }
-    );
+  //   this.router.params.subscribe(id => {
+  //     this.meal.MealCode = parseInt(id);
+  //     this.ser.GetMealById(id).subscribe(dataList => this.meal = dataList);
+  // });
+  window.scrollTo(0,0)
+}
+ close(){
+   document.getElementById("send").style.display="none";
+ }
+ open(){
+  document.getElementById("send").style.display="block";
 
-  }
-  close() {
-    document.getElementById("send").style.display = "none";
-  }
-  open() {
-    document.getElementById("send").style.display = "block";
-
-  }
+ }
 }

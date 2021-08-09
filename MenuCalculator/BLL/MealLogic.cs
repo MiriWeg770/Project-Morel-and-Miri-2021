@@ -22,8 +22,10 @@ namespace BLL
             try
             {
                 Meal m = MealConvertors.ToMeal(u);
-                _context.Meal.Add(m);
+                //_context.Meal.Add(m);
+                AddMealToUser(u);       
                 _context.SaveChanges();
+
                 return MealConvertors.ToMealDto(m);
             }
             catch (Exception e)
@@ -32,9 +34,19 @@ namespace BLL
             }
         }
 
+        public MealDto AddMealToUser(MealDto u)
+        {
+          
+            _context.Users.FirstOrDefault(p => p.UserCode == u.UserCode).Meal.Add(MealConvertors.ToMeal(u));          
+            _context.SaveChanges();
+            return u;
+        }
+
         public MealDto DeletMeal(MealDto u)
         {
-            _context.Meal.Remove(MealConvertors.ToMeal(u));
+            Meal m = _context.Meal.FirstOrDefault(p => p.MealCode == u.MealCode);
+             //MealConvertors.ToMeal(u);
+            _context.Meal.Remove(m);
             _context.SaveChanges();
             return u;
         }
@@ -56,10 +68,24 @@ namespace BLL
             }
         }
 
+        public List<MealDto> GetUserMeals(int id)
+        {
+         return MealConvertors.ToMealDtoList(_context.Meal.Where(p => p.UserCode == id).ToList());
+           
+        }
+
         public MealDto UpdateMeal(MealDto u)
         {
             Meal U = _context.Meal.FirstOrDefault(w => w.MealCode == u.MealCode);
-            if (u == null)
+            U.MealName = u.MealName;
+            U.NumberOfDiners = u.NumberOfDiners;
+            U.NumberOfViews = u.NumberOfViews;
+            U.UserCode = u.UserCode;
+            U.Discription = u.Discription;
+            U.Instructions = u.Instructions;
+            U.MealCategoryCode = u.MealCategoryCode;
+           
+            if (U == null)
                 return null;
            
             _context.SaveChanges();

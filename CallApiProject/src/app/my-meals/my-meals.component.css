@@ -1,45 +1,109 @@
+/* @import "../my-menus/my-menus.component.css"; */
 
-/* header{
-    background-color: #cccccc94;
-    height: 50px;
+.container_page{
+  color: white;
+  padding: 0 2rem;
+  background: #f1f5f9;
 }
-header span{
-    font-size: 33px;
-    float: right;
-    padding: 15px 0;
-    font-family: system-ui;
-    font-weight: 400;
+.page_box{
+  min-height: 94px;
+  background: gold;
+  color: black;
+  font-size: 24px;
+  margin: 0 -2rem;
+  text-align: end;
+  padding: 25px 29px;
+  font-family: system-ui;
+  font-weight: bolder;    
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page_content{
+  position: relative;
+  box-shadow: 1px 0px 1px 3px black;
+  /* min-height: calc(100vh - 160px); */
+  margin-top: -15px;
+  background: white;
+ color: black; 
+  font-size: 2rem;
+;
+
 }
 
-
-header button{
-    float: left;
-    margin: 7px 113px;} */
-
-
-
-    /* .body{
-        background-color:white;
-      } */
-   
-      .container, .body{
+      .model{
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 999;
+        display: none;
+        background: #0000003b;
+        /* background: rgba(0,0,0,0.8); */
+      }
+      .add{
+        width: 375px;
+        height: 378px;
+        position: fixed;
+        top: calc(50% - 250px);
+        left: calc(50% - 217px);
+        box-shadow: 4px 4px 16px rgb(0 0 0 / 38%);
+        background: #fff;
+    }
+    .add mat-toolbar{
+        background: #b0b0b0;
+        width: 100%;
+    }
+    .add mat-toolbar span{
+        text-align: center;
+        width: 100%;
+        font-weight: 600;
+    }
+    .add div {
+        margin-top: 40px;
+        float: right;
+        padding: 0 20px;
+    }
+    .add div span{
+        display: block;
+    text-align: right;
+    margin-bottom: 9px;
+    font-size: 19px;
+    font-weight: 700;
+    }
+    .add div input{
+        border-radius: 7px;
+        outline: none;
+        width: 276px;
+        height: 39px;
+        border: 2px #0000009c solid;
+        /* padding-top: 20px; */
+        color: #043eff;
+        font-size: 18px;
+        text-align: end;
+        /* direction: rtl; */
+        font-weight: bolder;
+    }
+    .add button{
+        width: 42%;
+        margin: 113px 7px 0px 0px;
+        /* padding: 1px; */
+        box-shadow: 0px 2px 8px 1px #0000006e;
+        }
+       .body{
         text-align: center;
         width: 100%;
         height: 600px;
+        display: inline-block;
+        
     }
-    div.empty, div.user{
-        text-align: center;
-        /* padding: 20px; */
-        margin-top: 157px;
-        width: 100%;
-                /* background-color: white; */
-
-    }
-    mat-icon{
+    
+    /* mat-icon{
         font-size: 130px;
         color: #b0b0b0;
         margin-right: 109px;
-    }
+    } */
     .user{
         padding-left: 10px;
     font-size: 20px;
@@ -49,15 +113,267 @@ header button{
         width: 86px;
     }
     mat-toolbar{
-        background-color: #ccc;
+        background-color: white;
         margin: 0;
         direction: rtl;
-        border-bottom: 2px solid rgb(0 0 0 / 12%);
-        justify-content: space-between;
+     justify-content: space-between;
     }
+    mat-toolbar mat-icon{
+        font-size: 26px;
+        color: rgb(0 0 0 / 87%);
+        margin-right: 12px;
+        font-weight: bold;
+        cursor: pointer;
+    
+    }
+     .search-input{
+    padding: 20px;
+    display: contents;
+
+    }
+    /* .icons .search:focus .icons .search-input{
+  display: block;
+    } */
+     .search-input input{
+        max-width: 100%;
+    width: 295px;
+    height: 45px;
+    border: 1px solid #e3e3e3;
+    border-radius: 14px;
+    outline: none;
+    font-size: 15px;
+    line-height: 25px;
+    padding: 10px 10px 10px 50px;
+    background-repeat: no-repeat;
+    background-position: 12px 10px;
+    background-size: 24px 24px;
+    background-image: url(../../assets/search.png);
+    
+    }
+    
+ 
     mat-toolbar button{
         background-color: whitesmoke;
     }
     /* div.empty{
         margin-top: 20px;
     } */
+    .list .cards-show mat-card{
+        width: 200px;
+        margin: 9px;
+        border: 2px solid;
+        height: 246px;
+        }
+    .list .cards-show{
+     display: inline-block;
+    }
+    
+
+
+   
+    
+    .mat-menu-item{
+        background: white;
+        box-shadow: 0px 0px 2px #b0b0b0;
+        width: 100%;
+    } 
+     /* .select{
+        display: inline-block;
+    } 
+     .select mat-icon{
+    margin: 0;
+    height: 0;
+    } */
+
+  
+  .mat-menu-item:hover{
+      background-color:#d2d2d2;
+  }
+  .item-icons mat-icon{
+    color: rgb(0 0 0 / 42%);
+    cursor: pointer;
+    font-size: 23px;
+    width: 35px; 
+ } 
+ /* .item-icons mat-icon:hover{
+     color: gold;
+ }
+ .item span b{
+    font-size: 15px;
+    font-family: system-ui;
+ } */
+
+
+
+
+
+
+
+
+
+
+
+ /* ################################## */
+.page_box{
+padding-top: 0px;
+}
+.page_content{
+  margin-top: -1px;
+  direction: rtl;
+}
+
+.showDetails .header img{
+    display: block;
+    width: 164px;
+    box-shadow: 0px 0px 12px -2px;
+}
+ .details{
+    width: 50%;
+    float: right;
+    padding: 20px;
+    margin: 35px 0;
+
+} 
+#Ingredients{
+    border-left: 1px solid #e3e3e3;
+
+ }
+ .details .title{
+position: relative;
+font-size: 15px;
+font-weight: 500;
+padding: 0;
+text-align: end;
+ }
+ 
+ .details .title span{
+     position: relative;
+     padding-left: 12px;
+     z-index: 10;
+     white-space: nowrap;
+     background-color: white;
+ }
+ .details .title ::after{
+     content: "";
+     display: block;
+     position: absolute;
+     width: 100%;
+     top: 50%;
+     border-bottom: 1px solid #e3e3e3;
+}
+.details .items ul{
+    list-style: none;
+}
+.details .items ul li{
+    display: flex;
+    justify-content: space-between;
+    font-size: 20px;
+}
+.details .items ul li span{
+    font-weight: 600;
+    padding: 0 15px;
+    font-family: system-ui; 
+}
+
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+table td{
+  cursor: pointer;
+  /* border: 2px solid; */
+  width: 0px;
+  text-align: center;
+  padding: 0;
+}
+table td mat-icon{
+  color: #b0b0b0;
+  text-align: center;
+  margin: 5px;
+  cursor: pointer;
+}
+table td mat-icon:hover{
+ color: black;
+}
+
+.mat-row .mat-cell {
+  border-top: 1px solid transparent;
+  cursor: pointer;
+}
+
+.mat-row:hover .mat-cell {
+  border-color: currentColor;
+}
+.mat-row:hover button {
+ display: block;
+}
+.mat-header-cell{
+  background-color: gold;
+  text-align: center;
+  font-size: 17px;
+  font-family: system-ui;
+  color: black;
+  border-bottom: 2px solid;
+}
+.icons{
+  /* margin: 0px; */
+  /* width: 100%; */
+  height: 19px;
+  position: absolute;
+  top: 119px;
+  width: 100%;
+  /* left: 50%; */
+  right: 0%;
+  padding: 0 33px;
+  text-align: end;
+  color: black
+}
+.icons mat-icon{
+  color: white;
+  cursor: pointer;
+}
+.check_box{
+width: 50px;
+}
+#add{
+  position: fixed;
+  right: 30px;
+  bottom: 18px;
+  width: 50px;
+  height: 50px;
+  background: gold;
+  box-shadow: 0 0 10px black;
+  color: white;
+  cursor: pointer;
+  outline: none;
+  transition: all ease 0.3s;
+  border-radius: 50%;
+  border: 1px solid;
+}
+#add:hover{
+  height: 60px;
+  width: 60px;
+  border: 2px solid;
+  color: black;
+
+}
+div.empty{
+  text-align: center;
+  margin-top: 157px;
+  width: 100%;
+}
+div.empty mat-icon{
+  color: rgb(0 0 0 / 42%);
+  font-size: 142px;
+  width: 138px;
+  height: 138px;
+}
+div.empty h1{
+  font-family: system-ui;
+  font-weight: 500;
+}

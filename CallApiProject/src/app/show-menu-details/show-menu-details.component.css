@@ -1,10 +1,85 @@
+@import "../all-lists/all-lists.component.css";
 
-.dialog-container{
+.body{
+    background: rgba(0,0,0,0.7)url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqw8YOBN2bEAhlTt0t7BZsG4OhYgan28-FZA&usqp=CAU);
     
-    padding: 15px;
-    border: 9px double #ffc0cbc4;
-    direction: rtl;
+    /* background-image: ; */
+background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-blend-mode: darken ;
+    color: white;
 }
-div h2{
+
+.header{
+    background-blend-mode: normal;
+    background: rgb(0 0 0 / 69%)url(https://as1.ftcdn.net/v2/jpg/02/97/67/70/1000_F_297677001_zX7ZzRq8DObUV5IWTHAIhAae6DuiEQh4.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+    display: flex;
+    background-position-y: 0;
+    align-items: center;
+    justify-content: center;
+    height: 584px;
+}
+
+
+.header-content{
+    max-width: 980px;
     text-align: center;
+    margin: 40px 0;
+    /* border: 2px solid; */
+    animation: text 3s 1;
+    border-radius: 50px 0px 50px;
+    padding: 35px;
+   
+}
+.header-content label{
+    text-align: center;
+    color: #fff;
+    display: inline-block;
+    height: 32px;
+    line-height: 32px;
+    background-color: #000;
+    border: 1px #fff solid;
+    min-width: auto;
+    letter-spacing: 1px;
+    padding: 0 15px;
+    margin-bottom: 20px;
+    font-family: 'Abraham';
+    font-size: 16px;
+    font-weight: 500;
+}
+.headline{
+    min-height: 74px;
+    line-height: 74px;
+    font-size: 84px;
+    font-family: 'Barlev';
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+    color: gold;
+    text-shadow: 2px 3px 2px black;
+
+}
+.underline{
+    margin-top: 10px;
+    font-weight: 300;
+    font-family: 'Abraham';
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 20px;
+    font-size: 16px;
+}
+.date{
+    display: inline-block;
+}
+.byline{
+    display: inline-block;
+    margin-left: 20px;
+    color: #333;
 }

@@ -1,38 +1,26 @@
-.container, .body{
-    text-align: center;
+@import "../my-meals/my-meals.component.css";
+.list{
     width: 100%;
-    height: 600px;
-    /* background-color: white; */
+    height: 100%;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
 }
-div.empty, div.user{
-    text-align: center;
-    padding: 20px;
-    margin-top: 157px;
-    width: 100%;
+ul{
+    list-style: none;
 }
-mat-icon{
-    font-size: 130px;
-    color: #b0b0b0;
-    margin-right: 109px;
+ul li {
+    display: inline-block;
 }
-.user{
-    padding-left: 10px;
-font-size: 20px;
-    color: #b0b0b0;
+ul li mat-card{
+    width: 439px;
+    height: 223px;
+    margin: 7px;
+    cursor: pointer;
+    text-align: end;
 }
-button{
-    width: 86px;
+ul li mat-card:hover{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
 }
-mat-toolbar{
-    background-color: #ccc;
-    margin: 0;
-    direction: rtl;
-    border-bottom: 2px solid rgb(0 0 0 / 12%);
-    justify-content: space-between;
-}
-mat-toolbar button{
-    background-color: whitesmoke;
-}
-/* div.empty{
-    margin-top: 20px;
-} */
+

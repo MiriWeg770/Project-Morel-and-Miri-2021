@@ -3,8 +3,8 @@
     <div class="header">
     <div class="header-content">
     <label> מתכון</label>
-    <h1 class="headline"> {{meal.MealName}}</h1>
-    <div class="underline">
+    <h1 class="headline "> שם מתכון</h1>
+    <div class="underline ">
         <div class="date">תאריך</div>
         <div class="byline"> 
          <span>מאת</span> <a>שם המעלה</a>
@@ -28,13 +28,12 @@
     <div class="underline">
         <ul class="tags">  
             <li><p><span>זמן הכנה</span> 45 דקות </p></li>
-            <li><p><span  [(ngModel)]="meal.NumberOfDiners"> מס' מנות</span>4 מנות</p></li>
+            <li><p><span> מס' מנות</span>4 מנות  </p></li>
             <li><p><span> סוג </span> חלבי  </p></li>
             <li><p><span>רמת קושי </span>  קל </p></li>
         </ul>
         <ul class="social-share">
-            <li matTooltip="הוסף למועדפים"><mat-icon>favorite</mat-icon></li>
-            <li matTooltip="הוסף למנות שלי"><mat-icon>add_circle</mat-icon></li>
+            <li matTooltip="הוסף למנות"><mat-icon>favorite</mat-icon></li>
             <li matTooltip="הורד מתכון"><mat-icon>download</mat-icon></li>
             <li matTooltip="הדפס מתכון"><mat-icon>print</mat-icon></li>
             <li matTooltip="שלח מתכון באימייל" ><mat-icon (click)="open()">email</mat-icon></li>        
@@ -81,7 +80,7 @@
             </mat-list>
       </div>
       <div class="ingredients">
-         <label [(ngModel)]="meal.Instructions" >אופן ההכנה</label>
+         <label>אופן ההכנה</label>
          <mat-list role="list" >
             <mat-list-item role="listitem">- מוצר 1</mat-list-item>
             <mat-list-item role="listitem">- מוצר 1</mat-list-item>
@@ -94,10 +93,10 @@
       
     </div>
     
-    <div class="nots">
+    <!-- <div class="nots">
         <h2>טיפים והערות</h2>
      <p>* s</p>
-    </div>
+    </div> -->
     
     <h2 class="text-divider">
       <span>דרגו את המתכון</span>
@@ -112,5 +111,44 @@
     <h2 class="text-divider">
         <span>תגובות למתכון</span>
             </h2>
+            <section class="comments">
+                <h5> <span> תגובות 12 </span></h5>
+                <ol>
+                    <li>
+                        <div> <mat-icon>person</mat-icon></div>
+                        <div><header>
+                            <span>אני</span>
+                        </header>
+                         <article>
+                          <input class="new-comment " type="text" placeholder="כתיבת תגובה">
+                         </article>
+                        </div>
+                    </li>
+                    <li>
+                        <div> <mat-icon>person</mat-icon></div>
+                         <div>
+                             <header>
+                                <span>ss</span>
+                                <span>10/10</span>
+                            </header>
+                             <article>ddddd</article>
+                            </div>
+                    </li>
+                    <li>
+                        <div> <mat-icon>person</mat-icon></div>
+                         <div>
+                             <header>
+                                <span>ss</span>
+                                <span>10/10</span>
+                            </header>
+                             <article>ddddd</article>
+                            </div>
+                    </li>
+                </ol>
+            </section>
+        
 </div>
 </div>
+
+
+

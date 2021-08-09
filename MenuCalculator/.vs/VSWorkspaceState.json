@@ -1,8 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\WebApi"
+    "\\WebApi",
+    "\\WebApi\\Controllers"
   ],
-  "SelectedNode": "\\MenuCalucator.sln",
+  "SelectedNode": "\\WebApi\\Controllers\\UsersController.cs",
   "PreviewInSolutionExplorer": false
 }

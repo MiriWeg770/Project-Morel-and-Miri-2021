@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { User } from 'src/Models/User';
 import { LogOutComponent } from '../log-out/log-out.component';
+import { MyAccountComponent } from '../my-account/my-account.component';
 // import { LogOutComponent } from '../log-out/log-out.component';
 
 @Component({
@@ -21,17 +22,28 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router:Router,public dialog:MatDialog) {
      this.u= JSON.parse(localStorage.getItem("user"));
-     this.name= this.u.UserName;
+     this.name= this.u.userName;
     // this.mail=u.Mail;
    }
 
   ngOnInit(): void {
   }
-  // toggleSidebar(){
-  //   this.toggleSidebarForMe.emit();
-  // }
+
+
+
+  
+  toggleSidebar(){
+    this.toggleSidebarForMe.emit();
+  }
     openDialog(){
       
-      this.dialog.open(LogOutComponent);
-     }
+      const dialogRef = this.dialog.open(MyAccountComponent, {
+        width: '80%',
+        // height:'100%',
+        // data: {name: this.name, animal: this.animal},
+        backdropClass: 'backdropBackground',
+        panelClass:'s'// This is the "wanted" line
+      });     }
 }
+
+

@@ -25,24 +25,45 @@ namespace WebApi.Controllers
         {
             return Ok(_logic.GetAllMeals());
         }
+        [HttpGet("GetUserMeals/{id}")]
+        public IActionResult GetUserMeals(int id)
+        {
+            return Ok(_logic.GetUserMeals(id));
+        }
+
         [HttpGet("{id}")]
         public IActionResult GetMealsById(int id)
         {
             return Ok(_logic.GetMealById(id));
         }
 
-        [HttpPost]
-        public IActionResult AddMeal([FromBody] MealDto newMeal)
+        [HttpPost("AddMeal")]
+        public IActionResult AddMeal([FromBody] MealDto meal)
         {
-            return Ok(_logic.AddMeal(newMeal));
+            return Ok(_logic.AddMeal(meal));
 
         }
 
-        [HttpPut]
-        public IActionResult DeleteMeal([FromBody]MealDto newMeal)
+        [HttpPut("DeleteMeal")]
+        public IActionResult DeleteMeal([FromBody]MealDto Meal)
         {
-            return Ok(_logic.DeletMeal(newMeal));
+            return Ok(_logic.DeletMeal(Meal));
 
         }
+
+        [HttpPut("UpdateMeal")]
+        public IActionResult UpdateMeal([FromBody] MealDto Meal)
+        {
+            return Ok(_logic.UpdateMeal(Meal));
+
+        }
+
+        [HttpPost("AddMealToUser")]
+        public IActionResult AddMealToUser([FromBody] MealDto meal)
+        {
+            return Ok(_logic.AddMealToUser(meal));
+
+        }
+
     }
 }

@@ -123,8 +123,8 @@ header{
     background-color: #22242A;
     position: fixed;
     background-image: linear-gradient( 
-      101deg
-       , black, #4134f4,#165082f2);
+        101deg
+         , black, gold,rgb(249 171 0 / 20%));
           border-bottom: 4px solid black;
 }
   
@@ -141,7 +141,7 @@ header{
   font-weight: bold;
   font-size: 35px;
   text-decoration: none;
-    text-shadow: 0px 2px 13px #709ff3;
+    text-shadow: 0px 2px 13px gold;
     /* font-weight: bold; */
     font-family: fantasy;
 } 

@@ -1,87 +1,58 @@
-<!-- <mat-nav-list">
-    <div class="logo">
-      MenuCalculator
-    </div>
-<mat-divider></mat-divider>
-<a mat-list-item routerLink="/MyHome/AllLists" >
-  <mat-icon>dashboard</mat-icon>   דף הבית
-</a>
-<a mat-list-item routerLink="/MyHome/New" >
-  <mat-icon>dashboard</mat-icon>  מה חדש
-</a>
-<a mat-list-item routerLink="/MyHome/MyLists" >
-  <mat-icon>dashboard</mat-icon>   ספריה
-</a>
-<a mat-list-item routerLink="/MyHome/MyHistory" >
-  <mat-icon>dashboard</mat-icon>   היסטוריה
-</a>
-<a mat-list-item routerLink="/MyHome/MyMenus" >
-    <mat-icon>dashboard</mat-icon>  התפריטים שלי
-</a>
-<mat-expansion-panel>
-    <mat-expansion-panel-header>
-      <div>
-    <mat-icon>dashboard</mat-icon> המנות שלי
-      </div>
-    </mat-expansion-panel-header>
-    <a routerLink="/MyHome/MyMeals"> <mat-icon>dashboard</mat-icon> <span>כל המנות</span></a>
-    <a (click)="openDialogMeal()"> <mat-icon>dashboard</mat-icon> <span>הוסף מנה</span></a>
+<mat-nav-list  >
+  <div class="sidebar">       
+    <!-- <mat-icon id="btn" >menu</mat-icon>        -->
+
+ <div class="logo-details">
+     <span class="logo_name">MenuCalculator</span>
+ </div>
+
+ <ul class="nav-list">
+   <!-- <li>
+     <mat-icon>search</mat-icon>
+      <input type="text" placeholder="Search...">
+      <span class="tooltip">Search</span>
+   </li> -->
+   <li>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false" >
+      <mat-expansion-panel-header>
+      <mat-panel-title routerLink="/User/MyMeals">
+     המנות שלי  
+     </mat-panel-title>
+    
+   </mat-expansion-panel-header>
+   <p routerLink="/User/AddMeal">הוסף מנה</p>
   </mat-expansion-panel>
+   </li>
+   <li>
+    <mat-expansion-panel (opened)="panelOpenState = true"
+    (closed)="panelOpenState = false" >
+      <mat-expansion-panel-header>
+      <mat-panel-title routerLink="/User/MyMenus">
+    התפריטים שלי  
+     </mat-panel-title>
+    
+   </mat-expansion-panel-header>
+   <p routerLink="/User/AddMeal">הוסף מנה</p>
+  </mat-expansion-panel>
+   </li>
+   <li>
+     <a routerLink="/User/MyMeals">
+         <mat-icon>list</mat-icon>
+         <span class="links_name">המנות שלי </span>
+     </a>
+      <span class="tooltip">Dashboard</span>
+   </li>
+   <li>
+    <a routerLink="/User/AddMeal">
+     <mat-icon>settings</mat-icon>
+     <span class="links_name"> הוסף מנה </span>
 
-<mat-expansion-panel>
-  <mat-expansion-panel-header>
-    <div>
-  <mat-icon>dashboard</mat-icon> התפריטים שלי
-    </div>
-  </mat-expansion-panel-header>
-  <a routerLink="/MyMeals"> <mat-icon>dashboard</mat-icon> <span>תפריט1</span></a>
-  <a routerLink="/MyMeals"> <mat-icon>dashboard</mat-icon> <span>כל התפריטים</span></a>
-  <a (click)="openDialogMenu()"> <mat-icon>dashboard</mat-icon> <span>הוסף תפריט</span></a>
-</mat-expansion-panel>
+    </a>
+    <span class="tooltip"> מנה</span>
+  </li>
 
-</mat-nav-list>
-
-
-
- -->
-  <mat-sidenav  >
-    <mat-nav-list>
-      xx
-    <div class="section">
-
-
-  <mat-list-item>
-  </mat-list-item>
-</div>
-<div class="section">
-  <mat-list-item>
-    </mat-list-item>
   
-    <mat-list-item>
-      </mat-list-item>
+ </ul>
 </div>
-<div class="section">
-<mat-list-item>
- </mat-list-item>
-
-  <mat-list-item>
-    </mat-list-item>
-<mat-list-item>
-</mat-list-item>
-
-<mat-list-item>
-</mat-list-item>
-</div>
-
-<div class="section">
-<mat-list-item>
-  </mat-list-item>
-
-  <mat-list-item>
-    </mat-list-item>
-
-</div>
-
-  </mat-nav-list> 
-  </mat-sidenav>
-
+</mat-nav-list>

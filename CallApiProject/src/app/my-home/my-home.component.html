@@ -1,13 +1,13 @@
-<!-- [hasBackdrop]="false" -->
-<app-header ></app-header>
-<mat-drawer-container >
-<mat-drawer-content>  
-<router-outlet></router-outlet>
-<footer>
-MENUCALCULATOR<mat-icon>copyright</mat-icon></footer>
-</mat-drawer-content>
-</mat-drawer-container> 
 
+<mat-toolbar>
+<app-header ></app-header>
+</mat-toolbar>
+<mat-sidenav-container>
+<mat-sidenav-content>
+         <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<footer>MenuCalculator@</footer>
 
 
 

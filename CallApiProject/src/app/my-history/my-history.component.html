@@ -1,7 +1,6 @@
 
-<p *ngIf="u!=null">אפשר</p>
 
-<div *ngIf="u==null">
+<div *ngIf="u==null"  class="user">
     <mat-icon>history</mat-icon>
 <h1>כאן אפשר לעקוב אחרי התוכן שצפית בו</h1>
     <h3> לא ניתן לצפות בהסטוריית הצפייה לאחר שיצאת מהחשבון </h3>
@@ -12,9 +11,55 @@
 </div>
 
 
-<div class="body">
-      
-      <div *ngIf=" u!=null" class="empty">
+<div class="body" *ngIf=" u!=null" >
+    <mat-toolbar *ngIf="!clicked" class="not_click">
+        <h2>  היסטוריה</h2>
+        <form>
+            <input type="search" placeholder="חיפוש בהיסטוריה" name="search">
+            <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
+          </form>      
+         </mat-toolbar> 
+          
+         <mat-toolbar *ngIf="clicked" class="click">
+             <div class="contain">
+         <div id="icon" (click)="clicked=false"><mat-icon>close</mat-icon></div>
+         <div class="number_select">פריטים נבחרו </div>
+         <button mat-raised-button (click)="clicked=false"> ביטול</button>  
+        <button mat-raised-button> מחיקה</button>
+          </div>
+         </mat-toolbar> 
+
+
+
+  <div class="history-cards"> 
+  
+ 
+    <mat-card class="date">
+         <p>אתמול - יום חמישי 25 ביוני 2021</p>
+         <mat-divider></mat-divider>
+        <mat-card *ngFor="let x of historyList" class="item"> 
+            <mat-checkbox [color]="primary" [(ngModel)]="clicked"></mat-checkbox>
+            <span>12:31</span>
+            <div class="link"> <a>ההיסטוריה שלי</a><span>/MyHome/MyHistory</span></div>
+            <div class="menu">
+<button mat-icon-button [matMenuTriggerFor]="menu">                   
+     <mat-icon>more_vert</mat-icon>
+</button>
+<mat-menu #menu="matMenu" mat-menu-content >
+  <button mat-menu-item> הסרה מההיסטוריה</button>
+</mat-menu>
+
+</div>
+        </mat-card>
+    </mat-card>
+  
+
+
+
+
+</div>
+
+         <div *ngIf="historyList==null" class="icon">
         <mat-icon>list_alt</mat-icon>
     <h1>     היסטוריה שלך ריקה      </h1>
         <!-- <h3> לא ניתן לצפות בהסטוריית הצפייה לאחר שיצאת מהחשבון </h3> -->
@@ -26,15 +71,4 @@
     
     
     
-    
-    </div>
-    
-    <div *ngIf="u==null" class="user">
-        <mat-icon>ballot</mat-icon>
-    <h1>כאן אפשר לצפות ברשימת המנות שיצרת   </h1>
-        <!-- <h3> לא ניתן לצפות בהסטוריית הצפייה לאחר שיצאת מהחשבון </h3> -->
-    <button mat-raised-button routerLink="/SignIn">כניסה<mat-icon class="user">account_circle</mat-icon></button>
-    
-    <!-- <button  >כניסה
-             </button> -->
     </div>

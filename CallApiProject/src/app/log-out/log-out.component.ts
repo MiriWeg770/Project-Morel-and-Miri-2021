@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { User } from 'src/Models/User';
+import { MyAccountComponent } from '../my-account/my-account.component';
 
 @Component({
   selector: 'app-log-out',
@@ -9,7 +11,7 @@ import { User } from 'src/Models/User';
 })
 export class LogOutComponent implements OnInit {
 
-  constructor(private router:Router) { }
+  constructor(private router:Router,private dialog:MatDialog) { }
   name:string;
   Mail:string;
 
@@ -24,5 +26,11 @@ export class LogOutComponent implements OnInit {
     localStorage.removeItem("user");
     this.router.navigate(["/Home"]);
   }
+  openDialog(){
+    const dialogRef = this.dialog.open(MyAccountComponent, {
+      width: '100%',
+      // data: {u}
+  });
+}
   
 }
