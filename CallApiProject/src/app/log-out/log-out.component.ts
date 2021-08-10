@@ -17,8 +17,8 @@ export class LogOutComponent implements OnInit {
 
   ngOnInit(): void {
     let u:User= JSON.parse(localStorage.getItem("user"));
-    this.name= u.UserName;
-    this.Mail=u.Mail;
+    this.name= u.userName;
+    this.Mail=u.mail;
   }
   
 

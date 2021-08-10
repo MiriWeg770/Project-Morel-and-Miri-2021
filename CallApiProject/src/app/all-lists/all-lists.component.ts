@@ -23,12 +23,12 @@ export class AllListsComponent implements OnInit {
     new Menu(1,"menu","discription",1,new Date(1,1,1),"1",1,"j"),
   ];
   listMeals:Meal[]=[
-    new Meal(1,"meal","j",12,"j",1,12,12,null,"k"),
-    new Meal(1,"meal","j",12,"j",1,12,12,null,"k"),
-    new Meal(1,"meal","j",12,"j",1,12,12,null,"k"),
-    new Meal(1,"meal","j",12,"j",1,12,12,null,"k"),
-    new Meal(1,"meal","j",12,"j",1,12,12,null,"k"),
-    new Meal(1,"meal","j",12,"j",1,12,12,null,"k"),
+    new Meal(1,"meal","j",12,"j",1,12,12,null,null),
+    new Meal(1,"meal","j",12,"j",1,12,12,null,null),
+    new Meal(1,"meal","j",12,"j",1,12,12,null,null),
+    new Meal(1,"meal","j",12,"j",1,12,12,null,null),
+    new Meal(1,"meal","j",12,"j",1,12,12,null,null),
+    new Meal(1,"meal","j",12,"j",1,12,12,null,null),
   ]
   
   

@@ -27,25 +27,7 @@
   <ul > 
     <li *ngFor="let item of listMeals">
       <div class="container" >               
-<div class="card" >
-  <div class="content">
-    <div class="title">
-      <span>מתכון</span>
-       </div>
-  <img src="../../assets/3.jpg" alt="Avatar" style="width:100%"routerLink="/MyHome/ShowMealDetails">
-  <div class="container">
-    <h5> <mat-icon>schedule</mat-icon>50 דק'</h5>
-    <h4><b> עוגת חלבה</b></h4> 
-      <div class="d">
-      <div class="icons">
-        <mat-icon id="down">download</mat-icon>
-        <mat-icon id="save">favorite</mat-icon>
-      </div>
-    </div>
-    
-  </div>
-   </div>
-</div>      
+<app-meal></app-meal>     
 </div>
 </li>
   </ul>

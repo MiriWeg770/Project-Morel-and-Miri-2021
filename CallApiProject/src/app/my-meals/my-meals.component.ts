@@ -19,10 +19,10 @@ import { MealService } from '../meal.service';
   styleUrls: ['./my-meals.component.css']
 })
 export class MyMealsComponent implements OnInit {
-  u: User = new User(11, null, null, null);
+  u: User = new User(0, null, null, null);
   choose = false
   add = false
-  newMeal: Meal;
+  newMeal: Meal = new Meal(0, null, null, 0, null, 0, 0, 0, null, null);
   ELEMENT_DATA: Meal[] = [];
   length = 0;
   dataSource;
@@ -31,8 +31,9 @@ export class MyMealsComponent implements OnInit {
 
   constructor(private dialog: MatDialog, private ser: UserService, private serm: MealService) {
     this.u = JSON.parse(localStorage.getItem("user"));
+    this.newMeal.userCode = this.u.userCode;
     console.log(this.u);
-    
+
   }
 
   ngOnInit(): void {
@@ -50,13 +51,10 @@ export class MyMealsComponent implements OnInit {
     })
   }
 
-
-
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
-
   AddMeal() {
     const dialogRef = this.dialog.open(AddMealComponent, {
       disableClose: true,
@@ -122,13 +120,5 @@ export class MyMealsComponent implements OnInit {
     let count = 0
     return count;
   }
-
-
-
-
-
-
-
-
 }
 

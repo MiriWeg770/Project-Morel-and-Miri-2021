@@ -28,7 +28,7 @@ export class AddMealComponent implements OnInit {
   ];
 
   u: User
-  newMeal: Meal = new Meal(1, null, null, null, null, null, 0, null, this.ELEMENT_DATA, null);
+  newMeal: Meal = new Meal(1, null, null, null, null, null, 0, null,null,null);
   newProduct: Product = new Product(1, null, null, null, null);
 
   constructor(private ser: MealService, public dialog: MatDialog, public active: ActivatedRoute,
@@ -36,7 +36,7 @@ export class AddMealComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA) public data: Meal) {
 
     this.u = JSON.parse(localStorage.getItem("user"));
-    this.newMeal.UserCode = this.u.userCode;
+    this.newMeal.userCode = this.u.userCode;
     if (data != null)
       this.newMeal = data
     console.log(this.newMeal)
@@ -46,7 +46,10 @@ export class AddMealComponent implements OnInit {
   }
 
   saveMeal() {
-    console.log(this.newMeal)
+    console.log(this.newMeal);
+    this.newMeal.products=this.ELEMENT_DATA;
+    this.u = JSON.parse(localStorage.getItem("user"));
+    this.newMeal.userCode = this.u.userCode;
     this.ser.AddMeal(this.newMeal).subscribe(succ => {
       console.log(succ);
     }, err => {
@@ -65,8 +68,7 @@ export class AddMealComponent implements OnInit {
   addProduct() {
     console.log(this.newProduct)
     this.ELEMENT_DATA.push(this.newProduct)
-    this.newProduct = new Product(null, null, null, null, null)
-
+    this.newProduct = new Product(null, null, null, null, null);
   }
 
   addPro() {

@@ -10,7 +10,7 @@
         
         /* font-family: 'Source Sans Pro', 'Lucida Grande', sans-serif; */
        }   
-    .signInbox{
+    .user{
         width: 350px;
         height: 500px;
         color: black;
@@ -50,13 +50,13 @@ label{
     display: block;
     font-weight: bold;
 }
-.signInbox p{
+.user p{
     font-weight: bold;
     text-align: center;
     text-decoration: underline;  
 }
 
-.signInbox input{  
+.user input{  
       width: 100%;
     /* border:none; */
     /* border-bottom:1px solid #fff; */
@@ -73,6 +73,17 @@ label{
     border-color:rgba(0,0,0,.1);
 
 }
-.signInbox input:hover{
+.user input:hover{
     border-color: blue;
+}
+button{
+    width: 50%;
+    border-radius: 30px;
+    margin: 16px 66px;
+    background: linear-gradient( 
+184deg
+ , yellow, rgb(249 171 0 / 23%));
+    box-shadow: 0px 0px 7px -1px;
+    font-size: 19px;
+    font-weight: bolder;  
 }

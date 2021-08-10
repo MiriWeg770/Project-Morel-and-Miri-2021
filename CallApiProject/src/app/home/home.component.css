@@ -1,82 +1,31 @@
-/* nav{
-    background-color: #222;
-    height: 48px;
-    line-height: 48px;
-}
-nav ul li{
-    float: right;
-    color: #cacaca;
-    list-style: none;
-    padding: 0px 14px;
-    font-size: 17px;
-    font-weight: 600;
-    font-family: system-ui;
-}
-a{
-    text-decoration: none;
-}
 
-.title{
-    color: black; 
-    font-size: 25px;
-    font-weight: 900;
-    padding: 20px;
-   
-}
-   
-
-   .title span{
-     color:#4CCEE8;
-     margin-right: 30px;
-   }
-.banner{
-    background: rgb(21 20 20);
-  
-}
-
-.content{
-    width: 100%;
-    height: 380px;
-   
-    transform: transform(-50%);
-    text-align: center;
-    color: #fff;
-
-}
-.content h1{
-    font-size: 70px;
-    text-shadow: #fafafa 4px 2px 7px;
-    font-weight: 600;
-    color: #fafafa;
-    margin-top: 210px;
-
-}
-.content p{
-    margin:20px auto;
-    font-weight: 100;
-    line-height: 25px;
-}
- */
 .body{
  height: 100%;
  width: 100%;  
- /* overflow: hidden; */
 }
 
-.content{
-    /* background-color: rgb(171 78 78); */
-    height: 100%;
+.content1 {
+    height: 100%;    
     background: url("http://vecurosoft.com/products/html/grillinator/assets/img/hero-img.jpg");
     background-blend-mode: luminosity;
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-
 }
+.content2 {
+    height: 100%;    
+    background: url("https://images.unsplash.com/photo-1493770348161-369560ae357d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80.jpg");
+    background-blend-mode: luminosity;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
 .search{
     position: absolute;
-    top: 20%;
+    top: 30%;
     right: 50%;
     transform: translate(50%, 50%);
     text-align: center;
@@ -84,7 +33,7 @@ a{
 .search h1{
     color: white;
     text-shadow: 1px -1px 15px gold;
-    font-size: 41px;
+    font-size: 53px;
     font-weight: 700;
     font-family: system-ui;;
 }
@@ -101,8 +50,6 @@ a{
         border: 1px solid #e3e3e3;
         border-radius: 14px;
         font-size: 25px;
-        /* color: white; */
-        /* font-size: 15px; */
         background: white;
         margin: 24px;
         padding: 10px 10px 10px 50px;
@@ -126,18 +73,16 @@ a{
         width: 50px;
         height: 50px;
         }
+
+      
         .wave{
             height: 50px;
             position: relative;
             background: linear-gradient(90deg, #27b6b9 0%, #0f4061 100%);
           }
           
-          /* Wave text css */
           #wave {
-            /* color:#fff;
-            text-align:center;
-            font-weight:bold;
-            font-size:24px; */
+     
             padding-top:25px;
             padding-bottom:25px;
             background: #f1f5f9;
@@ -169,4 +114,8 @@ a{
             background-size: 40px 20px;
             background-image:
               radial-gradient(circle at 10px 15px, #f1f5f9 12px, transparent 13px);
+          }
+          .d{
+              background: lightcoral;
+              height: 50px;
           }

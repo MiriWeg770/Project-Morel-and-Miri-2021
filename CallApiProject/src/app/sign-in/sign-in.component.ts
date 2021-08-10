@@ -13,16 +13,16 @@ import { UserService } from '../user.service';
 export class SignInComponent implements OnInit {
 
   // user:User;
-  hide: boolean = true;
-  flag: boolean = true;
-  pro: boolean = false;
-  myUser: User = new User(1, null, null, null);
-  constructor(private ser: UserService, private router: Router, public dialog: MatDialog, private _snackBar: MatSnackBar) { }
+  hide:boolean=true;
+  pro:boolean=false;
+  myUser:User= new User(1,null,null,null);
+  forget=false
+  constructor(private ser:UserService,private router:Router,public dialog:MatDialog,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
-
-
-
+    
+    
+    
   }
   // SignIn(){
   //     this.ser.SignIn(this.myUser).subscribe(succ => {
@@ -33,37 +33,45 @@ export class SignInComponent implements OnInit {
   //       console.log(err);
   //       // console.log(this.usersArr);
   //     })   
-
+         
   //   }
   openSnackBar() {
-    this._snackBar.open("   לא קיים משתמש כזה", "סגור", {
-      horizontalPosition: 'center',
-      verticalPosition: 'top'
+    this._snackBar.open("   לא קיים משתמש כזה", "סגור",{
+        horizontalPosition: 'center',
+        verticalPosition:'top' 
     });
   }
 
-  SignIn() {
-    this.pro = !this.pro;
-    this.ser.SignIn(this.myUser).subscribe(succ => {
-      this.myUser = succ
-      console.log(this.myUser)
-      localStorage.setItem("user", JSON.stringify(this.myUser));
-      this.ser.user = this.myUser;
-      this.router.navigate(["/MyHome/AllLists"])
+  SignIn(){
+    this.pro=!this.pro;
+    this.ser.SignIn(this.myUser).subscribe(succ => { 
+      if(succ!=null){
+       this.myUser=succ
+       console.log(this.myUser)    
+      localStorage.setItem("user", JSON.stringify(this.myUser));    
+       this.router.navigate(["/Home"])
+      }
+      else{
+        this.pro=!this.pro
+        this._snackBar.open("   סיסמה לא נכונה   ", "סגור",{
+          horizontalPosition: 'center',
+          verticalPosition:'top' 
+      });      }
     }, err => {
       console.log(err);
-      this.pro = !this.pro
+      this.pro=!this.pro
       this.openSnackBar()
-    })
-
-
+    })   
+   
+       
   }
 
 
 
 
-  openDialog() {
-    this.dialog.open(ResetPasswordComponent);
+  openDialog(){
+  //  this.dialog.open(ResetPasswordComponent);
+  document.getElementById("over").style.opacity="1";
   }
-
+ 
 }

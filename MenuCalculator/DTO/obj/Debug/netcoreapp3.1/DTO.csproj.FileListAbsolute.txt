@@ -70,3 +70,15 @@ C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Mi
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CopyComplete
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\DTO\obj\Debug\netcoreapp3.1\DTO.dll
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\DTO\obj\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\DTO\bin\Debug\netcoreapp3.1\DTO.deps.json
+C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\DTO\bin\Debug\netcoreapp3.1\DTO.dll
+C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\DTO\bin\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\DTO\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\DTO\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\DTO\obj\Debug\netcoreapp3.1\DTO.csprojAssemblyReference.cache
+C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfoInputs.cache
+C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\DTO\obj\Debug\netcoreapp3.1\DTO.AssemblyInfo.cs
+C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CoreCompileInputs.cache
+C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\DTO\obj\Debug\netcoreapp3.1\DTO.csproj.CopyComplete
+C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\DTO\obj\Debug\netcoreapp3.1\DTO.dll
+C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\DTO\obj\Debug\netcoreapp3.1\DTO.pdb

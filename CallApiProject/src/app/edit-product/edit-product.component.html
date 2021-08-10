@@ -1,0 +1,16 @@
+<div class="container">
+    <div class="page_box">עדכן מוצר 
+        <button  mat-button mat-dialog-close>
+    <mat-icon>close</mat-icon>
+    </button>    
+      <button (click)="saveProduct()" >הוסף
+     </button>
+      </div>
+    <div >
+          <input  type="text" placeholder="שם מוצר" [(ngModel)]="newProduct.ProductName">
+          <input  type="text" placeholder=" כמות" [(ngModel)]="newProduct.Amount">
+          <input  type="text" placeholder="שם יחידה" [(ngModel)]="newProduct.AmountName">
+          <input  type="text" placeholder="חברה " [(ngModel)]="newProduct.ProductCode">
+    
+      </div>
+    </div>

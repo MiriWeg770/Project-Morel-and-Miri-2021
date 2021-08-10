@@ -11,99 +11,100 @@ import { MenuService } from '../menu.service';
   styleUrls: ['./my-menus.component.css']
 })
 export class MyMenusComponent implements OnInit {
- listMenus:Menu[]=[
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,null),
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,null),
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,null),
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,null),
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,null),
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,null),
-]; 
-length=this.listMenus.length;
- u:User=new User(11,null,null,null);
- choose=false
-add=false
-newMenu:Menu;
-dataSource;
+  listMenus: Menu[] = [
+    new Menu(null, "ארוחת בוקר", "ccc", null, new Date(2000 - 25 - 25), null, null, null),
+    new Menu(null, "ארוחת בוקר", "ccc", null, new Date(2000 - 25 - 25), null, null, null),
+    new Menu(null, "ארוחת בוקר", "ccc", null, new Date(2000 - 25 - 25), null, null, null),
+    new Menu(null, "ארוחת בוקר", "ccc", null, new Date(2000 - 25 - 25), null, null, null),
+    new Menu(null, "ארוחת בוקר", "ccc", null, new Date(2000 - 25 - 25), null, null, null),
+    new Menu(null, "ארוחת בוקר", "ccc", null, new Date(2000 - 25 - 25), null, null, null),
+  ];
+  length = this.listMenus.length;
+  u: User = new User(0, null, null, null);
+  choose = false
+  add = false
+  newMenu: Menu = new Menu(0,null,null,0,null,null,0,null);
+  dataSource;
 
-  constructor(private dialog:MatDialog,private ser:MenuService) {
-   this.u= JSON.parse(localStorage.getItem("user"));
+  constructor(private dialog: MatDialog, private ser: MenuService) {
+    this.u = JSON.parse(localStorage.getItem("user"));
+    this.newMenu.userCode = this.u.userCode;
 
-   }
+  }
 
   ngOnInit(): void {
   }
 
-  GetAllMenus(){
+  GetAllMenus() {
     this.ser.GetAllMenus(this.u.userCode).subscribe(succ => {
-   }, err => {
+    }, err => {
       console.log(err);
-    }) 
- }
+    })
+  }
 
-   applyFilter(event: Event) {
-     const filterValue = (event.target as HTMLInputElement).value;
-     this.dataSource.filter = filterValue.trim().toLowerCase();
-   }
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
 
-   AddMenu(){
-   const dialogRef = this.dialog.open(AddMenuComponent, {
-   disableClose:true,
-   autoFocus:false
-   });
-   dialogRef.afterClosed().subscribe(result => {
-     console.log('The dialog was closed');    
-       this.GetAllMenus()
-  });  
+  AddMenu() {
+    const dialogRef = this.dialog.open(AddMenuComponent, {
+      disableClose: true,
+      autoFocus: false
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.GetAllMenus()
+    });
 
- }
- UpdateMenu(x:Menu){
-   const dialogRef = this.dialog.open(AddMenuComponent, {
-   disableClose:true,
-   autoFocus:false,
-   data:x
-   });
-   dialogRef.afterClosed().subscribe(result => {
-     console.log('The dialog was closed');
-     this.GetAllMenus()
-     console.log(result)
-  });
- }
+  }
+  UpdateMenu(x: Menu) {
+    const dialogRef = this.dialog.open(AddMenuComponent, {
+      disableClose: true,
+      autoFocus: false,
+      data: x
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      this.GetAllMenus()
+      console.log(result)
+    });
+  }
 
-//  checked:menu[]=[]
-//  check(x:Meal){
-//    if(!this.checked.includes(x))
-//      this.checked.push(x) 
-//  console.log(this.checked)
-//  }
-
-
-
-//    delet=false;
-//    Delet(x:menu,d=false) {
-//      console.log(x)
-//      const dialogRef = this.dialog.open(DeletMealComponent, {
-//        width: '20%',
-//        data: d
-//      });
-//      dialogRef.afterClosed().subscribe(result => {
-//        console.log('The dialog was closed');
-//        if(result){
-//        this.serm.DeleteMeal(x).subscribe(succ=>{
-//        console.log(succ)  
-//       this.GetAllMeals();
-//        },err => {
-//          console.log(err);
-//        }) }
-//      });
-//  }
+  //  checked:menu[]=[]
+  //  check(x:Meal){
+  //    if(!this.checked.includes(x))
+  //      this.checked.push(x) 
+  //  console.log(this.checked)
+  //  }
 
 
-//  DeletItems(){
-//    this.checked.forEach(element => {
-//        this.Delet(element,true)
-//    });
-//  }
+
+  //    delet=false;
+  //    Delet(x:menu,d=false) {
+  //      console.log(x)
+  //      const dialogRef = this.dialog.open(DeletMealComponent, {
+  //        width: '20%',
+  //        data: d
+  //      });
+  //      dialogRef.afterClosed().subscribe(result => {
+  //        console.log('The dialog was closed');
+  //        if(result){
+  //        this.serm.DeleteMeal(x).subscribe(succ=>{
+  //        console.log(succ)  
+  //       this.GetAllMeals();
+  //        },err => {
+  //          console.log(err);
+  //        }) }
+  //      });
+  //  }
+
+
+  //  DeletItems(){
+  //    this.checked.forEach(element => {
+  //        this.Delet(element,true)
+  //    });
+  //  }
 
 
 

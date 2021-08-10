@@ -1,0 +1,56 @@
+
+<mat-drawer-container >
+  <mat-drawer-content>
+   <mat-toolbar>
+       <!-- <div class="search">
+        <form>
+            <i class="fa fa-search"  aria-hidden="true"> </i>
+     <input type="search" class="s" placeholder="חפש" />                
+        </form>  
+    
+    </div> 
+    <div>
+      <mat-icon>person</mat-icon>
+    </div> -->
+
+    <mat-toolbar-row>
+      <div class="nav">
+            <!-- <button mat-icon-button routerLink="/User/MyAccount"  [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
+              <img src="../../assets/585e4beacb11b227491c3399.png" alt="user" class="user-image mr-1 p-2"> 
+             {{u.UserName}}
+            <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon> 
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="out()">
+                <mat-icon>exit_to_app</mat-icon>
+                Hציאה
+              </button>
+            </mat-menu> -->
+            <button matTooltip="{{u.UserName}}" mat-icon-button (click)="on()"><mat-icon>account_circle</mat-icon></button>
+            <button matTooltip="היסטוריית צפייה" mat-icon-button routerLink="/User/MyHistory"  routerLinkActive="active-link" ><mat-icon>history</mat-icon></button>
+          </div>
+      <div>
+        MenuCalculator
+      </div>
+      <div class="nav">
+      <button matTooltip="דף הבית" mat-icon-button routerLink="/Home" ><mat-icon>home</mat-icon></button>
+      <button matTooltip=" מנות" mat-icon-button routerLink="/User/MyMeals"  routerLinkActive="active-link"><mat-icon>ballot</mat-icon></button>
+      <button matTooltip="תפריטים " mat-icon-button routerLink="/User/MyMenus" routerLinkActive="active-link"><mat-icon>list_alt</mat-icon></button>
+      <button matTooltip="ארועים " mat-icon-button routerLink="/User/AddEvent" routerLinkActive="active-link"><mat-icon>event</mat-icon></button>
+      </div>
+     
+    </mat-toolbar-row>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>
+
+
+
+<div id="overlay" (click)="off()">
+  <app-my-account></app-my-account>
+</div>
+
+  
+  
+

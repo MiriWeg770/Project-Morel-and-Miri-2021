@@ -1,7 +1,7 @@
  
    <div class="body">
      
-     <div class="signInbox">
+     <div class="user">
          <div id="avatar" class='fas fa-user-circle' style='font-size:100px;'></div>
          <h1>הגדרות</h1>
          <form #myForm="ngForm" (ngSubmit)="SignIn()">
@@ -17,7 +17,7 @@
                <label> סיסמה</label>
                 <input  type="password"  name="password"  [(ngModel)]="u.password"  >
                </div>
-              
+              <button mat-button (click)="signOut()">יציאה</button>
  
      </form>
        </div>

@@ -11,10 +11,13 @@ import { User } from 'src/Models/User';
 export class MyAccountComponent implements OnInit {
 u:User= new User(null,"morel","1","morel@gmail.com")
   constructor(private router:Router) { 
-    // let u:User= JSON.parse(localStorage.getItem("user"));
+    let u:User= JSON.parse(localStorage.getItem("user"));
   
   }
-  
+  signOut(){
+    localStorage.removeItem("user");
+    this.router.navigate(["/Home"])
+  }
 
   ngOnInit(): void {
   }

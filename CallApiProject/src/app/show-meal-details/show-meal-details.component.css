@@ -1,3 +1,4 @@
+
 *{
     font-family:  system-ui;
     
@@ -7,8 +8,8 @@ mat-icon{
     cursor: pointer;
 }
 .body{
-    background: rgba(0,0,0,0.7)url(https://cdn.pixabay.com/photo/2017/01/11/11/33/cake-1971552_960_720.jpg);
-    background: rgba(0,0,0,0.7)url(https://cdn.pixabay.com/photo/2016/11/12/21/15/pasta-1819782_640.jpg);
+    /* background: rgba(0,0,0,0.7)url(https://cdn.pixabay.com/photo/2017/01/11/11/33/cake-1971552_960_720.jpg); */
+    /* background:#f1f5f9 url(https://cdn.pixabay.com/photo/2016/11/12/21/15/pasta-1819782_640.jpg); */
     
     /* background-image: ; */
 background-attachment: fixed;
@@ -16,13 +17,13 @@ background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
     background-blend-mode: darken ;
-    color: white;
+    /* color: white; */
 }
 
 
 .header{
     background-blend-mode: normal;
-    background: rgb(0 0 0 / 69%)url(https://cdn.pixabay.com/photo/2016/11/12/21/15/pasta-1819782_640.jpg);
+    background: rgb(0 0 0 / 69%)url(https://www.foodisgood.co.il/wp-content/uploads/2021/01/fattoush-salad.jpg);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -84,6 +85,18 @@ background-attachment: fixed;
     line-height: 20px;
     margin-bottom: 20px;
     font-size: 16px;
+    display: flex;
+    direction: rtl;
+    justify-content: space-around;
+
+}
+.d{
+    background-color: rgb(0 0 0 / 87%);
+    height: 85px;
+    margin-top: -12px;
+    color: white;
+    border-bottom: 6px double gold;
+
 }
 .date{
     display: inline-block;
@@ -91,7 +104,6 @@ background-attachment: fixed;
 .byline{
     display: inline-block;
     margin-left: 20px;
-    color: #333;
 }
 .counter{
     font-size: 14px;
@@ -105,8 +117,7 @@ background-attachment: fixed;
 
 
 .container{
-    
-    width: 1140px;
+    padding: 0 102px;
     margin: 0 auto;
     clear: both;
 text-align: center;}
@@ -131,7 +142,7 @@ ul.tags li{
     height: inherit;
     float: right;
     padding: 0 18px;
-    border-left: 1px rgba(0,0,0,0.2) solid;
+    border-left: 1px #eee solid;
     font-size: 21px;
     font-family: 'Barlev';
     line-height: 30px;
@@ -140,29 +151,64 @@ ul.tags li span {
     display: block;
 font-weight: 700;}
 ul.social-share{
-    height: 30px;
+    height: 56px;
     list-style: none;
     display: flex;
+    align-items: center;
 }
 ul.social-share li{
     margin-left: 20px;
-
+}
+ul.social-share mat-icon:hover{
+    color: gold;
 }
 
 .single_content{
     direction: rtl;
     display: flex;
+    margin-bottom: 74px;
 }
-.ingredients{
+.ingredients , .Products{
     text-align: right;
     width: 49%;
     margin: 5px;
     background-color: #f1f1f12e;
     padding: 18px;
+    border: 2px solid #d3d3d330;
+
+    
 }
-.ingredients label{
+ .Products span{
+    /* color: white; */
+    /* font-weight: 600; */
+    padding: 10px;
+}
+.ingredients div {
+    padding: 7px;
+    color: brown;
+    display: inline-block;
+    background: rgb(249 171 0 / 20%);
+    width: 24px;
+    height: 34px;
+    border-radius: 50%;
+    font-weight: 700;
+    margin-left: 10px;
+
+}
+.ingredients label, .Products label{
     font-size: 27px;
     font-weight: 600;
+}
+
+.Products ul li {
+    font-size: 17px;
+    margin: 14px 0px;
+    list-style: square;
+}
+.ingredients ul li {
+    font-size: 17px;
+    margin: 14px 0px;
+    list-style: none;
 }
 .nots{
     border-top: 1px solid;
@@ -174,29 +220,14 @@ ul.social-share li{
     font-weight: 600;
 }
 
-.text-divider{
-    line-height: 0;
-    text-align: center;
-    color: gold;
-}
-.text-divider span{
-    
-    background-color: rgb(0 0 0);
-    padding: 17px;
-    border: 2px solid;
-    box-shadow: 0px 0px 8px 2px white;
-    border-radius: 12px 0px;
 
-}
-/* .text-divider::before{
+.comments::before{
     content: " ";
     display: block;
     border-top: 1px solid #e3e3e3;
     border-bottom: 1px solid #f7f7f7;
-} */
-.level{
-    margin: 45px 0px;
 }
+
 .model{
     width: 100%;
     height: 100%;
@@ -223,7 +254,6 @@ ul.social-share li{
     font-family: 'Barlev';
     float: left;
     width: 50%;
-    /* height: calc(100% - 100px); */
     padding: 50px 40px;
     font-size: 50px;
     line-height: 50px;
@@ -242,31 +272,22 @@ ul.social-share li{
     display: block;
     margin-top: 30px;
     height: 349px;
+    text-align: center;
+    font-weight: 600;
 }
 .email .details{
  width: 50%;
  float: right;
  
 }
-/* .email.details .close{
-    left: 15px;
-    right: inherit;
-    position: absolute;
-    right: 15px;
-     top: 15px;
-}
-.email.details .close::after{
-    display: block;
-    font-family: 'Timeout';
-    content: "\e924";
-    font-size: 15px;
-    cursor: pointer;
-    color: #1e1e1e;
-    line-height: 15px;
-} */
+
 .close{
     float: left;
     padding: 12px;
+    color: black;
+}
+.close mat-icon{
+    font-size: 28px;
 }
 .email .details form{
     /* float: left; */
@@ -275,30 +296,25 @@ ul.social-share li{
 }
 .email .details form .row{
     margin-bottom: 25px;
-    line-height: 0;
 }
 .email .details form textarea{
     resize: none;
     width: 293px;
     height: 107px;
-
+    border: 1px solid;
+    outline: none;
 }
 
-.email .details .row input , textarea{
-    font-family: 'Abraham';
-    width: 100%;
-    font-size: 16px;
-    border: 0;
-    border-bottom: 1px solid;
-    padding: 0 0 5px 0;
-    border-radius: 0;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    border-bottom-color: #1e1e1e;
-    background: #fff;
-    color: #1e1e1e;
 
+
+.email .details .row input {
+        width: 100%;
+        font-size: 18px;
+        border: none;
+        border-bottom: 1px solid;
+        padding: 0 0 5px 0;
+        outline: none;
+     
 }
 form{
     float: left;
@@ -306,9 +322,7 @@ form{
     padding: 50px 40px 0 40px; 
 }
 input[type="submit"]{
-    font-family: 'Abraham';
-    text-align: center;
-    width: 200px;
+    width: 100%;
     height: 34px;
     line-height: 35px;
     border-radius: 20px;
@@ -316,41 +330,25 @@ input[type="submit"]{
     border: 0;
     font-weight: 500;
     font-size: 16px;
-    text-transform: capitalize;
-    display: inline-block;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
     color: #fff;
     background: #1e1e1e;
-    box-sizing: border-box;
-cursor: pointer;
+    cursor: pointer;
 }
 
-/* 
-.parallax{
-    background: url(../../assets/2.jpg) no-repeat center;
-    background-size: cover;
-    background-attachment:fixed ;
-    height: 500px;
-}
- */
-.comments{
 
-border: 2px dashed gold;
-background: rgb(0 0 0 / 54%);}
  .comments h5{
   font-size: 16px;
   text-align: end;
  }
 .comments li{
     text-align: right;
-    /* float: right; */
     direction: rtl;
     font-size: 20px;
     padding: 13px;
+    border: 2px solid #cccccc69;
     display: flex;
-    /* border-bottom: 1px solid #eee; */
+    border-radius: 8px;
+    margin: 5px 0;
 }
 .comments li mat-icon{
     background-color: #b0b0b0;
@@ -376,4 +374,28 @@ background: rgb(0 0 0 / 54%);}
     border-radius: .25rem;
     border-color: rgba(0,0,0,.1);
 }
-
+.comments .level{
+    padding: 4px 0;}
+.comments .level mat-icon{
+    background: none;
+    margin: -6px;
+}
+.comments .level mat-icon:hover{
+   color: gold;
+}
+.more{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    padding: 9px 9px;
+    text-align: end;
+    display: grid;
+}
+.more ul{
+    display: inline-block;
+}
+.more ul li{
+    background-color: #1e1e1e;
+}
