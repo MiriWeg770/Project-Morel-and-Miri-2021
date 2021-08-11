@@ -6000,11 +6000,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\MenuCalculator\\WebApi\\WebApi.csproj",
+      "projectUniqueName": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\WebApi\\WebApi.csproj",
       "projectName": "WebApi",
-      "projectPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\MenuCalculator\\WebApi\\WebApi.csproj",
+      "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\WebApi\\WebApi.csproj",
       "packagesPath": "C:\\Users\\מירי\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\MenuCalculator\\WebApi\\obj\\",
+      "outputPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\WebApi\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -6025,11 +6025,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\MenuCalculator\\BLL\\BLL.csproj": {
-              "projectPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\MenuCalculator\\BLL\\BLL.csproj"
+            "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\BLL\\BLL.csproj": {
+              "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\BLL\\BLL.csproj"
             },
-            "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\MenuCalculator\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\MenuCalculator\\DAL\\DAL.csproj"
+            "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj"
             }
           }
         }
@@ -6073,7 +6073,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

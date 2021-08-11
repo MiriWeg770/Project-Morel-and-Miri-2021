@@ -34,7 +34,7 @@ export class SignUpComponent implements OnInit {
 
   SignUp(pass){
     this.pro=!this.pro;
-    if(this.myUser.Password==pass){
+    if(this.myUser.password==pass){
     this.ser.SignUp(this.myUser).subscribe(succ => {  
           console.log(succ);
           this.myUser=succ        

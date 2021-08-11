@@ -5746,11 +5746,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\MenuCalculator\\BLL\\BLL.csproj",
+      "projectUniqueName": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\BLL\\BLL.csproj",
       "projectName": "BLL",
-      "projectPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\MenuCalculator\\BLL\\BLL.csproj",
+      "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\BLL\\BLL.csproj",
       "packagesPath": "C:\\Users\\מירי\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\MenuCalculator\\BLL\\obj\\",
+      "outputPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\BLL\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -5771,11 +5771,11 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\MenuCalculator\\DAL\\DAL.csproj": {
-              "projectPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\MenuCalculator\\DAL\\DAL.csproj"
+            "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj": {
+              "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj"
             },
-            "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\MenuCalculator\\DTO\\DTO.csproj": {
-              "projectPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\MenuCalculator\\DTO\\DTO.csproj"
+            "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DTO\\DTO.csproj": {
+              "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DTO\\DTO.csproj"
             }
           }
         }
@@ -5804,7 +5804,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
       }
     }
   }

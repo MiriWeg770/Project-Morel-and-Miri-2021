@@ -12,7 +12,7 @@
   <div class="details">
     <div class="form s">
       <label>שם המנה</label>
-      <input type="text" name="MealName" [(ngModel)]="newMeal.MealName"/>
+      <input type="text" name="MealName" [(ngModel)]="newMeal.mealName"/>
       <label>קטגוריה</label>
       <select name=" ">
         <option value="">...</option>
@@ -34,13 +34,13 @@
 
       </select>
       <label>כמות סועדים</label>
-      <input type="text" name="NumberOfDiners" [(ngModel)]="newMeal.NumberOfDiners">
+      <input type="text" name="NumberOfDiners" [(ngModel)]="newMeal.numberOfDiners">
     </div>
     <div class="form s">
       <label>תאור המנה</label>
-      <textarea id="discription" name="Discription" [(ngModel)]="newMeal.Discription"></textarea>
+      <textarea id="discription" name="Discription" [(ngModel)]="newMeal.discription"></textarea>
       <label> אופן ההכנה </label>
-      <textarea id="how" name="Instructions" [(ngModel)]="newMeal.Instructions"></textarea>
+      <textarea id="how" name="Instructions" [(ngModel)]="newMeal.instructions"></textarea>
     </div>
     <div class="form products">
       <div class="title"> מוצרים </div>
@@ -58,9 +58,9 @@
           </tr>
         </table>
         <div class="input">
-          <input type="text" placeholder="שם מוצר" name="ProductName" [(ngModel)]="newProduct.ProductName">
-          <input type="number" placeholder="כמות" name="Amount" [(ngModel)]="newProduct.Amount">
-          <select name="AmountName" [(ngModel)]="newProduct.AmountName">
+          <input type="text" placeholder="שם מוצר" name="ProductName" [(ngModel)]="newProduct.productName">
+          <input type="number" placeholder="כמות" name="Amount" [(ngModel)]="newProduct.amount">
+          <select name="AmountName" [(ngModel)]="newProduct.amountName">
             <option value="">...</option>
             <option value="">קילו גרם</option>
             <option value="">ליטר</option>

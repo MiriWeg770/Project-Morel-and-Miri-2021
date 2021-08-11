@@ -20,13 +20,13 @@ import { ShowMealDetailsComponent } from './show-meal-details/show-meal-details.
 import { AddMealComponent } from './add-meal/add-meal.component';
 import { UserComponent } from './user/user.component';
 import { CalendarComponent } from './calendar/calendar.component';
+import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
-  {path:"Home", component:HomeComponent},
+  // {path:"Home", component:HomeComponent},
   {path:"SignUp", component:SignUpComponent},
   {path:"SignIn", component:SignInComponent},
-  {path:"MyHome", component:MyHomeComponent,children:[
-   
+  {path:"Home", component:HeaderComponent,children:[
     {path:"AllLists",component:AllListsComponent},
     {path:"MyLists",component:MyListsComponent},
     {path:"Settings",component:SettingsComponent},
@@ -35,11 +35,9 @@ const routes: Routes = [
     {path:"ShowMealDetails",component:ShowMealDetailsComponent}, 
     {path:"ShowMenuDetails",component:ShowMenuDetailsComponent}, 
     {path:"MyAccount",component:MyAccountComponent},
-
-    {path:"", redirectTo:"MyHome", pathMatch:"full"},
-    {path:"**", redirectTo:"MyHome", pathMatch:"full"}
+    {path:"", component:HomeComponent, pathMatch:"full"},
+    {path:"**",component:HomeComponent, pathMatch:"full"},
   ]},
-  {path:"ResetPassword",component:ResetPasswordComponent},
   {path:"User",component:UserComponent,children:[
     {path:"AddMeal", component:AddMealComponent},
     {path:"MyMeals",component:MyMealsComponent},
@@ -47,7 +45,9 @@ const routes: Routes = [
     {path:"AddMenu", component:AddMenuComponent},
     {path:"AddEvent", component:CalendarComponent},
     {path:"MyHistory",component:MyHistoryComponent},
+    {path:"", redirectTo:"MyMeals", pathMatch:"full"},
   ]},
+  {path:"ResetPassword",component:ResetPasswordComponent},
   {path:"", redirectTo:"Home", pathMatch:"full"},
   {path:"**", redirectTo:"SignIn", pathMatch:"full"}
 ];

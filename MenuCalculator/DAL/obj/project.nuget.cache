@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "VIrt+wTqPDC6nC8jt4P/3EADbR63YKmNDBN4uv4+fa7fXt2ESCR4HJNVryBp63pDJO9kKCbJ8WIgg/8eng/bYA==",
+  "dgSpecHash": "sJCQubsB4lAO4LHEQYkRuris3zaVdDW0BWZG3Nj++JJfATrrZg/5gVIcTI3fejapgfazI5BqTFCsIK1zb2B6rQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\MenuCalculator\\DAL\\DAL.csproj",
+  "projectFilePath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\מירי\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\מירי\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

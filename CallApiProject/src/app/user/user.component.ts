@@ -14,7 +14,7 @@ export class UserComponent implements OnInit {
  u:User=new User(null,"morel",null,null)
   constructor(private router:Router,public dialog:MatDialog) { 
     this.u= JSON.parse(localStorage.getItem("user"));
-    console.log(this.u.UserName)
+    console.log(this.u.userName)
   }
 
   ngOnInit(): void {

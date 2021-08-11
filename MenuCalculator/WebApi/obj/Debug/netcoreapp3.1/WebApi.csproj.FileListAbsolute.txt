@@ -411,7 +411,6 @@ C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Mi
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\BLL.pdb
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\DAL.pdb
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\DTO.pdb
-C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csprojAssemblyReference.cache
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.AssemblyInfoInputs.cache
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.AssemblyInfo.cs
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csproj.CoreCompileInputs.cache
@@ -499,3 +498,5 @@ C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\De
 C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.dll
 C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.pdb
 C:\Users\מירי\Desktop\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.genruntimeconfig.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csproj.AssemblyReference.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.GeneratedMSBuildEditorConfig.editorconfig
