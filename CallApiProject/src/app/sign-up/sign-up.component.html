@@ -1,8 +1,8 @@
 <mat-progress-bar *ngIf="pro" mode="indeterminate"></mat-progress-bar>
 <!-- <button mat-stroked-button (click)="openSnackBar('כבר קיים משתמש כזה', 'סגור')">Show snack-bar</button> -->
 
-<header>
-</header>
+<!-- <header>
+</header> -->
   <div class="body">
     <div class="title"><a routerLink="/Home"> Menu
   Calculator</a>
@@ -41,23 +41,13 @@
           <!-- סיסמה -->       
           <div>
             <label>הכנס סיסמה</label>
-            <div class="pass">
-            <input  [type]="hide ? 'password' : 'text'"  name="Password" #Password [(ngModel)]="myUser.Password"  required #password="ngModel">
-            <button mat-icon-button matSuffix (click)="hide=!hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-              <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-            </button>
-          </div>
+            <input  [type]="hide ? 'password' : 'text'"  name="Password" #Password [(ngModel)]="myUser.password"  required #password="ngModel">
             </div>
 
             <div>
               <label>אמת סיסמה</label>
-              <div class="pass">
               <input  [type]="hide ? 'password' : 'text'"  name="Password2" #Password2  required >
-              <button mat-icon-button matSuffix (click)="hide=!hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </button>
             </div>
-              </div>
   
 
           <div *ngIf="Password.value!=Password2.value">
@@ -72,7 +62,7 @@
         *זהו שדה חובה
     </div>  -->
       <button class="submit" (click)="SignUp(Password2.value)" [disabled]="!myForm.valid" >הירשם</button>
-      <p><a routerLink="/SignIn"> התחבר </a></p>    
+      <p><a routerLink="/Home/SignIn"> התחבר </a></p>    
      </form>
       </div>
     </div>

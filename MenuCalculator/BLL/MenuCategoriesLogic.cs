@@ -6,7 +6,7 @@ using System.Text;
 
 namespace BLL
 {
-    public class MenuCategoriesLogic : IMenuCategoriesLogic
+    class MenuCategoriesLogic:IMenuCategoriesLogic
     {
         private MenuCalculatorContext _context;
 
@@ -26,7 +26,7 @@ namespace BLL
                 throw e;
             }
         }
-
+  
         public MenuCategoriesDto DeletCategory(MenuCategoriesDto m)
         {
             throw new NotImplementedException();

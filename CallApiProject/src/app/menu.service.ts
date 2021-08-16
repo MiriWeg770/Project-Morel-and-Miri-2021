@@ -7,7 +7,6 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-
 export class MenuService {
 
   constructor(private http:HttpClient) { }

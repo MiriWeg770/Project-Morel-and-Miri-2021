@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "M85vWEmh+y4wBwpNgrPYpMhpj4ZCGTbU8g5/E28oq91UUuh9XRzh8p90TnmzGjQscTo1YPD17a1vq9u7UEuLCA==",
+  "dgSpecHash": "uHGtiXcg1WP8Y+Z23vQw8gp3FSi8GGId42C7kM6w5KlHDnvPtbjjOCYUL0a/newAxiNzxkDs8DehhyVq+QOFMg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\WebApi\\WebApi.csproj",
+  "projectFilePath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\CallApiProject\\MenuCalculator\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\מירי\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\מירי\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",

@@ -19,7 +19,7 @@ export class ShowMealDetailsComponent implements OnInit {
     new Product(null,"חסה",12,"גרם",null),
     new Product(null,"חסה",12,"גרם",null),
   ]
-  meal: Meal= new Meal(1,"סלט","bfbtr",12,"סלט איטלקי מלא במליחות ים תיכונית. שמן הזית, הלימון והבלסמי יוצרים תחמיץ נפלא, שעובד גם עם ברוקולי",1,11,1,"שם",this.prosucts);
+  meal: Meal= new Meal(1,"סלט","bfbtr",12,"סלט איטלקי מלא במליחות ים תיכונית. שמן הזית, הלימון והבלסמי יוצרים תחמיץ נפלא, שעובד גם עם ברוקולי",1,11,1,null,null);
  
   bgVariable:Boolean=false
   headerVariable:boolean=false

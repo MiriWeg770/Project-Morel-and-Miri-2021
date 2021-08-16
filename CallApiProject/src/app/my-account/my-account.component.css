@@ -87,3 +87,9 @@ button{
     font-size: 19px;
     font-weight: bolder;  
 }
+.close{
+    position: absolute;
+    left: 22px;
+    top: 19px;
+    cursor: pointer;
+}

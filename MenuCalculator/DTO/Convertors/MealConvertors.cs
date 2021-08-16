@@ -1,6 +1,7 @@
 ﻿using DAL.Models;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace DTO.Convertors
@@ -14,7 +15,7 @@ namespace DTO.Convertors
                 Discription = m.Discription,
                 Instructions = m.Instructions,
                 MealCategoryCode = m.MealCategoryCode,
-                //MealCode = m.MealCode,
+                MealCode = m.MealCode,
                 MealName = m.MealName,
                 NumberOfDiners = m.NumberOfDiners,
                 NumberOfViews = m.NumberOfViews,
@@ -37,7 +38,7 @@ namespace DTO.Convertors
                 NumberOfDiners = m.NumberOfDiners,
                 NumberOfViews = m.NumberOfViews,
                 UserCode = m.UserCode,
-                //Products=ProductConvertors.ToProductDtoList(m.MealProducts)
+                Products=ProductConvertors.ToProductDtoList(m.MealProducts.ToList())
                 
             };
         }

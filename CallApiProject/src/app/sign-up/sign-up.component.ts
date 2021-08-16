@@ -39,7 +39,7 @@ export class SignUpComponent implements OnInit {
           console.log(succ);
           this.myUser=succ        
       localStorage.setItem("user", JSON.stringify(this.myUser));    
-       this.router.navigate(["/MyHome/AllLists"])
+       this.router.navigate(["/Home"])
     }, err => {
       console.log(err);
       this.pro=!this.pro

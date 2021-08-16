@@ -65,5 +65,12 @@ namespace WebApi.Controllers
 
         }
 
+        [HttpGet("GetProductsMeal/{id}")]
+        public IActionResult GetProductsById(int id)
+        {
+            return Ok(_logic.GetMealProducts(id));
+        }
+        
+
     }
 }

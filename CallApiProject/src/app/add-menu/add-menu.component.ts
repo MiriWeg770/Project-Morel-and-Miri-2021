@@ -17,7 +17,7 @@ export class AddMenuComponent implements OnInit {
 
   ngOnInit(): void {
   }
-  saveMenu() {
+  saveMeal() {
     console.log(this.newMenu)
     this.ser.AddMenu(this.newMenu).subscribe(succ => {
       console.log(succ);

@@ -1,7 +1,7 @@
 
 
 <mat-progress-bar *ngIf="pro" mode="indeterminate"></mat-progress-bar>
-<header></header>
+<!-- <header></header> -->
 
   <div class="body">
      <div class="title" ><a routerLink="/Home"> Menu
@@ -26,12 +26,8 @@
              <!-- סיסמה -->       
              <div>
               <label>הכנס סיסמה</label>
-              <div class="pass">
               <input  [type]="hide ? 'password' : 'text'"  name="Password" #Password [(ngModel)]="myUser.Password"  required #password="ngModel">
-              <button mat-icon-button matSuffix (click)="hide=!hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
-                <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
-              </button>
-            </div>
+             
               </div>
               <div  *ngIf="password.hasError('required') && password.touched" >
                 <i style="color: red;" >*זהו שדה חובה</i> 
@@ -41,7 +37,7 @@
 
         <button class="submit"  [disabled]="!myForm.valid" >כנס</button>
 
-      <p><a routerLink="/SignUp">צור חיבור</a></p>
+      <p><a routerLink="/Home/SignUp">צור חיבור</a></p>
   
     </form>
     </div>
@@ -56,7 +52,7 @@
         </div>    
              <!-- סיסמה -->       
          
-        <button class="submit"  [disabled]="!myForm.valid" >שלח</button>
+        <button class="submit"  [disabled]="!myForm.valid" (click)="sendEmail('sss')">שלח</button>
         <div>
           <label> הכנס  קוד אימות  </label>
           <input  type="text"  name="userName"  [(ngModel)]="myUser.UserName"  pattern="[A-Za-z]{4,20}" required #userName="ngModel">

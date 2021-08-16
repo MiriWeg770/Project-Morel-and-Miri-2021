@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BLL
 {
-  public interface IMenuCategoriesLogic
+   public interface IMenuCategoriesLogic
     {
         List<MenuCategoriesDto> GetAllCategories();
         MenuCategoriesDto GetCategoryById(int id);

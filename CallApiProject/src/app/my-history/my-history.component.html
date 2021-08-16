@@ -1,39 +1,30 @@
 
-
-<div *ngIf="u==null"  class="user">
-    <mat-icon>history</mat-icon>
-<h1>כאן אפשר לעקוב אחרי התוכן שצפית בו</h1>
-    <h3> לא ניתן לצפות בהסטוריית הצפייה לאחר שיצאת מהחשבון </h3>
-<button mat-raised-button routerLink="/SignIn">כניסה<mat-icon class="user">account_circle</mat-icon></button>
-
-<!-- <button  >כניסה
-         </button> -->
-</div>
-
-
 <div class="body" *ngIf=" u!=null" >
-    <mat-toolbar *ngIf="!clicked" class="not_click">
-        <h2>  היסטוריה</h2>
+    <div class="page_box" *ngIf="!clicked" >
+        <div class="search-input"><input (keyup)="applyFilter($event)" #input placeholder="חיפוש בהיסטוריה" name="search"/></div>   
+           <div>היסטוריה</div>
+      </div>
+      
+    <!-- <mat-toolbar  class="page_box">
+        <h2>  </h2>
         <form>
-            <input type="search" placeholder="חיפוש בהיסטוריה" name="search">
-            <!-- <button type="submit"><i class="fa fa-search"></i></button> -->
-          </form>      
-         </mat-toolbar> 
+            <input type="search" >
+          </form>     
+         </mat-toolbar>  -->
           
-         <mat-toolbar *ngIf="clicked" class="click">
-             <div class="contain">
+         <div *ngIf="clicked"  class="click page_box">
+        <div class="contain">
          <div id="icon" (click)="clicked=false"><mat-icon>close</mat-icon></div>
          <div class="number_select">פריטים נבחרו </div>
          <button mat-raised-button (click)="clicked=false"> ביטול</button>  
         <button mat-raised-button> מחיקה</button>
           </div>
-         </mat-toolbar> 
+        </div> 
 
 
 
   <div class="history-cards"> 
   
- 
     <mat-card class="date">
          <p>אתמול - יום חמישי 25 ביוני 2021</p>
          <mat-divider></mat-divider>
@@ -62,11 +53,7 @@
          <div *ngIf="historyList==null" class="icon">
         <mat-icon>list_alt</mat-icon>
     <h1>     היסטוריה שלך ריקה      </h1>
-        <!-- <h3> לא ניתן לצפות בהסטוריית הצפייה לאחר שיצאת מהחשבון </h3> -->
-    <!-- <button mat-raised-button routerLink="/SignIn">כניסה<mat-icon class="user">account_circle</mat-icon></button> -->
     
-    <!-- <button  >כניסה
-             </button> -->
     </div>
     
     

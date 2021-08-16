@@ -10,16 +10,15 @@
   </mat-toolbar>
 
   <div class="details">
+
     <div class="form s">
+
       <label>שם המנה</label>
-      <input type="text" name="MealName" [(ngModel)]="newMeal.mealName"/>
+      <input type="text" name="MealName" [(ngModel)]="newMeal.mealName" />
+
       <label>קטגוריה</label>
-      <select name=" ">
-        <option value="">...</option>
-        <option value="">כ</option>
-        <option value="">כ</option>
-        <option value="">כ</option>
-        <option value="">כ</option>
+      <select name=" " [(ngModel)]="selectCa">
+        <option *ngFor="let x of categories; let i=index" value={{x.mealCategoriesName}} >{{x.mealCategoriesName}}</option>
         <option value="">הוסף קטגוריה</option>
       </select>
       <!-- <input type="text"  [(ngModel)]="newMeal.MealCategoryCode" >  -->
@@ -27,14 +26,13 @@
       <input type="text">
       <label>דרגת קושי</label>
       <select name=" ">
-        <option value="">...</option>
         <option value="">קל</option>
         <option value="">בינוני</option>
         <option value="">קשה</option>
 
       </select>
       <label>כמות סועדים</label>
-      <input type="text" name="NumberOfDiners" [(ngModel)]="newMeal.numberOfDiners">
+      <input type="number" name="NumberOfDiners" [(ngModel)]="newMeal.numberOfDiners">
     </div>
     <div class="form s">
       <label>תאור המנה</label>
@@ -47,29 +45,32 @@
       <div class="list">
         <table>
           <tr>
+            <th></th>
             <th>שם מוצר</th>
             <th>כמות</th>
             <th>שם יחידה</th>
           </tr>
           <tr *ngFor="let x of ELEMENT_DATA">
-            <td>{{x.ProductName}}</td>
-            <td>{{x.Amount}} </td>
-            <td>{{x.AmountName}}</td>
+            <td></td>
+            <td>{{x.productName}}</td>
+            <td>{{x.amount}} </td>
+            <td>{{x.amountName}}</td>
           </tr>
         </table>
         <div class="input">
-          <input type="text" placeholder="שם מוצר" name="ProductName" [(ngModel)]="newProduct.productName">
-          <input type="number" placeholder="כמות" name="Amount" [(ngModel)]="newProduct.amount">
-          <select name="AmountName" [(ngModel)]="newProduct.amountName">
-            <option value="">...</option>
-            <option value="">קילו גרם</option>
-            <option value="">ליטר</option>
-            <option value="">יחידה</option>
+          <input type="text" placeholder="שם מוצר" [(ngModel)]="newProduct. productName">
+          <input type="number" placeholder="כמות" [(ngModel)]="newProduct.amount">
+          <select name="AmountName" [(ngModel)]="selectAm">
+            <option value="גרם">גרם </option>
+            <option value="ליטר ">ליטר</option>
+            <option value="יחידה">יחידה</option>
           </select>
           <button (click)="addProduct()">
             <mat-icon>add_circle_outline</mat-icon>
           </button>
+
         </div>
+
       </div>
     </div>
   </div>

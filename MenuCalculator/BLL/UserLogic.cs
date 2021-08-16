@@ -73,8 +73,10 @@ namespace BLL
 
         public UserDto SignIn(string Name, string password)
         { 
-            var t =  _context.Users.FirstOrDefault(o => o.UserName == Name && o.Password == password);
-            return  UserConvertors.ToUserDto(t);
+            var t = _context.Users.FirstOrDefault(o => o.UserName == Name && o.Password == password);
+            if(t!=null)
+               return  UserConvertors.ToUserDto(t);
+            return null;
         }
 
     

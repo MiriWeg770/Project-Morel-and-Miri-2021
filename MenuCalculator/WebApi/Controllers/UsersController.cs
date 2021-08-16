@@ -8,6 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using DTO.Convertors;
+using System.Net.Mail;
+using System.Net;
 
 namespace WebApi.Controllers
 {
@@ -44,7 +46,6 @@ namespace WebApi.Controllers
             if (!_logic.IsExists(u))
                 return NotFound( "מצטערים אין כזה משתמש");
             return Ok(_logic.SignIn(u.UserName, u.Password));
-
         }
         [HttpPost("SignUp")]
         public IActionResult SignUp([FromBody] UserDto u)
@@ -60,7 +61,39 @@ namespace WebApi.Controllers
                 throw e;
             }
         }
-       
+
+        [HttpPost("Update")]
+        public IActionResult Update(UserDto u)
+        {
+            if (!_logic.IsExists(u))
+                return NotFound("מצטערים אין כזה משתמש");
+            return Ok(_logic.UpdateUser(u));
+        }
+
+        //[HttpPost]
+        //public void sendMail()
+        //{
+        //    MailMessage m = new MailMessage();
+        //    m.To.Add("morelchakima@gmail.com");
+        //    m.From = new MailAddress("ddd@gmail.com");
+        //    m.Body = "jjjj";
+        //    m.Subject = "test";
+        //    SmtpClient s = new SmtpClient("smtp.gmail.com");
+        //    s.EnableSsl = true;
+        //    s.Port = 587;
+        //    s.DeliveryMethod = SmtpDeliveryMethod.Network;
+        //    s.Credentials = new NetworkCredential("morelchakima@gmail.com", "morel2000");
+        //    try
+        //    {
+        //        s.Send(m);
+        //    }
+        //    catch(Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
+
+
     }
 }
 

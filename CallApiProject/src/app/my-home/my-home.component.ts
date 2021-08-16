@@ -33,9 +33,8 @@ export class MyHomeComponent implements OnInit {
  
 // name:string;
 u:User;
- constructor(public dialog:MatDialog){
+ constructor(public dialog:MatDialog,private router:Router){
   this.u= JSON.parse(localStorage.getItem("user"));
-
 }
  sideBarToggler(){
   this.sideBarOpen=!this.sideBarOpen;

@@ -1,10 +1,9 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BLL",
     "\\WebApi",
     "\\WebApi\\Controllers"
   ],
-  "SelectedNode": "\\BLL\\MealCategoriesLogic.cs",
+  "SelectedNode": "\\WebApi\\Controllers\\MenusController.cs",
   "PreviewInSolutionExplorer": false
 }

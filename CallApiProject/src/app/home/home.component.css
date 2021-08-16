@@ -4,39 +4,47 @@
  width: 100%;  
 }
 
-.content1 {
-    height: 100%;    
-    background: url("http://vecurosoft.com/products/html/grillinator/assets/img/hero-img.jpg");
-    background-blend-mode: luminosity;
-    background-attachment: fixed;
-    background-position: center;
+header{
+    background: url("https://www.chitrakootweb.com/template/cefrax/img/bg9.jpg");
+
+   
     background-repeat: no-repeat;
-    background-size: cover;
-}
-.content2 {
-    height: 100%;    
-    background: url("https://images.unsplash.com/photo-1493770348161-369560ae357d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1050&q=80.jpg");
-    background-blend-mode: luminosity;
+    background-size: cover; 
+    background-position: 0px 0px;
+    overflow: hidden;
+height: 100%;
     background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
+/* header::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1;
+    background: #000;
+    opacity: 0.2;
+    height: 100%;
+
+} */
 
 .search{
     position: absolute;
+    z-index: 2;
     top: 30%;
     right: 50%;
     transform: translate(50%, 50%);
     text-align: center;
+    animation-name: text 0.3s;
 }
 .search h1{
-    color: white;
-    text-shadow: 1px -1px 15px gold;
-    font-size: 53px;
+    font-size: 60px;
     font-weight: 700;
-    font-family: system-ui;;
+    animation-delay: 0.8s;
+    font-family: system-ui;
+    color: white;
 }
+
 .search-input{
     padding: 20px;
     display: contents;
@@ -75,7 +83,7 @@
         }
 
       
-        .wave{
+        /* .wave{
             height: 50px;
             position: relative;
             background: linear-gradient(90deg, #27b6b9 0%, #0f4061 100%);
@@ -88,34 +96,33 @@
             background: #f1f5f9;
             
           }
-          /* */
-          
+        
           
           #wave::before{
-            content: "";
             position: absolute;
             left: 0;
-            bottom: 0;
+            bottom: 150px;
             right: 0;
             background-repeat: repeat;
             height: 10px;
             background-size: 20px 20px;
-            background-image:
-             radial-gradient(circle at 10px -5px, transparent 12px, #f1f5f9 13px);
+            background-image: radial-gradient(circle at 10px -5px, transparent 12px, #f1f5f9 13px);
+            z-index: 1;
           }
           #wave::after{
-            content: "";
             position: absolute;
             left: 0;
-            bottom: 0;
+            bottom:150px;
             right: 0;
             background-repeat: repeat;
             height: 15px;
             background-size: 40px 20px;
             background-image:
               radial-gradient(circle at 10px 15px, #f1f5f9 12px, transparent 13px);
+              z-index: 1;
+
           }
-          .d{
-              background: lightcoral;
-              height: 50px;
-          }
+          section{
+            background: #f1f5f9;
+            height: 50%;             
+          } */

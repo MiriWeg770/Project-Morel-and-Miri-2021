@@ -24,9 +24,8 @@ import { HeaderComponent } from './header/header.component';
 
 const routes: Routes = [
   // {path:"Home", component:HomeComponent},
-  {path:"SignUp", component:SignUpComponent},
-  {path:"SignIn", component:SignInComponent},
   {path:"Home", component:HeaderComponent,children:[
+    {path:"MyMeals",component:MyMealsComponent},
     {path:"AllLists",component:AllListsComponent},
     {path:"MyLists",component:MyListsComponent},
     {path:"Settings",component:SettingsComponent},
@@ -35,16 +34,20 @@ const routes: Routes = [
     {path:"ShowMealDetails",component:ShowMealDetailsComponent}, 
     {path:"ShowMenuDetails",component:ShowMenuDetailsComponent}, 
     {path:"MyAccount",component:MyAccountComponent},
-    {path:"", component:HomeComponent, pathMatch:"full"},
-    {path:"**",component:HomeComponent, pathMatch:"full"},
-  ]},
-  {path:"User",component:UserComponent,children:[
     {path:"AddMeal", component:AddMealComponent},
-    {path:"MyMeals",component:MyMealsComponent},
     {path:"MyMenus", component:MyMenusComponent},
     {path:"AddMenu", component:AddMenuComponent},
-    {path:"AddEvent", component:CalendarComponent},
+    {path:"MyEvent", component:CalendarComponent},
     {path:"MyHistory",component:MyHistoryComponent},
+    {path:"SignUp", component:SignUpComponent},
+    {path:"SignIn", component:SignInComponent},
+
+    {path:"", component:HomeComponent, pathMatch:"full"},
+    {path:"**",component:HomeComponent, pathMatch:"full"},
+
+  ]},
+  {path:"User",component:UserComponent,children:[
+    
     {path:"", redirectTo:"MyMeals", pathMatch:"full"},
   ]},
   {path:"ResetPassword",component:ResetPasswordComponent},
@@ -54,6 +57,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  
 })
 export class AppRoutingModule { }

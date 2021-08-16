@@ -3,6 +3,7 @@ using DTO;
 using DTO.Convertors;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BLL
@@ -38,12 +39,19 @@ namespace BLL
 
         public List<MealCategoriesDto> GetAllCategories()
         {
-            throw new NotImplementedException();
+            return MealCategoriesConvertors.ToMealCategoriesDtoList(_context.MealCategories.ToList());
         }
 
         public MealCategoriesDto GetCategoryById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return MealCategoriesConvertors.ToMealCategoriesDto(_context.MealCategories.FirstOrDefault(p => p.MealCategoriesCode == id));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public MealCategoriesDto UpdateCategory(MealCategoriesDto m)

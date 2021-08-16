@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { User } from 'src/Models/User';
 import { LogOutComponent } from '../log-out/log-out.component';
 import { MyAccountComponent } from '../my-account/my-account.component';
+import { UserComponent } from '../user/user.component';
 // import { LogOutComponent } from '../log-out/log-out.component';
 
 @Component({
@@ -14,36 +15,52 @@ import { MyAccountComponent } from '../my-account/my-account.component';
 export class HeaderComponent implements OnInit {
 
  sort:string[]=["הכל","פופולרי","לפי תאריך","לפי מנות","לפי תפריטים",]
-  // name:string;
-  // mail:null;
+
   u:User;
-  name:string;
-  @Output() toggleSidebarForMe:EventEmitter<any>=new EventEmitter();
+  @Output() 
+  toggleSidebarForMe:EventEmitter<any>=new EventEmitter();
 
   constructor(private router:Router,public dialog:MatDialog) {
-     this.u= JSON.parse(localStorage.getItem("user"));
-     this.name= this.u.userName;
-    // this.mail=u.Mail;
-   }
+   this.u= JSON.parse(localStorage.getItem("user"));
+   console.log(this.u)
+}
+  ngOnInit(): void {     
 
-  ngOnInit(): void {
   }
 
+  
 
-
+  
   
   toggleSidebar(){
     this.toggleSidebarForMe.emit();
   }
-    openDialog(){
+   
+
+      // open_close(){
+         
+      //      document.getElementById("overlay").style.display="block";      
+      // }
+      // open_close(event){
+      //   if(event)
+      //      document.getElementById("overlay").style.display="none";
+      //   else
+      //      document.getElementById("overlay").style.display="block";      
+      //    console.log(this.u)
+      //     }
+
+          MyAccount(){
+            const dialogRef = this.dialog.open(MyAccountComponent, {
+            disableClose:true,
+            autoFocus:false,
+            });
+            dialogRef.afterClosed().subscribe(result => {
+              console.log('The dialog was closed'); 
+              this.u= JSON.parse(localStorage.getItem("user"));
       
-      const dialogRef = this.dialog.open(MyAccountComponent, {
-        width: '80%',
-        // height:'100%',
-        // data: {name: this.name, animal: this.animal},
-        backdropClass: 'backdropBackground',
-        panelClass:'s'// This is the "wanted" line
-      });     }
+           });  
+          }
+          
 }
 
 

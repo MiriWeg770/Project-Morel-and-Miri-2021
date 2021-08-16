@@ -26,7 +26,7 @@
                 Hציאה
               </button>
             </mat-menu> -->
-            <button matTooltip="{{u.UserName}}" mat-icon-button (click)="on()"><mat-icon>account_circle</mat-icon></button>
+            <button matTooltip="{{u.userName}}" mat-icon-button (click)="open_close(false)"><mat-icon>account_circle</mat-icon></button>
             <button matTooltip="היסטוריית צפייה" mat-icon-button routerLink="/User/MyHistory"  routerLinkActive="active-link" ><mat-icon>history</mat-icon></button>
           </div>
       <div>
@@ -47,8 +47,8 @@
 
 
 
-<div id="overlay" (click)="off()">
-  <app-my-account></app-my-account>
+<div id="overlay" >
+  <app-my-account (closeEvent)="open_close($event)"></app-my-account>
 </div>
 
   

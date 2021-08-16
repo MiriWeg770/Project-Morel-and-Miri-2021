@@ -1,39 +1,26 @@
-<!--   
-    <div class="wrapper"> 
-      <div class="header">
-        <div class="header_menu">
-          <div class="title" routerLink="/MyHome/AllLists">Menu<span>Calculator</span></div>
-          <div class="search">
-            <form>
-                <i class="fa fa-search"  aria-hidden="true"> </i>
-         <input type="search" class="s" placeholder="חפש" />                
-            </form>  
-    <form>
-    <select class="sort" >
-    <option value="volvo" *ngFor="let x of sort">{{x}}</option>
-    </select>
-    </form>
-        </div> 
-        <div class="icons">
-                <button mat-button routerLink=""></button>           
-                <button mat-button routerLink="/User"><mat-icon>home</mat-icon></button>           
-                <button mat-button routerLink="/User"><mat-icon>help</mat-icon></button>           
-          </div>
-        </div>     
-       </div>        
-    </div>
 
-   -->
-
-   <mat-toolbar> 
-     <div>
-  <div class="logo">MenuCalculator </div>
-    
-    <!-- <mat-icon routerLink="/MyHome/AllLists">home</mat-icon> -->
-  </div>
+<mat-drawer-container >
+  <mat-drawer mode="side" opened position="end"*ngIf="u!=null">
+    <app-sidenav  ></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+    <header> 
   <div>
-    <button routerLink="//User" mat-button><mat-icon>account_circle</mat-icon></button>
-    <button routerLink="/SignIn" mat-button>התחבר</button>
-    <button routerLink="/SignUp" mat-button>הירשם</button>
-  </div>
-</mat-toolbar>
+<div class="logo" routerLink="/Home" >MenuCalculator </div> 
+</div>
+<mat-icon class="user"  *ngIf="u!=null" matTooltip="{{u.userName}}"  (click)="MyAccount()">account_circle</mat-icon>
+
+<div *ngIf="u==null" >
+ <button routerLink="/Home/SignIn" mat-button>התחבר</button>
+ <button routerLink="/Home/SignUp" mat-button>הירשם</button>
+</div>
+<div id="overlay" >
+  <app-my-account *ngIf="u!=null" (closeEvent)="open_close($event)"></app-my-account>
+</div>
+</header>
+<router-outlet></router-outlet>
+
+  </mat-drawer-content>
+</mat-drawer-container>
+
+

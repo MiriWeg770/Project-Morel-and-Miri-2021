@@ -1,6 +1,10 @@
 mat-drawer-container{
     margin: 25px 24px;
     height: 100%;
+    position: fixed;
+    left: -21px;
+    right: 55px;
+    top: 43px;
 
 }
 
@@ -74,7 +78,7 @@ margin: 0;
 padding: 0;
 }
 .month_list .calendar_month li{
-    padding: 15px 30px;
+    padding: 14px 30px;
     cursor: pointer;
     font-size: 20px;
     text-align: center;

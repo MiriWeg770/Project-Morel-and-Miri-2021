@@ -1,8 +1,9 @@
+import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Meal} from 'src/Models/Meal';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { Injectable } from '@angular/core';
+import { Product } from 'src/Models/Product';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class MealService {
   GetAllMeals():Observable<Meal[]>{
     return this.http.get<Meal[]>(environment.url +"/api/Meals/GetAllMeals/");
   }
-  GetMealById(id:number):Observable<Meal>{
-    return this.http.get<Meal>("");
+  GetProductsMeal(id:number):Observable<Product[]>{
+    return this.http.get<Product[]>(environment.url +"/api/Meals/GetProductsMeal/"+id);
   }
   AddMeal(m:Meal):Observable<Meal> {
     return this.http.post<Meal>(environment.url +"/api/Meals/AddMeal",m);
@@ -30,4 +31,3 @@ export class MealService {
     return this.http.post<Meal>(environment.url +"/api/Meals/AddMealToUser",m);
   }
 }
-

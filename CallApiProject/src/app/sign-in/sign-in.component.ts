@@ -15,7 +15,7 @@ export class SignInComponent implements OnInit {
   // user:User;
   hide:boolean=true;
   pro:boolean=false;
-  myUser:User= new User(1,null,null,null);
+  myUser:User= new User(0,null,null,null);
   forget=false
   constructor(private ser:UserService,private router:Router,public dialog:MatDialog,private _snackBar: MatSnackBar) { }
 
@@ -45,11 +45,14 @@ export class SignInComponent implements OnInit {
   SignIn(){
     this.pro=!this.pro;
     this.ser.SignIn(this.myUser).subscribe(succ => { 
-      if(succ!=null){
-       this.myUser=succ
-       console.log(this.myUser)    
-      localStorage.setItem("user", JSON.stringify(this.myUser));    
+      if(succ!=null){ 
+       this.ser.GetUserById(succ.userCode).subscribe(s=>{
+        this.myUser=s
+        console.log(this.myUser)
+          localStorage.setItem("user", JSON.stringify(this.myUser));    
        this.router.navigate(["/Home"])
+       })  
+     
       }
       else{
         this.pro=!this.pro
@@ -73,5 +76,7 @@ export class SignInComponent implements OnInit {
   //  this.dialog.open(ResetPasswordComponent);
   document.getElementById("over").style.opacity="1";
   }
+
+
  
 }

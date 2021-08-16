@@ -25,10 +25,7 @@ namespace DTO.Convertors
             };
         }
 
-        public static MealCategoriesDto ToMealDto(MealCategories m)
-        {
-            throw new NotImplementedException();
-        }
+
 
         public static List<MealCategoriesDto> ToMealCategoriesDtoList(List<MealCategories> mList)
         {

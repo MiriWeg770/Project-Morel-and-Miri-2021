@@ -1,18 +1,13 @@
 <mat-nav-list  >
   <div class="sidebar">       
-    <!-- <mat-icon id="btn" >menu</mat-icon>        -->
 
- <div class="logo-details">
+ <!-- <div class="logo-details">
      <span class="logo_name">MenuCalculator</span>
- </div>
+ </div> -->
 
  <ul class="nav-list">
+  
    <!-- <li>
-     <mat-icon>search</mat-icon>
-      <input type="text" placeholder="Search...">
-      <span class="tooltip">Search</span>
-   </li> -->
-   <li>
     <mat-expansion-panel (opened)="panelOpenState = true"
     (closed)="panelOpenState = false" >
       <mat-expansion-panel-header>
@@ -23,8 +18,8 @@
    </mat-expansion-panel-header>
    <p routerLink="/User/AddMeal">הוסף מנה</p>
   </mat-expansion-panel>
-   </li>
-   <li>
+   </li> -->
+   <!-- <li>
     <mat-expansion-panel (opened)="panelOpenState = true"
     (closed)="panelOpenState = false" >
       <mat-expansion-panel-header>
@@ -35,21 +30,42 @@
    </mat-expansion-panel-header>
    <p routerLink="/User/AddMeal">הוסף מנה</p>
   </mat-expansion-panel>
-   </li>
-   <li>
-     <a routerLink="/User/MyMeals">
-         <mat-icon>list</mat-icon>
-         <span class="links_name">המנות שלי </span>
-     </a>
-      <span class="tooltip">Dashboard</span>
-   </li>
-   <li>
-    <a routerLink="/User/AddMeal">
-     <mat-icon>settings</mat-icon>
-     <span class="links_name"> הוסף מנה </span>
-
+   </li> -->
+   <li >
+    <a routerLink="/Home">
+        <mat-icon>home</mat-icon>
     </a>
-    <span class="tooltip"> מנה</span>
+     <span class="tooltip"> דף הבית</span>
+  </li>
+   <li routerLinkActive="active">
+     <a routerLink="/Home/MyMeals"  >
+         <mat-icon>ballot</mat-icon>
+     </a>
+      <span class="tooltip">המנות שלי</span>
+   </li>
+   <li routerLinkActive="active">
+    <a routerLink="/Home/MyMenus">
+        <mat-icon>list_alt</mat-icon>
+    </a>
+     <span class="tooltip">התפריטים שלי</span>
+  </li>
+  <li routerLinkActive="active">
+    <a routerLink="/Home/MyEvent">
+        <mat-icon>event</mat-icon>
+    </a>
+     <span class="tooltip">ארועים</span>
+  </li>
+  <li routerLinkActive="active">
+    <a routerLink="/Home/MyHistory">
+        <mat-icon>history</mat-icon>
+    </a>
+     <span class="tooltip">היסטוריה </span>
+  </li>
+   <li routerLinkActive="active">
+    <a routerLink="/Home/AddMeal">
+     <mat-icon>settings</mat-icon>
+    </a>
+    <span class="tooltip"> הגדרות</span>
   </li>
 
   

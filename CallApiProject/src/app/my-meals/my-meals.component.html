@@ -1,13 +1,11 @@
 
                       
  <div class="container_page">
-  <div class="page_box">
+  <div class="page_box" id="header">
     <div class="search-input"><input (keyup)="applyFilter($event)" #input type="text" placeholder="חפש במנות שלי"/></div>   
        <div>המנות שלי({{length}})</div>
   </div>
-<div>
-  <!-- {{DeletItems}} -->
-</div>
+
   <div class="icons">
     <mat-icon *ngIf="!choose" matTooltip="בחר" matTooltipPosition="below"(click)="choose=!choose">check_box_outline_blank</mat-icon>
     <div *ngIf="choose" class="select"><mat-icon  (click)="choose=!choose">check_box</mat-icon>
@@ -33,12 +31,12 @@
   
     <ng-container matColumnDef="NumberOfDiners">
       <th mat-header-cell *matHeaderCellDef> כמות סועדים </th>
-      <td mat-cell *matCellDef="let element"> {{element.numberOfDiners}}</td>
+      <td mat-cell *matCellDef="let element"> {{element.numberOfDiners}} </td>
     </ng-container>
   
     <ng-container matColumnDef="countIngredients">
       <th mat-header-cell *matHeaderCellDef> מספר מרכיבים</th>
-      <td mat-cell *matCellDef="let element"> {{element.numberOfDiners}}</td>
+      <td mat-cell *matCellDef="let element"> {{countIngredients(element.products)}} </td>
     </ng-container>
   
     <ng-container matColumnDef="Date">

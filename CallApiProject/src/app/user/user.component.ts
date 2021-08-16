@@ -11,10 +11,10 @@ import { MyAccountComponent } from '../my-account/my-account.component';
 })
 export class UserComponent implements OnInit {
  show=true
- u:User=new User(null,"morel",null,null)
+ u:User;
   constructor(private router:Router,public dialog:MatDialog) { 
     this.u= JSON.parse(localStorage.getItem("user"));
-    console.log(this.u.userName)
+    console.log(this.u.userCode)
   }
 
   ngOnInit(): void {
@@ -25,24 +25,24 @@ export class UserComponent implements OnInit {
     this.router.navigate(["/Home"]);
   }
 
-  myAccount(){
-    const dialogRef = this.dialog.open(MyAccountComponent, {
-      width: '30%',
-      autoFocus:true,
-      data: {}
-    });
+  // myAccount(){
+  //   const dialogRef = this.dialog.open(MyAccountComponent, {
+  //     autoFocus:true,
+  //     disableClose:true,
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
+  //   });
+
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
       
-    });
-  }
+  //   });
+  // }
 
-  off(){
-    document.getElementById("overlay").style.display="none";
-  }
-  on(){
-    document.getElementById("overlay").style.display="block";
+  open_close(event){
+    if(event)
+       document.getElementById("overlay").style.display="none";
+    else
+       document.getElementById("overlay").style.display="block";      
   }
 }
 
