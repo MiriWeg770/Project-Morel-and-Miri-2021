@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Menu } from 'src/Models/Menu';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { MenuCategories } from 'src/Models/MenuCategories';
 
 @Injectable({
   providedIn: 'root'
@@ -18,7 +19,10 @@ export class MenuService {
     return this.http.get<Menu>("");
   }
   AddMenu(m:Menu):Observable<Menu> {
-    return this.http.post<Menu>(environment.url +"/api/Menu/AddMenu",m);
+    return this.http.post<Menu>(environment.url +"/api/Menus/AddMenu",m);
   }
   
+  GetAllCategories():Observable<MenuCategories[]>{
+    return this.http.get<MenuCategories[]>(environment.url +"/api/MenuCategories/GetAllCategories");
+  }
 }

@@ -1,12 +1,14 @@
 ﻿using DAL.Models;
 using DTO;
+using DTO.Convertors;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace BLL
 {
-    class MenuCategoriesLogic:IMenuCategoriesLogic
+  public  class MenuCategoriesLogic:IMenuCategoriesLogic
     {
         private MenuCalculatorContext _context;
 
@@ -34,7 +36,7 @@ namespace BLL
 
         public List<MenuCategoriesDto> GetAllCategories()
         {
-            throw new NotImplementedException();
+            return MenuCategoriesConvertors.ToMenuCategoriesDtoList(_context.MenuCategories.ToList());
         }
 
         public MenuCategoriesDto GetCategoryById(int id)

@@ -1,4 +1,5 @@
 ﻿using BLL;
+using DTO.Convertors;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -30,6 +31,13 @@ namespace WebApi.Controllers
         public IActionResult GetMenuById(int id)
         {
             return Ok(_logic.GetMenuById(id));
+        }
+
+        [HttpPost("AddMenu")]
+        public IActionResult AddMenu([FromBody] MenuDto menu)
+        {
+            return Ok(_logic.AddMenu(menu));
+
         }
     }
 }

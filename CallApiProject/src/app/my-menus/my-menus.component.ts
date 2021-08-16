@@ -12,18 +12,18 @@ import { MenuService } from '../menu.service';
 })
 export class MyMenusComponent implements OnInit {
  listMenus:Menu[]=[
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,null),
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,null),
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,null),
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,null),
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,null),
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,null),
+  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
+  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
+  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
+  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
+  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
+  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
 ]; 
  length = this.listMenus.length;
   u: User = new User(0, null, null, null);
   choose = false
   add = false
-  newMenu: Menu = new Menu(0,null,null,0,null,null,0,null);
+  newMenu: Menu = new Menu(0,null,null,0,null,null,null,0,null);
   dataSource;
 
   constructor(private dialog:MatDialog,private ser:MenuService) {
@@ -76,8 +76,6 @@ export class MyMenusComponent implements OnInit {
 //  console.log(this.checked)
 //  }
 
-
-
 //    delet=false;
 //    Delet(x:menu,d=false) {
 //      console.log(x)
@@ -103,9 +101,4 @@ export class MyMenusComponent implements OnInit {
 //        this.Delet(element,true)
 //    });
 //  }
-
-
-
-
-
 }

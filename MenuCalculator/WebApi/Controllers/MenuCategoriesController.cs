@@ -18,7 +18,7 @@ namespace DTO.Convertors
             _logic = logic;
         }
 
-        [HttpGet]
+        [HttpGet("GetAllCategories")]
         public IActionResult GetAllCategories()
         {
             return Ok(_logic.GetAllCategories());
