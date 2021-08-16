@@ -20,11 +20,10 @@ namespace BLL
         {
             try
             {
-                //MealCategories m = MealCategoriesConvertors.ToMealCategories(u);
-                //_context.MealCategories.Add(m);
-                //_context.SaveChanges();
-                //return MealCategoriesConvertors.ToMealCategoriesDto(m);
-                return u; 
+                MealCategories m = MealCategoriesConvertors.ToMealCategories(u);
+                _context.MealCategories.Add(m);
+                _context.SaveChanges();
+                return MealCategoriesConvertors.ToMealCategoriesDto(m);
             }
             catch (Exception e)
             {

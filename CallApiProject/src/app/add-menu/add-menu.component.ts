@@ -12,7 +12,7 @@ import { MenuService } from '../menu.service';
 })
 export class AddMenuComponent implements OnInit {
 
-  newMenu: Menu = new Menu(1, null, null, 1, null, null, null,1,null,)
+  newMenu: Menu = new Menu(0, null, null, 1, new Date(), new Date(), null,1,null)
   selectCa:string
   categories:MenuCategories[];
 
@@ -38,6 +38,7 @@ export class AddMenuComponent implements OnInit {
     });
 
     this.ser.AddMenu(this.newMenu).subscribe(succ => {
+      //לשמור בטבלה של הקטגוריות
       console.log(succ);
     }, err => {
       console.log(err);
