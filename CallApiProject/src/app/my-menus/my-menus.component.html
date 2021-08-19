@@ -18,7 +18,7 @@
  <div *ngIf="length!=0" class="list">
   <ul  >
     <li *ngFor="let x of listMenus"><mat-card>
-      <mat-card-header><h1> שם המנה</h1> 
+      <mat-card-header >{{}}<h1> שם המנה</h1> 
         <button mat-button [matMenuTrgigerFor]="menu"><mat-icon>more_vert</mat-icon></button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item>Item 1</button>

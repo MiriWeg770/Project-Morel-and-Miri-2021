@@ -20,7 +20,7 @@ export class MyMenusComponent implements OnInit {
   new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
 ]; 
  length = this.listMenus.length;
-  u: User = new User(0, null, null, null);
+  u: User = new User(1, null, null, null);
   choose = false
   add = false
   newMenu: Menu = new Menu(0,null,null,0,null,null,null,0,null);
@@ -32,10 +32,13 @@ export class MyMenusComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    this.GetAllMenus();
   }
 
   GetAllMenus() {
-    this.ser.GetAllMenus(this.u.userCode).subscribe(succ => {
+    this.ser.GetAllMenusByIdUser(this.u.userCode).subscribe(succ => {
+      this.listMenus=succ;
+      console.log(this.listMenus);
     }, err => {
       console.log(err);
     })

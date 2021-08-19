@@ -5,6 +5,6 @@
     "\\WebApi",
     "\\WebApi\\Controllers"
   ],
-  "SelectedNode": "\\BLL\\MenuCategoriesLogic.cs",
+  "SelectedNode": "\\BLL\\IMenuLogic.cs",
   "PreviewInSolutionExplorer": false
 }

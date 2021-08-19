@@ -12,7 +12,7 @@ import { MenuService } from '../menu.service';
 })
 export class AddMenuComponent implements OnInit {
 
-  newMenu: Menu = new Menu(0, null, null, 1, new Date(), new Date(), null,1,null)
+  newMenu: Menu = new Menu(1, null, null, 1, new Date(), new Date(), null,1,null)
   selectCa:string
   categories:MenuCategories[];
 

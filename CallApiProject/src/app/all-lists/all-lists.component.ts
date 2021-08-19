@@ -18,11 +18,11 @@ export class AllListsComponent implements OnInit {
   sort:string[]=["הכל","פופולרי","לפי תאריך"]
 
   listMenus:Menu[]=[
-    new Menu(1,"menu","discription",1,new Date(1,1,1),"1",1,"j"),
-    new Menu(1,"menu","discription",1,new Date(1,1,1),"1",1,"j"),
-    new Menu(1,"menu","discription",1,new Date(1,1,1),"1",1,"j"),
-    new Menu(1,"menu","discription",1,new Date(1,1,1),"1",1,"j"),
-    new Menu(1,"menu","discription",1,new Date(1,1,1),"1",1,"j"),
+    new Menu(1,"menu","discription",1,new Date(1,1,1),new Date(),null,1,null),
+    new Menu(1,"menu","discription",1,new Date(1,1,1),new Date(),null,1,null),
+    new Menu(1,"menu","discription",1,new Date(1,1,1),new Date(),null,1,null),
+    new Menu(1,"menu","discription",1,new Date(1,1,1),new Date(),null,1,null),
+    new Menu(1,"menu","discription",1,new Date(1,1,1),new Date(),null,1,null),
   ];
   listMeals:Meal[]=[];
   

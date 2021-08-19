@@ -9,6 +9,7 @@ namespace BLL
     public interface IMenuLogic
     {
         List<MenuDto> GetAllMenus();
+        List<MenuDto> GetAllMenusByIdUser(int id);
         MenuDto GetMenuById(int id);
         MenuDto GetMenuByName(string name);
         MenuDto AddMenu(MenuDto u);

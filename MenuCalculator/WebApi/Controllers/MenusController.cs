@@ -27,6 +27,13 @@ namespace WebApi.Controllers
         {
             return Ok(_logic.GetAllMenus());
         }
+        [HttpGet("GetAllMenusByIdUser/:id")]
+
+        public IActionResult GetAllMenusByIdUser(int id)
+        {
+            return Ok(_logic.GetAllMenusByIdUser(id));
+        }
+        
         [HttpGet("{id}")]
         public IActionResult GetMenuById(int id)
         {

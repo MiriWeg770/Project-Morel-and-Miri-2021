@@ -11,9 +11,11 @@ import { MenuCategories } from 'src/Models/MenuCategories';
 export class MenuService {
 
   constructor(private http:HttpClient) { }
-
-  GetAllMenus(id:number):Observable<Menu[]>{
+  GetAllMenus():Observable<Menu[]>{
     return this.http.get<Menu[]>("");
+  }
+  GetAllMenusByIdUser(id:number):Observable<Menu[]>{
+    return this.http.get<Menu[]>(environment.url +"/api/Menus/GetAllMenusByIdUser"+id);
   }
   GetMenuById(id:number):Observable<Menu>{
     return this.http.get<Menu>("");

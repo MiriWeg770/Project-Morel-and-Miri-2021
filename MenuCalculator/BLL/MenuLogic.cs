@@ -41,6 +41,10 @@ namespace BLL
         {
             return MenuConvertors.ToMenuDtoList(_context.Menu.ToList());
         }
+        public List<MenuDto> GetAllMenusByIdUser(int id)
+        {
+            return MenuConvertors.ToMenuDtoList(_context.Menu.Where(m=>m.UserCode==id).ToList());
+        }
 
         public MenuDto GetMenuById(int id)
         {
