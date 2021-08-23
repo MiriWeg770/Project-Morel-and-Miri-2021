@@ -10,7 +10,6 @@ import { AddProductComponent } from '../add-product/add-product.component';
 import { Product } from 'src/Models/Product';
 import { Subscriber } from 'rxjs';
 import { DeleteProductComponent } from '../delete-product/delete-product.component';
-import { EditProductComponent } from '../edit-product/edit-product.component';
 import { elementEventFullName } from '@angular/compiler/src/view_compiler/view_compiler';
 import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/Models/User';
@@ -111,27 +110,26 @@ export class AddMealComponent implements OnInit {
     
   //   });
   // }
-  deletePro(){
-    const dialogRef = this.dialog.open(DeleteProductComponent, {
-      width: '30%',
-      data: {}
-    });
+  // deletePro(){
+  //   const dialogRef = this.dialog.open(DeleteProductComponent, {
+  //     width: '30%',
+  //     data: {}
+  //   });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      if(result)
-      // this.ELEMENT_DATA.splice(this.selectRow, 1);
+  //   dialogRef.afterClosed().subscribe(result => {
+  //     console.log('The dialog was closed');
+  //     if(result)
      
-    console.log(this.ELEMENT_DATA) 
-    });
-  }
+  //   console.log(this.ELEMENT_DATA) 
+  //   });
+  // }
 
-  addPro1(){
-    const dialogConfig=new MatDialogConfig();
-    dialogConfig.autoFocus=true;
-    dialogConfig.width="30%";
-    this.dialog.open(AddProductComponent,dialogConfig);
-   }   
+  // addPro1(){
+  //   const dialogConfig=new MatDialogConfig();
+  //   dialogConfig.autoFocus=true;
+  //   dialogConfig.width="30%";
+  //   this.dialog.open(AddProductComponent,dialogConfig);
+  //  }   
  
    GetCategories(){
      this.serc.GetAllCategories().subscribe(succ=>{

@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig, MatDialogRef } from '@angular/material/dial
 import { User } from 'src/Models/User';
 import { AddMealComponent } from '../add-meal/add-meal.component';
 import { AddMenuComponent } from '../add-menu/add-menu.component';
+import { MyAccountComponent } from '../my-account/my-account.component';
 
 @Component({
   selector: 'app-sidenav',
@@ -20,7 +21,7 @@ u:User
   }
 
 
-   
+ 
    
 
 }

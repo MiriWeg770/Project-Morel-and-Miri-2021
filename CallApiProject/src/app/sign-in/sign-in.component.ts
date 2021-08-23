@@ -17,24 +17,14 @@ export class SignInComponent implements OnInit {
   pro:boolean=false;
   myUser:User= new User(0,null,null,null);
   forget=false
-  constructor(private ser:UserService,private router:Router,public dialog:MatDialog,private _snackBar: MatSnackBar) { }
+  constructor(private ser:UserService,private router:Router,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     
     
     
   }
-  // SignIn(){
-  //     this.ser.SignIn(this.myUser).subscribe(succ => {
-  //       console.log(succ);
-  //       localStorage.setItem("user", JSON.stringify(this.myUser));
-  //        this.router.navigate(["/MyHome"])
-  //     }, err => {
-  //       console.log(err);
-  //       // console.log(this.usersArr);
-  //     })   
-         
-  //   }
+
   openSnackBar() {
     this._snackBar.open("   לא קיים משתמש כזה", "סגור",{
         horizontalPosition: 'center',
@@ -50,7 +40,7 @@ export class SignInComponent implements OnInit {
         this.myUser=s
         console.log(this.myUser)
           localStorage.setItem("user", JSON.stringify(this.myUser));    
-       this.router.navigate(["/Home"])
+         this.router.navigate(["/Home"])
        })  
      
       }
@@ -72,11 +62,7 @@ export class SignInComponent implements OnInit {
 
 
 
-  openDialog(){
-  //  this.dialog.open(ResetPasswordComponent);
-  document.getElementById("over").style.opacity="1";
-  }
-
+ 
 
  
 }

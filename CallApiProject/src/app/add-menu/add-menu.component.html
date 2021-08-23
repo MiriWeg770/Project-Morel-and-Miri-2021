@@ -1,52 +1,61 @@
 <div class="container">
-    <div class="page_box">הוסף תפריט
-        <button (click)="closeDialog()">
-            <mat-icon>close</mat-icon>
-        </button>
-        <button *ngIf="data==null" mat-raised-button (click)="saveMenu()" mat-dialog-close matTooltip="שמור">
-            <mat-icon>save</mat-icon>
-        </button>
-    </div>
-    <div class="page_content">
-        <div class="page_content_data">
-            <h1>פרטים</h1>
-            <hr>
-            <b>שם תפריט</b>
-            <input type="text" [(ngModel)]="newMenu.menuName"/>
-            <label>קטגוריה</label>
-            <select name="menuCategorieS" [(ngModel)]="selectCa">
-              <option *ngFor="let x of categories; let i=index" value={{x.menuCategoriesName}} >{{x.menuCategoriesName}}</option>
-            </select>
-            <b>קישורים רלוונטים</b>
-            <input type="text" name="Links" [(ngModel)]="newMenu.links" />
-        </div>
-        <div class="products">
-            <h1> מרכיבים</h1>
-            <hr>
-            <input type="button" value="+הוסף מוצר" />
-            <table>
-                <tr>
-                    <td>שם חברה
-                    <td>
-                    <td>שם יחידה
-                    <td>
-                    <td>כמות
-                    <td>
-                    <td>שם מוצר
-                    <td></td>
-                </tr>
-            </table>
-        </div>
+  
+    <mat-toolbar>
+      <h2 *ngIf="data==null"> הוסף תפריט</h2>
+      <h2 *ngIf="data!=null"> עדכן תפריט</h2>
+      <div>
+        <button *ngIf="data==null" mat-raised-button (click)="saveMeal()" mat-dialog-close> שמור </button>
+        <button *ngIf="data!=null" mat-raised-button (click)="updateMeal()" mat-dialog-close> עדכן </button>
+        <mat-icon mat-dialog-close class="close">close</mat-icon>
+      </div>
+    </mat-toolbar>
+  <mat-dialog-content>
+    <div class="details">
+  
+      <div class="form s">
+  
+        <label>שם תפריט</label>
+        <input type="text" name="MenuName" [(ngModel)]="newMenu.menuName" />
+  
+        <label>קטגוריה</label>
+        <select name=" " [(ngModel)]="selectCa">
+          <option *ngFor="let x of categories; let i=index" value={{x.mealCategoriesName}} >{{x.mealCategoriesName}}</option>
+          <option value="">הוסף קטגוריה</option>
+        </select>
+        <label>דרגת קושי</label>
+        <select name=" ">
+          <option value="">קל</option>
+          <option value="">בינוני</option>
+          <option value="">קשה</option>
+  
+        </select>
+        <label>תאור התפריט</label>
+        <textarea id="discription" name="Discription" [(ngModel)]="newMenu.discription"></textarea>
 
-        <div class="Preparation">
-            <h1>אופן ההכנה </h1>
-            <hr>
-            <input type="text" />
+      </div>
+    
+      <div class="form products">
+        <div class="title"> המנות </div>
+        <div class="list">
+            <mat-list role="list">
+                <mat-list-item role="listitem" *ngFor="let x of MenuList">
+                            <h1>{{x.mealName}}</h1>
+                </mat-list-item>
+              </mat-list>
+        
+  </div>
         </div>
-        <div class="discription">
-            <h1>תיאור תפריט</h1>
-            <hr>
-            <input type="text" name="Discription" [(ngModel)]="newMenu.discription" />
+ </div>
+        <div class="list">
+          <div class="card" *ngFor="let x of listMeals" (click)="MenuList.push(x)">
+            <img src="../../assets/3.jpg" alt="Avatar" style="width:100%">
+            <div class="container">
+              <h4><b>{{x.mealName}}</b></h4> 
+              <!-- <p>{{meal.}}</p>  -->
+            </div>
+          </div>
         </div>
-    </div>
-</div>
+     
+      </mat-dialog-content>
+    
+  </div>

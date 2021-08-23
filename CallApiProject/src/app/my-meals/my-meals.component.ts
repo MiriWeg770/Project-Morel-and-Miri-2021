@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { Meal } from 'src/Models/Meal';
 import { Menu } from 'src/Models/Menu';
 import { User } from 'src/Models/User';
-import { runInThisContext } from 'vm';
+// import { runInThisContext } from 'vm';
 import { AddMealComponent } from '../add-meal/add-meal.component';
 import { DeletMealComponent } from '../delet-meal/delet-meal.component';
 import { DeleteProductComponent } from '../delete-product/delete-product.component';
@@ -12,6 +12,7 @@ import {animate, state, style, transition, trigger} from '@angular/animations';
 import { UserService } from '../user.service';
 import { MatTableDataSource } from '@angular/material/table';
 import { MealService } from '../meal.service';
+import { Product } from 'src/Models/Product';
 
 @Component({
   selector: 'app-my-meals',
@@ -29,26 +30,35 @@ export class MyMealsComponent implements OnInit {
   click = false
   displayedColumns: string[] = ['y', 'MealName', 'NumberOfDiners', 'countIngredients', 'Date', 'x'];
 
-  constructor(private dialog:MatDialog,private ser:UserService,private serm:MealService) {
+  constructor(private dialog:MatDialog,private ser:UserService,private serm:MealService,private router:Router) {
          this.u= JSON.parse(localStorage.getItem("user") );
          console.log(this.u)        
          
+         this.GetAllMeals()
          
    }
 
    ngOnInit(): void {
-    this.GetAllMeals()
   }
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
+  count:number[]=[]
   GetAllMeals(){
      this.ser.GetUserMeals(this.u.userCode).subscribe(succ => {
       this.ELEMENT_DATA = succ;
       this.length= this.ELEMENT_DATA.length;
       this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+       
+      this.ELEMENT_DATA.forEach(element => {
+        this.serm.GetProductsMeal(element.mealCode).subscribe(succ=>{
+        element.products=succ
+        })
+      },err=>{
+        console.log(err)
+      });
       console.log(this.ELEMENT_DATA);
     }, err => {
        console.log(err);
@@ -85,8 +95,8 @@ export class MyMealsComponent implements OnInit {
   checked:Meal[]=[]
   check(x:Meal){
     if(!this.checked.includes(x))
-      this.checked.push(x) 
-     console.log(this.checked)
+       this.checked.push(x) 
+       console.log(this.checked)
   }
 
     delet=false;
@@ -101,7 +111,7 @@ export class MyMealsComponent implements OnInit {
         if(result){
         this.serm.DeleteMeal(x).subscribe(succ=>{
         console.log(succ)  
-       this.GetAllMeals();
+        this.GetAllMeals();
         },err => {
           console.log(err);
         }) }
@@ -116,18 +126,6 @@ export class MyMealsComponent implements OnInit {
   }
 
  
-  countIngredients(item:Meal){
-    this.serm.GetProductsMeal(item.mealCode).subscribe(succ=>{ 
-    if(succ==null)
-       return 0;
-    else
-      return succ.length
-   
-    },err=>{
-      console.log(err)
-    })
-    
-  }
 
 
 

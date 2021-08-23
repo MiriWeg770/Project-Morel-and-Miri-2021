@@ -104,20 +104,19 @@ mat-drawer-container{
   height: 100%;
 }
 header{
-  border-bottom: 1px solid #545454;
   display: flex;
   justify-content: space-between;
-  padding: 0px 67px;
-  color: black;
-  position: fixed;
   width: 100%;
-  background: #f5f5dc21;
-  padding: 11px 92px;
+  padding: 11px 26px;
   align-items: center;
+  background: #ffffff;
+  border-bottom: 2px solid rgb(0 0 0 / 3%);
+  /* box-shadow: 2px 2px 2px 2px black; */
+
 
 }
 .mat-button{
-  background: gold;
+  background: rgb(247 208 122);
   font-family: system-ui;
   font-weight: 800;
   font-size: 18px;
@@ -125,25 +124,37 @@ header{
   margin-left: 14px;
 }
 .mat-button:hover{
-  background: rgb(255, 230, 92);
+  background: rgb(252 185 38);
 }
 .logo {
-  color: black;
+  /* color: white; */
   font-size: 26px;}
 .user{
-  font-size: 38px;
-  color: gold;
+  color: rgb(249 171 0 / 37%);
   padding: -7px;
   width: 46px;
   height: 45px;
-  padding: 4px;
+  font-size: 46px;
+  /* padding: 4px; */
   cursor: pointer;
   border-radius: 50%;
 
+
+  }
+  .menu_icon{
+    color: black;
+    padding: -7px;
+    width: 46px;
+    height: 45px;
+    font-size: 46px;
+    /* padding: 4px; */
+    cursor: pointer;
+    border-radius: 50%;
+
   }
 
-  .user:hover{
-  box-shadow: 0px 0px 17px -3px;
+  .user:hover{    box-shadow: 0px 0px 17px -3px red;
+
   }
   #overlay {
     position: fixed;
@@ -157,3 +168,7 @@ header{
     background-color:rgb(0 0 0 / 75%);
     z-index: 2;
   }
+  /* app-nav{
+    background-color: blue;
+    padding: 0;
+  } */

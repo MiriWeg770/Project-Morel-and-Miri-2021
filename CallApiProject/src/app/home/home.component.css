@@ -5,7 +5,7 @@
 }
 
 header{
-    background: url("https://www.chitrakootweb.com/template/cefrax/img/bg9.jpg");
+    /* background: url("https://www.chitrakootweb.com/template/cefrax/img/bg9.jpg"); */
 
    
     background-repeat: no-repeat;
@@ -42,7 +42,7 @@ height: 100%;
     font-weight: 700;
     animation-delay: 0.8s;
     font-family: system-ui;
-    color: white;
+    /* color: white; */
 }
 
 .search-input{

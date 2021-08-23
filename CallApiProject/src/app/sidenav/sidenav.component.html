@@ -31,8 +31,14 @@
    <p routerLink="/User/AddMeal">הוסף מנה</p>
   </mat-expansion-panel>
    </li> -->
-   <li >
-    <a routerLink="/Home">
+   <!-- <li >
+    <a (click)="MyAccount()">
+        <mat-icon>account_circle</mat-icon>
+    </a>
+     <span class="tooltip"> {{u.userName}}</span>
+  </li> -->
+   <li>
+    <a routerLink="/Home/AllLists">
         <mat-icon>home</mat-icon>
     </a>
      <span class="tooltip"> דף הבית</span>
@@ -43,6 +49,12 @@
      </a>
       <span class="tooltip">המנות שלי</span>
    </li>
+   <li routerLinkActive="active">
+    <a routerLink="/Home/AddMeal"  >
+        <mat-icon>add</mat-icon>
+    </a>
+     <span class="tooltip">המנות שלי</span>
+  </li>
    <li routerLinkActive="active">
     <a routerLink="/Home/MyMenus">
         <mat-icon>list_alt</mat-icon>

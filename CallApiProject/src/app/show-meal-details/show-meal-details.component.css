@@ -12,18 +12,19 @@ mat-icon{
     /* background:#f1f5f9 url(https://cdn.pixabay.com/photo/2016/11/12/21/15/pasta-1819782_640.jpg); */
     
     /* background-image: ; */
-background-attachment: fixed;
+/* background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-blend-mode: darken ;
+    background-blend-mode: darken ; */
     /* color: white; */
+    margin: 20px;
 }
 
 
 .header{
-    background-blend-mode: normal;
-    background: rgb(0 0 0 / 69%)url(https://www.foodisgood.co.il/wp-content/uploads/2021/01/fattoush-salad.jpg);
+    background-blend-mode: hue;
+    background: rgb(0 0 0 / 25%)url(https://images.unsplash.com/photo-1568661290695-1e23938cf5be?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGZvb2QlMjB0YWJsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
     background-attachment: fixed;
     background-position: center;
     background-repeat: no-repeat;
@@ -34,6 +35,8 @@ background-attachment: fixed;
     align-items: center;
     justify-content: center;
     height: 584px;
+    border: 12px double #fff;
+    color: white;
 }
 
 
@@ -105,13 +108,7 @@ background-attachment: fixed;
     display: inline-block;
     margin-left: 20px;
 }
-.counter{
-    font-size: 14px;
-    height: 14px;
-    line-height: 14px;
-    font-weight: 300;
-    color: rgba(0,0,0,0.7);
-}
+
 
 
 

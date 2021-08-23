@@ -39,7 +39,6 @@ import { MatTableModule} from '@angular/material/table';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { AddProductComponent } from './add-product/add-product.component';
 import { DeleteProductComponent } from './delete-product/delete-product.component';
-import { EditProductComponent } from './edit-product/edit-product.component';
 import { AllListsComponent } from './all-lists/all-lists.component';
 import { ShowMenuDetailsComponent } from './show-menu-details/show-menu-details.component';
 import { MyAccountComponent } from './my-account/my-account.component';
@@ -58,6 +57,7 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { AddEventComponent } from './add-event/add-event.component';
 import { MealComponent } from './meal/meal.component';
 import { MenuComponent } from './menu/menu.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   declarations: [
@@ -76,7 +76,6 @@ import { MenuComponent } from './menu/menu.component';
     SidenavComponent,
     AddProductComponent,
     DeleteProductComponent,
-    EditProductComponent,
     AllListsComponent,
     ShowMenuDetailsComponent,
     MyAccountComponent,
@@ -91,7 +90,8 @@ import { MenuComponent } from './menu/menu.component';
     CalendarComponent,
     AddEventComponent,
     MealComponent,
-    MenuComponent
+    MenuComponent,
+    NavComponent
     
   ],
   imports: [

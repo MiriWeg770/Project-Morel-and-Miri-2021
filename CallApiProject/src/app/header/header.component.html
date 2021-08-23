@@ -1,26 +1,31 @@
 
 <mat-drawer-container >
-  <mat-drawer mode="side" opened position="end"*ngIf="u!=null">
-    <app-sidenav  ></app-sidenav>
+  <mat-drawer mode="side" [opened]="open" position="end"*ngIf="u!=null">
+    <app-sidenav></app-sidenav>
   </mat-drawer>
   <mat-drawer-content>
     <header> 
   <div>
 <div class="logo" routerLink="/Home" >MenuCalculator </div> 
 </div>
-<mat-icon class="user"  *ngIf="u!=null" matTooltip="{{u.userName}}"  (click)="MyAccount()">account_circle</mat-icon>
+<div>
+<span  *ngIf="u!=null" (click)="MyAccount()" > <mat-icon class="user">account_circle</mat-icon>
+</span>
+<mat-icon  class="menu_icon" *ngIf="u!=null"   (click)="open=!open">menu</mat-icon>
 
+</div>
 <div *ngIf="u==null" >
  <button routerLink="/Home/SignIn" mat-button>התחבר</button>
  <button routerLink="/Home/SignUp" mat-button>הירשם</button>
 </div>
-<div id="overlay" >
+<!-- <div id="overlay" >
   <app-my-account *ngIf="u!=null" (closeEvent)="open_close($event)"></app-my-account>
-</div>
+</div> -->
 </header>
+<!-- <app-nav *ngIf="u!=null"></app-nav> -->
 <router-outlet></router-outlet>
-
   </mat-drawer-content>
 </mat-drawer-container>
+
 
 

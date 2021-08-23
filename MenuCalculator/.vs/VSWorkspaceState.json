@@ -1,10 +1,8 @@
 {
   "ExpandedNodes": [
     "",
-    "\\BLL",
-    "\\WebApi",
-    "\\WebApi\\Controllers"
+    "\\WebApi"
   ],
-  "SelectedNode": "\\BLL\\IMenuLogic.cs",
+  "SelectedNode": "\\MenuCalucator.sln",
   "PreviewInSolutionExplorer": false
 }

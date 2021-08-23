@@ -7,10 +7,12 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./add-event.component.css']
 })
 export class AddEventComponent implements OnInit {
-event:Event;
-  constructor( public dialogRef: MatDialogRef<AddEventComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Event) { 
-    }
+  event: Event;
+  newEvent:Event=new Event(null,null);
+
+  constructor(public dialogRef: MatDialogRef<AddEventComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: Event) {
+  }
   ngOnInit(): void {
   }
 

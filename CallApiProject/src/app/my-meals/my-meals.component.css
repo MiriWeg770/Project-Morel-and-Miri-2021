@@ -3,11 +3,12 @@
 .container_page{
   color: white;
   padding: 0 2rem;
-  background: #f1f5f9;
+  background: #fff;
+  box-shadow: 0 2px 4px 0 rgb(52 52 52 / 10%);
 }
 .page_box{
   min-height: 94px;
-  background: #ffd073fc;
+  /* background: #ffd073fc; */
   color: black;
   font-size: 24px;
   margin: 0 -2rem;
@@ -18,7 +19,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  /* position: relative; */
   top: 68px;
   
 
@@ -30,7 +31,7 @@
   background: white;
   color: black;
   font-size: 2rem;
-  max-height: 600px;
+  max-height: 520px;
 ;
 
 }
@@ -207,7 +208,7 @@
 padding-top: 0px;
 }
 .page_content{
-  margin-top: -1px;
+  /* margin-top:61px; */
   direction: rtl;
 }
 
@@ -293,6 +294,8 @@ table td mat-icon:hover{
 .mat-row .mat-cell {
   border-top: 1px solid transparent;
   cursor: pointer;
+  height: 70px;
+
 }
 
 .mat-row:hover .mat-cell {
@@ -317,7 +320,7 @@ table td mat-icon:hover{
   /* width: 100%; */
   height: 19px;
   position: absolute;
-  top: 119px;
+  top: 190px;
   width: 100%;
   /* left: 50%; */
   right: 0%;
@@ -326,7 +329,7 @@ table td mat-icon:hover{
   color: black
 }
 .icons mat-icon{
-  color: white;
+  /* color: white; */
   cursor: pointer;
 }
 .check_box{

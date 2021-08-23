@@ -3,21 +3,37 @@
       <div class="title">
         <span>מתכון</span>
          </div>
-    <img src="https://assets.epicurious.com/photos/60709fb9c5c43135dc176970/6:4/w_620%2Ch_413/ChickenTumericCabbage_RECIPE_040821_12696.jpg" alt="Avatar" style="width:100%"routerLink="/Home/ShowMealDetails">
+    <img src="http://vecurosoft.com/products/html/grillinator/demo/assets/img/food-menu/food-menu-img-3-3.jpg" alt="Avatar" style="width:100%"routerLink="/Home/ShowMealDetails/{{meal.mealCode}}">
     <div class="container">
-      <h5> <mat-icon>schedule</mat-icon>50 דק'</h5>
-      <h4><b> s</b></h4> 
+      <!-- <h5> <mat-icon>schedule</mat-icon>50 דק'</h5> -->
+      <h4><b> {{meal.mealName}}</b></h4> 
       <div class="user_comment">
         <div> <mat-icon>person</mat-icon></div>
         <div class="d">
         <div>
-          <span>שם</span> <span>18/08/200</span>
+          <span>{{meal.userName}}</span> <span>18/08/200</span>
         </div>
         <div class="icons">
-          <mat-icon id="down">download</mat-icon>
-          <mat-icon id="save" (click)="add()">favorite</mat-icon>
+          <mat-icon matTooltip="הורד" >download</mat-icon>
+          <mat-icon matTooltip="שמור" (click)="add()">favorite</mat-icon>
         </div></div>
       </div>
     </div>
      </div>
   </div> 
+  <!-- <span class="quick_view">
+ <button class="quick_close">
+   <mat-icon>close</mat-icon>
+ </button>
+ <div class="view">
+   <strong class="head">ww</strong>
+    
+   <div class="in">
+dd
+   </div>
+   <div class="in">
+    dd
+       </div>
+ 
+  </div>
+  </span > -->

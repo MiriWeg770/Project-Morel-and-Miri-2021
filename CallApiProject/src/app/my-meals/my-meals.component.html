@@ -32,12 +32,12 @@
     <ng-container matColumnDef="NumberOfDiners">
       <th mat-header-cell *matHeaderCellDef> כמות סועדים </th>
       <td mat-cell *matCellDef="let element"> {{element.numberOfDiners}} </td>
-    </ng-container>
+    </ng-container> 
   
     <ng-container matColumnDef="countIngredients">
       <th mat-header-cell *matHeaderCellDef> מספר מרכיבים</th>
-      <td mat-cell *matCellDef="let element"> {{countIngredients(element.products)}} </td>
-    </ng-container>
+      <td mat-cell *matCellDef="let element">{{element.products.length}}  </td>
+    </ng-container> 
   
     <ng-container matColumnDef="Date">
       <th mat-header-cell *matHeaderCellDef> נוצר בתאריך</th>
@@ -71,4 +71,5 @@
 <button id="add" (click)="AddMeal()">
   <mat-icon>add</mat-icon>
 </button>
+
 

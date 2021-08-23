@@ -4,9 +4,9 @@
 <!-- <header>
 </header> -->
   <div class="body">
-    <div class="title"><a routerLink="/Home"> Menu
+    <!-- <div class="title"><a routerLink="/Home"> Menu
   Calculator</a>
-</div>
+</div> -->
 
     <div class="signInbox">
           <!-- <div id="avatar" class='fas fa-user-circle' style='font-size:100px;color:#2600ff'></div> -->
@@ -17,7 +17,7 @@
           <!-- שם משתמש -->    
          <div>
           <label> הכנס שם משתמש  </label>
-            <input type="text"   name="userName" [(ngModel)]="myUser.UserName"  pattern="[A-Za-z]{4,20}" required #userName="ngModel">
+            <input type="text"   name="userName" [(ngModel)]="myUser.userName"  pattern="[A-Za-z]{4,20}" required #userName="ngModel">
          </div>
            <!-- <div *ngIf="userName.hasError('required') && userName.touched">
               *זהו שדה חובה
@@ -29,7 +29,7 @@
           <!-- אימייל --> 
           <div >
             <label>הכנס אימייל</label>
-            <input name="mail" [(ngModel)]="myUser.Mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required #mail="ngModel">            
+            <input name="mail" [(ngModel)]="myUser.mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required #mail="ngModel">            
           </div>   
           <!-- <div *ngIf="mail.hasError('required') && mail.touched ">
             *השדה שם הוא חובה

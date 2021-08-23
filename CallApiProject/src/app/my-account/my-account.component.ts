@@ -11,10 +11,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./my-account.component.css']
 })
 export class MyAccountComponent implements OnInit {
-  u:User;
-  constructor(private router:Router) { 
-    this.u= JSON.parse(localStorage.getItem("user"));
-    console.log(this.u)
+  constructor(private router:Router,public dialogRef: MatDialogRef<MyAccountComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: User) { 
   }
  
 

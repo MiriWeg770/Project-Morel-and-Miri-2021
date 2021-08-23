@@ -5,7 +5,9 @@ import { Meal } from 'src/Models/Meal';
 import { Menu } from 'src/Models/Menu';
 import { Product } from 'src/Models/Product';
 import { MealService } from '../meal.service';
+import { ShowMealDetailsComponent } from '../show-meal-details/show-meal-details.component';
 import { ShowMenuDetailsComponent } from '../show-menu-details/show-menu-details.component';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-all-lists',
@@ -18,45 +20,71 @@ export class AllListsComponent implements OnInit {
   sort:string[]=["הכל","פופולרי","לפי תאריך"]
 
   listMenus:Menu[]=[
-    new Menu(1,"menu","discription",1,new Date(1,1,1),new Date(),null,1,null),
-    new Menu(1,"menu","discription",1,new Date(1,1,1),new Date(),null,1,null),
-    new Menu(1,"menu","discription",1,new Date(1,1,1),new Date(),null,1,null),
-    new Menu(1,"menu","discription",1,new Date(1,1,1),new Date(),null,1,null),
-    new Menu(1,"menu","discription",1,new Date(1,1,1),new Date(),null,1,null),
+ 
+    // new Menu(1,"menu","discription",1,new Date(1,1,1),"1",1,"j",null),
+    // new Menu(1,"menu","discription",1,new Date(1,1,1),"1",1,"j",null),
   ];
   listMeals:Meal[]=[];
   
   
   
-  constructor(public dialog:MatDialog,private ser:MealService) {
+  constructor(public dialog:MatDialog,private ser:MealService,private serU:UserService) {
    
+    this.ser.GetAllMeals().subscribe(succ=> {
+       this.listMeals=succ
+       this.listMeals.forEach(element => {
+        this.serU.GetUserById(element.userCode).subscribe(succ=>{
+          element.userName=succ.userName
+          // console.log(this.listMeals)
+        },err=>{
+          console.log(err)
+        })
+      });
+    },err=>{
+      console.log(err)
+    })
+
+    
   }
 
   ngOnInit(): void {
     window.addEventListener("scroll",this.scroll)
-    this.ser.GetAllMeals().subscribe(succ=> {
-       this.listMeals=succ
-       console.log(this.listMeals[0])
 
-    },err=>{
-      console.log(err)
-    })
+    
+
+    
+    // if(window.pageYOffset> 200){
+    //   document.getElementById("nav").style.position="sticky"
+    //  } else {
+    //   document.getElementById("nav").classList.remove("sticky");
+    // }
  
   }
   
   
+
+
+  showDetails(x:Meal){
+    const dialogRef = this.dialog.open(ShowMealDetailsComponent, {
+    autoFocus:false,
+    disableClose:false,
+    width:"100%",
+    height:"100%",
+    data:x
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');    
+   });  
+  }
+
   scroll(){
-    if(window.pageYOffset>400){
+    if(window.pageYOffset>200){
       document.getElementById("back-to-top").style.display="block";
     }
     else{
       document.getElementById("back-to-top").style.display="none";
     }
-    // if(window.pageYOffset> document.getElementById("nav").offsetTop ){
-    //   document.getElementById("nav").classList.add("sticky")
-    //  } else {
-    //   document.getElementById("nav").classList.remove("sticky");
-    // }
+
   
   }
   backToTop(){
@@ -64,5 +92,11 @@ export class AllListsComponent implements OnInit {
   }
   
 
-  
+  // getUser(x:number){
+  //    this.serU.GetUserById(x).subscribe(succ=>{
+  //     return succ
+  //   },err=>{
+  //     console.log(err)
+  //   })
+  // }
 }

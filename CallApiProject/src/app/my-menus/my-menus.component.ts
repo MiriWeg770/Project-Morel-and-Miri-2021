@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatTableDataSource } from '@angular/material/table';
 import { Menu } from 'src/Models/Menu';
 import { User } from 'src/Models/User';
 import { AddMenuComponent } from '../add-menu/add-menu.component';
@@ -11,97 +12,104 @@ import { MenuService } from '../menu.service';
   styleUrls: ['./my-menus.component.css']
 })
 export class MyMenusComponent implements OnInit {
- listMenus:Menu[]=[
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
-  new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
-]; 
- length = this.listMenus.length;
-  u: User = new User(1, null, null, null);
-  choose = false
-  add = false
-  newMenu: Menu = new Menu(0,null,null,0,null,null,null,0,null);
-  dataSource;
+  listMenus:Menu[]=[
+    new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
+   ,
+  ]; 
+    u: User = new User(0, null, null, null);
+    choose = false
+    add = false
+    newMenu: Menu = new Menu(0,null,null,0,null,null,null,0,null);
+    ELEMENT_DATA: Menu[] =[
+      new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
+      new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
+      new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null)
+    ]
+    click = false
+    dataSource;
+    length = this.ELEMENT_DATA.length;
 
-  constructor(private dialog:MatDialog,private ser:MenuService) {
-   this.u= JSON.parse(localStorage.getItem("user"));
+    displayedColumns: string[] = ['y', 'MenuName', 'NumberOfDiners', 'countMeals', 'Date', 'x'];
 
+    constructor(private dialog:MatDialog,private ser:MenuService) {
+     this.u= JSON.parse(localStorage.getItem("user"));
+     this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+
+     }
+  
+    ngOnInit(): void {
+      // this.GetAllMenus();
+    }
+  
+    GetAllMenus(){
+      this.ser.GetAllMenusByIdUser(this.u.userCode).subscribe(succ => {
+       this.ELEMENT_DATA = succ;
+       this.length= this.ELEMENT_DATA.length;
+       this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+       console.log(this.ELEMENT_DATA);
+     }, err => {
+        console.log(err);
+      }) 
    }
-
-  ngOnInit(): void {
-    this.GetAllMenus();
-  }
-
-  GetAllMenus() {
-    this.ser.GetAllMenusByIdUser(this.u.userCode).subscribe(succ => {
-      this.listMenus=succ;
-      console.log(this.listMenus);
-    }, err => {
-      console.log(err);
-    })
-  }
-   applyFilter(event: Event) {
-     const filterValue = (event.target as HTMLInputElement).value;
-     this.dataSource.filter = filterValue.trim().toLowerCase();
+     applyFilter(event: Event) {
+       const filterValue = (event.target as HTMLInputElement).value;
+       this.dataSource.filter = filterValue.trim().toLowerCase();
+     }
+  
+     AddMenu(){
+     const dialogRef = this.dialog.open(AddMenuComponent, {
+     disableClose:true,
+     autoFocus:false
+     });
+     dialogRef.afterClosed().subscribe(result => {
+       console.log('The dialog was closed');    
+         this.GetAllMenus()
+    });  
+  
    }
-
-   AddMenu(){
-   const dialogRef = this.dialog.open(AddMenuComponent, {
-   disableClose:true,
-   autoFocus:false
-   });
-   dialogRef.afterClosed().subscribe(result => {
-     console.log('The dialog was closed');    
+   UpdateMenu(x:Menu){
+     const dialogRef = this.dialog.open(AddMenuComponent, {
+     disableClose:true,
+     autoFocus:false,
+     data:x
+     });
+     dialogRef.afterClosed().subscribe(result => {
+       console.log('The dialog was closed');
        this.GetAllMenus()
-  });  
-
+       console.log(result)
+    });
+   }
+  
+   checked:Menu[]=[]
+   check(x:Menu){
+     if(!this.checked.includes(x))
+       this.checked.push(x) 
+   console.log(this.checked)
+   }
+  
+     delet=false;
+     Delet(x:Menu,d=false) {
+      //  console.log(x)
+      //  const dialogRef = this.dialog.open(DeletMealComponent, {
+      //    width: '20%',
+      //    data: d
+      //  });
+      //  dialogRef.afterClosed().subscribe(result => {
+      //    console.log('The dialog was closed');
+      //    if(result){
+      //    this.ser.DeleteMeal(x).subscribe(succ=>{
+      //    console.log(succ)  
+      //   this.GetAllMeals();
+      //    },err => {
+      //      console.log(err);
+      //    }) }
+      //  });
+   }
+  
+  
+  //  DeletItems(){
+  //    this.checked.forEach(element => {
+  //        this.Delet(element,true)
+  //    });
+  //  }
  }
- UpdateMenu(x:Menu){
-   const dialogRef = this.dialog.open(AddMenuComponent, {
-   disableClose:true,
-   autoFocus:false,
-   data:x
-   });
-   dialogRef.afterClosed().subscribe(result => {
-     console.log('The dialog was closed');
-     this.GetAllMenus()
-     console.log(result)
-  });
- }
-
-//  checked:menu[]=[]
-//  check(x:Meal){
-//    if(!this.checked.includes(x))
-//      this.checked.push(x) 
-//  console.log(this.checked)
-//  }
-
-//    delet=false;
-//    Delet(x:menu,d=false) {
-//      console.log(x)
-//      const dialogRef = this.dialog.open(DeletMealComponent, {
-//        width: '20%',
-//        data: d
-//      });
-//      dialogRef.afterClosed().subscribe(result => {
-//        console.log('The dialog was closed');
-//        if(result){
-//        this.serm.DeleteMeal(x).subscribe(succ=>{
-//        console.log(succ)  
-//       this.GetAllMeals();
-//        },err => {
-//          console.log(err);
-//        }) }
-//      });
-//  }
-
-
-//  DeletItems(){
-//    this.checked.forEach(element => {
-//        this.Delet(element,true)
-//    });
-//  }
-}

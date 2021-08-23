@@ -15,7 +15,7 @@ export class MenuService {
     return this.http.get<Menu[]>("");
   }
   GetAllMenusByIdUser(id:number):Observable<Menu[]>{
-    return this.http.get<Menu[]>(environment.url +"/api/Menus/GetAllMenusByIdUser"+id);
+    return this.http.get<Menu[]>(environment.url +"/api/Menus/GetAllMenusByIdUser/"+id);
   }
   GetMenuById(id:number):Observable<Menu>{
     return this.http.get<Menu>("");

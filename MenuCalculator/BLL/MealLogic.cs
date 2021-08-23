@@ -37,7 +37,7 @@ namespace BLL
         public MealDto AddMealToUser(MealDto u)
         {
           
-            _context.Users.FirstOrDefault(p => p.UserCode == u.UserCode).Meal.Add(MealConvertors.ToMeal(u));          
+            _context.Users.FirstOrDefault(p => p.UserCode == u.UserCode).Meal.Add(MealConvertors.ToMeal(u));        
             _context.SaveChanges();
             return u;
         }
@@ -89,6 +89,10 @@ namespace BLL
         public MealDto UpdateMeal(MealDto u)
         {
             Meal U = _context.Meal.FirstOrDefault(w => w.MealCode == u.MealCode);
+
+            if (U == null)
+                return null;
+
             U.MealName = u.MealName;
             U.NumberOfDiners = u.NumberOfDiners;
             U.NumberOfViews = u.NumberOfViews;
@@ -96,11 +100,18 @@ namespace BLL
             U.Discription = u.Discription;
             U.Instructions = u.Instructions;
             U.MealCategoryCode = u.MealCategoryCode;
-            U.MealProducts= ProductConvertors.ToProductList(u.Products);
-           
-            if (U == null)
-                return null;
-           
+            U.MealProducts = ProductConvertors.ToProductList(u.Products);
+
+
+            //foreach (var item in u.Products)
+            //{
+            //    if (_context.MealProducts.FirstOrDefault(p => p.MealProductCode != item.ProductCode) == null)
+            //        _context.MealProducts.Add(ProductConvertors.ToProduct(item));
+
+            //}
+
+
+            _context.RemoveRange(_context.MealProducts.Where(p => p.MealCode == U.MealCode));
             _context.SaveChanges();
             return u;
         }

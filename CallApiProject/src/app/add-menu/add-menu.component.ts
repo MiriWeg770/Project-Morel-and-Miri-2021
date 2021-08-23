@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material/dialog';
+import { Meal } from 'src/Models/Meal';
 import { Menu } from 'src/Models/Menu';
 import { MenuCategories } from 'src/Models/MenuCategories';
 import { AddMealComponent } from '../add-meal/add-meal.component';
+import { MealService } from '../meal.service';
 import { MenuService } from '../menu.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-add-menu',
@@ -15,9 +18,18 @@ export class AddMenuComponent implements OnInit {
   newMenu: Menu = new Menu(1, null, null, 1, new Date(), new Date(), null,1,null)
   selectCa:string
   categories:MenuCategories[];
+ data
+ listMeals:Meal[]=[]
+ MenuList:Meal[]=[]
+  constructor(private serm:UserService, private ser:MenuService,private dialogRef: MatDialogRef<AddMealComponent>) {
 
-  constructor(private ser:MenuService,private dialogRef: MatDialogRef<AddMealComponent>) { }
-
+    this.serm.GetUserMeals((JSON.parse(localStorage.getItem("user")).userCode)).subscribe(succ=>{
+      this.listMeals=succ
+    },err=>{
+      console.log(err)
+    })
+  }
+  
   ngOnInit(): void {
     this.GetCategories();
   }
@@ -48,5 +60,4 @@ export class AddMenuComponent implements OnInit {
   closeDialog() {
     this.dialogRef.close();
   }
-
 }

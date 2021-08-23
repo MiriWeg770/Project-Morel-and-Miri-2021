@@ -1,26 +1,27 @@
  
-   <div class="body">
-     <div class="user" >
-       <div class="close" mat-dialog-close><mat-icon>close</mat-icon></div>
+
+     <div class="user" > 
+       
+        <div class="close" mat-dialog-close><mat-icon>close</mat-icon></div>
+
          <div id="avatar" class='fas fa-user-circle' style='font-size:100px;'></div>
          <h1>הגדרות</h1>
          <form #myForm="ngForm" >
             <div>
              <label> שם משתמש  </label>
-               <input  type="text"  name="userName"  [(ngModel)]="u.userName"  >
+               <input  type="text"  name="userName"  [(ngModel)]="data.userName"  >
            </div>
            <div>
             <label>אמייל</label>
-              <input  type="text"  name="mail"  [(ngModel)]="u.mail"  >
+              <input  type="text"  name="mail"  [(ngModel)]="data.mail"  >
           </div>
               <div>
                <label> סיסמה</label>
-                <input  type="password"  name="password"  [(ngModel)]="u.password"  >
+                <input  type="password"  name="password"  [(ngModel)]="data.password"  >
                </div>
               <button  (click)="signOut()"  mat-dialog-close>יציאה</button>
  
      </form>
        </div>
-     </div>
  
  

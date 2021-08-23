@@ -89,6 +89,7 @@ C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Mi
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\BLL\bin\Debug\netcoreapp3.1\DTO.dll
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\BLL\bin\Debug\netcoreapp3.1\DAL.pdb
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\BLL\bin\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.csprojAssemblyReference.cache
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.AssemblyInfoInputs.cache
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.AssemblyInfo.cs
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.CoreCompileInputs.cache
@@ -123,5 +124,18 @@ C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\BLL\bin\Debug\netcor
 C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\BLL\bin\Debug\netcoreapp3.1\DAL.pdb
 C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\BLL\bin\Debug\netcoreapp3.1\DTO.pdb
 C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.CopyComplete
-C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.AssemblyReference.cache
-C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\מירי\Desktop\p\MenuCalculator\BLL\bin\Debug\netcoreapp3.1\BLL.deps.json
+C:\Users\מירי\Desktop\p\MenuCalculator\BLL\bin\Debug\netcoreapp3.1\BLL.dll
+C:\Users\מירי\Desktop\p\MenuCalculator\BLL\bin\Debug\netcoreapp3.1\BLL.pdb
+C:\Users\מירי\Desktop\p\MenuCalculator\BLL\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\מירי\Desktop\p\MenuCalculator\BLL\bin\Debug\netcoreapp3.1\DTO.dll
+C:\Users\מירי\Desktop\p\MenuCalculator\BLL\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\מירי\Desktop\p\MenuCalculator\BLL\bin\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\מירי\Desktop\p\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.AssemblyReference.cache
+C:\Users\מירי\Desktop\p\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\מירי\Desktop\p\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.AssemblyInfoInputs.cache
+C:\Users\מירי\Desktop\p\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.AssemblyInfo.cs
+C:\Users\מירי\Desktop\p\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.CoreCompileInputs.cache
+C:\Users\מירי\Desktop\p\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.CopyComplete
+C:\Users\מירי\Desktop\p\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.dll
+C:\Users\מירי\Desktop\p\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.pdb
