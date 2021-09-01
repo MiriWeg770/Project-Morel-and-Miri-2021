@@ -19,7 +19,9 @@ namespace BLL
         {
             try
             {
+
                 Menu m = MenuConvertors.ToMenu(u);
+                m.MenuCode = 0;
                 _context.Menu.Add(m);
                 _context.SaveChanges();
                 return MenuConvertors.ToMenuDto(m);
@@ -41,10 +43,9 @@ namespace BLL
         {
             return MenuConvertors.ToMenuDtoList(_context.Menu.ToList());
         }
-
         public List<MenuDto> GetAllMenusByIdUser(int id)
         {
-            return MenuConvertors.ToMenuDtoList(_context.Menu.Where(m => m.UserCode == id).ToList());
+            return MenuConvertors.ToMenuDtoList(_context.Menu.Where(m=>m.UserCode==id).ToList());
         }
 
         public MenuDto GetMenuById(int id)
@@ -74,18 +75,18 @@ namespace BLL
 
         public MenuDto UpdateMenu(MenuDto u)
         {
-            Menu U = _context.Menu.FirstOrDefault(w => w.MenuCode == u.MenuCode);
-            if (u == null)
-                return null;
-            U.MenuName = u.MenuName;
-            U.UserCode = u.UserCode;
-            U.ViewsNumber = u.ViewsNumber;
-            U.Links = u.Links;
-            U.Discription = u.Discription;
-            U.DateUpdated = u.DateUpdated;
-            u.DateCreated = u.DateCreated;
-            _context.SaveChanges();
-            return MenuConvertors.ToMenuDto(U);
+                Menu U = _context.Menu.FirstOrDefault(w => w.MenuCode == u.MenuCode);
+                if (u == null)
+                    return null;
+                U.MenuName = u.MenuName;
+                U.UserCode = u.UserCode;
+                U.ViewsNumber = u.ViewsNumber;
+                U.Links = u.Links;
+                U.Discription = u.Discription;
+                U.DateUpdated = u.DateUpdated;
+                u.DateCreated = u.DateCreated;
+                _context.SaveChanges();
+                return MenuConvertors.ToMenuDto(U);
         }
     }
 }

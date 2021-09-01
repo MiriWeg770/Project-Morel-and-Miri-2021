@@ -1,8 +1,14 @@
 {
   "ExpandedNodes": [
     "",
-    "\\WebApi"
+    "\\BLL",
+    "\\DAL",
+    "\\DAL\\Models",
+    "\\DTO",
+    "\\DTO\\Convertors",
+    "\\WebApi",
+    "\\WebApi\\Controllers"
   ],
-  "SelectedNode": "\\MenuCalucator.sln",
+  "SelectedNode": "\\BLL\\CategoriesToMealLogic.cs",
   "PreviewInSolutionExplorer": false
 }

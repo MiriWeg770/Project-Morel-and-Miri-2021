@@ -411,7 +411,6 @@ C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Mi
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\BLL.pdb
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\DAL.pdb
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\DTO.pdb
-C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csprojAssemblyReference.cache
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.AssemblyInfoInputs.cache
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.AssemblyInfo.cs
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csproj.CoreCompileInputs.cache
@@ -554,6 +553,9 @@ C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\bin\Debug\net
 C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csprojAssemblyReference.cache
 C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.AssemblyInfoInputs.cache
 C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.AssemblyInfo.cs
+C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csproj.CoreCompileInputs.cache
+C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.RazorTargetAssemblyInfo.cache
 C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csproj.CopyComplete
 C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.dll
@@ -570,7 +572,155 @@ C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\bin\Debug\net
 C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\staticwebassets\WebApi.StaticWebAssets.Manifest.cache
 C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\staticwebassets\WebApi.StaticWebAssets.xml
 C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.genruntimeconfig.cache
-C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\MimeKitLite.dll
-C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csproj.CoreCompileInputs.cache
-C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Morel\Desktop\פרוייקט גמר\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\WebApi.exe
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\WebApi.deps.json
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\WebApi.runtimeconfig.json
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\WebApi.runtimeconfig.dev.json
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\WebApi.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\WebApi.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Humanizer.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\BLL.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\DTO.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\BLL.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csproj.AssemblyReference.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.AssemblyInfoInputs.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.AssemblyInfo.cs
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csproj.CoreCompileInputs.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\staticwebassets\WebApi.StaticWebAssets.Manifest.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\staticwebassets\WebApi.StaticWebAssets.xml
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\scopedcss\bundle\WebApi.styles.css
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.RazorTargetAssemblyInfo.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csproj.CopyComplete
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\CallApiProject\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.genruntimeconfig.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csproj.AssemblyReference.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\WebApi.exe
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\WebApi.deps.json
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\WebApi.runtimeconfig.json
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\WebApi.runtimeconfig.dev.json
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\WebApi.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\WebApi.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Humanizer.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Abstractions.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Caching.Memory.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Configuration.Abstractions.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Logging.Abstractions.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Options.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Extensions.Primitives.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.Identity.Client.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Logging.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.IdentityModel.Tokens.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Microsoft.OpenApi.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\System.Collections.Immutable.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\System.ComponentModel.Annotations.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\System.Diagnostics.DiagnosticSource.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\System.IdentityModel.Tokens.Jwt.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\System.Runtime.Caching.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp3.1\Microsoft.Data.SqlClient.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-arm\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\BLL.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\DTO.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\BLL.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\DTO.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csproj.AssemblyReference.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.AssemblyInfoInputs.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.AssemblyInfo.cs
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csproj.CoreCompileInputs.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\staticwebassets\WebApi.StaticWebAssets.Manifest.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\staticwebassets\WebApi.StaticWebAssets.xml
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\scopedcss\bundle\WebApi.styles.css
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.RazorTargetAssemblyInfo.cache
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.csproj.CopyComplete
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.dll
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\‏‏תיקיה חדשה\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.genruntimeconfig.cache

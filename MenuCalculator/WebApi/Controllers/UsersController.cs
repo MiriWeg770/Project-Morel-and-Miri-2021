@@ -41,10 +41,10 @@ namespace WebApi.Controllers
         //    return Ok(_logic.AddUser(b));
         //}
         [HttpPost("SignIn")]
-        public IActionResult SignIn(UserDto u)
+        public  IActionResult SignIn(UserDto u)
         {
             if (!_logic.IsExists(u))
-                return NotFound("מצטערים אין כזה משתמש");
+                return NotFound( "מצטערים אין כזה משתמש");
             return Ok(_logic.SignIn(u.UserName, u.Password));
         }
         [HttpPost("SignUp")]
@@ -70,8 +70,8 @@ namespace WebApi.Controllers
             return Ok(_logic.UpdateUser(u));
         }
 
-        // [HttpPost]
-        // public void sendMail()
+        //[HttpPost]
+        //public void sendMail()
         //{
         //    MailMessage m = new MailMessage();
         //    m.To.Add("morelchakima@gmail.com");
@@ -92,67 +92,7 @@ namespace WebApi.Controllers
         //        throw e;
         //    }
         //}
-        //        age = new MimeMessage();
-        //        message.From.Add(new MailboxAddress("sss", "morel@"));
-        //            message.To.Add(new MailboxAddress("sss", "morel@"));
-        //            message.Subject = "test";
-        //            message.Body = new TextPart("plain")
-        //        {
-        //            Text = "hello"
-        //            };
-        //            using (var client = new SmtpClient())
-        //            {
-        //                client.connect("smtp.gmail.com", 587, false);
-        //                client.Send(message);
-        //                client.Disconnect(true);
-        //            }
-        //return View();
 
-        //try
-        //{
-        //    using(MailMessage mail =  new MailMessage())
-        //    {
-        //        mail.From = new MailAddress("morelchakima@gmail.com");
-        //        mail.To.Add("morelchakima@gmail.com");
-        //        mail.Subject = "test";
-        //        mail.Body = "<h1>hello</h2>";
-        //        mail.IsBodyHtml = true;
-
-        //        using(SmtpClient s= new SmtpClient("smtp.gmail.com",587))
-        //        {
-        //            s.UseDefaultCredentials = false;
-        //            s.EnableSsl = true;
-        //            s.Send(mail);
-        //        }
-        //    }
-        //}
-        //catch(Exception ex)
-        //{
-        //    throw ex;
-        //}
-        //    MailMessage msg = new MailMessage();
-
-        //    msg.From = new MailAddress("morelchaikma@gmail.com");
-        //    msg.To.Add("morelchaikma@gmail.com");
-        //    msg.Subject = "test";
-        //    msg.Body = "Test Content";
-        //    msg.Priority = MailPriority.High;
-
-        //    SmtpClient client = new SmtpClient();
-
-        //    client.Credentials = new NetworkCredential("mymailid", "mypassword", "smtp.gmail.com");
-        //    client.Host = "smtp.gmail.com";
-        //    client.Port = 587;
-        //    client.DeliveryMethod = SmtpDeliveryMethod.Network;
-        //    client.EnableSsl = true;
-        //    client.UseDefaultCredentials = false;
-
-        //    client.Send(msg);
-
-        //}string content, string mail
-
-
-    
 
     }
 }

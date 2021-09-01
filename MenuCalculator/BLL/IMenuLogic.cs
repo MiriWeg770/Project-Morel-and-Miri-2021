@@ -15,7 +15,7 @@ namespace BLL
         MenuDto AddMenu(MenuDto u);
         MenuDto DeletMenu(MenuDto u);
         MenuDto UpdateMenu(MenuDto u);
-        //   MenuDto IsExists(MenuDto b);
+     //   MenuDto IsExists(MenuDto b);
 
     }
 }

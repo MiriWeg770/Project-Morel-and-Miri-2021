@@ -11,7 +11,6 @@ namespace DTO.Convertors
     [ApiController]
     public class MenuCategoriesController : ControllerBase
     {
-
         private IMenuCategoriesLogic _logic;
 
         public MenuCategoriesController(IMenuCategoriesLogic logic)

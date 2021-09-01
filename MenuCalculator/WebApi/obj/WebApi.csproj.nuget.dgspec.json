@@ -1,25 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\WebApi\\WebApi.csproj": {}
+    "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\WebApi\\WebApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\BLL\\BLL.csproj": {
+    "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\BLL\\BLL.csproj",
-        "packagesPath": "C:\\Users\\Morel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\BLL\\obj\\",
+        "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\BLL\\BLL.csproj",
+        "packagesPath": "C:\\Users\\מירי\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Morel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\מירי\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -30,12 +30,13 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DAL\\DAL.csproj"
+              "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DAL\\DAL.csproj"
               },
-              "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DTO\\DTO.csproj": {
-                "projectPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DTO\\DTO.csproj"
+              "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DTO\\DTO.csproj": {
+                "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DTO\\DTO.csproj"
               }
             }
           }
@@ -48,6 +49,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -63,26 +65,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DAL\\DAL.csproj": {
+    "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\Morel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\מירי\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Morel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\מירי\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -93,6 +95,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -104,6 +107,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -135,26 +139,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DTO\\DTO.csproj": {
+    "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DTO\\DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DTO\\DTO.csproj",
+        "projectUniqueName": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DTO\\DTO.csproj",
         "projectName": "DTO",
-        "projectPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DTO\\DTO.csproj",
-        "packagesPath": "C:\\Users\\Morel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DTO\\obj\\",
+        "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DTO\\DTO.csproj",
+        "packagesPath": "C:\\Users\\מירי\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DTO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Morel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\מירי\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -165,9 +169,10 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DAL\\DAL.csproj"
+              "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DAL\\DAL.csproj"
               }
             }
           }
@@ -180,6 +185,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -195,26 +201,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\WebApi\\WebApi.csproj": {
+    "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\WebApi\\WebApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\WebApi\\WebApi.csproj",
+        "projectUniqueName": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\WebApi\\WebApi.csproj",
         "projectName": "WebApi",
-        "projectPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\WebApi\\WebApi.csproj",
-        "packagesPath": "C:\\Users\\Morel\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\WebApi\\obj\\",
+        "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\WebApi\\WebApi.csproj",
+        "packagesPath": "C:\\Users\\מירי\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\WebApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Microsoft\\Xamarin\\NuGet\\"
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Morel\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+          "C:\\Users\\מירי\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -225,12 +231,13 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\BLL\\BLL.csproj": {
-                "projectPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\BLL\\BLL.csproj"
+              "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\BLL\\BLL.csproj": {
+                "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\BLL\\BLL.csproj"
               },
-              "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\MenuCalculator\\DAL\\DAL.csproj"
+              "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DAL\\DAL.csproj"
               }
             }
           }
@@ -243,16 +250,13 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
               "version": "[5.0.0, )"
-            },
-            "MimeKitLite": {
-              "target": "Package",
-              "version": "[2.15.0, )"
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
@@ -277,7 +281,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.412\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -20,7 +20,6 @@ namespace DTO.Convertors
                 NumberOfDiners = m.NumberOfDiners,
                 NumberOfViews = m.NumberOfViews,
                 UserCode = m.UserCode,
-                
                 MealProducts = ProductConvertors.ToProductList(m.Products)
                 
             };

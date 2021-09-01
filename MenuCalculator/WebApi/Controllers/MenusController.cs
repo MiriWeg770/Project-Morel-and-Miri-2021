@@ -16,24 +16,24 @@ namespace WebApi.Controllers
     [ApiController]
     public class MenusController : ControllerBase
     {
-
         private IMenuLogic _logic;
         public MenusController(IMenuLogic logic)
         {
             _logic = logic;
         }
         [HttpGet]
+
         public IActionResult GetAllMenus()
         {
             return Ok(_logic.GetAllMenus());
         }
-
         [HttpGet("GetAllMenusByIdUser/:id")]
+
         public IActionResult GetAllMenusByIdUser(int id)
         {
             return Ok(_logic.GetAllMenusByIdUser(id));
         }
-
+        
         [HttpGet("{id}")]
         public IActionResult GetMenuById(int id)
         {
