@@ -4,8 +4,8 @@
       <h2 *ngIf="data==null"> הוסף תפריט</h2>
       <h2 *ngIf="data!=null"> עדכן תפריט</h2>
       <div>
-        <button *ngIf="data==null" mat-raised-button (click)="saveMeal()" mat-dialog-close> שמור </button>
-        <button *ngIf="data!=null" mat-raised-button (click)="updateMeal()" mat-dialog-close> עדכן </button>
+        <button *ngIf="data==null" mat-raised-button (click)="saveMenu()" mat-dialog-close> שמור </button>
+        <button *ngIf="data!=null" mat-raised-button (click)="updateMenu()" mat-dialog-close> עדכן </button>
         <mat-icon mat-dialog-close class="close">close</mat-icon>
       </div>
     </mat-toolbar>
@@ -19,8 +19,8 @@
   
         <label>קטגוריה</label>
         <select name=" " [(ngModel)]="selectCa">
-          <option *ngFor="let x of categories; let i=index" value={{x.mealCategoriesName}} >{{x.mealCategoriesName}}</option>
-          <option value="">הוסף קטגוריה</option>
+          <option *ngFor="let x of categories; let i=index" value={{x.menuCategoriesName}} >{{x.menuCategoriesName}}</option>
+          <!-- <option value="">הוסף קטגוריה</option> -->
         </select>
         <label>דרגת קושי</label>
         <select name=" ">
@@ -35,7 +35,7 @@
       </div>
     
       <div class="form products">
-        <div class="title"> המנות </div>
+        <div class="title">המנות</div>
         <div class="list">
             <mat-list role="list">
                 <mat-list-item role="listitem" *ngFor="let x of MenuList">

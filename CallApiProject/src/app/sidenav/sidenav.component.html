@@ -30,44 +30,63 @@
    </mat-expansion-panel-header>
    <p routerLink="/User/AddMeal">הוסף מנה</p>
   </mat-expansion-panel>
+  <li
    </li> -->
-   <!-- <li >
+ 
+   <li *ngIf="name!=null">
     <a (click)="MyAccount()">
         <mat-icon>account_circle</mat-icon>
     </a>
      <span class="tooltip"> {{u.userName}}</span>
-  </li> -->
-   <li>
+  </li>
+
+   <li routerLinkActive="active">
     <a routerLink="/Home/AllLists">
         <mat-icon>home</mat-icon>
     </a>
      <span class="tooltip"> דף הבית</span>
   </li>
-   <li routerLinkActive="active">
+
+
+   <li *ngIf="name!=null" routerLinkActive="active">
      <a routerLink="/Home/MyMeals"  >
          <mat-icon>ballot</mat-icon>
      </a>
       <span class="tooltip">המנות שלי</span>
    </li>
-   <li routerLinkActive="active">
-    <a routerLink="/Home/AddMeal"  >
-        <mat-icon>add</mat-icon>
+   <li *ngIf="name==null" (click)="makeAccount()">
+    <a>
+        <mat-icon>ballot</mat-icon>
     </a>
      <span class="tooltip">המנות שלי</span>
   </li>
-   <li routerLinkActive="active">
+  
+   <li  *ngIf="name!=null" routerLinkActive="active">
     <a routerLink="/Home/MyMenus">
         <mat-icon>list_alt</mat-icon>
     </a>
      <span class="tooltip">התפריטים שלי</span>
   </li>
-  <li routerLinkActive="active">
+  <li *ngIf="name==null" (click)="makeAccount()">
+    <a>
+        <mat-icon>list_alt</mat-icon>
+    </a>
+     <span class="tooltip">התפריטים שלי</span>
+  </li>
+
+  <li  *ngIf="name!=null" routerLinkActive="active">
     <a routerLink="/Home/MyEvent">
         <mat-icon>event</mat-icon>
     </a>
      <span class="tooltip">ארועים</span>
   </li>
-  <li routerLinkActive="active">
+  <li *ngIf="name==null" (click)="makeAccount()">
+    <a>
+        <mat-icon>event</mat-icon>
+    </a>
+     <span class="tooltip"> ארועים</span>
+  </li>
+  <!-- <li routerLinkActive="active">
     <a routerLink="/Home/MyHistory">
         <mat-icon>history</mat-icon>
     </a>
@@ -78,7 +97,7 @@
      <mat-icon>settings</mat-icon>
     </a>
     <span class="tooltip"> הגדרות</span>
-  </li>
+  </li> -->
 
   
  </ul>

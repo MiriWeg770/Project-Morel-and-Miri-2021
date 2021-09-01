@@ -1,0 +1,23 @@
+.btn {
+    background-color: rgb(255 176 2);
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+  }
+  
+  /* Darker background on mouse-over */
+  .btn:hover {
+    background-color: rgb(255 176 2 / 56%);
+  }
+  #x{
+      display: none;
+  }
+  .img img{
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      height: 100px;
+  }

@@ -1,6 +1,6 @@
 
 <mat-drawer-container >
-  <mat-drawer mode="side" [opened]="open" position="end"*ngIf="u!=null">
+  <mat-drawer mode="side" opened position="end">
     <app-sidenav></app-sidenav>
   </mat-drawer>
   <mat-drawer-content>
@@ -9,15 +9,16 @@
 <div class="logo" routerLink="/Home" >MenuCalculator </div> 
 </div>
 <div>
-<span  *ngIf="u!=null" (click)="MyAccount()" > <mat-icon class="user">account_circle</mat-icon>
-</span>
-<mat-icon  class="menu_icon" *ngIf="u!=null"   (click)="open=!open">menu</mat-icon>
+<!-- <span  *ngIf="u!=null" (click)="MyAccount()" > <mat-icon class="user">account_circle</mat-icon> -->
+<!-- </span> -->
+<!-- <mat-icon  class="menu_icon" *ngIf="u!=null"   (click)="open=!open">menu</mat-icon> -->
 
 </div>
-<div *ngIf="u==null" >
+<div  >
  <button routerLink="/Home/SignIn" mat-button>התחבר</button>
  <button routerLink="/Home/SignUp" mat-button>הירשם</button>
 </div>
+
 <!-- <div id="overlay" >
   <app-my-account *ngIf="u!=null" (closeEvent)="open_close($event)"></app-my-account>
 </div> -->

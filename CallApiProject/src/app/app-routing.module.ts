@@ -21,6 +21,7 @@ import { AddMealComponent } from './add-meal/add-meal.component';
 import { UserComponent } from './user/user.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { HeaderComponent } from './header/header.component';
+import { DownloadComponent } from './download/download.component';
 
 const routes: Routes = [
   // {path:"Home", component:HomeComponent},
@@ -50,6 +51,7 @@ const routes: Routes = [
     
     {path:"", redirectTo:"MyMeals", pathMatch:"full"},
   ]},
+
   {path:"ResetPassword",component:ResetPasswordComponent},
   {path:"", redirectTo:"Home", pathMatch:"full"},
   {path:"**", redirectTo:"SignIn", pathMatch:"full"}

@@ -95,6 +95,9 @@
  .active a {
   border: 2px solid #ffd073fc;
 }
+.active mat-icon {
+color: black;
+}
 /* .sidebar li a .links_name{
   color: #fff;
   font-size: 15px;

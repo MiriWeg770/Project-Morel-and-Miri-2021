@@ -4,6 +4,7 @@ import { Menu } from 'src/Models/Menu';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { MenuCategories } from 'src/Models/MenuCategories';
+import { CategoriesToMenu } from 'src/Models/CategoriesToMenu';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +27,8 @@ export class MenuService {
   
   GetAllCategories():Observable<MenuCategories[]>{
     return this.http.get<MenuCategories[]>(environment.url +"/api/MenuCategories/GetAllCategories");
+  }
+  AddCategoriesToMenu(mc:CategoriesToMenu) {
+    return this.http.post(environment.url +"/api/CategoriesToMenu/AddCategoriesToMenu",mc);
   }
 }

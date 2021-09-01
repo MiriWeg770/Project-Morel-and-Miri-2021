@@ -1,7 +1,7 @@
 <div class="card" >
     <div class="content">
       <div class="title">
-        <span>מתכון</span>
+        <span >מתכון</span>
          </div>
     <img src="http://vecurosoft.com/products/html/grillinator/demo/assets/img/food-menu/food-menu-img-3-3.jpg" alt="Avatar" style="width:100%"routerLink="/Home/ShowMealDetails/{{meal.mealCode}}">
     <div class="container">
@@ -14,7 +14,7 @@
           <span>{{meal.userName}}</span> <span>18/08/200</span>
         </div>
         <div class="icons">
-          <mat-icon matTooltip="הורד" >download</mat-icon>
+          <mat-icon matTooltip="הורד"  (click)="download()" >download</mat-icon>
           <mat-icon matTooltip="שמור" (click)="add()">favorite</mat-icon>
         </div></div>
       </div>

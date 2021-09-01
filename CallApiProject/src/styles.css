@@ -15,3 +15,10 @@ body { margin: 0; font-family: 'Varela Round', sans-serif; }
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.my-dialog mat-dialog-container{
+    border-radius: 0;
+    height: 95%;
+    margin-top: 18px;
+    padding: 0;
+}

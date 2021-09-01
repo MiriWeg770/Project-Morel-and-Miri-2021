@@ -58,6 +58,9 @@ import { AddEventComponent } from './add-event/add-event.component';
 import { MealComponent } from './meal/meal.component';
 import { MenuComponent } from './menu/menu.component';
 import { NavComponent } from './nav/nav.component';
+import { ChangePeopleComponent } from './change-people/change-people.component';
+import { DownloadComponent } from './download/download.component';
+import { MakeAccountComponent } from './make-account/make-account.component';
 
 @NgModule({
   declarations: [
@@ -91,7 +94,10 @@ import { NavComponent } from './nav/nav.component';
     AddEventComponent,
     MealComponent,
     MenuComponent,
-    NavComponent
+    NavComponent,
+    ChangePeopleComponent,
+    DownloadComponent,
+    MakeAccountComponent
     
   ],
   imports: [

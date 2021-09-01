@@ -16,14 +16,14 @@ export class MyMenusComponent implements OnInit {
     new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
    ,
   ]; 
-    u: User = new User(0, null, null, null);
+    u: User = new User(1, null, null, null);
     choose = false
     add = false
-    newMenu: Menu = new Menu(0,null,null,0,null,null,null,0,null);
+    newMenu: Menu = new Menu(1,null,null,1,null,null,null,1,null);
     ELEMENT_DATA: Menu[] =[
-      new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
-      new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
-      new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null)
+      new Menu(1,"ארוחת בוקר","ccc",1,new Date(2000-25-25),null,null,1,null),
+      new Menu(1,"ארוחת בוקר","ccc",1,new Date(2000-25-25),null,null,1,null),
+      new Menu(1,"ארוחת בוקר","ccc",1,new Date(2000-25-25),null,null,1,null)
     ]
     click = false
     dataSource;

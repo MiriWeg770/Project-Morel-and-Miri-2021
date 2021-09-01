@@ -94,11 +94,12 @@ mat-icon{
 
 }
 .d{
-    background-color: rgb(0 0 0 / 87%);
-    height: 85px;
-    margin-top: -12px;
-    color: white;
-    border-bottom: 6px double gold;
+       /* background-color: rgb(0 0 0 / 87%); */
+       height: 85px;
+       /* margin-top: -12px; */
+       /* color: white; */
+       border-bottom: 2px solid gray;
+   
 
 }
 .date{

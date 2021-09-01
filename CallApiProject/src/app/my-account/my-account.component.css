@@ -1,18 +1,16 @@
 
      
     .user{
-        width: 350px;
-        /* height: 500px; */
+        width: 267px;
         color: black;
         box-sizing: border-box;
         direction: rtl;
-        box-shadow: 0 6px 23px rgb(0 0 0);
-        padding: 25px 28px;
+        /* box-shadow: 0 6px 23px rgb(0 0 0); */
+        /* padding: 25px 28px; */
         background-color: #fff;
-        border: 6px solid dimgray;
-    
-    
-}
+        /* border: 6px solid dimgray; */
+    }
+
 
    
 #avatar{

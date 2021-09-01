@@ -4,6 +4,7 @@ import { Meal} from 'src/Models/Meal';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Product } from 'src/Models/Product';
+import { CategoriesToMeal } from 'src/Models/CategoriesToMeal';
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +30,8 @@ export class MealService {
   }
   AddMealToUser(m:Meal):Observable<Meal>{
     return this.http.post<Meal>(environment.url +"/api/Meals/AddMealToUser",m);
+  }
+  AddCategoriesToMeal(mc:CategoriesToMeal) {
+    return this.http.post(environment.url +"/api/CategoriesToMeal/AddCategoriesToMeal",mc);
   }
 }

@@ -1,7 +1,7 @@
-import {AfterViewInit, Component, Inject, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator} from '@angular/material/paginator';
-import {MatSort} from '@angular/material/sort';
-import {MatTableDataSource} from '@angular/material/table';
+import { AfterViewInit, Component, Inject, OnInit, ViewChild } from '@angular/core';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 //import {FormControl} from '@angular/forms';
 import { Meal } from 'src/Models/Meal';
 import { MealService } from '../meal.service';
@@ -15,6 +15,7 @@ import { ActivatedRoute } from '@angular/router';
 import { User } from 'src/Models/User';
 import { MealCategoriesService } from '../meal-categories.service';
 import { MealCategories } from 'src/Models/MealCategories';
+import { CategoriesToMeal } from 'src/Models/CategoriesToMeal';
 
 @Component({
   selector: 'app-add-meal',
@@ -22,38 +23,39 @@ import { MealCategories } from 'src/Models/MealCategories';
   styleUrls: ['./add-meal.component.css']
 })
 export class AddMealComponent implements OnInit {
-  
- u:User 
- ELEMENT_DATA: Product[]=[];
- newMeal:Meal=new Meal(0,null,null,null,null,null,null,null,null,null);
- newProduct:Product=new Product(0,null,null,null,"null");
- categories:MealCategories[];
- selectCa:string
- selectAm:string
+
+  u: User
+  ELEMENT_DATA: Product[] = [];
+  newMeal: Meal = new Meal(0, null, null, null, null, null, null, null, null, null);
+  newProduct: Product = new Product(0, null, null, null, "null");
+  categories: MealCategories[];
+  selectCa: string
+  selectAm: string
+  newMealCategories: CategoriesToMeal = new CategoriesToMeal(0, 0, 0);
 
 
 
-  constructor(private ser:MealService, private serc:MealCategoriesService, public dialog:MatDialog,public active: ActivatedRoute,
+  constructor(private ser: MealService, private serc: MealCategoriesService, public dialog: MatDialog, public active: ActivatedRoute,
     public dialogRef: MatDialogRef<AddMealComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Meal) {   
-      this.u= JSON.parse(localStorage.getItem("user"));
-      this.newMeal.userCode = this.u.userCode;
-      if(data!=null){
-      this.newMeal=data
-      serc.GetCategoryById(this.newMeal.mealCategoryCode).subscribe(succ=>{
-        this.selectCa=succ.mealCategoriesName
+    @Inject(MAT_DIALOG_DATA) public data: Meal) {
+    this.u = JSON.parse(localStorage.getItem("user"));
+    this.newMeal.userCode = this.u.userCode;
+    if (data != null) {
+      this.newMeal = data
+      serc.GetCategoryById(this.newMeal.mealCategoryCode).subscribe(succ => {
+        this.selectCa = succ.mealCategoriesName
         console.log(this.selectCa)
-      },err=>{
+      }, err => {
         console.log(err)
-      }) 
-      ser.GetProductsMeal(this.newMeal.mealCode).subscribe(succ=>{
+      })
+      ser.GetProductsMeal(this.newMeal.mealCode).subscribe(succ => {
         console.log(succ)
-        this.ELEMENT_DATA=succ
-      },err=>{
+        this.ELEMENT_DATA = succ
+      }, err => {
         console.log(err)
       })
       console.log(this.newMeal)
-  }
+    }
   }
   ngOnInit(): void {
     this.GetCategories()
@@ -61,39 +63,46 @@ export class AddMealComponent implements OnInit {
 
   saveMeal() {
     console.log(this.selectCa)
-    this.newMeal.products=this.ELEMENT_DATA;
+    this.newMeal.products = this.ELEMENT_DATA;
     this.categories.forEach(element => {
-      if(element.mealCategoriesName==this.selectCa)
-         this.newMeal.mealCategoryCode=element.mealCategoriesCode
+      if (element.mealCategoriesName == this.selectCa)
+        this.newMealCategories.mealCategoriesCode = element.mealCategoriesCode
     });
     console.log(this.newMeal.products);
 
-    this.ser.AddMeal(this.newMeal).subscribe(succ => {
-      console.log(succ.products);
+
+    this.ser.AddMeal(this.newMeal).subscribe(data => {
+      this.newMealCategories.mealCode = data.mealCode;
+      //לשמור בטבלה של הקטגוריות
+
+      this.ser.AddCategoriesToMeal(this.newMealCategories).subscribe();
+      console.log(data);
     }, err => {
       console.log(err);
     })
+
   }
-  updateMeal(){
-    this.newMeal.products=this.ELEMENT_DATA
+  updateMeal() {
+    this.newMeal.products = this.ELEMENT_DATA
     console.log(this.newMeal.products)
 
     this.categories.forEach(element => {
-      if(element.mealCategoriesName==this.selectCa)
-         this.newMeal.mealCategoryCode=element.mealCategoriesCode
+      if (element.mealCategoriesName == this.selectCa)
+        this.newMeal.mealCategoryCode = element.mealCategoriesCode
     });
     this.ser.UpdateMeal(this.newMeal).subscribe(succ => {
       console.log(succ);
     }, err => {
       console.log(err);
-    })  
+    })
+
   }
 
-  addProduct(){
-    this.newProduct.amountName=this.selectAm
+  addProduct() {
+    this.newProduct.amountName = this.selectAm
     console.log(this.newProduct)
     this.ELEMENT_DATA.push(this.newProduct)
-    this.newProduct=new Product(null,null,null,null,null)
+    this.newProduct = new Product(null, null, null, null, null)
   }
 
   // addPro(){
@@ -107,7 +116,7 @@ export class AddMealComponent implements OnInit {
   //     this.newProduct = result;
   //     this.ELEMENT_DATA.push(this.newProduct)
   //     console.log(this.ELEMENT_DATA)
-    
+
   //   });
   // }
   // deletePro(){
@@ -119,7 +128,7 @@ export class AddMealComponent implements OnInit {
   //   dialogRef.afterClosed().subscribe(result => {
   //     console.log('The dialog was closed');
   //     if(result)
-     
+
   //   console.log(this.ELEMENT_DATA) 
   //   });
   // }
@@ -130,15 +139,15 @@ export class AddMealComponent implements OnInit {
   //   dialogConfig.width="30%";
   //   this.dialog.open(AddProductComponent,dialogConfig);
   //  }   
- 
-   GetCategories(){
-     this.serc.GetAllCategories().subscribe(succ=>{
-       this.categories=succ
-       console.log(succ)
-     },err=>{
-       console.log(err)
-     })
-   }
+
+  GetCategories() {
+    this.serc.GetAllCategories().subscribe(succ => {
+      this.categories = succ
+      console.log(succ)
+    }, err => {
+      console.log(err)
+    })
+  }
   // editPro(){
   //  const dialogRef=this.dialog.open(EditProductComponent,{
   //    width:'500px',
@@ -149,12 +158,12 @@ export class AddMealComponent implements OnInit {
   //     Company:this.selectRow.Company
   //    }
   //  });
-   
+
   //  dialogRef.afterClosed().subscribe(result => {
   //   console.log('The dialog was closed');
   //   this.selectRow = result;
   // });
   // }
- 
-   
+
+
 }

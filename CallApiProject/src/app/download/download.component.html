@@ -1,0 +1,11 @@
+<div id="x" #x>
+<div class="img"><img src="../../assets/3.jpg"></div>
+<h2 mat-dialog-title>{{meal.mealName}}</h2>
+<mat-dialog-content>
+  <h3>תיאור</h3>
+    <p>{{meal.discription}}</p>
+    <h3>{{meal.instructions}}</h3>
+    <h3>{{meal.numberOfDiners}}</h3>
+</mat-dialog-content>
+</div>
+<button  class="btn" (click)="download()"><mat-icon>download</mat-icon> הורד</button>

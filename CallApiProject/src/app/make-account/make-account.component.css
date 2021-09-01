@@ -1,0 +1,30 @@
+.mat-dialog-actions{
+    align-items: center;
+    padding: 7px 37px;
+}
+.mat-dialog-actions div{
+    border: 2px solid gold;
+    border-radius: 45px;
+    padding: 7px 37px;
+}
+.mat-dialog-actions div a{
+    text-decoration: none ;
+}
+.mat-dialog-actions div a:hover{
+    text-decoration: underline  ;
+}
+.mat-dialog-content h1{
+    color: rgb(0 0 0 / 87%);
+    font-size: 31px;
+    /* direction: rtl; */
+    text-align: center;
+    font-weight: bold;
+    font-family: system-ui;
+}
+.mat-dialog-content p{
+    font-family: system-ui;
+    color: rgb(0 0 0 / 87%);
+    font-size: 16px;
+    text-align: center;
+    /* font-weight: bold; */
+}

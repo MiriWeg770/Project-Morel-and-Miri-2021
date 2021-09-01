@@ -1,12 +1,17 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
 import { Meal } from 'src/Models/Meal';
 import { Product } from 'src/Models/Product';
 import { User } from 'src/Models/User';
+import { ChangePeopleComponent } from '../change-people/change-people.component';
+import { DownloadComponent } from '../download/download.component';
 import { MealService } from '../meal.service';
 import { UserService } from '../user.service';
-
+// import * as jsPDF from 'jspdf'
 @Component({
   selector: 'app-show-meal-details',
   templateUrl: './show-meal-details.component.html',
@@ -20,7 +25,7 @@ export class ShowMealDetailsComponent implements OnInit {
     new Product(null,"חסה",12,"גרם",null),
     new Product(null,"חסה",12,"גרם",null),
   ]
-  meal:Meal=new Meal(null,null,null,null,null,null,null,null,null,null);
+  meal:Meal=new Meal(null,null,null,null,null,null,null,null,null,null,null);
   // meal: Meal= new Meal(1,"סלט","bfbtr",12,"סלט איטלקי מלא במליחות ים תיכונית. שמן הזית, הלימון והבלסמי יוצרים תחמיץ נפלא, שעובד גם עם ברוקולי",1,11,1,this.prosucts,"נועה",new Date("2000-08-02"));
  
   bgVariable:Boolean=false
@@ -28,7 +33,7 @@ export class ShowMealDetailsComponent implements OnInit {
 
 
   u:User;
-  constructor(private router:ActivatedRoute,private ser:MealService,private serUser:UserService, private _snackBar: MatSnackBar) { 
+  constructor(private router:ActivatedRoute,private ser:MealService,private serUser:UserService, private _snackBar: MatSnackBar,private dialog:MatDialog) { 
     this.u=JSON.parse(localStorage.getItem("user"))
     this.router.params.subscribe(parameters => {
       let code = +parameters["id"];
@@ -94,4 +99,38 @@ export class ShowMealDetailsComponent implements OnInit {
      console.log(err)
    })
  }
+
+
+ download(){
+  //  console.log("download")
+  //  const doc=new jsPDF();
+
+  //  let data= document.getElementById("recipy")
+
+
+  //   html2canvas(data).then(canvas=>{
+  //   let imgWidth=290;
+  //   let imgHeight=(canvas.height * imgWidth / canvas.width)
+  //   const contentDataUrl = canvas.toDataURL('image/png')
+  //   let pdf =  new jsPDF('l','mm','a4')
+  //   var position = 10;
+  //   pdf.addImage(contentDataUrl,'PNG',0,position,imgWidth,imgHeight);
+  //   pdf.save(this.meal.mealName +" מתכון")
+  // })
+
+  const dialogRef = this.dialog.open(ChangePeopleComponent, {
+    data: this.meal
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+  });
+ }
+
+ print(){
+   window.print()
+ }
+
+ 
+
+
 }
