@@ -16,6 +16,9 @@ export class MealService {
   GetAllMeals():Observable<Meal[]>{
     return this.http.get<Meal[]>(environment.url +"/api/Meals/GetAllMeals/");
   }
+  GetMealById(id:number):Observable<Meal>{
+    return this.http.get<Meal>(environment.url +"/api/Meals/"+id);
+  }
   GetProductsMeal(id:number):Observable<Product[]>{
     return this.http.get<Product[]>(environment.url +"/api/Meals/GetProductsMeal/"+id);
   }

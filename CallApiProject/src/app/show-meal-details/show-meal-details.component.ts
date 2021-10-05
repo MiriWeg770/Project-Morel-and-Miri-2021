@@ -9,6 +9,8 @@ import { Product } from 'src/Models/Product';
 import { User } from 'src/Models/User';
 import { ChangePeopleComponent } from '../change-people/change-people.component';
 import { DownloadComponent } from '../download/download.component';
+import { LevelService } from '../level.service';
+import { MealCategoriesService } from '../meal-categories.service';
 import { MealService } from '../meal.service';
 import { UserService } from '../user.service';
 // import * as jsPDF from 'jspdf'
@@ -18,34 +20,52 @@ import { UserService } from '../user.service';
   styleUrls: ['./show-meal-details.component.css']
 })
 export class ShowMealDetailsComponent implements OnInit {
-  prosucts:Product[]=[
-    new Product(null,"חסה",12,"גרם",null),
-    new Product(null,"חסה",12,"גרם",null),
-    new Product(null,"חסה",12,"גרם",null),
-    new Product(null,"חסה",12,"גרם",null),
-    new Product(null,"חסה",12,"גרם",null),
-  ]
-  meal:Meal=new Meal(null,null,null,null,null,null,null,null,null,null,null);
-  // meal: Meal= new Meal(1,"סלט","bfbtr",12,"סלט איטלקי מלא במליחות ים תיכונית. שמן הזית, הלימון והבלסמי יוצרים תחמיץ נפלא, שעובד גם עם ברוקולי",1,11,1,this.prosucts,"נועה",new Date("2000-08-02"));
+
+  meal:Meal=new Meal(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
  
-  bgVariable:Boolean=false
-  headerVariable:boolean=false
+  // bgVariable:Boolean=false
+  // headerVariable:boolean=false
 
-
+  Instructions:string[]=[]
+  more:Meal[]=[]
   u:User;
-  constructor(private router:ActivatedRoute,private ser:MealService,private serUser:UserService, private _snackBar: MatSnackBar,private dialog:MatDialog) { 
+  count:number=0;
+  category:string="";
+  level:string="";
+  products:Product[]=[]
+  constructor(private router:ActivatedRoute,private ser:MealService,private serc:MealCategoriesService,private serl:LevelService,private serUser:UserService, private _snackBar: MatSnackBar,private dialog:MatDialog) { 
     this.u=JSON.parse(localStorage.getItem("user"))
     this.router.params.subscribe(parameters => {
       let code = +parameters["id"];
-       ser.GetAllMeals().subscribe(succ=>{
-        this.meal =succ.find(p=>p.mealCode==code)
+       ser.GetMealById(code).subscribe(succ=>{
+        this.meal =succ
+        this.GetProducts(this.meal.mealCode)    
         console.log(this.meal)
-        this.GetProducts(code)
-        this.GetUser(this.meal.userCode)
+        this.GetUser(this.meal.userCode) 
+        this.GetInstructions()  
+        this.count=this.meal.numberOfDiners 
+        this.GetCategory()
+        this.GetLevel()
+        // this.more=[]  
+        // ser.GetAllMeals().subscribe(succ=>{
+        // succ.forEach(element => {
+        //   if(element.mealCategoryCode==this.meal.mealCategoryCode && element.mealCode!=this.meal.mealCode)
+        //      if(this.more.length<5){
+        //       this.serUser.GetUserById(element.userCode).subscribe(succ=>{
+        //         element.userName=succ.userName
+        //       },err=>{
+        //         console.log(err)
+        //       })
+        //       this.more.push(element)
+        //      }   
+        // });            
+        // console.log(this.more)    
+        // console.log(this.meal)
 
-        
-      })
-    });
+      // },err=>{console.log(err)})
+      },err=>{console.log(err)})
+  
+      });
 }
 
 
@@ -60,7 +80,7 @@ export class ShowMealDetailsComponent implements OnInit {
  }
  Date(){
    let d:Date=new Date()
-   return d.getDate()+"/"+d.getMonth()+"/"+d.getFullYear();
+   return d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear();
  }
  
  addMeal(){
@@ -82,10 +102,9 @@ export class ShowMealDetailsComponent implements OnInit {
  }
 
  GetProducts(code:number){
-   console.log(code)
    this.ser.GetProductsMeal(code).subscribe(succ=>{
      console.log(succ)
-     this.meal.products=succ;
+    this.meal.products=succ;
    },err=>{
      console.log(err)
    })
@@ -100,6 +119,40 @@ export class ShowMealDetailsComponent implements OnInit {
    })
  }
 
+GetInstructions(){
+  this.Instructions=[]
+  let x:string=""
+  for (let index = 0; index < this.meal.instructions.length; index++) {
+    if(this.meal.instructions[index]=='#'){
+       this.Instructions.push(x)
+       x=""
+    }
+   else
+      x+=this.meal.instructions[index]  
+  }    
+  console.log(this.Instructions)
+}
+
+GetLevel(){
+  this.serl.GetAllLevels().subscribe(succ => { 
+    succ.forEach(element => {
+      if(element.levelCode==this.meal.levelCode)
+        this.level= element.levelName;
+    });
+   }, err => {
+     console.log(err)
+   })
+}
+GetCategory(){
+  this.serc.GetAllCategories().subscribe(succ => { 
+    succ.forEach(element => {
+      if(element.mealCategoriesCode==this.meal.mealCategoryCode)
+        this.category= element.mealCategoriesName;
+    });
+   }, err => {
+     console.log(err)
+   })
+}
 
  download(){
   //  console.log("download")
@@ -131,6 +184,12 @@ export class ShowMealDetailsComponent implements OnInit {
  }
 
  
-
+plus(){
+this.count++
+}
+minus(){
+  if(this.count!=1)
+    this.count--
+}
 
 }

@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { Event } from 'src/Models/Event';
 // import { runInThisContext } from 'vm';
 import { AddEventComponent } from '../add-event/add-event.component';
+import { ShowMonthsComponent } from '../show-months/show-months.component';
 
 @Component({
   selector: 'app-calendar',
@@ -50,6 +51,15 @@ export class CalendarComponent implements OnInit {
       return true;
     return false;
   }
+
+
+  CheckEvent(x){
+ this.list.forEach(element => {
+   if(element.eventDate==x)
+      return true;
+   return false
+ });
+  }
   ChangeMonth(i){
   this.month=this.months[i]
   this.monthDays.length=0
@@ -70,38 +80,33 @@ export class CalendarComponent implements OnInit {
   console.log(this.monthDays)
   }
 
-  YearBefor(){
-    if(this.year>this.date.getFullYear())
-     this.year=this.year-1
-  }
-  nextYear(){
-    if(this.year<this.date.getFullYear()+10)
-    this.year=this.year+1
-  }
-  select(x){
-    if(x!=0){
-    this.listEvents.length=0
-    this.day=x
-    this.event=this.month+" "+this.day+" ,"+this.year
-    this.toggle=true
 
-    this.list.forEach(element => {  
-      // console.log(this.month)
-      // console.log(this.year)
-      // console.log(this.day)   
-      // console.log(this.months[element.EventDate.getMonth()])
-      // console.log(element.EventDate.getFullYear())
-      // console.log(element.EventDate.getDate())
+  select(x:Event){
+    console.log(x)
+    // this.listEvents.length=0
+    this.date=x.eventDate
+    this.year=this.date.getFullYear()
+    this.ChangeMonth(this.date.getMonth())
+    // this.event=this.month+" "+this.day+" ,"+this.year
+    // this.toggle=true
 
-      if(element.eventDate.getDate()==x && element.eventDate.getFullYear()==this.year && this.months[element.eventDate.getMonth()]==this.month)    
-        {
-          console.log(true)
-          this.listEvents.push(element)
-        }
-      else 
-       console.log( false)
-    });
-  }
+    // this.list.forEach(element => {  
+    //   // console.log(this.month)
+    //   // console.log(this.year)
+    //   // console.log(this.day)   
+    //   // console.log(this.months[element.EventDate.getMonth()])
+    //   // console.log(element.EventDate.getFullYear())
+    //   // console.log(element.EventDate.getDate())
+
+    //   if(element.eventDate.getDate()==x && element.eventDate.getFullYear()==this.year && this.months[element.eventDate.getMonth()]==this.month)    
+    //     {
+    //       console.log(true)
+    //       this.listEvents.push(element)
+    //     }
+    //   else 
+    //    console.log( false)
+    // });
+  
 
    
   }
@@ -115,23 +120,24 @@ export class CalendarComponent implements OnInit {
   }
   }
 
-  newEvent:Event;
+  newEvent:Event;;
   AddEvent(){
-    this.newEvent=new Event(null,null,null,null)
-      const dialogRef = this.dialog.open(AddEventComponent, {
-      autoFocus:false,
-      width: '250px',
-      data:this.newEvent,
-      });
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');   
-        console.log(result) 
-        this.newEvent=result
-        this.newEvent.eventDate=new Date(this.year,this.months.indexOf(this.month),this.day)
-        this.list.push(this.newEvent)
-        this.select(this.newEvent.eventDate.getDate())
-
-     });  
+    // this.newEvent=new Event(null,null,new Date(),null)
+    //   const dialogRef = this.dialog.open(AddEventComponent, {
+    //   autoFocus:false,
+    //   width: '250px',
+    //   data:this.newEvent,
+    //   });
+    //   dialogRef.afterClosed().subscribe(result => {
+    //     console.log('The dialog was closed');   
+    //     console.log(result) 
+    //     if(result!=null){
+    //     this.newEvent=result
+    //     this.newEvent.eventDate=new Date(this.year,this.months.indexOf(this.month),this.day)
+    //     this.list.push(this.newEvent)
+        // this.select(this.newEvent.eventDate.getDate())
+        // }
+    //  });  
     }
 
 openEvent(x:Event){
@@ -144,7 +150,31 @@ openEvent(x:Event){
   dialogRef.afterClosed().subscribe(result => {
     console.log('The dialog was closed');   
     console.log(result) 
+    if(result!=null){
+          this.newEvent=result
+          this.newEvent.eventDate=new Date(this.year,this.months.indexOf(this.month),this.day)
+          this.list.push(this.newEvent)
+          // this.select(this.newEvent.eventDate.getDate())
+          this.newEvent=null
+          }
  });  
 
+}
+
+change(){
+  const dialogRef = this.dialog.open(ShowMonthsComponent, {
+    autoFocus:false,
+    width: '600px',
+    height:'auto',
+    data:this.date,
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');   
+      console.log(result) 
+      this.date=result
+      this.year=this.date.getFullYear()
+      this.ChangeMonth(this.date.getMonth())
+    
+   }); 
 }
 }

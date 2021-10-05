@@ -1,4 +1,5 @@
 ﻿using DAL.Models;
+using DTO;
 using DTO.Convertors;
 using System;
 using System.Collections.Generic;
@@ -12,10 +13,12 @@ namespace BLL
         List<MenuDto> GetAllMenusByIdUser(int id);
         MenuDto GetMenuById(int id);
         MenuDto GetMenuByName(string name);
-        MenuDto AddMenu(MenuDto u);
+        MenuDto AddMenuToUser(MenuDto u);
         MenuDto DeletMenu(MenuDto u);
         MenuDto UpdateMenu(MenuDto u);
-     //   MenuDto IsExists(MenuDto b);
+        List<MealDto> GetMenuMeals(int id);
+
+        //   MenuDto IsExists(MenuDto b);
 
     }
 }

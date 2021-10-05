@@ -3,6 +3,7 @@
     font-family:  system-ui;
     
 }
+
 mat-icon{
     font-family: 'Material Icons';
     cursor: pointer;
@@ -18,36 +19,37 @@ mat-icon{
     background-size: cover;
     background-blend-mode: darken ; */
     /* color: white; */
-    margin: 20px;
+    margin: 37px;
 }
 
 
 .header{
-    background-blend-mode: hue;
-    background: rgb(0 0 0 / 25%)url(https://images.unsplash.com/photo-1568661290695-1e23938cf5be?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGZvb2QlMjB0YWJsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60);
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
+     /* background-blend-mode: hue; */
+    /* background: rgb(0 0 0 / 25%)url(https://images.unsplash.com/photo-1568661290695-1e23938cf5be?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGZvb2QlMjB0YWJsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60); */
+    /* background-attachment: fixed; */
+    /* background-position: center; */
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+    /* position: relative; */
     display: flex;
     background-position-y: 0;
     align-items: center;
-    justify-content: center;
-    height: 584px;
-    border: 12px double #fff;
-    color: white;
+    justify-content: space-between;
+    height: 600px;
+    border-bottom: 2px solid #d4d3d3;
+
+    /* color: white;*/
 }
 
 
 .header-content{
-    max-width: 980px;
     text-align: center;
-    margin: 40px 0;
-    /* border: 2px solid; */
-    animation: text 3s 1;
-    border-radius: 50px 0px 50px;
-    padding: 35px;
+    /* margin: 40px 0; */
+    /* animation: text 3s 1; */
+    padding: 126px;
+    background: #cccccc36;
+    height: 100%;
+    width: 30%;
    
 }
 
@@ -111,7 +113,13 @@ mat-icon{
 }
 
 
-
+.img{
+    width: 70%;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
 
 
 .container{
@@ -168,11 +176,10 @@ ul.social-share mat-icon:hover{
 }
 .ingredients , .Products{
     text-align: right;
-    width: 49%;
+    width: 50%;
     margin: 5px;
-    background-color: #f1f1f12e;
-    padding: 18px;
-    border: 2px solid #d3d3d330;
+    border: 1px dotted;
+    padding: 27px;
 
     
 }
@@ -180,6 +187,15 @@ ul.social-share mat-icon:hover{
     /* color: white; */
     /* font-weight: 600; */
     padding: 10px;
+}
+.ingredients p{
+    padding: 15px 0px;
+}
+.ingredients p span{
+    font-weight: 900;
+    font-family: cursive;
+    font-size: 20px;
+    padding: 0px 0px 0px 6px;
 }
 .ingredients div {
     padding: 7px;
@@ -333,7 +349,8 @@ input[type="submit"]{
     cursor: pointer;
 }
 
-
+section{
+ padding: 0 90px;}
  .comments h5{
   font-size: 16px;
   text-align: end;
@@ -392,8 +409,95 @@ input[type="submit"]{
     display: grid;
 }
 .more ul{
-    display: inline-block;
+    width: 91%;
 }
-.more ul li{
-    background-color: #1e1e1e;
+.more ul li{   
+     display: inline-block;
+     margin: 9px 11px;
+}
+.amount{
+    display: flex;
+    justify-content: right;
+    direction: rtl;
+    align-items: center;
+}
+.amount label{
+    font-size: 20px;
+    font-family: Ploni;
+    padding-left: 12px;
+    line-height: calc(2.25rem + 2px);
+    vertical-align: middle;
+    margin: auto 0;
+}
+.amount .counter{
+    padding-left: 0;
+    align-self: self-end;
+    flex-direction: row;
+    margin: 3% 0;
+    border: 2px solid black;
+    border-radius: 44px;
+    display: flex;
+}
+.amount img{
+    width: 28px;
+    height: 28px;
+    margin-top: 2px;
+    cursor: pointer;
+}
+.amount input{
+    width: 2.8em;
+    height: 32px;
+    border-radius: 2px;
+    box-shadow: 0 2px 4px 0 rgb(0 0 0 / 3%);
+    background-color: #fff;
+    font-size: 17px;
+    font-weight: 700;
+    text-align: center;
+    color: #e6392b;
+    border: none;
+    padding: 0;
+    outline: none; 
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.amount .help img{
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    margin-right: 13px;
+}
+.amount .h{
+    background-color: white;
+    position: absolute;
+    margin-top: -74px;
+   right: 183px; 
+   border-radius: 4px;
+    border: 1px solid red;
+    padding: 3px 10px;
+    z-index: 3;
+    display: none;
+}
+
+.help:hover .h{
+display: block;}
+
+
+.amount .h:before{
+    content: "";
+    display: block;
+    height: .9375rem;
+    left: 50%;
+    position: absolute;
+    top: 19px;
+    transform: rotate( 
+45deg);
+    width: .9375rem;
+    background-color: white;
+    border-bottom: 1px solid red;
+    border-right: 1px solid red;
+    z-index: -1;
 }

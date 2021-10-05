@@ -21,7 +21,7 @@ export class MyAccountComponent implements OnInit {
   }
   signOut(){
     localStorage.removeItem("user")
-    this.router.navigate(["/Home"])
+    this.router.navigate(["/Home/AllLists"])
   }
 
 }

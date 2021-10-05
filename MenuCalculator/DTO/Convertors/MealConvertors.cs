@@ -20,6 +20,14 @@ namespace DTO.Convertors
                 NumberOfDiners = m.NumberOfDiners,
                 NumberOfViews = m.NumberOfViews,
                 UserCode = m.UserCode,
+                DateCreated=m.DateCreated,
+                DateUpdated=m.DateUpdated,
+                DateUplaod=m.DateUplaod,
+                MenuCode=m.MenuCode,
+                Publish=m.Publish,
+                PictureCode=m.PictureCode,
+                PreparationTime=m.PreparationTime,
+                LevelCode=m.LevelCode,
                 MealProducts = ProductConvertors.ToProductList(m.Products)
                 
             };
@@ -38,6 +46,14 @@ namespace DTO.Convertors
                 NumberOfDiners = m.NumberOfDiners,
                 NumberOfViews = m.NumberOfViews,
                 UserCode = m.UserCode,
+                Publish=m.Publish,
+                DateUplaod=m.DateUplaod,
+                DateUpdated=m.DateUpdated,
+                DateCreated=m.DateCreated,
+                MenuCode=m.MenuCode,
+                PreparationTime=m.PreparationTime,
+                PictureCode=m.PictureCode,
+                LevelCode=m.LevelCode,
                 Products=ProductConvertors.ToProductDtoList(m.MealProducts.ToList())
                 
             };

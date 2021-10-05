@@ -16,35 +16,51 @@ namespace WebApi.Controllers
     [ApiController]
     public class MenusController : ControllerBase
     {
+
         private IMenuLogic _logic;
         public MenusController(IMenuLogic logic)
         {
             _logic = logic;
         }
         [HttpGet]
-
         public IActionResult GetAllMenus()
         {
             return Ok(_logic.GetAllMenus());
         }
-        [HttpGet("GetAllMenusByIdUser/:id")]
 
+        [HttpGet("GetUserMenus/{id}")]
         public IActionResult GetAllMenusByIdUser(int id)
         {
             return Ok(_logic.GetAllMenusByIdUser(id));
         }
-        
+
         [HttpGet("{id}")]
         public IActionResult GetMenuById(int id)
         {
             return Ok(_logic.GetMenuById(id));
         }
 
-        [HttpPost("AddMenu")]
+        [HttpPost("AddMenuToUser")]
         public IActionResult AddMenu([FromBody] MenuDto menu)
         {
-            return Ok(_logic.AddMenu(menu));
+            return Ok(_logic.AddMenuToUser(menu));
+        }
 
+        [HttpPut("UpdateMenu")]
+        public IActionResult UpdateMeal([FromBody] MenuDto menu)
+        {
+            return Ok(_logic.UpdateMenu(menu));
+
+        }
+        [HttpPut("DeleteMenu")]
+        public IActionResult DeleteMeal([FromBody] MenuDto Meal)
+        {
+            return Ok(_logic.DeletMenu(Meal));
+        }
+        [HttpGet("GetMenuMeals/{id}")]
+        public IActionResult GetMenuMeals(int id)
+        {
+            return Ok(_logic.GetMenuMeals(id));
         }
     }
 }

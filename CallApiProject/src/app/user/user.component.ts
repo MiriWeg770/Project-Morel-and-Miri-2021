@@ -12,7 +12,7 @@ import { MyAccountComponent } from '../my-account/my-account.component';
 export class UserComponent implements OnInit {
  show=true
  u:User;
-  constructor(private router:Router,public dialog:MatDialog) { 
+  constructor(private router:Router) { 
     this.u= JSON.parse(localStorage.getItem("user"));
     console.log(this.u.userCode)
   }

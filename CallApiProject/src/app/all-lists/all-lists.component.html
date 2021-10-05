@@ -1,45 +1,65 @@
 
 <div class="body">
-<button id="back-to-top" (click)="backToTop()"><mat-icon>arrow_upward</mat-icon></button>
-<div class="wrapper" id="nav">
-  <button class="searchbtn" mat-button><i class="fas fa-search"></i></button>
-  <input type="text" class="input" 
-  placeholder="מה אתה מחפש ?">
-  
-  <label> 
-    <span>
-    <form>
-  <select >
-  <option  *ngFor="let x of sort" >{{x}}</option>
-  </select>
-  </form></span>
-</label>
-</div>
-<div class="searchResult">
-  <label class="result_message">
-    <!-- 454 תוצאות -->
+  <button id="back-to-top"(click)="backToTop()"><mat-icon>arrow_upward</mat-icon></button>
+  <!-- <div class="wrapper" id="nav">
+    <button class="searchbtn" mat-button><i class="fas fa-search"></i></button>
+    <input type="text"  class="input" 
+    placeholder="מה אתה מחפש ?">
+    
+    <label> 
+      <span>
+      <form>
+    <select >
+    <option  *ngFor="let x of sort" >{{x}}</option>
+    </select>
+    </form></span>
   </label>
-  
-  </div> 
-
-<div class="list-items">
-  <div class="list">
-  <ul > 
-    <li *ngFor="let item of listMeals">
-      <div class="container" >     
-        <app-meal [meal]="item"  ></app-meal>              
-</div>
-</li>
-<li>
-  <div class="container" >    
-    <app-menu></app-menu>           
-    </div>
-</li>
-
-  </ul>
+  </div> -->
+  <div class="searchResult">
+    <div>
+    <label class="result_message">
+      {{listMeals.length}}
+    </label>
   </div>
- 
-  
-</div>
-</div>
+  <div class="search-input">
+    <div>
+      <span> מיין לפי קטגוריה</span>
+      <select name=" " [(ngModel)]="selectLe">
+        <option value=x >x</option>
+        <option value=x >y</option>
+        <option value=x >x</option>
+      </select>
+    </div>
+    <div>     
+       <span> הראה לפי</span>
+      <select name=" " [(ngModel)]="selectLe">
+        <option value=x >x</option>
+        <option value=x >y</option>
+        <option value=x >x</option>
+      </select>
+    </div>
+    </div>
+    </div> 
 
+  <div class="list-items">
+    <div class="list">
+    <ul > 
+      <li *ngFor="let item of listMeals">
+        <div class="container" >     
+          <app-meal [meal]="item" ></app-meal>                  
+  
+  </div>
+  </li>
+  <li>
+    <div class="container" >    
+      <app-menu></app-menu>           
+      </div>
+  </li>
+  
+    </ul>
+    </div>
+   
+  </div>
+  </div>
+  
+  

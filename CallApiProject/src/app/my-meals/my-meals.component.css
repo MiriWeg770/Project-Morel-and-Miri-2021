@@ -1,6 +1,5 @@
-/* @import "../my-menus/my-menus.component.css"; */
 
-.container_page{
+ .container_page{
   color: white;
   padding: 0 2rem;
   background: #fff;
@@ -8,62 +7,35 @@
 }
 .page_box{
   min-height: 94px;
-  /* background: #ffd073fc; */
   color: black;
   font-size: 24px;
   margin: 0 -2rem;
   text-align: end;
   padding: 25px 29px;
+  padding-top: 0px;
   font-family: system-ui;
   font-weight: bolder;    
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* position: relative; */
   top: 68px;
   
 
 }
 .page_content{
-  overflow: overlay;
+  /* overflow: overlay;
   box-shadow: 1px 0px 1px 3px black;
-  /* margin-top: -15px; */
   background: white;
   color: black;
   font-size: 2rem;
-  max-height: 520px;
-;
+  max-height: 520px; */
+  direction: rtl;
 
-}
 
- /* .model{
-        width: 100%;
-        height: 100%;
-        position: fixed;
-        top: 0;
-        left: 0;
-        z-index: 999;
-        display: none;
-        background: #0000003b;
-      } */
-      /* .add{
-        width: 375px;
-        height: 378px;
-        position: fixed;
-        top: calc(50% - 250px);
-        left: calc(50% - 217px);
-        box-shadow: 4px 4px 16px rgb(0 0 0 / 38%);
-        background: #fff;
-    } */
-    /* .add mat-toolbar{
-        background: #b0b0b0;
-        width: 100%;
-    }
-    .add mat-toolbar span{
-        text-align: center;
-        width: 100%;
-        font-weight: 600;
-    } */
+
+}/*
+
+ /*
     .add div {
         margin-top: 40px;
         float: right;
@@ -82,17 +54,14 @@
         width: 276px;
         height: 39px;
         border: 2px #0000009c solid;
-        /* padding-top: 20px; */
         color: #043eff;
         font-size: 18px;
         text-align: end;
-        /* direction: rtl; */
         font-weight: bolder;
-    }
+    }    
     .add button{
         width: 42%;
         margin: 113px 7px 0px 0px;
-        /* padding: 1px; */
         box-shadow: 0px 2px 8px 1px #0000006e;
         }
        .body{
@@ -102,42 +71,18 @@
         display: inline-block;
         
     }
-    
-    /* mat-icon{
-        font-size: 130px;
-        color: #b0b0b0;
-        margin-right: 109px;
-    } */
-    /* .user{
-        padding-left: 10px;
-    font-size: 20px;
-        color: #b0b0b0;
-    } */
+
+   
     button{
         width: 86px;
     }
-    /* mat-toolbar{
-        background-color: white;
-        margin: 0;
-        direction: rtl;
-     justify-content: space-between;
-    }
-    mat-toolbar mat-icon{
-        font-size: 26px;
-        color: rgb(0 0 0 / 87%);
-        margin-right: 12px;
-        font-weight: bold;
-        cursor: pointer;
-    
-    } */
+   
      .search-input{
     padding: 20px;
     display: contents;
 
     }
-    /* .icons .search:focus .icons .search-input{
-  display: block;
-    } */
+   */
      .search-input input{
       height: 45px;
       border: 1px solid #e3e3e3;
@@ -157,13 +102,11 @@
     
     }
     
- 
+ /*
     mat-toolbar button{
         background-color: whitesmoke;
     }
-    /* div.empty{
-        margin-top: 20px;
-    } */
+  
     .list .cards-show mat-card{
         width: 200px;
         margin: 9px;
@@ -200,17 +143,12 @@
 
 
 
-
+ */
 
 
  /* ################################## */
-.page_box{
-padding-top: 0px;
-}
-.page_content{
-  /* margin-top:61px; */
-  direction: rtl;
-}
+
+
 
 .showDetails .header img{
     display: block;
@@ -277,26 +215,25 @@ table {
 table td{
   cursor: pointer;
   /* border: 2px solid; */
-  width: 0px;
   text-align: center;
   padding: 0;
 }
-table td mat-icon{
+table td.i mat-icon{
   color: #b0b0b0;
   text-align: center;
   margin: 5px;
   cursor: pointer;
 }
-table td mat-icon:hover{
+table td.i mat-icon:hover{
  color: black;
 }
-
+/* 
 .mat-row .mat-cell {
   border-top: 1px solid transparent;
   cursor: pointer;
   height: 70px;
 
-}
+} */
 
 .mat-row:hover .mat-cell {
   border-color: currentColor;
@@ -312,21 +249,20 @@ table td mat-icon:hover{
   color: #d59b28;
   border-bottom: 3px solid;
   position: sticky;
-  top: 0;
+  top: 73px;
+  padding: 0 27px;
+  width: 0px;
+
 }
 
 .icons{
-  /* margin: 0px; */
-  /* width: 100%; */
-  height: 19px;
   position: absolute;
-  top: 190px;
-  width: 100%;
-  /* left: 50%; */
-  right: 0%;
-  padding: 0 33px;
-  text-align: end;
-  color: black
+    top: 180px;
+    width: 100%;
+    right: 0%;
+    padding: 20px 33px;
+    text-align: end;
+ 
 }
 .icons mat-icon{
   /* color: white; */
@@ -336,31 +272,28 @@ table td mat-icon:hover{
 width: 50px;
 }
 #add{
-  position: fixed;
-  right: 100px;
-  bottom: 18px;
-  width: 50px;
-  height: 50px;
-  background: #ffd073fc;
-  box-shadow: 0 0 10px black;
-  color: white;
+  /* position: fixed; */
+  /* left: 31px;
+  top: 174px; */
+  width: 164px;
+  /* height: 50px; */
+  background: white;
+  /* box-shadow: 0 0 10px #b0b0b0; */
+  color: black;
   cursor: pointer;
   outline: none;
-  transition: all ease 0.3s;
-  border-radius: 50%;
-  border: 1px solid;
-}
-#add:hover{
-  height: 60px;
-  width: 60px;
-  border: 2px solid;
-  color: black;
+  margin: 3px 0;
+  /* transition: all ease 0.3s; */
+  /* border-radius: 50%; */
+  border: 2px solid black;
 
 }
+
 div.empty{
   text-align: center;
   margin-top: 157px;
   width: 100%;
+  color: darkgray;
 }
 div.empty mat-icon{
   color: rgb(0 0 0 / 42%);
@@ -371,4 +304,57 @@ div.empty mat-icon{
 div.empty h1{
   font-family: system-ui;
   font-weight: 500;
+}
+
+.publish{
+  color: gold;
+  text-shadow: 1px 1px 1px black;
+}
+table {
+  width: 100%;
+}
+
+tr.example-detail-row {
+  height: 0;
+}
+
+tr.example-element-row:not(.example-expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.example-element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.example-element-row td {
+  border-bottom-width: 0;
+}
+
+.example-element-detail {
+  overflow: hidden;
+  display: flex;
+  justify-content: space-around;
+}
+
+.example-element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.example-element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.example-element-description {
+  padding: 16px;
+}
+
+.example-element-description-attribution {
+  opacity: 0.5;
 }

@@ -37,10 +37,11 @@ namespace BLL
         public MealDto AddMealToUser(MealDto u)
         {
           
-            _context.Users.FirstOrDefault(p => p.UserCode == u.UserCode).Meal.Add(MealConvertors.ToMeal(u));          
+            _context.Users.FirstOrDefault(p => p.UserCode == u.UserCode).Meal.Add(MealConvertors.ToMeal(u));        
             _context.SaveChanges();
             return u;
         }
+
 
         public MealDto DeletMeal(MealDto u)
         {
@@ -53,7 +54,7 @@ namespace BLL
 
         public List<MealDto> GetAllMeals()
         {
-            return MealConvertors.ToMealDtoList(_context.Meal.ToList());
+            return MealConvertors.ToMealDtoList(_context.Meal.Where(p=>p.Publish==true).ToList());
         }
 
         public MealDto GetMealById(int id)
@@ -89,6 +90,10 @@ namespace BLL
         public MealDto UpdateMeal(MealDto u)
         {
             Meal U = _context.Meal.FirstOrDefault(w => w.MealCode == u.MealCode);
+
+            if (U == null)
+                return null;
+
             U.MealName = u.MealName;
             U.NumberOfDiners = u.NumberOfDiners;
             U.NumberOfViews = u.NumberOfViews;
@@ -96,13 +101,27 @@ namespace BLL
             U.Discription = u.Discription;
             U.Instructions = u.Instructions;
             U.MealCategoryCode = u.MealCategoryCode;
-            U.MealProducts= ProductConvertors.ToProductList(u.Products);
-           
-            if (U == null)
-                return null;
-           
+            U.Publish = u.Publish;
+            U.PreparationTime = u.PreparationTime;
+            U.MenuCode = u.MenuCode;
+            U.DateCreated = u.DateCreated;
+            U.DateUpdated = u.DateUpdated;
+            U.DateUplaod = u.DateUplaod;
+            U.LevelCode = u.LevelCode;
+            U.MealProducts = ProductConvertors.ToProductList(u.Products);
+
+
+            //foreach (var item in u.Products)
+            //{
+            //    if (_context.MealProducts.FirstOrDefault(p => p.MealProductCode != item.ProductCode) == null)
+            //        _context.MealProducts.Add(ProductConvertors.ToProduct(item));
+
+            //}
+
+
+            _context.RemoveRange(_context.MealProducts.Where(p => p.MealCode == U.MealCode));
             _context.SaveChanges();
-            return u;
+            return MealConvertors.ToMealDto(U);
         }
 
 

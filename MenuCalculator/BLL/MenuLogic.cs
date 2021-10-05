@@ -1,4 +1,5 @@
 ﻿using DAL.Models;
+using DTO;
 using DTO.Convertors;
 using System;
 using System.Collections.Generic;
@@ -15,21 +16,25 @@ namespace BLL
             _context = context;
         }
 
-        public MenuDto AddMenu(MenuDto u)
+        //public MenuDto AddMenu(MenuDto u)
+        //{
+        //    try
+        //    {
+        //        Menu m = MenuConvertors.ToMenu(u);
+        //        _context.Menu.Add(m);
+        //        _context.SaveChanges();
+        //        return MenuConvertors.ToMenuDto(m);
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        throw e;
+        //    }
+        //}
+        public MenuDto AddMenuToUser(MenuDto u)
         {
-            try
-            {
-
-                Menu m = MenuConvertors.ToMenu(u);
-                m.MenuCode = 0;
-                _context.Menu.Add(m);
-                _context.SaveChanges();
-                return MenuConvertors.ToMenuDto(m);
-            }
-            catch (Exception e)
-            {
-                throw e;
-            }
+            _context.Users.FirstOrDefault(p => p.UserCode == u.UserCode).Menu.Add(MenuConvertors.ToMenu(u));
+            _context.SaveChanges();
+            return u;
         }
 
         public MenuDto DeletMenu(MenuDto u)
@@ -43,9 +48,10 @@ namespace BLL
         {
             return MenuConvertors.ToMenuDtoList(_context.Menu.ToList());
         }
+
         public List<MenuDto> GetAllMenusByIdUser(int id)
         {
-            return MenuConvertors.ToMenuDtoList(_context.Menu.Where(m=>m.UserCode==id).ToList());
+            return MenuConvertors.ToMenuDtoList(_context.Menu.Where(m => m.UserCode == id).ToList());
         }
 
         public MenuDto GetMenuById(int id)
@@ -75,18 +81,30 @@ namespace BLL
 
         public MenuDto UpdateMenu(MenuDto u)
         {
-                Menu U = _context.Menu.FirstOrDefault(w => w.MenuCode == u.MenuCode);
-                if (u == null)
-                    return null;
-                U.MenuName = u.MenuName;
-                U.UserCode = u.UserCode;
-                U.ViewsNumber = u.ViewsNumber;
-                U.Links = u.Links;
-                U.Discription = u.Discription;
-                U.DateUpdated = u.DateUpdated;
-                u.DateCreated = u.DateCreated;
-                _context.SaveChanges();
-                return MenuConvertors.ToMenuDto(U);
+            Menu U = _context.Menu.FirstOrDefault(w => w.MenuCode == u.MenuCode);
+            if (u == null)
+                return null;
+            U.MenuName = u.MenuName;
+            U.UserCode = u.UserCode;
+            U.ViewsNumber = u.ViewsNumber;
+            U.Links = u.Links;
+            U.Discription = u.Discription;
+            U.DateUpdated = u.DateUpdated;
+            u.DateCreated = u.DateCreated;
+            _context.SaveChanges();
+            return MenuConvertors.ToMenuDto(U);
+        }
+
+        public List<MealDto> GetMenuMeals(int id)
+        {
+            try
+            {
+                return MealConvertors.ToMealDtoList(_context.Meal.Where(p => p.MenuCode == id).ToList());
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
     }
 }

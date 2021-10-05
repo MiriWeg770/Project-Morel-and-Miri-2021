@@ -20,7 +20,7 @@ mat-drawer-container{
     z-index: 1;
   box-shadow:  0px 0px 10px 7px #b0b0b0;
 }
-.calendar_sidebar{
+/* .calendar_sidebar{
     width: 175px;
     margin-top: 0;
     height: 100%;
@@ -38,10 +38,9 @@ mat-drawer-container{
     text-align: end;
     padding: 5px 12px;
 cursor: pointer;
-}
-.calendar_year{
+} */
+/* .calendar_year{
     padding: 20px;
-    /* text-align: center; */
     display: flex;
     justify-content: space-evenly;
 }
@@ -62,9 +61,7 @@ cursor: pointer;
 }
 .calendar_year button mat-icon{
     height: 29px;
-    /* overflow: visible; */
-    /* border: none; */
-    /* cursor: pointer; */
+   
     font-size: 30px;
 }
 .month_list .calendar_month{
@@ -85,14 +82,13 @@ padding: 0;
     border-right: 5px solid black;
     
 }
-
+ */
 
 .today{
     top: -51px;
     right: -10px;
     background: linear-gradient(to right,#e59a11,yellow);
     border: none;
-    /* cursor: pointer; */
     font-size: 23px;
     color: white;
 
@@ -107,7 +103,6 @@ padding: 0;
 }
 .calendar_inner .month{
     text-shadow: 3px 1px 9px gold;
-    /* color: gold; */
     font-size: 37px;
     border-bottom: 3px solid gold;
     padding-bottom: 17px;
@@ -121,7 +116,6 @@ border-collapse: collapse;
 font-size: 20px;
 width: 100%;
 direction: rtl;
-/* user-select: none; */
 }
 .calendar_header td{
     font-size: 27px;
@@ -190,8 +184,9 @@ box-shadow: 5px 0 5px -5px #333;
     width: 50px;
     height: 50px;
     color: coral;
+    cursor: pointer;
 }
-.calendar_events .no_event{
+/* .calendar_events .no_event{
     background: #fff8cd;
     border: 2px solid brown;
     padding: 7px;
@@ -201,7 +196,7 @@ box-shadow: 5px 0 5px -5px #333;
     box-shadow: 4px -1px 8px 1px #808080fc;
     font-weight: bolder;
     margin-top: 57px;
-}
+} */
 .calendar_events .add_event{
     padding: 7px;
     text-align: center;
@@ -231,12 +226,15 @@ box-shadow: 5px 0 5px -5px #333;
     margin-top: 5px;
 }
 .event_header p {
-    /* color: #eee; */
-    font-size: 20px;
+    font-size: 26px;
     font-weight: bold;
     font-family: cursive;
     text-align: center;
     margin-bottom: 21px;
+    /* background: black; */
+    padding-bottom: 21px;
+    border-bottom: 2px solid;
+    /* color: antiquewhite;*/
 }
 .sidebar_toggle_event{
     position: absolute;

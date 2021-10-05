@@ -4,6 +4,7 @@ import { User} from 'src/Models/User';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Meal } from 'src/Models/Meal';
+import { Menu } from 'src/Models/Menu';
 
 @Injectable({
   providedIn: 'root'
@@ -32,6 +33,9 @@ export class UserService {
   }
   GetUserMeals(id:number): Observable<Meal[]>{
     return this.http.get<Meal[]>(environment.url +"/api/Meals/GetUserMeals/"+id);
+  }
+  GetUserMenus(id:number): Observable<Menu[]>{
+    return this.http.get<Menu[]>(environment.url +"/api/Menus/GetUserMenus/"+id);
   }
   
   // AddMeal(u:User,m:Meal):Observable<User>{

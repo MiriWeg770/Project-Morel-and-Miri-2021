@@ -3,6 +3,7 @@ import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
 import { Router } from '@angular/router';
 import { User } from 'src/Models/User';
 import { LogOutComponent } from '../log-out/log-out.component';
+import { MakeAccountComponent } from '../make-account/make-account.component';
 import { MyAccountComponent } from '../my-account/my-account.component';
 import { UserService } from '../user.service';
 import { UserComponent } from '../user/user.component';
@@ -18,14 +19,17 @@ export class HeaderComponent implements OnInit {
  sort:string[]=["הכל","פופולרי","לפי תאריך","לפי מנות","לפי תפריטים",]
   open=false
   u:User;
+  name:string
+
   @Output() 
   toggleSidebarForMe:EventEmitter<any>=new EventEmitter();
 
   constructor(private router:Router,public dialog:MatDialog,private ser:UserService) {
-   
+      this.u= JSON.parse(localStorage.getItem("user"));
+
 }
   ngOnInit(): void {     
-   this.u= JSON.parse(localStorage.getItem("user"));
+   this.name=this.u.userName;
    console.log(this.u)
   }
 
@@ -48,7 +52,10 @@ export class HeaderComponent implements OnInit {
       //     }
 
         
-          MyAccount(){
+        
+
+
+  MyAccount(){
     const dialogRef = this.dialog.open(MyAccountComponent, {
     disableClose:true,
     autoFocus:false,
@@ -70,6 +77,15 @@ export class HeaderComponent implements OnInit {
 
    });  
   }
+
+  makeAccount(){
+    const dialogRef = this.dialog.open(MakeAccountComponent, {  
+      });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log('The dialog was closed');      
+  });
+}
+
 
   
 }

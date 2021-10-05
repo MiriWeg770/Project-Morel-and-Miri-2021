@@ -1,0 +1,6 @@
+<div mat-dialog-content *ngIf="!data"><h1>האם אתה בטוח שאתה רוצה למחוק תפריט זה ?</h1></div>
+<div mat-dialog-content *ngIf="data"><h1>האם אתה בטוח שאתה רוצה למחוק תפריטים אלו ?</h1></div>
+<div mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true">כן</button>
+    <button mat-button mat-dialog-close>לא</button>
+</div>

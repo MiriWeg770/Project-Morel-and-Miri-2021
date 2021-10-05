@@ -12,7 +12,8 @@ namespace DTO.Convertors
             return new MealCategories()
             {
                 MealCategoriesCode = m.MealCategoriesCode,
-                MealCategoriesName = m.MealCategoriesName
+                MealCategoriesName = m.MealCategoriesName,
+                
             };
 
         }

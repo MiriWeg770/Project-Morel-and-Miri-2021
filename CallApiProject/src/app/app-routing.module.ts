@@ -22,6 +22,7 @@ import { UserComponent } from './user/user.component';
 import { CalendarComponent } from './calendar/calendar.component';
 import { HeaderComponent } from './header/header.component';
 import { DownloadComponent } from './download/download.component';
+import { EditMealComponent } from './edit-meal/edit-meal.component';
 
 const routes: Routes = [
   // {path:"Home", component:HomeComponent},
@@ -29,6 +30,7 @@ const routes: Routes = [
     {path:"MyMeals",component:MyMealsComponent},
     {path:"AllLists",component:AllListsComponent},
     {path:"MyLists",component:MyListsComponent},
+    {path:"EditMeal/:id",component:EditMealComponent},
     {path:"Settings",component:SettingsComponent},
     {path:"Help",component:HelpComponent},
     {path:"MyShares",component:MySharesComponent},
@@ -42,6 +44,7 @@ const routes: Routes = [
     {path:"MyHistory",component:MyHistoryComponent},
     {path:"SignUp", component:SignUpComponent},
     {path:"SignIn", component:SignInComponent},
+    {path:"User", component:UserComponent},
 
     {path:"", component:HomeComponent, pathMatch:"full"},
     {path:"**",component:HomeComponent, pathMatch:"full"},

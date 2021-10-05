@@ -47,15 +47,14 @@
   
   .title{
     position: absolute;
-    transform: translate(196px, 197px);
+    transform: translate(198px, 182px);
     border: 1px solid;
-    background: rgb(247 208 122);
+    background: #fafafa;
     font-size: 22px;
     padding: 3px 5px;
     font-family: 'Roboto';
-    color: azure;
+    color: rgb(0 0 0 / 87%);
     font-weight: 600;
-    border-radius: 50px;
 }
   
   .user_comment{

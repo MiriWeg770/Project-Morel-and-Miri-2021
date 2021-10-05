@@ -1,0 +1,15 @@
+<div class="calendar">
+    <div class="calendar_year">
+        <button (click)="YearBefor()"><mat-icon>arrow_back_ios</mat-icon></button>
+        <p>{{year}}</p>
+        <button  (click)="nextYear()"><mat-icon>arrow_forward_ios</mat-icon></button>
+    </div>
+    <div class="month_list">
+        <!-- <ul >
+          <li  *ngFor="let x of months; let i=index" (click)="ChangeMonth(i)">{{x}}</li>
+        </ul> -->
+
+        <mat-grid-list cols="4" rowHeight="5:2" class="calendar_month">
+            <mat-grid-tile *ngFor="let x of months; let i=index" (click)="ChangeMonth(i)" [mat-dialog-close]="data">{{x}}</mat-grid-tile>  
+          </mat-grid-list>
+    </div>

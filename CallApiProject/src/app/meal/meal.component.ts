@@ -8,6 +8,7 @@ import { MealService } from '../meal.service';
 import { UserService } from '../user.service';
 import { DownloadComponent } from '../download/download.component';
 import { ShowMealDetailsComponent } from '../show-meal-details/show-meal-details.component';
+import { MakeAccountComponent } from '../make-account/make-account.component';
 @Component({
   selector: 'app-meal',
   templateUrl: './meal.component.html',
@@ -25,7 +26,7 @@ export class MealComponent implements OnInit {
  name:string
   constructor(private ser:MealService,private userSer:UserService,private dialog:MatDialog,private _snackBar: MatSnackBar) { 
     this.u= JSON.parse(localStorage.getItem("user"));
-    // this.getUserName(this.meal.mealCode)
+    // this.getUserName(this.meal.mealCode)  
   }
 
   ngOnInit(): void {
@@ -33,8 +34,9 @@ export class MealComponent implements OnInit {
 
   add(){
     if(this.u!=null){
-    this.meal.userCode=this.u.userCode
-    this.ser.AddMealToUser(this.meal).subscribe(succ=>{
+    let m:Meal=new Meal(0,this.meal.mealName,this.meal.instructions,this.meal.numberOfDiners,this.meal.discription,this.meal.mealCategoryCode,this.u.userCode,this.meal.numberOfViews,this.meal.preparationTime,null,new Date(),false,null,this.meal.menuCode,this.u.userName,this.meal.products,this.meal.levelCode)
+    console.log(this.meal)
+    this.ser.AddMealToUser(m).subscribe(succ=>{
       console.log(succ)
       this._snackBar.open("המנה התווספה ", "סגור",{
         horizontalPosition: 'center',
@@ -45,10 +47,13 @@ export class MealComponent implements OnInit {
     })
   }
   else{
-    console.log("error")
-    alert("התחבר/ הירשם")
-  }
-}
+      const dialogRef = this.dialog.open(MakeAccountComponent, {  
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');      
+    });
+  
+}}
 
 // getUserName(x:number){
 //   this.userSer.GetUserById(x).subscribe(succ=>{
@@ -83,4 +88,17 @@ download(){
 //     console.log('The dialog was closed');
 //   });
 // }
+
+DateUplaod(){
+  let d:Date= new Date( this.meal.dateUplaod)
+  return d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear();
+}
+
+
+count(){
+  this.meal.numberOfViews=this.meal.numberOfViews+1;
+  this.ser.UpdateMeal(this.meal).subscribe(succ=>{
+  console.log(succ.numberOfViews)
+  },err=>{console.log(err)})
+}
   }

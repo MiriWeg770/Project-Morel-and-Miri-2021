@@ -13,7 +13,7 @@ import { UserService } from '../user.service';
 export class SignUpComponent implements OnInit {
   pro:boolean=false;
   hide:boolean=true;
-  myUser:User= new User(1,null,null,null);
+  myUser:User= new User(0,null,null,null);
   usersArr:User[]=[];
 
   constructor(private ser:UserService,private router:Router,private _snackBar: MatSnackBar) {

@@ -15,5 +15,12 @@ namespace DTO.Convertors
         public string Links { get; set; }
         public int? ViewsNumber { get; set; }
         public  string UserName { get; set; }
+        public DateTime? DateUpload { get; set; }
+        public int? PictureCode { get; set; }
+        public bool? Publish { get; set; }
+        public int? LevelCode { get; set; }
+
+        public List<MealDto> Meals { get; set; }
+
     }
 }

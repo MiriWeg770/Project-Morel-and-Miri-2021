@@ -1,7 +1,7 @@
 
-.body{
+/* .body{
  background: white;
-}
+} */
 .list-items{
   width: 100%;
   margin-right: auto;
@@ -15,7 +15,7 @@
 }
  ul{
   list-style: none;
-  padding: 0 15px;
+  padding: 0 52px;
 }
 ul li{
   display: inline-block;
@@ -38,9 +38,9 @@ direction: rtl;
   margin-top: 20px;
   padding: 0 72px;
   width: 100%;
-  display: inline-block;
-
-
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
 }
 .body .searchResult .result_message{
   font-size: 18px;
@@ -48,26 +48,36 @@ direction: rtl;
   margin: 3px ;
   float: left;
 }
-
-
-#back-to-top{
-  display: block;
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  font-size: 26px;
-  width: 50px;
-  height: 50px;
-  background-color: #fff;
-  color: #b0b0b0;
-  cursor: pointer;
-  outline: none;
-  border: 3px solid #ccccccfa;
-  border-radius: 50%;
-  box-shadow: 0px 0px 20px -8px grey;
+.search-input{
+  display: flex;
+}
+.search-input div{
+  width: 200px;
+  margin-left: 34px;
+  direction: rtl;
+  font-size: 18px;
+  font-family: system-ui;
+  font-weight: 500;
 }
 
-#back-to-top:hover, #back-to-top:focus{
+#back-to-top{
+
+    display: block;
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+  }
+
+#back-to-top:hover{
   background-color: #333;
   color: #fff;
 

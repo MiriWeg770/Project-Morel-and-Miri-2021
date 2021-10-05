@@ -20,7 +20,7 @@
 
 
 .sidebar mat-icon{
-  color: rgb(249 171 0 / 79%);
+  color: white;
   height: 60px;
   min-width: 50px;
   font-size: 28px;
@@ -90,13 +90,14 @@
 }
 .sidebar li a:hover mat-icon{
   /* color: white; */
-  color: black;
+  color: #ffd073fc;
 }
  .active a {
   border: 2px solid #ffd073fc;
 }
 .active mat-icon {
-color: black;
+color:#ffd073fc;
+
 }
 /* .sidebar li a .links_name{
   color: #fff;

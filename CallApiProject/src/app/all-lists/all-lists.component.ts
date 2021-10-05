@@ -39,7 +39,12 @@ export class AllListsComponent implements OnInit {
         },err=>{
           console.log(err)
         })
+        this.ser.GetProductsMeal(element.mealCode).subscribe(succ=>{
+          element.products=succ
+        },err=>{console.log(err)
+        })    
       });
+      
     },err=>{
       console.log(err)
     })
@@ -50,15 +55,6 @@ export class AllListsComponent implements OnInit {
   ngOnInit(): void {
     window.addEventListener("scroll",this.scroll)
 
-    
-
-    
-    // if(window.pageYOffset> 200){
-    //   document.getElementById("nav").style.position="sticky"
-    //  } else {
-    //   document.getElementById("nav").classList.remove("sticky");
-    // }
- 
   }
   
   
@@ -88,7 +84,7 @@ export class AllListsComponent implements OnInit {
   
   }
   backToTop(){
-    window.scrollTo(0,0);
+    window.scroll(0,0);
   }
   
 
@@ -99,4 +95,7 @@ export class AllListsComponent implements OnInit {
   //     console.log(err)
   //   })
   // }
+
+  
+
 }

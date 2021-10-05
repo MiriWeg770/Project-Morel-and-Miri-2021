@@ -1,0 +1,31 @@
+.form div{
+    margin: 36px 3px;
+    display: grid;
+    border: 2px solid;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+}
+.form{
+    display: flex;
+}
+textarea{
+    resize: none  ;
+    height: 170px; 
+    font-size: 16px;
+    font-weight: 500;
+    background: white;
+    border-radius: .25rem;
+    border-color: rgba(0,0,0,.1);
+    width: 310px;
+    border: none;
+    outline: none;
+    margin: 3px;
+}
+
+
+.img{
+    background-color: blue;
+}
+.products{
+    width: 310px;
+}

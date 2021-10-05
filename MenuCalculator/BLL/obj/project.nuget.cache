@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "JNii1lMhU2DqldNEoN5rWDUgCYDkH6IVTZYa/1X0qLBrQJ+ZDFLUNlHyypSSSOFRzMrfarrVVxWntKyKVLVgjQ==",
+  "dgSpecHash": "5fCgS/0wwazfCiP+MSHpFcGCTcLrLcRq2ZO9F1Hbu6Re0lU6kM9gbaNRl37X1Ax+1aWFSxnfUiYLF0u7p4zc5A==",
   "success": true,
-  "projectFilePath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\BLL\\BLL.csproj",
+  "projectFilePath": "C:\\Users\\מירי\\Desktop\\פרוייקט שמוראל 03.10.21\\p\\MenuCalculator\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\מירי\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\מירי\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

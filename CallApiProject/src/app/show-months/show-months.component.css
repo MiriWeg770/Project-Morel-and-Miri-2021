@@ -1,0 +1,61 @@
+.calendar{
+    /* width: 175px; */
+    /* margin-top: 0; */
+    /* height: 100%; */
+    /* float: left; */
+    font-family: cursive;
+    /* color: black; */
+    font-weight: bolder;
+    /* text-shadow: 1px 1px 2px black;
+    transform: translateX(0);
+    /* background-image: linear-gradient(to right,orange,yellow); */
+    /* box-shadow: 2px 11px 12px -1px #7f7d72; */
+
+}
+/* .calendarmat-icon.menu{
+    width: 100%;
+    text-align: end;
+    padding: 5px 12px;
+cursor: pointer;
+} */
+.calendar_year{
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+.calendar_year p{
+     font-size: 30px;
+
+}
+.calendar_year button {
+     width: 20px;
+    height: 20px;
+    overflow: visible;
+    border: none;
+    cursor: pointer;
+    background: no-repeat;
+    display: contents;
+}
+.calendar_year button mat-icon{
+    height: 29px;
+  
+    font-size: 30px;
+}
+
+.month_list .calendar_month mat-grid-tile{
+    padding: 14px 30px;
+    cursor: pointer;
+    font-size: 20px;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+}
+.month_list .calendar_month mat-grid-tile:hover{
+    border-radius: 19px;
+    /* border: 3px solid black; */
+    /* padding: 0; */
+    color: white;
+    background: #00000054;
+    
+}
+

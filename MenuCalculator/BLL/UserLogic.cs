@@ -88,7 +88,7 @@ namespace BLL
             u.Password = Password;          
             _context.Users.Add(UserConvertors.ToUser(u));
             _context.SaveChanges();
-            return u;
+            return SignIn(u.UserName,u.Password);
         }
         public UserDto UpdateUser(UserDto u)
         {

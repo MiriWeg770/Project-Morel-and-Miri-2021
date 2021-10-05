@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "9o4FUIOGqfaGzLoJ0+kRuJnzpa6OLCpFGmx8nXtjJh2KfhKoUcgxr/TYkA3Qr5jWAS1JawQlqA9rqQsY0X1N4A==",
+  "dgSpecHash": "RGKemKdh3Q4VAnEFInTkehKMLYsdbCK6N4FxbM9AR6HcAoWGijS0ZOYv940RFQ+rg4G5EluzST77/NAP1cBNKg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\‏‏תיקיה חדשה\\MenuCalculator\\DTO\\DTO.csproj",
+  "projectFilePath": "C:\\Users\\מירי\\Desktop\\פרוייקט שמוראל 03.10.21\\p\\MenuCalculator\\DTO\\DTO.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\מירי\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
     "C:\\Users\\מירי\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

@@ -97,8 +97,8 @@ button .mat-fab{
   flex-direction: column;
 }
 mat-drawer{
-  width: 78px;
-  background:white;
+  width: 80px;
+  background: rgb(0 0 0);
 }
 mat-drawer-container{
   height: 100%;
@@ -110,11 +110,17 @@ header{
   padding: 11px 26px;
   align-items: center;
   background: #ffffff;
-  border-bottom: 2px solid rgb(0 0 0 / 3%);
-  box-shadow: 0 2px 4px 0 rgb(52 52 52 / 10%);
-
+  /* border-bottom: 2px solid rgb(0 0 0 / 3%); */
+  box-shadow:0 2px 4px 0 rgb(52 52 52 / 10%);
+ position: sticky;
+ top: 0;
+ z-index: 1;
 
 }
+/* header mat-icon{
+  padding: 0 25px;
+
+} */
 .mat-button{
   background: rgb(247 208 122);
   font-family: system-ui;
@@ -127,20 +133,17 @@ header{
   background: rgb(252 185 38);
 }
 .logo {
-  /* color: white; */
-  font-size: 26px;}
-.user{
-  color: rgb(249 171 0 / 37%);
-  padding: -7px;
-  width: 46px;
-  height: 45px;
-  font-size: 46px;
-  /* padding: 4px; */
-  cursor: pointer;
-  border-radius: 50%;
+  font-size: 41px;
+    text-shadow: 0.025em 0.025em 0 yellow, 0.05em 0.05em 0 #000000, 0.075em 0.075em 0 rgb(249 171 0), 0.01em 0.01em 0 rgb(0 0 0 / 87%);
+    font-family: fantasy;
+    font-weight: 700;
+    color: rgb(148 105 11);
+    font-family: cursive;
+ 
 
+}
 
-  }
+  
   .menu_icon{
     color: black;
     padding: -7px;
@@ -150,12 +153,13 @@ header{
     /* padding: 4px; */
     cursor: pointer;
     border-radius: 50%;
+    
 
   }
 
-  .user:hover{    box-shadow: 0px 0px 17px -3px red;
+  /* .user:hover{    box-shadow: 0px 0px 17px -3px red; */
 
-  }
+  /* } */
   #overlay {
     position: fixed;
     display: none;
@@ -172,3 +176,195 @@ header{
     background-color: blue;
     padding: 0;
   } */
+  .sidebar{
+    /* direction: rtl; */
+    /* position: fixed; */
+    /* padding: 0px 13px; */
+  
+  
+  
+  }
+  
+  
+   .sidebar mat-icon{
+    color: black;
+    /* height: 60px; */
+    /* min-width: 50px; */
+    font-size: 28px;
+    text-align: center;
+    cursor: pointer;
+    /* line-height: 60px; */
+    
+  }
+  .sidebar .nav-list{
+    height: 100%;
+    display: flex;
+  }
+  
+  .sidebar li{
+    position: relative;
+    list-style: none;
+    display: grid;
+    text-align: center;
+    padding: 0 20px;
+  
+  }
+  .sidebar li .tooltip{
+    z-index: 2;
+    /* right: 7%; */
+    top: 96%;
+    background: #fff;
+    box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
+    border-radius: 4px;
+    font-size: 15px;
+    color: #11101D;
+    font-weight: 400;
+    opacity:0;
+    pointer-events: none;
+    transition: 0s;
+    padding: 6px 10px;
+    position: absolute;
+    width: 74px;
+    /* margin: -1px; */
+    text-align: center;
+
+
+  }
+  .sidebar li:hover .tooltip{
+    opacity: 1;
+    pointer-events: auto;
+    transition: all 0.4s ease;
+  }
+  
+  
+  .sidebar li a{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    border-radius: 12px;
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.4s ease;
+  }
+  
+  .sidebar li a:hover mat-icon{
+    color: rgb(249 171 0 / 79%);
+  }
+   /* .active a {
+    border: 2px solid #ffd073fc;
+  } */
+  .active mat-icon {
+  color: rgb(249 171 0 / 79%);
+  }
+  .nav{
+    display: flex;
+    align-items: center;
+    }
+  .nav mat-icon{
+    width: 42px;
+    height: 42px;
+    font-size: 38px;
+    cursor: pointer;
+    position: relative;
+    /* border: 2px solid darkslategray; */
+    /* border-radius: 50%; */
+    text-align: center;
+    color: black;
+    margin-left: 9px;
+
+  }
+  .user_options ul, .home span{
+    position: absolute;
+    background: white;
+    list-style: none;
+    right: 3px;
+    top: 44px;
+    z-index: 2;
+    display: none;
+    box-shadow: 0px 0px 7px 1px lightgrey;
+   padding: 8px;
+   direction: rtl;   
+   cursor: pointer;
+  }
+
+  .home span{
+    right:70px;
+    top: 58px;
+  }
+.user_options li,a{
+  padding: 3px 0;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+    color: rgb(0 0 0 / 62%);
+}
+.user mat-icon:hover, .home mat-icon:hover{
+  text-shadow: 0px 0px 2px rgb(0 0 0 / 87%);
+  color: white;
+
+}
+.user:hover .user_options ul, .home:hover span{
+display: block;
+}
+.user_options a:hover{
+color: black;
+font-weight: 600;
+}
+
+
+
+.searchBox {
+  border-radius: 40px;
+  padding: 5px;
+  /* border: 2px solid lightgray; */
+}
+
+
+
+
+/* .searchBox:hover > .searchInput {
+  width: 240px;
+  padding: 0 6px;
+} */
+
+.searchBox:hover > .searchButton:hover {
+  background: #ccc;
+}
+
+.searchButton {
+  background: white;
+color : #2f3640;
+  float: right;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  cursor: pointer;
+  border: none;
+}
+
+.searchInput {
+  border:none;
+  background: none;
+  outline:none;
+  float:left;
+  padding: 0;
+  /* color: white; */
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 240px;
+  direction: rtl;
+  padding: 0px 7px;
+  border-bottom: 1px solid;
+}
+
+/* @media screen and (max-width: 620px) {
+.searchBox:hover > .searchInput {
+  width: 150px;
+  padding: 0 6px;
+} */
+/* } */

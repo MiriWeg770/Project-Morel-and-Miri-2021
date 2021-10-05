@@ -15,9 +15,7 @@ namespace DTO.Convertors
             {
                 MealProductName=u.ProductName,
                 AmountInMeal=u.Amount,
-                MealProductCompany=u.Company
-                
-
+                MealProductCompany=u.Company,
             };
 
         }
@@ -27,7 +25,8 @@ namespace DTO.Convertors
             {
              ProductName=u.MealProductName,
              Amount=(int)u.AmountInMeal,
-             Company=u.MealProductCompany
+             Company=u.MealProductCompany,
+             
              
 
             };

@@ -24,15 +24,16 @@ namespace DAL.Models
         public virtual DbSet<MenuCategories> MenuCategories { get; set; }
         public virtual DbSet<UnitMeasure> UnitMeasure { get; set; }
         public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Level> Level { get; set; }
 
-//        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-//        {
-//            if (!optionsBuilder.IsConfigured)
-//            {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-//                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=MenuCalculator;Integrated Security=True");
-//            }
-//        }
+        //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //        {
+        //            if (!optionsBuilder.IsConfigured)
+        //            {
+        //#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
+        //                optionsBuilder.UseSqlServer("Data Source=.;Initial Catalog=MenuCalculator;Integrated Security=True");
+        //            }
+        //        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -74,6 +75,25 @@ namespace DAL.Models
 
                 entity.Property(e => e.MealName).HasMaxLength(50);
 
+                 entity.Property(e => e.DateCreated).HasColumnType("date");
+
+                entity.Property(e => e.DateUpdated).HasColumnType("datetime");
+
+                entity.Property(e => e.DateUplaod).HasColumnType("date");
+
+                entity.HasOne(d => d.PictureCodeNavigation)
+                 .WithMany(p => p.Meals)
+                 .HasForeignKey(d => d.PictureCode)
+                 .HasConstraintName("FK_Meal_Picture");
+                entity.HasOne(d => d.LevelCodeNavigation)
+                   .WithMany(p => p.Meals)
+                   .HasForeignKey(d => d.LevelCode)
+                   .HasConstraintName("FK_Meal_Level");
+
+                entity.HasOne(d => d.MenuCodeNavigation)
+                    .WithMany(p => p.Meals)
+                    .HasForeignKey(d => d.MenuCode)
+                    .HasConstraintName("FK_Meal_Menu");
                 entity.HasOne(d => d.UserCodeNavigation)
                     .WithMany(p => p.Meal)
                     .HasForeignKey(d => d.UserCode)
@@ -111,12 +131,22 @@ namespace DAL.Models
             modelBuilder.Entity<Menu>(entity =>
             {
                 entity.HasKey(e => e.MenuCode);
-
                 entity.Property(e => e.DateCreated).HasColumnType("datetime");
 
                 entity.Property(e => e.DateUpdated).HasColumnType("datetime");
 
+                entity.Property(e => e.DateUpload).HasColumnType("datetime");
+
                 entity.Property(e => e.MenuName).HasMaxLength(50);
+
+                entity.HasOne(d => d.PictureCodeNavigation)
+                    .WithMany(p => p.Menus)
+                    .HasForeignKey(d => d.PictureCode)
+                    .HasConstraintName("FK_Menu_Picture");
+                entity.HasOne(d => d.LevelCodeNavigation)
+                    .WithMany(p => p.Menus)
+                    .HasForeignKey(d => d.LevelCode)
+                    .HasConstraintName("FK_Menu_Level");
 
                 entity.HasOne(d => d.User)
                     .WithMany(p => p.Menu)
@@ -149,6 +179,25 @@ namespace DAL.Models
                 entity.Property(e => e.Password).HasMaxLength(50);
 
                 entity.Property(e => e.UserName).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<Picture>(entity =>
+            {
+                entity.HasKey(e => e.PictureCode);
+
+                entity.ToTable("Picture");
+
+                entity.Property(e => e.Picture1).HasColumnName("Picture");
+
+                entity.Property(e => e.PictureName).HasMaxLength(50);
+            });
+            modelBuilder.Entity<Level>(entity =>
+            {
+                entity.HasKey(e => e.LevelCode);
+
+                entity.ToTable("Level");
+
+                entity.Property(e => e.LevelName).HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);

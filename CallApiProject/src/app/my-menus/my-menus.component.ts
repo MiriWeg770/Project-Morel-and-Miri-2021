@@ -1,10 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
+import { Meal } from 'src/Models/Meal';
 import { Menu } from 'src/Models/Menu';
 import { User } from 'src/Models/User';
 import { AddMenuComponent } from '../add-menu/add-menu.component';
+import { DeleteMenuComponent } from '../delete-menu/delete-menu.component';
+import { MealService } from '../meal.service';
 import { MenuService } from '../menu.service';
+import { UserService } from '../user.service';
+
 
 @Component({
   selector: 'app-my-menus',
@@ -12,41 +18,47 @@ import { MenuService } from '../menu.service';
   styleUrls: ['./my-menus.component.css']
 })
 export class MyMenusComponent implements OnInit {
-  listMenus:Menu[]=[
-    new Menu(null,"ארוחת בוקר","ccc",null,new Date(2000-25-25),null,null,1,null),
-   ,
-  ]; 
-    u: User = new User(1, null, null, null);
+    // listMenus:Menu[]=[]; 
+    u: User = new User(null, null, null, null);
     choose = false
     add = false
-    newMenu: Menu = new Menu(1,null,null,1,null,null,null,1,null);
-    ELEMENT_DATA: Menu[] =[
-      new Menu(1,"ארוחת בוקר","ccc",1,new Date(2000-25-25),null,null,1,null),
-      new Menu(1,"ארוחת בוקר","ccc",1,new Date(2000-25-25),null,null,1,null),
-      new Menu(1,"ארוחת בוקר","ccc",1,new Date(2000-25-25),null,null,1,null)
-    ]
+    newMenu: Menu = new Menu(1,null,null,1,null,null,null,1,null,null,null,null,null);
+    ELEMENT_DATA: Menu[] =[]
     click = false
     dataSource;
     length = this.ELEMENT_DATA.length;
 
-    displayedColumns: string[] = ['y', 'MenuName', 'NumberOfDiners', 'countMeals', 'Date', 'x'];
+    displayedColumns: string[] = ['y','s', 'MenuName', 'countMeals', 'DateCreated','DateUpdated', 'x'];
 
-    constructor(private dialog:MatDialog,private ser:MenuService) {
+    constructor(private dialog:MatDialog,private ser:UserService,private _snackBar: MatSnackBar,private serm:MenuService) {
      this.u= JSON.parse(localStorage.getItem("user"));
      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-
+     this.GetAllMenus()
+   
      }
   
     ngOnInit(): void {
-      // this.GetAllMenus();
     }
   
+
+    GetMenuMeals(){
+      this.ELEMENT_DATA.forEach(element => {
+        this.serm.GetMenuMeals(element.menuCode).subscribe(succ => {
+        element.meals= succ    
+      }, err => {
+        console.log(err)
+      })
+      }); 
+    }
     GetAllMenus(){
-      this.ser.GetAllMenusByIdUser(this.u.userCode).subscribe(succ => {
+      console.log(this.u.userCode)
+      this.ser.GetUserMenus(this.u.userCode).subscribe(succ => {
        this.ELEMENT_DATA = succ;
        this.length= this.ELEMENT_DATA.length;
        this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-       console.log(this.ELEMENT_DATA);
+      this.GetMenuMeals()    
+         console.log(this.ELEMENT_DATA);
+
      }, err => {
         console.log(err);
       }) 
@@ -59,7 +71,10 @@ export class MyMenusComponent implements OnInit {
      AddMenu(){
      const dialogRef = this.dialog.open(AddMenuComponent, {
      disableClose:true,
-     autoFocus:false
+     autoFocus:false,
+     height:'100%',
+     width:'100%',
+     panelClass:'my-dialog'
      });
      dialogRef.afterClosed().subscribe(result => {
        console.log('The dialog was closed');    
@@ -71,7 +86,10 @@ export class MyMenusComponent implements OnInit {
      const dialogRef = this.dialog.open(AddMenuComponent, {
      disableClose:true,
      autoFocus:false,
-     data:x
+     data:x,
+     height:'100%',
+     width:'100%',
+     panelClass:'my-dialog'
      });
      dialogRef.afterClosed().subscribe(result => {
        console.log('The dialog was closed');
@@ -87,24 +105,7 @@ export class MyMenusComponent implements OnInit {
    console.log(this.checked)
    }
   
-     delet=false;
-     Delet(x:Menu,d=false) {
-      //  console.log(x)
-      //  const dialogRef = this.dialog.open(DeletMealComponent, {
-      //    width: '20%',
-      //    data: d
-      //  });
-      //  dialogRef.afterClosed().subscribe(result => {
-      //    console.log('The dialog was closed');
-      //    if(result){
-      //    this.ser.DeleteMeal(x).subscribe(succ=>{
-      //    console.log(succ)  
-      //   this.GetAllMeals();
-      //    },err => {
-      //      console.log(err);
-      //    }) }
-      //  });
-   }
+  
   
   
   //  DeletItems(){
@@ -112,4 +113,48 @@ export class MyMenusComponent implements OnInit {
   //        this.Delet(element,true)
   //    });
   //  }
+
+  DateCreated(x:Menu){
+    let d:Date= new Date( x.dateCreated)
+    return d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear();
+  }
+  DateUpdated(x:Menu){
+    let d:Date= new Date( x.dateUpdated)
+    if(x.dateUpdated!=null)
+      return d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear();
+    else
+      return ""
+  }
+
+  delet=false;
+  Delet(x:Menu,d=false) {
+    console.log(x)
+    const dialogRef = this.dialog.open(DeleteMenuComponent, {
+      width: '20%',
+      data: d
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      if(result){
+       this._snackBar.open(" נמחקה המנה "+x.menuName, "סגור",{
+          horizontalPosition: 'start',
+          verticalPosition:'bottom' 
+          });
+        
+
+      this.serm.DeleteMenu(x).subscribe(succ=>{
+      console.log(succ)  
+      this.GetAllMenus();
+      },err => {
+        console.log(err);
+      }) }
+    });
+}
+
+
+DeletItems(){
+  this.checked.forEach(element => {
+      this.Delet(element,true)
+  });
+}
  }

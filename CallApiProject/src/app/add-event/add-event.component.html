@@ -1,9 +1,10 @@
-<h1 mat-dialog-title>הוסף אירוע</h1>
+<h1 mat-dialog-title *ngIf="!edit">הוסף אירוע</h1>
+<h1 mat-dialog-title *ngIf="edit">עדכן אירוע</h1>
 <div mat-dialog-content>
-  <input type="text" [(ngModel)]="data.eventName"  placeholder="שם האירוע" > 
-  <textarea type="text" [(ngModel)]="data.discription" placeholder="תיאור "></textarea>
+  <input type="text" [(ngModel)]="Event.eventName"  placeholder="שם האירוע" > 
+  <textarea type="text" [(ngModel)]="Event.discription" placeholder="תיאור "></textarea>
 </div>
 <div mat-dialog-actions >
-    <button mat-button [mat-dialog-close]="data" cdkFocusInitial>OK</button>
+  <button mat-button *ngIf="!edit" [mat-dialog-close]="Event" cdkFocusInitial>שמור</button>
 </div>
 

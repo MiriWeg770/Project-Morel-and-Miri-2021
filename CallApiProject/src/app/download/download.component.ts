@@ -1,10 +1,15 @@
 import { Component, ElementRef, Inject, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import html2canvas from 'html2canvas';
-import jspdf, * as  jsPDF from 'jspdf';
+import jsPDF from 'jspdf';
+// import    jsPDF from 'jspdf';
 // import jsPDF from 'jspdf';
+// import html2canvas from 'html2canvas'
 
 import { Meal } from 'src/Models/Meal';
+import { MealService } from '../meal.service';
+// import * as jsPDF from 'jspdf'
+// import * as html2canvas from "html2canvas";
 
 @Component({
   selector: 'app-download',
@@ -19,30 +24,22 @@ export class DownloadComponent implements OnInit {
   x;
   
   constructor(public dialogRef: MatDialogRef<DownloadComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Meal,private dialog:MatDialog) { 
+    @Inject(MAT_DIALOG_DATA) public data: Meal,private dialog:MatDialog,private ser:MealService) { 
    this.meal=data
    console.log(this.data)
-  //  this.download()
+   this.ser.GetProductsMeal(this.meal.mealCode).subscribe(succ=>{
+     console.log(succ)
+     this.meal.products=succ;
+   },err=>{
+     console.log(err)
+   })
   }
 
   ngOnInit(): void {  
 
   }
 
-// download(){
-//   this.data=event
-//    console.log(this.data)
-//    this.download()
-// this.dialogRef.close()
-//   let doc = new jsPDF();
 
-//   let content = this.content;
-//   console.log(content)
-//   console.log(document.getElementById('x'))
- 
-//   doc.save(this.data.mealName +" מתכון")
-
-// }
 
   download(){
    this.dialogRef.close()
@@ -55,16 +52,21 @@ export class DownloadComponent implements OnInit {
 //    var position = 10;
 //   pdf.save(this.data.mealName +" מתכון")
 //  })
-document.getElementById('x').style.display="block";
 var data = document.getElementById('x');
-    html2canvas(data).then(canvas => {
-      var imgHeight = canvas.height * 208 / canvas.width;
-      const contentDataURL = canvas.toDataURL('image/png')
-      let pdf = new jspdf();
-      pdf.addImage(contentDataURL, 'PNG', 0, 0, 208, imgHeight)
-      pdf.save(this.meal.mealName+"-מתכון");
-    });
+document.getElementById('x').style.display="block";
+
+    // html2canvas(data).then(canvas => {
+    //   var imgHeight = canvas.height * 208 / canvas.width;
+    //   const contentDataURL = canvas.toDataURL('image/png')
+    //   let pdf = new jspdf();
+    //   pdf.addImage(contentDataURL, 'PNG', 0, 0, 208, imgHeight)
+    //   pdf.save(this.meal.mealName+"-מתכון");
+       
+    // });
   
 
 }
+
+
+ 
 }

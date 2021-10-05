@@ -61,6 +61,13 @@ import { NavComponent } from './nav/nav.component';
 import { ChangePeopleComponent } from './change-people/change-people.component';
 import { DownloadComponent } from './download/download.component';
 import { MakeAccountComponent } from './make-account/make-account.component';
+import { EditMealComponent } from './edit-meal/edit-meal.component';
+import {DragDropModule} from '@angular/cdk/drag-drop';
+import { RemoveShareComponent } from './remove-share/remove-share.component';
+import {MatBadgeModule} from '@angular/material/badge';
+import {MatGridListModule} from '@angular/material/grid-list';
+import { ShowMonthsComponent } from './show-months/show-months.component';
+
 
 @NgModule({
   declarations: [
@@ -97,7 +104,10 @@ import { MakeAccountComponent } from './make-account/make-account.component';
     NavComponent,
     ChangePeopleComponent,
     DownloadComponent,
-    MakeAccountComponent
+    MakeAccountComponent,
+    EditMealComponent,
+    RemoveShareComponent,
+    ShowMonthsComponent
     
   ],
   imports: [
@@ -126,7 +136,10 @@ import { MakeAccountComponent } from './make-account/make-account.component';
     MatPaginatorModule,
     MatButtonModule,
     MatCheckboxModule ,
-    MatSnackBarModule
+    MatSnackBarModule,
+    DragDropModule,
+    MatBadgeModule,
+    MatGridListModule,
  
   ],
   providers: [UserService],
