@@ -45,7 +45,11 @@
           <th mat-header-cell *matHeaderCellDef>שם תפריט</th>
           <td mat-cell *matCellDef="let element"> {{element.menuName}} </td>
         </ng-container>
-
+        
+        <ng-container  matColumnDef="Level" >
+          <th mat-header-cell *matHeaderCellDef> דרגת קושי </th>
+          <td mat-cell *matCellDef="let element"   >{{Level(element)}} </td>
+        </ng-container>
         <!-- <ng-container matColumnDef="NumberOfDiners">
           <th mat-header-cell *matHeaderCellDef>כמות סועדים</th>
           <td mat-cell *matCellDef="let element"> {{element.numberOfDiners}} </td>
@@ -75,7 +79,7 @@
             <mat-icon matTooltip="הורד" (click)="download(element)"> file_download</mat-icon>
             <mat-icon matTooltip="עדכן" (click)="UpdateMenu(element)"> edit</mat-icon>
             <mat-icon matTooltip="מחק" (click)="Delet(element)" > delete</mat-icon>
-            <mat-icon matTooltip="שתף" (click)="shareOne(element)" > share</mat-icon>
+            <mat-icon matTooltip="שתף" (click)="shareOne(element)" *ngIf="!element.publish" > share</mat-icon>
          </button>
         </mat-menu>
           </td>

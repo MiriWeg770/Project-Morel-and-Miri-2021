@@ -11,11 +11,12 @@ export class Menu {
         public dateUpdated: Date,
         public links: string,
         public viewsNumber: number,
-        public userName: string,
-        public publish:boolean,
-        public pictureCode:number,
+        public userName: string, 
         public dateUpload:Date,
+        public pictureCode:number,        
+        public publish:boolean,
+        public levelCode:number,
         public meals:Meal[],
-        public levelCode:number)
+        )
                  { }
 }

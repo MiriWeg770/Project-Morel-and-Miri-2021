@@ -14,7 +14,7 @@ import { MealService } from '../meal.service';
 export class EditMealComponent implements OnInit {
 
   ELEMENT_DATA: Product[]=[];
-  meal:Meal=new Meal(0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+  meal:Meal=new Meal(0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
   newProduct:Product=new Product(0,null,null,null,"null");
   categories:MealCategories[];
   selectCa:string

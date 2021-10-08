@@ -26,7 +26,6 @@ export class HeaderComponent implements OnInit {
 
   constructor(private router:Router,public dialog:MatDialog,private ser:UserService) {
       this.u= JSON.parse(localStorage.getItem("user"));
-
 }
   ngOnInit(): void {     
    this.name=this.u.userName;
@@ -64,8 +63,8 @@ export class HeaderComponent implements OnInit {
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');     
-          this.u=result
-          console.log(this.u) 
+      console.log(this.u) 
+      
 
       // this.ser.UpdateUser(result).subscribe(succ=>{
       //   this.u=succ

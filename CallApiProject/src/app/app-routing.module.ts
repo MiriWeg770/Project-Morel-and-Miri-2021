@@ -35,7 +35,7 @@ const routes: Routes = [
     {path:"Help",component:HelpComponent},
     {path:"MyShares",component:MySharesComponent},
     {path:"ShowMealDetails/:id",component:ShowMealDetailsComponent}, 
-    {path:"ShowMenuDetails",component:ShowMenuDetailsComponent}, 
+    {path:"ShowMenuDetails/:id",component:ShowMenuDetailsComponent}, 
     {path:"MyAccount",component:MyAccountComponent},
     {path:"AddMeal", component:AddMealComponent},
     {path:"MyMenus", component:MyMenusComponent},

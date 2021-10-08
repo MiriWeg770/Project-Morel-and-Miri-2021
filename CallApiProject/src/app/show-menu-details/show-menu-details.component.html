@@ -1,36 +1,36 @@
 <div class="body">
-<header>
-  <div class="header">
-  <div class="header-content">
-  <label> תפריט</label>
-  <h1 class="headline "> שם תפריט</h1>
-  <div class="underline ">
-      <div class="date">תאריך</div>
-      <div class="byline"> 
-       <span>מאת</span> <a>שם המעלה</a>
-      </div></div>
-  <div class="ratings">
-   <div class="stars">
-      <mat-icon>star</mat-icon>
-      <mat-icon>star</mat-icon>
-      <mat-icon>star</mat-icon>
-      <mat-icon>star</mat-icon>
-      <mat-icon>star</mat-icon>
+  <header>
+    <div class="header">
+    <div class="header-content">
+    <label> תפריט</label>
+    <h1 class="headline "> {{menu.menuName}}</h1>
+    <div class="underline ">
+        <div class="date">{{menu.dateUplaod}}</div>
+        <div class="byline"> 
+         <span> מאת </span> <a>{{menu.userName}} </a>
+        </div></div>
+    <div class="ratings">
+     <div class="stars">
+        <mat-icon>star</mat-icon>
+        <mat-icon>star</mat-icon>
+        <mat-icon>star</mat-icon>
+        <mat-icon>star</mat-icon>
+        <mat-icon>star</mat-icon>
+    </div>
+    <div class="counter"> כמות דירוגים</div>
+  </div> 
+  </div></div>
+  </header>
+  
+  <div class="list-items">
+    <div class="list">
+    <ul > 
+      <li *ngFor="let item of listMeals">
+        <div class="container" >               
+    <app-meal [meal]="item"></app-meal>     
   </div>
-  <div class="counter"> כמות דירוגים</div>
-</div> 
-</div></div>
-</header>
-
-<div class="list-items">
-  <div class="list">
-  <ul > 
-    <li *ngFor="let item of listMeals">
-      <div class="container" >               
-<app-meal></app-meal>     
-</div>
-</li>
-  </ul>
+  </li>
+    </ul>
+    </div>
   </div>
-</div>
-</div>
+  </div>

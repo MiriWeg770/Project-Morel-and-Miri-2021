@@ -1,7 +1,9 @@
 
-/* .body{
- background: white;
-} */
+.body{
+ /* background: #ffffff; */
+ /* height: 100%; */
+ /* background: yellow; */
+}
 .list-items{
   width: 100%;
   margin-right: auto;
@@ -23,30 +25,48 @@ ul li{
 }
 
 select {  
-width: 100%;
-font-size: 16px;
-padding: 12px;
-font-weight: 500;
-resize: vertical;
-background: white;
-border-radius: .25rem;
-border-color:rgba(0,0,0,.1);
-direction: rtl;
+  /* width: 100%; */
+  font-size: 16px;
+  padding: 12px;
+  cursor: pointer;
+  font-weight: 500;
+  /* resize: vertical; */
+  background: none;
+  /* border-radius: .25rem; */
+  /* border-color: rgba(0,0,0,.1); */
+  direction: rtl;
+  outline: none;
+  border: none;
+  color: gray;
+  /* border-bottom: 2px solid gray; */
+
 }
 
-.body .searchResult{
-  margin-top: 20px;
-  padding: 0 72px;
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
+.search{
+  background: white;
+  position: sticky;
+  top: 64px;
+  z-index: 2;
+  box-shadow: 1px 1px 1px #0000004d;
+
 }
-.body .searchResult .result_message{
+.body .searchResult{
+  padding: 5px 87px;
+  /* width: 100%; */
+  display: flex;
+  justify-content: end;
+  /* align-items: end; */
+  /* background: white; */
+}
+.result_message{
+  text-align: end;
+  padding: 28px 39px;
+  padding-bottom: 0;
+}
+ .result_message h1{
   font-size: 18px;
   line-height: 1;
-  margin: 3px ;
-  float: left;
+  font-family: sans-serif;
 }
 .search-input{
   display: flex;
@@ -58,7 +78,15 @@ direction: rtl;
   font-size: 18px;
   font-family: system-ui;
   font-weight: 500;
+  display: flex;
+  align-items: center;
 }
+.search-input div span{
+  width: 90px;
+  font-size: 17px;
+  font-weight: 600;
+}
+.se
 
 #back-to-top{
 
@@ -70,7 +98,7 @@ direction: rtl;
     font-size: 18px;
     border: none;
     outline: none;
-    background-color: red;
+    background-color: black;
     color: white;
     cursor: pointer;
     padding: 15px;
@@ -163,3 +191,55 @@ direction: rtl;
     box-shadow: 0px 0px 25px 0px;
 
 } */
+
+.searchBox{
+
+  padding: 25px 275px;
+  /* background: white; */
+  padding-bottom: 14px;
+  display: flex;
+  justify-content: center;
+}
+.searchBox div {
+  border-radius: 40px;
+  padding: 3px;
+  border: 1px solid rgb(0 0 0 / 87%);
+  height: 47px;
+  width: 630px;
+}
+
+
+ .searchButton:hover {
+  background: gray;
+}
+
+.searchButton {
+  background: rgb(0 0 0 / 60%);
+color : #2f3640;
+  float: left;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.4s;
+  cursor: pointer;
+  border: none;
+}
+
+.searchInput {
+  border: none;
+  background: none;
+  outline: none;
+  float: left;
+  padding: 0;
+  font-size: 16px;
+  transition: 0.4s;
+  line-height: 40px;
+  width: 571px;
+  direction: rtl;
+  padding: 0px 7px;
+}
+
+

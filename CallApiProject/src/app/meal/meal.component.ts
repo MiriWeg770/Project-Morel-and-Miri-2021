@@ -34,7 +34,7 @@ export class MealComponent implements OnInit {
 
   add(){
     if(this.u!=null){
-    let m:Meal=new Meal(0,this.meal.mealName,this.meal.instructions,this.meal.numberOfDiners,this.meal.discription,this.meal.mealCategoryCode,this.u.userCode,this.meal.numberOfViews,this.meal.preparationTime,null,new Date(),false,null,this.meal.menuCode,this.u.userName,this.meal.products,this.meal.levelCode)
+    let m:Meal=new Meal(0,this.meal.mealName,this.meal.instructions,this.meal.numberOfDiners,this.meal.discription,this.meal.mealCategoryCode,this.u.userCode,null,this.meal.preparationTime,null,new Date(),false,null,this.meal.menuCode,this.u.userName,this.meal.products,this.meal.levelCode)
     console.log(this.meal)
     this.ser.AddMealToUser(m).subscribe(succ=>{
       console.log(succ)
@@ -68,8 +68,8 @@ export class MealComponent implements OnInit {
 download(){
   // let download = new DownloadComponent(this.meal);
 
-  const dialogRef = this.dialog.open(ChangePeopleComponent, {
-    data: this.meal
+  const dialogRef = this.dialog.open(ShowMealDetailsComponent, {
+    // data: this.meal
   });
   dialogRef.afterClosed().subscribe(result => {
     console.log('The dialog was closed');
@@ -77,17 +77,6 @@ download(){
 }
 
 
-// open(){
-//   const dialogRef = this.dialog.open(ShowMealDetailsComponent, {
-//     data: this.meal,
-//     width:'1000px',
-//     height:'100%',
-//     panelClass: 'my-dialog'
-//   });
-//   dialogRef.afterClosed().subscribe(result => {
-//     console.log('The dialog was closed');
-//   });
-// }
 
 DateUplaod(){
   let d:Date= new Date( this.meal.dateUplaod)

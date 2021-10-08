@@ -41,7 +41,8 @@ export class MyMealsComponent implements OnInit {
   length = 0;
   dataSource;
   click = false
-  displayedColumns: string[] = ['y','s','MealName','Category','Time',  'NumberOfDiners', 'countIngredients', 'DateCreated','DateUpdated', 'x'];
+  displayedColumns: string[] = [
+    'y','s','MealName','Category','Level',  'NumberOfDiners', 'countIngredients', 'DateCreated','DateUpdated','NumberOfViews', 'x'];
 
   // expandedElement: Meal | null;
   c:MealCategories[]
@@ -134,7 +135,7 @@ export class MyMealsComponent implements OnInit {
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
         if(result){
-         this._snackBar.open(" נמחקה המנה "+x.mealName, "סגור",{
+         this._snackBar.open(" נמחק  "+x.mealName, "סגור",{
             horizontalPosition: 'start',
             verticalPosition:'bottom' 
             });
@@ -150,10 +151,16 @@ export class MyMealsComponent implements OnInit {
   }
 
 
-  DeletItems(){
+  DeletItems(){        
+    this.Delet(this.checked[0],true)
     this.checked.forEach(element => {
-        this.Delet(element,true)
-    });
+      this.serm.DeleteMeal(element).subscribe(succ=>{
+        console.log(succ)  
+        this.GetAllMeals();
+        },err => {
+          console.log(err);
+        }) })
+
   }
 
   download(x:Meal){

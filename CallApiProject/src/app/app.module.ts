@@ -67,6 +67,7 @@ import { RemoveShareComponent } from './remove-share/remove-share.component';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatGridListModule} from '@angular/material/grid-list';
 import { ShowMonthsComponent } from './show-months/show-months.component';
+import { DeletMenuComponent } from './delet-menu/delet-menu.component';
 
 
 @NgModule({
@@ -107,7 +108,8 @@ import { ShowMonthsComponent } from './show-months/show-months.component';
     MakeAccountComponent,
     EditMealComponent,
     RemoveShareComponent,
-    ShowMonthsComponent
+    ShowMonthsComponent,
+    DeletMenuComponent
     
   ],
   imports: [

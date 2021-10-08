@@ -14,13 +14,13 @@ export class MenuService {
 
   constructor(private http:HttpClient) { }
   GetAllMenus():Observable<Menu[]>{
-    return this.http.get<Menu[]>("");
+    return this.http.get<Menu[]>(environment.url +"/api/Menus");
   }
   GetUserMenus(id:number):Observable<Menu[]>{
     return this.http.get<Menu[]>(environment.url +"/api/Menus/GetAllMenusByIdUser/"+id);
   }
   GetMenuById(id:number):Observable<Menu>{
-    return this.http.get<Menu>("");
+    return this.http.get<Menu>(environment.url +"/api/Menus/"+id);
   }
   AddMenuToUser(m:Menu):Observable<Menu> {
     return this.http.post<Menu>(environment.url +"/api/Menus/AddMenuToUser",m);

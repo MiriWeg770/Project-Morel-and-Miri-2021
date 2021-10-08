@@ -20,13 +20,11 @@
         <select name=" " [(ngModel)]="selectCa">
           <option *ngFor="let x of categories; let i=index" value={{x.menuCategoriesName}} >{{x.menuCategoriesName}}</option>
         </select>
-        <label>דרגת קושי</label>
-        <select name=" ">
-          <option value="">קל</option>
-          <option value="">בינוני</option>
-          <option value="">קשה</option>
-  
+           <label>דרגת קושי</label>
+        <select name=" " [(ngModel)]="selectLe">
+        <option *ngFor="let x of levels; let i=index" value={{x.levelName}} >{{x.levelName}}</option>
         </select>
+  
         <label>תאור התפריט</label>
         <textarea id="discription" name="Discription" [(ngModel)]="newMenu.discription"></textarea>
   
@@ -52,7 +50,7 @@
           </label>       -->
         
 <div>
-      <div class="container" *ngFor="let x of ELEMENT_DATA" (click)="add(x)"   [ngClass]="MenuList.includes(x)  ? 'change' : 'container'"      >
+      <div class="container" *ngFor="let x of ELEMENT_DATA" (click)="add(x)"   [ngClass]="MenuList.includes(x)? 'change' : 'container'" >
         <img src="https://t3.ftcdn.net/jpg/02/79/75/74/240_F_279757407_LJTTkYBnulnFPkoKJLQjf5L7Xrl6mOZy.jpg" alt="Avatar" class="image" style="width:100%">
         <div class="middle">
           <div class="text">{{x.mealName}}</div>

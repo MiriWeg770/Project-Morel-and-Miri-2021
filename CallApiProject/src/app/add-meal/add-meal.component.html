@@ -58,7 +58,7 @@
     <!-- border-color: #d59b28; -->
     <div class="form ">
       <div>
-        <input type="file" class="file" id="image" (change)="handlerFileInput($event)">
+        <input type="file" class="file" id="image" accept="image/*" (change)="handlerFileInput($event.target.files)">
         <img [src]="imageUrl" style="width: 200px;">
         </div>
         <div>

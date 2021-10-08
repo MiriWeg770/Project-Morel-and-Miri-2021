@@ -1,22 +1,24 @@
-    <div class="card" >
-      <div class="content">
-        <div class="title">
-          <span>תפריט</span>
-           </div>
-      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqw8YOBN2bEAhlTt0t7BZsG4OhYgan28-FZA&usqp=CAU" alt="Avatar" style="width:100%"routerLink="/Home/ShowMenuDetails">
-      <div class="container">
-        <h4><b>ארוחת צהריים</b></h4> 
-        <div class="user_comment">
-          <div> <mat-icon>person</mat-icon></div>
-          <div class="d">
-          <div>
-            <span>שם</span> <span>18/08/200</span>
-          </div>
-          <div class="icons">
-            <mat-icon id="down">download</mat-icon>
-            <mat-icon id="save">favorite</mat-icon>
-          </div></div>
-        </div>
-      </div>
+<div class="card" >
+  <div class="content">
+    <div class="title">
+      <span>תפריט</span>
        </div>
-    </div>      
+       <div class="item-zoom">
+  <img src="https://assets.bonappetit.com/photos/6079b8f318bc22421e5363ab/1:1/w_1920,c_limit/0521-Fat-Choy-Mushroom-Sloppy.jpg" alt="Avatar" style="width:100%" (click)="count()"  routerLink="/Home/ShowMenuDetails/{{menu.menuCode}}">
+       </div>
+  <div class="container">
+    <h4><b>{{menu.menuName}}</b></h4> 
+    <div class="user_comment">
+      <div> <mat-icon>person</mat-icon></div>
+      <div class="d">
+      <div>
+        <span>{{menu.userName}}</span> <span>{{DateUplaod()}}</span>
+      </div>
+      <div class="icons">
+        <mat-icon id="down">download</mat-icon>
+        <mat-icon id="save" (click)="add()">favorite</mat-icon>
+      </div></div>
+    </div>
+  </div>
+   </div>
+</div>      

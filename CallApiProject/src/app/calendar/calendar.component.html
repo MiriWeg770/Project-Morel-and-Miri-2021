@@ -1,6 +1,6 @@
 
     <mat-drawer-container *ngIf="!showEvent">
-        <mat-drawer mode="side" [opened]="toggle" position="start">   <div class="event_header">
+        <mat-drawer mode="side" opened position="end">   <div class="event_header">
                     <p> ({{list.length}})  רשימת  אירועים</p>
                 </div>
             <div class="calendar_events">
@@ -41,14 +41,14 @@
         </mat-drawer> -->
         <mat-drawer-content>
 <div class="calendar">
-    
+     
     <div class="calendar_inner">
         <table>
             <tbody>
-                <button mat-button class="today" (click)="Today()">היום</button>
-                <button mat-button class="today" (click)="change()"><mat-icon>menu</mat-icon></button>
+               
                 <button class="sidebar_toggle_event" (click)="toggle=!toggle"><mat-icon>arrow_forward_ios</mat-icon></button>
-
+<button mat-button class="today" (click)="Today()">היום</button>
+                <button mat-button class="today" (click)="change()"><mat-icon>menu</mat-icon></button>
                 <div class="month">{{month}}/{{year}}</div>
                 <tr class="calendar_header">
                     <td *ngFor="let x of weekdays" >{{x}}</td>                   
@@ -60,6 +60,8 @@
         </table>
     </div>
 </div>
+
+
 </mat-drawer-content>
 </mat-drawer-container>
 
@@ -70,7 +72,7 @@
 
 
 <!------------------------------------------------------------------>
-
+<!-- 
 <mat-drawer-container *ngIf="showEvent">
     
     <mat-drawer mode="side" opened position="end">
@@ -95,5 +97,6 @@
     <mat-card *ngFor="let x of list"></mat-card>
 </div>
 </div>
+<div>ddddddddddddddd</div>
 </mat-drawer-content>
-</mat-drawer-container>
+</mat-drawer-container> -->

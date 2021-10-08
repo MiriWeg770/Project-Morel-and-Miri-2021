@@ -11,7 +11,7 @@
 </div>
 <div class="nav">
   
-
+<!-- 
 
 <div class="searchBox">
  <button class="searchButton" href="#">
@@ -19,7 +19,7 @@
   </button>
   <input class="searchInput"type="text" name="" placeholder="חפש">
  
-</div>
+</div> -->
 <div class="home">
   <mat-icon routerLink="/Home/AllLists">home</mat-icon>
   <span>דף הבית</span>
@@ -34,8 +34,10 @@
       <mat-divider></mat-divider>
       <li *ngIf="u!=null"><a routerLink="/Home/MyMeals">המנות שלי</a></li>
       <li *ngIf="u!=null"><a routerLink="/Home/MyMenus">התפריטים שלי</a></li>
+      <!-- <li *ngIf="u!=null"><a routerLink="/Home/MyEvent">הארועים שלי</a></li> -->
       <li *ngIf="u==null"><a (click)="makeAccount()">המנות שלי</a></li>
       <li *ngIf="u==null"><a (click)="makeAccount()">התפריטים שלי</a></li>
+      <!-- <li *ngIf="u==null"><a routerLink="/Home/MyEvent">הארועים שלי</a></li> -->
       <li *ngIf="u!=null"><a (click)="MyAccount()"> הגדרות פרופיל</a></li>
     </ul>
   </div>

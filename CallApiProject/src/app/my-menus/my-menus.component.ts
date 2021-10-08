@@ -2,13 +2,18 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
+import { Level } from 'src/Models/Level';
 import { Meal } from 'src/Models/Meal';
 import { Menu } from 'src/Models/Menu';
 import { User } from 'src/Models/User';
 import { AddMenuComponent } from '../add-menu/add-menu.component';
-import { DeleteMenuComponent } from '../delete-menu/delete-menu.component';
+import { DeletMealComponent } from '../delet-meal/delet-meal.component';
+import { DeletMenuComponent } from '../delet-menu/delet-menu.component';
+import { LevelService } from '../level.service';
+// import { DeleteMenuComponent } from '../delete-menu/delete-menu.component';
 import { MealService } from '../meal.service';
 import { MenuService } from '../menu.service';
+import { RemoveShareComponent } from '../remove-share/remove-share.component';
 import { UserService } from '../user.service';
 
 
@@ -22,18 +27,21 @@ export class MyMenusComponent implements OnInit {
     u: User = new User(null, null, null, null);
     choose = false
     add = false
-    newMenu: Menu = new Menu(1,null,null,1,null,null,null,1,null,null,null,null,null);
+    newMenu: Menu = new Menu(1,null,null,1,null,null,null,1,null,null,null,null,null,null);
     ELEMENT_DATA: Menu[] =[]
     click = false
     dataSource;
     length = this.ELEMENT_DATA.length;
 
-    displayedColumns: string[] = ['y','s', 'MenuName', 'countMeals', 'DateCreated','DateUpdated', 'x'];
+    displayedColumns: string[] = ['y','s', 'MenuName','Level', 'countMeals', 'DateCreated','DateUpdated', 'x'];
+    levels:Level[]=[]
 
-    constructor(private dialog:MatDialog,private ser:UserService,private _snackBar: MatSnackBar,private serm:MenuService) {
+    constructor(private dialog:MatDialog,private ser:UserService,private serl:LevelService,private _snackBar: MatSnackBar,private serm:MenuService) {
      this.u= JSON.parse(localStorage.getItem("user"));
      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
      this.GetAllMenus()
+     this.GetLevels()
+
    
      }
   
@@ -129,14 +137,14 @@ export class MyMenusComponent implements OnInit {
   delet=false;
   Delet(x:Menu,d=false) {
     console.log(x)
-    const dialogRef = this.dialog.open(DeleteMenuComponent, {
+    const dialogRef = this.dialog.open(DeletMenuComponent, {
       width: '20%',
       data: d
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if(result){
-       this._snackBar.open(" נמחקה המנה "+x.menuName, "סגור",{
+       this._snackBar.open(" נמחק  "+x.menuName, "סגור",{
           horizontalPosition: 'start',
           verticalPosition:'bottom' 
           });
@@ -157,4 +165,61 @@ DeletItems(){
       this.Delet(element,true)
   });
 }
+
+
+share(){
+  this.checked.forEach(element => {
+   //  element.publish=true,
+   //  element.dateUplaod=new Date()
+   //  this.serm.UpdateMeal(element).subscribe(succ=>{
+   //    console.log("share")
+   // console.log(succ)
+   //  },err=>{console.log(err)})
+   this.shareOne(element)
+  });
+}
+shareOne(x:Menu){
+ x.publish=true,
+ x.dateUpload=new Date()
+ this.serm.UpdateMenu(x).subscribe(succ=>{
+   console.log("share")
+   console.log(succ)
+ },err=>{console.log(err)})
+}
+
+
+removeShare(x:Menu) {
+  console.log(x)
+  const dialogRef = this.dialog.open(RemoveShareComponent, {
+    width: '20%',
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+    if(result){
+    x.publish=false;
+    this.serm.UpdateMenu(x).subscribe(succ=>{
+    console.log(succ)  
+    this.GetAllMenus();
+    },err => {
+      console.log(err);
+    }) }
+  });
+}
+GetLevels(){
+  this.serl.GetAllLevels().subscribe(succ => {
+    this.levels=succ   
+   }, err => {
+     console.log(err)
+   })
+}
+Level(x:Menu){
+  let le:string;
+  this.levels.forEach(element => {
+    if(element.levelCode==x.levelCode)
+      le= element.levelName;
+  });
+  return le;
+}
+
+
  }

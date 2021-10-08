@@ -88,6 +88,7 @@ export class AddMealComponent implements OnInit {
   saveMeal() {
     console.log(this.selectCa)
     this.newMeal.products = this.ELEMENT_DATA;
+    
     // this.categories.forEach(element => {
     //   if (element.mealCategoriesName == this.selectCa)
     //     this.newMealCategories.mealCategoriesCode = element.mealCategoriesCode

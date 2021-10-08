@@ -230,7 +230,7 @@ mat-drawer-container{
 height: 100%;
 }
 mat-drawer {
-  background: #000000d4;
+  /* background: #000000d4; */
 
 }
 mat-toolbar{
@@ -299,7 +299,7 @@ border: 3px solid white;
 } */
 
 div label{
-  color: white;
+  /* color: white; */
 }
 
 .container {
@@ -329,7 +329,7 @@ div label{
 }
 
 .text {
-  background-color: #ffd70099;
+  /* background-color: #ffd70099; */
     font-size: 16px;
     padding: 8px 32px;
     font-family: system-ui;
