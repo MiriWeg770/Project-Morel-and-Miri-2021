@@ -58,7 +58,17 @@ export class SignInComponent implements OnInit {
    
        
   }
-
+  sendEmail(){
+    this.myUser.mail=this.myUser.mail.toString()
+    console.log(this.myUser.mail);
+    console.log("ddd");
+    
+    this.ser.sendMail(this.myUser.mail).subscribe(res=>{
+      console.log(res);
+      
+    })
+    
+  }
 
 
 

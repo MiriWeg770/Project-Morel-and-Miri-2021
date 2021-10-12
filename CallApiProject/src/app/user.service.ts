@@ -11,7 +11,7 @@ import { Menu } from 'src/Models/Menu';
 })
 export class UserService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient){ }
 
   GetAllUsers(): Observable<User[]>{
     return this.http.get<User[]>(environment.url +"/api/Users");
@@ -37,10 +37,10 @@ export class UserService {
   GetUserMenus(id:number): Observable<Menu[]>{
     return this.http.get<Menu[]>(environment.url +"/api/Menus/GetUserMenus/"+id);
   }
-  
+  sendMail(Mail:string): Observable<string>{
+    return this.http.post<string>(environment.url +"/api/Users/SendMail",Mail);
+  }
   // AddMeal(u:User,m:Meal):Observable<User>{
   //   return this.http.post<User>(environment.url + "/api/Users/AddMeal",u);
   // }
- 
-  
 }

@@ -47,23 +47,23 @@
         <form #myForm="ngForm" (ngSubmit)="SignIn()">
           <!-- שם משתמש -->
          <div>
-            <label> הכנס  אימייל  </label>
-            <input  type="email"  name="userName"  [(ngModel)]="myUser.UserName"  pattern="[A-Za-z]{4,20}" required #userName="ngModel">
+            <label> הכנס  אימייל </label>
+            <input  type="email"  name="userName"  [(ngModel)]="myUser.mail"   required #userName="ngModel">
         </div>    
              <!-- סיסמה -->       
          
-        <button class="submit"  [disabled]="!myForm.valid" (click)="sendEmail('sss')">שלח</button>
+        <button class="submit"  [disabled]="!myForm.valid" (click)="sendEmail()">שלח</button>
         <div>
           <label> הכנס  קוד אימות  </label>
-          <input  type="text"  name="userName"  [(ngModel)]="myUser.UserName"  pattern="[A-Za-z]{4,20}" required #userName="ngModel">
+          <input  type="text"  name="userName"  [(ngModel)]="myUser.UserName"   required #userName="ngModel">
       </div>
       <div>
         <label> הכנס  סיסמה חדשה  </label>
-        <input  type="password"  name="userName"  [(ngModel)]="myUser.UserName"  pattern="[A-Za-z]{4,20}" required #userName="ngModel">
+        <input  type="password"  name="userName"  [(ngModel)]="myUser.UserName"   required #userName="ngModel">
     </div>  
     <div>
       <label>   חזור על הסיסמה  </label>
-      <input  type="password"  name="userName"  [(ngModel)]="myUser.UserName"  pattern="[A-Za-z]{4,20}" required #userName="ngModel">
+      <input  type="password"  name="userName"  [(ngModel)]="myUser.UserName"  required #userName="ngModel">
   </div>   
       <p><a (click)="forget=!forget">התחבר</a></p>
   
