@@ -16,7 +16,7 @@ import { User } from 'src/Models/User';
 import { MealCategoriesService } from '../meal-categories.service';
 import { MealCategories } from 'src/Models/MealCategories';
 import { CategoriesToMeal } from 'src/Models/CategoriesToMeal';
-import { time } from 'console';
+// import { time } from 'console';
 import { color } from 'html2canvas/dist/types/css/types/color';
 import { Level } from 'src/Models/Level';
 import { LevelService } from '../level.service';
@@ -221,4 +221,8 @@ export class AddMealComponent implements OnInit {
       console.log(this.ELEMENT_DATA)
     }
 
+
+
+
+    
 }

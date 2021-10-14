@@ -1,25 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\BLL\\BLL.csproj": {}
+    "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\BLL\\BLL.csproj": {}
   },
   "projects": {
-    "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\BLL\\BLL.csproj": {
+    "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\BLL\\BLL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\BLL\\BLL.csproj",
+        "projectUniqueName": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\BLL\\BLL.csproj",
         "projectName": "BLL",
-        "projectPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\BLL\\BLL.csproj",
-        "packagesPath": "C:\\Users\\מירי\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\BLL\\obj\\",
+        "projectPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\BLL\\BLL.csproj",
+        "packagesPath": "C:\\Users\\Morel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\BLL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\מירי\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Morel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -30,13 +30,12 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj"
+              "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj"
               },
-              "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DTO\\DTO.csproj": {
-                "projectPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DTO\\DTO.csproj"
+              "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\DTO\\DTO.csproj": {
+                "projectPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\DTO\\DTO.csproj"
               }
             }
           }
@@ -49,7 +48,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -65,26 +63,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.413\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj": {
+    "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj",
+        "projectUniqueName": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj",
-        "packagesPath": "C:\\Users\\מירי\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\obj\\",
+        "projectPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj",
+        "packagesPath": "C:\\Users\\Morel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\מירי\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Morel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -95,7 +93,6 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -107,7 +104,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -139,26 +135,26 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.413\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DTO\\DTO.csproj": {
+    "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\DTO\\DTO.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DTO\\DTO.csproj",
+        "projectUniqueName": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\DTO\\DTO.csproj",
         "projectName": "DTO",
-        "projectPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DTO\\DTO.csproj",
-        "packagesPath": "C:\\Users\\מירי\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DTO\\obj\\",
+        "projectPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\DTO\\DTO.csproj",
+        "packagesPath": "C:\\Users\\Morel\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\DTO\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+          "C:\\Microsoft\\Xamarin\\NuGet\\"
         ],
         "configFilePaths": [
-          "C:\\Users\\מירי\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Morel\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp3.1"
@@ -169,10 +165,9 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
-            "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj": {
-                "projectPath": "C:\\Users\\מירי\\Desktop\\‏‏תיקיה חדשה\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj"
+              "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj": {
+                "projectPath": "C:\\Users\\Morel\\Desktop\\פרוייקט גמר\\פרוייקט גמר\\Project-Morel-and-Miri-2021\\MenuCalculator\\DAL\\DAL.csproj"
               }
             }
           }
@@ -185,7 +180,6 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
-          "targetAlias": "netcoreapp3.1",
           "imports": [
             "net461",
             "net462",
@@ -201,7 +195,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.400\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.413\\RuntimeIdentifierGraph.json"
         }
       }
     }

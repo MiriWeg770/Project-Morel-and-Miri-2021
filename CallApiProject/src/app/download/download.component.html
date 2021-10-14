@@ -2,7 +2,7 @@
 <h1 mat-dialog-title>מתכון</h1>
 <h2>{{meal.mealName}}</h2>
     <h2 class="discription">{{meal.discription}}</h2>
-      <mat-dialog-content>
+      <div class="content">
   <!-- <div class="title img"><img src="../../assets/3.jpg"></div> -->
   <div class="details">
     <div>כמות סועדים<h3>{{meal.numberOfDiners}}</h3></div>
@@ -20,6 +20,6 @@
   </ul>
   </div>
 
-</mat-dialog-content>
 </div>
-<button  class="btn" (click)="download()"><mat-icon>download</mat-icon> הורד</button>
+</div>
+<button  class="btn" (click)="d()"><mat-icon>download</mat-icon> הורד</button>

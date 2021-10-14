@@ -1,17 +1,21 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { User} from 'src/Models/User';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Meal } from 'src/Models/Meal';
 import { Menu } from 'src/Models/Menu';
 
+const httpOptions = {
+  headers: new HttpHeaders({'Content-Type': 'application/json'})
+}
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
 
-  constructor(private http:HttpClient){ }
+  constructor(private http:HttpClient) { }
 
   GetAllUsers(): Observable<User[]>{
     return this.http.get<User[]>(environment.url +"/api/Users");
@@ -37,10 +41,13 @@ export class UserService {
   GetUserMenus(id:number): Observable<Menu[]>{
     return this.http.get<Menu[]>(environment.url +"/api/Menus/GetUserMenus/"+id);
   }
-  sendMail(Mail:string): Observable<string>{
-    return this.http.post<string>(environment.url +"/api/Users/SendMail",Mail);
+  sendMail(u:User): Observable<User>{
+    return this.http.post<User>(environment.url +"/api/Users/SendMail",u)  
   }
+  
   // AddMeal(u:User,m:Meal):Observable<User>{
   //   return this.http.post<User>(environment.url + "/api/Users/AddMeal",u);
   // }
+ 
+  
 }

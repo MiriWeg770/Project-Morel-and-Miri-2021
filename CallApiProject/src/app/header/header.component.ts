@@ -18,17 +18,18 @@ export class HeaderComponent implements OnInit {
 
  sort:string[]=["הכל","פופולרי","לפי תאריך","לפי מנות","לפי תפריטים",]
   open=false
-  u:User;
-  name:string
+  u:User=new User(null,null,null,null);
+  // name:string
 
   @Output() 
   toggleSidebarForMe:EventEmitter<any>=new EventEmitter();
 
   constructor(private router:Router,public dialog:MatDialog,private ser:UserService) {
-      this.u= JSON.parse(localStorage.getItem("user"));
+      this.u= JSON.parse(localStorage.getItem("user"));  
+      // this.name=this.u.userName;
+
 }
   ngOnInit(): void {     
-   this.name=this.u.userName;
    console.log(this.u)
   }
 

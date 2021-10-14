@@ -3,6 +3,8 @@ using DTO.Convertors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -69,6 +71,39 @@ namespace BLL
         public bool IsExists(UserDto b)
         {
             return _context.Users.Any(p => p.UserName == b.UserName);
+        }
+
+        public string ResetPassword(string m)
+        {
+
+            if (_context.Users.FirstOrDefault(u => u.Mail == m)!= null)
+            {
+                MailMessage mail = new MailMessage();
+                mail.To.Add(m);
+                mail.From = new MailAddress("MenuCalculatorWeb@gmail.com");
+                string chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+                string sb =new string("");
+                Random rnd = new Random();
+
+                for (int i = 0; i < 7; i++)
+                {
+                    int index = rnd.Next(chars.Length);
+                    sb += chars[index];
+                }
+                mail.Body = sb.ToString();
+                mail.Subject = "איפוס סיסמה";
+                SmtpClient s = new SmtpClient("smtp.gmail.com");
+                s.EnableSsl = true;
+                s.Port = 587;
+                s.DeliveryMethod = SmtpDeliveryMethod.Network;
+                s.Credentials = new NetworkCredential("MenuCalculatorWeb@gmail.com", "Mc2021@Mc");
+                s.Send(mail);
+                return sb;
+            }
+            else
+                return null;
+
         }
 
         public UserDto SignIn(string Name, string password)

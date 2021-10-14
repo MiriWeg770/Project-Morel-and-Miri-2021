@@ -12,6 +12,7 @@ namespace BLL
         UserDto GetUserById(int id);
         UserDto GetUserByName(string name);
         UserDto AddUser(UserDto u);
+        string ResetPassword(string m);
         UserDto DeletUser(UserDto u);
         UserDto UpdateUser(UserDto u);
         UserDto  SignIn(string Name, string password);

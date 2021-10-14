@@ -249,9 +249,11 @@ table td.i mat-icon:hover{
   color: #d59b28;
   border-bottom: 3px solid;
   position: sticky;
-  top: 73px;
+  top: 63px;
   padding: 0 27px;
   width: 0px;
+  z-index: 1;
+  border-top: 3px solid;
 
 }
 

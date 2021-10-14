@@ -34,12 +34,12 @@
     <div class="list">
     <ul *ngIf="isMeal" > 
       <li *ngFor="let item of listMeals" >
-        <div class="container" ><app-meal [meal]="item" ></app-meal></div>
+        <div class="container" ><app-meal [meal]="item" (click)="showMealDetails(item)"></app-meal></div>
      </li>
     </ul>
     <ul *ngIf="isMenu">
      <li *ngFor="let item of listMenus"  >
-      <div class="container" ><app-menu [menu]="item" ></app-menu></div>
+      <div class="container" ><app-menu  [menu]="item" ></app-menu></div>
      </li>
     </ul>
     </div>
@@ -51,3 +51,10 @@
 
 
   <button id="back-to-top"  (click)="gotoTop()"><mat-icon>arrow_upward</mat-icon></button>
+
+
+  <div class="d" *ngIf="MealShowDeails">
+        <mat-icon (click)="MealShowDeails=!MealShowDeails">close</mat-icon>
+    <div>
+    <app-show-meal-details [meal]="theMeal"></app-show-meal-details>
+    </div></div>

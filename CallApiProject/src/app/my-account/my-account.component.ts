@@ -2,6 +2,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { User } from 'src/Models/User';
 import { Component, Inject, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserService } from '../user.service';
 
 
 
@@ -12,7 +13,7 @@ import { Router } from '@angular/router';
 })
 export class MyAccountComponent implements OnInit {
   constructor(private router:Router,public dialogRef: MatDialogRef<MyAccountComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: User) { 
+    @Inject(MAT_DIALOG_DATA) public data: User,private ser:UserService) { 
   }
  
 
@@ -23,5 +24,11 @@ export class MyAccountComponent implements OnInit {
     localStorage.removeItem("user")
     this.router.navigate(["/Home/AllLists"])
   }
-
+ save(){
+ this.ser.UpdateUser(this.data).subscribe(succ=>{
+   console.log(succ)
+   localStorage.setItem("user", JSON.stringify(this.data));    
+  },err=>{console.log(err)})
+ 
+ }
 }

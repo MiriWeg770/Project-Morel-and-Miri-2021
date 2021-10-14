@@ -1,3 +1,8 @@
+#x{
+  height: 100%;
+  background-color: blue;
+
+}
 .btn {
     background-color: rgb(255 176 2);
     border: none;
@@ -21,11 +26,11 @@
       background-position: center;
       height: 100px;
   } */
-  mat-dialog-content{
+ .content{
   display: contents;
   }
 
-  mat-dialog-content div.title{
+  .content div.title{
     border: 2px solid rgb(249 171 0 / 40%);
     width: 49%;
     margin: 56px 4px;
@@ -34,7 +39,7 @@
 
   }
   h2{
-    width: 100%;
+    /* width: 100%;
     margin: 15px 0 15px;
     text-align: center;
     font-size: 29px;
@@ -42,7 +47,7 @@
     font-family: system-ui;
     margin-top: -27px;
     background: white;
-    padding-top: 25px;
+    padding-top: 25px; */
   }
   
   /* h2:before {

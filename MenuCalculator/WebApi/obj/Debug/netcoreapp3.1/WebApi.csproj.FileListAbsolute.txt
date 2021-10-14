@@ -650,3 +650,4 @@ C:\Users\מירי\Desktop\‏‏תיקיה חדשה\לימודים\פרוייק�
 C:\Users\מירי\Desktop\‏‏תיקיה חדשה\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.dll
 C:\Users\מירי\Desktop\‏‏תיקיה חדשה\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.pdb
 C:\Users\מירי\Desktop\‏‏תיקיה חדשה\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\obj\Debug\netcoreapp3.1\WebApi.genruntimeconfig.cache
+C:\Users\Morel\Desktop\פרוייקט גמר\פרוייקט גמר\Project-Morel-and-Miri-2021\MenuCalculator\WebApi\bin\Debug\netcoreapp3.1\MimeKitLite.dll

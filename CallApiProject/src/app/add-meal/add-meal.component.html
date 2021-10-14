@@ -3,6 +3,9 @@
 
     <!--
    </mat-toolbar> -->
+
+
+   
    <body>
   <div class="toolbar"> 
     <div style="display: flex;
@@ -89,7 +92,7 @@
       <label> אופן ההכנה </label>
       <div class="how" *ngFor="let x of Instructions;let i=index">       
          <mat-icon (click)="RemoveStep(Instructions[i])">cancel</mat-icon>
-        <input type="text"  [(ngModel)]="Instructions[i]" />
+        <input type="text" placeholder="x"  [(ngModel)]="Instructions[i]" />
       </div>
       <h2 (click)="AddStep()">+</h2>
       <!-- <textarea id="how" name="Instructions" [(ngModel)]="newMeal.instructions"></textarea> -->

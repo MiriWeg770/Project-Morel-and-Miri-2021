@@ -20,6 +20,7 @@ import { MealCategories } from 'src/Models/MealCategories';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { LevelService } from '../level.service';
 import { Level } from 'src/Models/Level';
+import { ShareComponent } from '../share/share.component';
 
 @Component({
   selector: 'app-my-meals',
@@ -166,7 +167,9 @@ export class MyMealsComponent implements OnInit {
   download(x:Meal){
     const dialogRef = this.dialog.open(DownloadComponent, {
       // disableClose:true,
-      data: x
+      data: x,
+      height:'100%',
+      // panelClass:'my-dialog'
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
@@ -180,12 +183,6 @@ export class MyMealsComponent implements OnInit {
   
  share(){
    this.checked.forEach(element => {
-    //  element.publish=true,
-    //  element.dateUplaod=new Date()
-    //  this.serm.UpdateMeal(element).subscribe(succ=>{
-    //    console.log("share")
-    // console.log(succ)
-    //  },err=>{console.log(err)})
     this.shareOne(element)
    });
  }
@@ -195,7 +192,15 @@ export class MyMealsComponent implements OnInit {
   this.serm.UpdateMeal(x).subscribe(succ=>{
     console.log("share")
    console.log(succ)
-  },err=>{console.log(err)})
+   const dialogRef = this.dialog.open(ShareComponent, {
+    data:x
+  });
+  },err=>{
+   console.log(err) 
+  //  const dialogRef = this.dialog.open(ShareComponent, {
+  //   data:false
+  // });
+})
 }
  
    DateCreated(x:Meal){

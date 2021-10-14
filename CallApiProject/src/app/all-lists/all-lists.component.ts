@@ -155,6 +155,13 @@ showBy(){
 //     }
 //   }
 // }
+MealShowDeails=false
+theMeal:Meal
+showMealDetails(x:Meal){
+  this.MealShowDeails=true;
+  this.theMeal=x
+  console.log(this.theMeal)
+}
 
 
 

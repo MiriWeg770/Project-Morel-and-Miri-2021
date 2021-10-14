@@ -17,19 +17,14 @@ export class SignInComponent implements OnInit {
   pro:boolean=false;
   myUser:User= new User(0,null,null,null);
   forget=false
+  code:string="";
+  newCode:string="";
   constructor(private ser:UserService,private router:Router,private _snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     
     
     
-  }
-
-  openSnackBar() {
-    this._snackBar.open("   לא קיים משתמש כזה", "סגור",{
-        horizontalPosition: 'center',
-        verticalPosition:'top' 
-    });
   }
 
   SignIn(){
@@ -53,22 +48,60 @@ export class SignInComponent implements OnInit {
     }, err => {
       console.log(err);
       this.pro=!this.pro
-      this.openSnackBar()
-    })   
-   
-       
+      this._snackBar.open("   לא קיים משתמש כזה", "סגור",{
+        horizontalPosition: 'center',
+        verticalPosition:'top' 
+    });    
+  })    
   }
+
+
+pass:boolean
   sendEmail(){
-    this.myUser.mail=this.myUser.mail.toString()
-    console.log(this.myUser.mail);
-    console.log("ddd");
-    
-    this.ser.sendMail(this.myUser.mail).subscribe(res=>{
-      console.log(res);
-      
-    })
-    
+    console.log("סיסמה חדשה")
+    this.ser.sendMail(this.myUser).subscribe(succ=>{    
+      this.newCode=succ.password;      
+       console.log(this.newCode);    
+      this._snackBar.open("נישלח הקוד  ", "סגור",{
+        horizontalPosition: 'center',
+        verticalPosition:'top' 
+    });      
+    },err=>{console.log(err)})  
   }
+  check(){
+    if(this.code==this.newCode)
+     this.pass=true;
+    else
+    this._snackBar.open("קוד לא נכון ", "סגור",{
+      horizontalPosition: 'center',
+      verticalPosition:'top' 
+  }); 
+     
+  }
+  password1:string;
+  password2:string;
+  changePass(){
+  if(this.password1!=this.password2)
+   this._snackBar.open("  הסיסמאות לא תואמות ", "סגור",{
+    horizontalPosition: 'center',
+    verticalPosition:'top'
+   });
+    else{
+      this.ser.GetAllUsers().subscribe(succ=>{
+        succ.forEach(element => {
+           if(element.mail==this.myUser.mail){
+          this.myUser=element;
+          this.myUser.password=this.password1;
+          this.ser.UpdateUser(this.myUser).subscribe(succ=>{console.log(succ)},err=>{console.log(err)})
+         } });
+      })
+   
+    }
+
+   
+  }
+
+
 
 
 
