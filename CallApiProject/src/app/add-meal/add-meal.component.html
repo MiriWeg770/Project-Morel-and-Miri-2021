@@ -61,12 +61,14 @@
     <!-- border-color: #d59b28; -->
     <div class="form ">
       <div>
-        <input type="file" class="file" id="image" accept="image/*" (change)="handlerFileInput($event.target.files)">
-        <img [src]="imageUrl" style="width: 200px;">
+        <!-- <input type="file" class="file" id="image" accept="image/*" (change)="handlerFileInput($event.target.files)"> -->
+        <input type="file" class="file" id="image" accept="image/*" (change)="onSelectFile($event)">
+        <img [src]="url" style="width: 200px;">
+        <!-- <img [src]="imageUrl" style="width: 200px;"> -->
         </div>
         <div>
       <label>שם המנה</label>
-      <input type="text" name="MealName" [(ngModel)]="newMeal.mealName" required  #MealName="ngModel"/>
+      <input type="text" name="MealName" [(ngModel)]="newMeal.mealName" pattern="[A-Za-z]" required  #MealName="ngModel"/>
  
       <label>קטגוריה</label>
       <select name=" " [(ngModel)]="selectCa">

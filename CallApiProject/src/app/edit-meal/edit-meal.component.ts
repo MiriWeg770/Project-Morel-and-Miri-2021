@@ -66,5 +66,6 @@ export class EditMealComponent implements OnInit {
       console.log(err);
     })  
   }
+  handlerFileInput(event){}
 }
   

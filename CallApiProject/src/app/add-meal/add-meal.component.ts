@@ -88,7 +88,6 @@ export class AddMealComponent implements OnInit {
   saveMeal() {
     console.log(this.selectCa)
     this.newMeal.products = this.ELEMENT_DATA;
-    
     // this.categories.forEach(element => {
     //   if (element.mealCategoriesName == this.selectCa)
     //     this.newMealCategories.mealCategoriesCode = element.mealCategoriesCode
@@ -186,16 +185,31 @@ export class AddMealComponent implements OnInit {
   }
   
 
-  handlerFileInput(file:FileList){
-    this.fileToUpload=file.item(0)
-        var reader= new FileReader();
-        reader.onload=(event:any)=>{
-          this.imageUrl= event.target.result;
+  // handlerFileInput(file:FileList){
+  //   let f;
+  //   this.fileToUpload=file.item(0)
+  //       var reader= new FileReader();
+  //       reader.onload=(event:any)=>{
+  //         // this.imageUrl= event.target.result;
+  //         f=<File> event.target.files[0];
+  //       }
+  //       reader.readAsDataURL(this.fileToUpload);
+  //   }
+
+    url ;
+    name;
+    onSelectFile(event) {
+      if (event.target.files && event.target.files[0]) {
+        var reader = new FileReader();
+        reader.readAsDataURL(event.target.files[0]); // read file as data url
+        console.log(event.target.files[0].name);
+        reader.onload = (event) => { // called once readAsDataURL is completed
+          this.url = event.target.result;
+          console.log(this.url);
+          
         }
-        reader.readAsDataURL(this.fileToUpload);
+      }
     }
-
-
     AddStep(){
       this.Instructions.push("")
       console.log(this.Instructions)
