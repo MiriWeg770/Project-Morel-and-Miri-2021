@@ -20,6 +20,7 @@ import { CategoriesToMeal } from 'src/Models/CategoriesToMeal';
 import { color } from 'html2canvas/dist/types/css/types/color';
 import { Level } from 'src/Models/Level';
 import { LevelService } from '../level.service';
+import { Picture } from 'src/Models/Picture';
 
 @Component({
   selector: 'app-add-meal',
@@ -30,7 +31,7 @@ export class AddMealComponent implements OnInit {
 
   u: User
   ELEMENT_DATA: Product[] = [];
-  newMeal: Meal = new Meal(0, null, null, null,null,null,null,0,null,new Date(),new Date(),false,null,null,null,null,null);
+  newMeal: Meal = new Meal(0, null, null, null,null,null,null,0,null,new Date(),new Date(),1,false,null,null,null,null,0);
   newProduct: Product = new Product(0, null, null, null, "null");
   categories: MealCategories[];
   levels:Level[]
@@ -41,7 +42,7 @@ export class AddMealComponent implements OnInit {
   Instructions:string[]=[]
   imageUrl: string="/assets/img/1.png"
   fileToUpload:File=null
-
+  picture:Picture=new Picture(1,"",1);
   
   constructor(private ser: MealService, private serc: MealCategoriesService,private serl:LevelService, public dialog: MatDialog, public active: ActivatedRoute,
     public dialogRef: MatDialogRef<AddMealComponent>,
@@ -116,7 +117,12 @@ export class AddMealComponent implements OnInit {
 
    this.newMeal.instructions=s
    console.log(this.newMeal)
-    this.ser.AddMealToUser(this.newMeal).subscribe(data => {
+    this.picture.pictureName=this.url;
+   this.ser.AddPicture(this.picture).subscribe((data:Picture) => {
+    this.newMeal.PictureCode=data.pictureCode;
+     this.ser.AddMealToUser(this.newMeal).subscribe(data => {
+       console.log("meal",data);
+       
       // this.newMealCategories.mealCode = data.mealCode;
 
       // this.ser.AddCategoriesToMeal(this.newMealCategories).subscribe();
@@ -124,6 +130,11 @@ export class AddMealComponent implements OnInit {
     }, err => {
       console.log(err);
     })
+   },err=>{
+     console.log(err);
+     
+   })
+   
 
   }
   updateMeal() {

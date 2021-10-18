@@ -43,7 +43,7 @@ export class DownloadComponent implements OnInit {
   }
 
 
-
+d(){}
   download(){
    this.dialogRef.close()
    console.log("download")

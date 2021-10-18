@@ -15,6 +15,7 @@ export class Meal{
         public preparationTime:Time,
         public dateUplaod:Date,
         public dateCreated:Date,
+        public PictureCode:number,
         public publish:boolean,
         public dateUpdated:Date,
         public menuCode:number ,

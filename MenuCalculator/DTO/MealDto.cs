@@ -17,13 +17,15 @@ namespace DTO
         public TimeSpan? PreparationTime { get; set; }
         public DateTime? DateUplaod { get; set; }
         public DateTime? DateCreated { get; set; }
+        public int? PictureCode { get; set; }
         public bool? Publish { get; set; }
         public DateTime? DateUpdated { get; set; }
         public int? MenuCode { get; set; }
-        public int? PictureCode { get; set; }
         public int? LevelCode { get; set; }
 
         public List<ProductDto> Products { get; set; }
         public String UserName { get; set; }
+        public  PictureDto PictureCodeNavigation { get; set; }
+
     }
 }

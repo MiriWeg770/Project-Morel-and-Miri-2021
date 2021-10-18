@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DTO.Convertors
+namespace DTO
 {
     public class UserDto
     {

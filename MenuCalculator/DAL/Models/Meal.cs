@@ -34,5 +34,7 @@ namespace DAL.Models
         public virtual Menu MenuCodeNavigation { get; set; }
         public virtual ICollection<CategoriesToMeal> CategoriesToMeal { get; set; }
         public virtual ICollection<MealProducts> MealProducts { get; set; }
+
+       
     }
 }

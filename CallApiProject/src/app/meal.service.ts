@@ -5,6 +5,7 @@ import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import { Product } from 'src/Models/Product';
 import { CategoriesToMeal } from 'src/Models/CategoriesToMeal';
+import { Picture } from 'src/Models/Picture';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,8 @@ export class MealService {
   }
   AddCategoriesToMeal(mc:CategoriesToMeal) {
     return this.http.post(environment.url +"/api/CategoriesToMeal/AddCategoriesToMeal",mc);
+  }
+  AddPicture(p:Picture) {
+    return this.http.post(environment.url +"/api/Picture/AddPicture",p);
   }
 }

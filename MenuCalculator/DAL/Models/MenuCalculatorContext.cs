@@ -25,6 +25,7 @@ namespace DAL.Models
         public virtual DbSet<UnitMeasure> UnitMeasure { get; set; }
         public virtual DbSet<Users> Users { get; set; }
         public virtual DbSet<Level> Level { get; set; }
+        public virtual DbSet<Picture> Picture { get; set; }
 
         //        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         //        {
