@@ -360,3 +360,117 @@ tr.example-element-row:not(.example-expanded-row):active {
 .example-element-description-attribution {
   opacity: 0.5;
 }
+
+
+.loader {
+  animation:spin 1s infinite linear;
+  border:solid 1vmin transparent;
+  border-radius:50%;
+  border-right-color:rgb(249 171 0 / 69%);
+  border-top-color:rgb(249 171 0 / 69%);
+  box-sizing:border-box;
+  height:8vmin;
+  left:calc(50% - 10vmin);
+  position:fixed;
+  top:calc(50% - 10vmin);
+  width:8vmin;
+  z-index:1;
+}
+  .loader:before {
+    animation:spin 2s infinite linear;
+    border:solid 1vmin transparent;
+    border-radius:50%;
+    border-right-color:rgb(249 171 0 / 28%);
+    border-top-color:rgb(249 171 0 / 28%);
+    box-sizing:border-box;
+    content:"";
+    height:6vmin;
+    left:0;
+    position:absolute;
+    top:0;
+    width:6vmin;
+  }
+  /* .loader:after {
+    animation:spin 3s infinite linear;
+    border:solid 2vmin transparent;
+    border-radius:50%;
+    border-right-color:rgb(196, 194, 194);
+    border-top-color:rgb(196, 194, 194);
+    box-sizing:border-box;
+    content:"";
+    height:8vmin;
+    left:2vmin;
+    position:absolute;
+    top:2vmin;
+    width:8vmin;
+  } */
+
+
+ @keyframes spin {
+  100% {
+    transform:rotate(360deg);
+  }
+} 
+
+
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 150px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image */
+
+.modal-content{  
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {-webkit-transform:scale(0)} 
+  to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+  from {transform:scale(0)} 
+  to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 80px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+

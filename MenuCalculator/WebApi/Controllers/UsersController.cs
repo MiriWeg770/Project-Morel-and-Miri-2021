@@ -10,7 +10,6 @@ using System.Threading.Tasks;
 using DTO.Convertors;
 using System.Net.Mail;
 using System.Net;
-using DTO;
 
 namespace WebApi.Controllers
 {
@@ -81,12 +80,7 @@ namespace WebApi.Controllers
             return NotFound("מצטערים אין כזה מייל");
 
         }
-        [HttpPost("SendPDFinMail")]
-        public void SendPDFinMail([FromBody] UserDto E)
-        {
-           
-
-        }
+     
 
     }
 }

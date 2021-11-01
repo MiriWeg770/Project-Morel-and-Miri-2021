@@ -20,8 +20,20 @@ namespace WebApi.Controllers
         {
             _logic = logic;
         }
+
+        [HttpGet]
+        public IActionResult GetAllPictures()
+        {
+            return Ok(_logic.GetAllPicture());
+        }
+
+        [HttpGet("{id}")]
+        public IActionResult GetPictureById(int id)
+        {
+            return Ok(_logic.GetPictureById(id));
+        }
         [HttpPost("AddPicture")]
-        public IActionResult AddPicture(PictureDto p)
+        public IActionResult AddPicture( PictureDto p)
         {
             return Ok(_logic.AddPicture(p));
         }

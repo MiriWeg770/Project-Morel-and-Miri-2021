@@ -8,8 +8,11 @@ namespace DTO
     {
         public int ProductCode { get; set; }
         public string ProductName { get; set; }
-        public int Amount { get; set; }
-        public string AmountName { get; set; }
         public string Company { get; set; }
+        public int? UnitMeasureCode { get; set; }
+        public int? AmountInMeal { get; set; }
+        public int? MealCode { get; set; }
+
+   
     }
 }

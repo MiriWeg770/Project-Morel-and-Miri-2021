@@ -16,7 +16,9 @@ namespace BLL
         List<ProductDto> GetMealProducts(int id);
         MealDto DeletMeal(MealDto u);
         MealDto UpdateMeal(MealDto u);
-      //  MealDto IsExists(MealDto b);
+        void SendMealInMail(string nameFrom,string from, string to, string message, MealDto meal);
+
+        //  MealDto IsExists(MealDto b);
 
     }
 }

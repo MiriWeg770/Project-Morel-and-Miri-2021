@@ -1,21 +1,15 @@
-.card {
+/* .card {
     border: 9px ​solid white;
-    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
-    /* transition: 0.3s; */
+
   }
   .content{
     height: 366px;
     background-color: white;
-    /* padding: 7px; */
     border: 4px solid white;
 
   
   }
  
-  .card:hover {
-     /* transform: scale(1.1); */
-     box-shadow: 0px 0px 9px 1px lightgrey;
-    }
   
   .card img{
   display: flex;
@@ -24,9 +18,7 @@
   }
   .item-zoom {
     position: relative;
-    /* border: 1px solid #333; */
     overflow: hidden;
-    /* width: 400px; */
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
     box-sizing: border-box;
@@ -80,48 +72,196 @@
     font-size: 22px;
     padding: 3px 5px;
     font-family: 'Roboto';
-    /* color: rgb(0 0 0 / 87%); */
     font-weight: 600;
     z-index: 1;
 
 }
-  
+  */
   .user_comment{
-    text-align: right;
-    /* float: right; */
-    direction: rtl;
-    font-size: 20px;
-    display: flex;
-    /* border-bottom: 1px solid #eee; */
+    width: 100%;
+    padding: 5px 0;
+    font-size: 15px;
   }
   .user_comment mat-icon{
     background-color: #b0b0b0;
     border-radius: 50%;
     padding: 7px;
     display: inline;
-    margin-left: 26px;
-  }
-  .user_comment .icons{
-  margin-right: 15px;
-  }
-  .user_comment .icons mat-icon{
-    font-size: 18px;
-    background: gainsboro;
-    color: white;
-   margin: 2px;
-  cursor: pointer;
-  border: 3px solid;}
-   .user_comment .icons :hover{
-   color: rgba(0, 0, 0, 0.466); 
+    margin-left: 10px;
   }
   
-  .user_comment span{
+  /* .user_comment span{
     display: block;
-    /* padding-bottom: 13px; */
     font-size: 16px;
   }
-  .d{
-    display: flex;
-    align-items: center;
+  */
+   a {
+    color: inherit;
+    text-decoration: none;
   }
   
+  .ft-recipe {
+    width: 260px;
+    height: 365px;
+    display: flex;
+    flex-direction: column;
+    background: white;
+  }
+  .ft-recipe:hover {
+    box-shadow: 0px 0px 9px 1px lightgrey;
+   }
+ 
+  /* .ft-recipe .ft-recipe__thumb {
+    position: relative;
+    height: 281px;
+  } */
+  /* .ft-recipe .ft-recipe__thumb #close-modal {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 36px;
+    height: 36px;
+    background: #000;
+    color: var(--white);
+    text-align: center;
+    line-height: 36px;
+    font-size: 22px;
+    cursor: pointer;
+    z-index: 1;
+    transition: all 200ms ease;
+  } */
+  /* .ft-recipe .ft-recipe__thumb #close-modal:hover {
+    background: transparent;
+    color: var(--black);
+  } */
+  .ft-recipe .ft-recipe__thumb {
+    /* box-shadow: 0px 0px 130px 0 rgba(0, 0, 0, 0.38); */
+  }
+  .ft-recipe .ft-recipe__thumb h3 {
+    text-align: center;
+    position: absolute;
+    margin: 0;
+    width: 100%;
+    color: var(--white);
+    font-family: var(--headlinesFont);
+    font-size: 17px;
+    font-weight: 500;
+    background: linear-gradient(to bottom, rgb(249 171 0 / 34%), transparent);
+    padding: 2.4rem 0 0;
+    color: azure;
+    text-shadow: 2px 2px 2px black;
+    z-index: 1;
+
+  }
+  .ft-recipe .ft-recipe__thumb #add mat-icon {
+    position: absolute;
+    right: 0;
+    width: 36px;
+    text-align: center;
+    line-height: 36px;
+    cursor: pointer;
+    z-index: 2;
+    color: white;
+    margin: 5px;
+    cursor: pointer;
+
+  }
+  .ft-recipe .ft-recipe__thumb #add mat-icon:hover {
+
+  color: red;
+  text-shadow: 0px 0px 5px #fafafa;
+  }
+  .ft-recipe .ft-recipe__thumb {
+    position: relative;
+    overflow: hidden;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  .ft-recipe .ft-recipe__thumb img {
+    width: 100%;
+    /* height: 20px; */
+    object-fit: cover;
+    /* object-position: 50% 50%; */
+    display: flex;
+    height: 175px;
+    cursor: pointer;
+    vertical-align: top;
+    max-width: 100%;
+    -moz-transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+    transition: all 0.3s;
+
+  }
+  .ft-recipe .ft-recipe__thumb img:hover {
+    -moz-transform: scale(1.1);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+  }
+  .ft-recipe .ft-recipe__content {
+    flex: 1;
+    padding: 0 2em 1em;
+  }
+  .ft-recipe .ft-recipe__content .content__header .row-wrapper {
+    display: flex;
+    padding: 0.55em 0 0.3em;
+    border-bottom: 1px solid #d8d8d8;
+  }
+  .ft-recipe .ft-recipe__content .content__header .row-wrapper .recipe-title {
+    font-family: var(--headlinesFont);
+    font-weight: 600;
+  }
+  .ft-recipe .ft-recipe__content .content__header .recipe-details {
+    display: flex;
+    list-style: none;
+    padding: 1.4em 0 1em;
+    margin: 0;
+    justify-content: space-between;
+    font-family: cursive;
+  }
+  /* .ft-recipe .ft-recipe__content .content__header .recipe-details .recipe-details-item {
+    flex: 1;
+  } */
+  .ft-recipe .ft-recipe__content .content__header .recipe-details .recipe-details-item mat-icon {
+    font-size: 20px;
+  }
+  .ft-recipe .ft-recipe__content .content__header .recipe-details .recipe-details-item .value {
+    color: rgb(249 171 0);
+    margin-left: 0.35em;
+    /* vertical-align: bottom; */
+    font-size: 16px;
+    /* font-weight: 4;*/
+  }
+  .ft-recipe .ft-recipe__content .content__header .recipe-details .recipe-details-item .title {
+    display: block;
+    margin-top: -4px;
+    font-family: var(--headlinesFont);
+    font-size: 14px;
+    font-weight: 300;
+  }
+  /* .ft-recipe .ft-recipe__content .description {
+    margin: 0.3em 0 1.8em;
+  } */
+  .ft-recipe .ft-recipe__content .content__footer {
+    text-align: center;
+    margin: 0 3rem;
+  }
+  .ft-recipe .ft-recipe__content .content__footer a {
+    font-family: var(--headlinesFont);
+    display: inline-block;
+    background: var(--wildWatermelon);
+    padding: 0.45em 1em;
+    width: 100%;
+    text-align: center;
+    border-radius: 5px;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.2px;
+    font-size: 17px;
+    transition: transform 250ms ease, box-shadow 250ms ease;
+    background: burlywood;
+  }
+  .ft-recipe .ft-recipe__content .content__footer a:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
+  }

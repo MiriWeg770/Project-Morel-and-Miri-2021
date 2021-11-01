@@ -22,3 +22,6 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     margin-top: 18px;
     padding: 0;
 }
+.cdk-overlay-dark-backdrop {
+    background: #f1f1f17a;
+}

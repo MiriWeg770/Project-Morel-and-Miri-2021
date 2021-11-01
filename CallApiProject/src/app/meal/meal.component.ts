@@ -9,6 +9,8 @@ import { UserService } from '../user.service';
 import { DownloadComponent } from '../download/download.component';
 import { ShowMealDetailsComponent } from '../show-meal-details/show-meal-details.component';
 import { MakeAccountComponent } from '../make-account/make-account.component';
+import { Picture } from 'src/Models/Picture';
+import { PictureService } from '../picture.service';
 @Component({
   selector: 'app-meal',
   templateUrl: './meal.component.html',
@@ -20,11 +22,9 @@ export class MealComponent implements OnInit {
   u:User; 
    
   @Input() meal:Meal;
-  
-  // code:number;
 
  name:string
-  constructor(private ser:MealService,private userSer:UserService,private dialog:MatDialog,private _snackBar: MatSnackBar) { 
+  constructor(private ser:MealService,private dialog:MatDialog,private serp:PictureService,private _snackBar: MatSnackBar) { 
     this.u= JSON.parse(localStorage.getItem("user"));
     // this.getUserName(this.meal.mealCode)  
   }
@@ -34,7 +34,7 @@ export class MealComponent implements OnInit {
 
   add(){
     if(this.u!=null){
-    let m:Meal=new Meal(0,this.meal.mealName,this.meal.instructions,this.meal.numberOfDiners,this.meal.discription,this.meal.mealCategoryCode,this.u.userCode,null,this.meal.preparationTime,null,new Date(),false,null,this.meal.menuCode,this.u.userName,this.meal.products,this.meal.levelCode)
+    let m:Meal=new Meal(0,this.meal.mealName,this.meal.instructions,this.meal.numberOfDiners,this.meal.discription,this.meal.mealCategoryCode,this.u.userCode,null,this.meal.preparationTime,null,new Date(),this.meal.pictureCode, false,null,this.meal.menuCode,this.u.userName,this.meal.products,this.meal.levelCode)
     console.log(this.meal)
     this.ser.AddMealToUser(m).subscribe(succ=>{
       console.log(succ)
@@ -54,27 +54,40 @@ export class MealComponent implements OnInit {
     });
   
 }}
-
-// getUserName(x:number){
-//   this.userSer.GetUserById(x).subscribe(succ=>{
-//     this.name=succ.userName
-//     console.log(this.name)
-//  },err=>{
-//    console.log(err)
-//  })
-// }
+url="../../assets/help.png";
+GetPicture(x:number){
+  this.serp.GetPictureById(x).subscribe(succ=>{
+    this.url=succ.pictureName
+    console.log(this.url)
+ },err=>{
+   console.log(err)
+ })
+}
 
 
 download(){
-  // let download = new DownloadComponent(this.meal);
 
-  const dialogRef = this.dialog.open(ShowMealDetailsComponent, {
-    // data: this.meal
+  const dialogRef1 = this.dialog.open(ChangePeopleComponent, {
+    data: this.meal,
+    // height:'100%',
+    // panelClass:'my-dialog'
   });
-  dialogRef.afterClosed().subscribe(result => {
-    console.log('The dialog was closed');
+  dialogRef1.afterClosed().subscribe(result => {
+    if(result){
+      this.meal.numberOfDiners=result
+    } 
+  //   const dialogRef2 = this.dialog.open(DownloadComponent, {
+  //   data: this.meal,
+  //   height:'100%',
+  //   // panelClass:'my-dialog'
+  // });
+  // dialogRef2.afterClosed().subscribe(result => {
+  //   console.log('The dialog was closed');
+  // });
   });
-}
+
+ 
+ }
 
 
 

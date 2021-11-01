@@ -14,5 +14,6 @@ namespace DAL.Models
 
         public virtual Meal MealCodeNavigation { get; set; }
         public virtual UnitMeasure UnitMeasureCodeNavigation { get; set; }
+    
     }
 }

@@ -7,15 +7,15 @@ import { MealCategoriesService } from '../meal-categories.service';
 import { MealService } from '../meal.service';
 
 @Component({
-  selector: 'app-edit-meal',
+  selector: 'app-edit-meal',  
   templateUrl: './edit-meal.component.html',
   styleUrls: ['./edit-meal.component.css']
 })
 export class EditMealComponent implements OnInit {
 
   ELEMENT_DATA: Product[]=[];
-  meal:Meal=new Meal(0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
-  newProduct:Product=new Product(0,null,null,null,"null");
+  meal:Meal=new Meal(0,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+  newProduct:Product=new Product(0,null,null,null,"null",null);
   categories:MealCategories[];
   selectCa:string
   @Input() data:Meal;
@@ -66,6 +66,5 @@ export class EditMealComponent implements OnInit {
       console.log(err);
     })  
   }
-  handlerFileInput(event){}
 }
   

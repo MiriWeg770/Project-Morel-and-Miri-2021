@@ -69,6 +69,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { ShowMonthsComponent } from './show-months/show-months.component';
 import { DeletMenuComponent } from './delet-menu/delet-menu.component';
 import { ShareComponent } from './share/share.component';
+import { DeletPublishedMealComponent } from './delet-published-meal/delet-published-meal.component';
 
 
 @NgModule({
@@ -111,7 +112,8 @@ import { ShareComponent } from './share/share.component';
     RemoveShareComponent,
     ShowMonthsComponent,
     DeletMenuComponent,
-    ShareComponent
+    ShareComponent,
+    DeletPublishedMealComponent
     
   ],
   imports: [

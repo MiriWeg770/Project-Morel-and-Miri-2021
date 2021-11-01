@@ -1,15 +1,10 @@
 import { Component, ElementRef, Inject, Input, OnInit, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import html2canvas from 'html2canvas';
-// import jsPDF from 'jspdf';
-// import    jsPDF from 'jspdf';
-// import jsPDF from 'jspdf';
-// import html2canvas from 'html2canvas'
-
+import jspdf, {jsPDF} from 'jspdf';
+import { LevelService } from '../level.service';
 import { Meal } from 'src/Models/Meal';
 import { MealService } from '../meal.service';
-// import * as jsPDF from 'jspdf'
-// import * as html2canvas from "html2canvas";
 
 @Component({
   selector: 'app-download',
@@ -20,76 +15,81 @@ export class DownloadComponent implements OnInit {
 
   @ViewChild('x') content:ElementRef;
   meal:Meal=null;
-  
-  x;
-  
+  level:string=""
+  Instructions:string[]=[]
   constructor(public dialogRef: MatDialogRef<DownloadComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Meal,private dialog:MatDialog,private ser:MealService) { 
+    @Inject(MAT_DIALOG_DATA) public data: Meal,private ser:MealService,private serl:LevelService) { 
    this.meal=data
    console.log(this.data)
    this.ser.GetProductsMeal(this.meal.mealCode).subscribe(succ=>{
      console.log(succ)
      this.meal.products=succ; 
-      //  this.openPDF()
-      // this.d()
+     this.GetLevel()
 
+     let x:string=""
+     for (let index = 0; index < this.meal.instructions.length; index++) {
+       if(this.meal.instructions[index]=='#'){
+          this.Instructions.push(x)
+          x=""
+       }
+      else
+         x+=this.meal.instructions[index]       
+     }  
+     
    },err=>{
      console.log(err)
-   })
+   }) 
+
   }
 
   ngOnInit(): void {  
 
   }
 
+  GetLevel(){
+    this.serl.GetAllLevels().subscribe(succ => { 
+      succ.forEach(element => {
+        if(element.levelCode==this.meal.levelCode)
+          this.level= element.levelName;
+      });
+     }, err => {
+       console.log(err)
+     })
+  }
+//   download(){
+//    this.dialogRef.close()
+//    console.log("download")
+//    document.getElementById("x").style.display="block"
+//    var data = document.getElementById('x')
+   
+//    html2canvas(data).then(canvas=>{
+//    let imgWidth=309;
+//    let imgHeight=295
 
-d(){}
-  download(){
-   this.dialogRef.close()
-   console.log("download")
-   var data = document.getElementById('x')
-   html2canvas(data).then(canvas=>{
-   let imgWidth=309;
-   let imgHeight=295
-
-   const contentDataUrl = canvas.toDataURL('image/png')
-   let pdf =  new jsPDF('l','mm','a4')
-  pdf.addImage(contentDataUrl, 'PNG', 0, 0, 309, canvas.height*309/canvas.width)
-  pdf.save(this.meal.mealName+"-מתכון");  
-  })
-document.getElementById('x').style.display="block";
-
-    // html2canvas(data).then(canvas => {
-    //   var imgHeight = canvas.height * 208 / canvas.width;
-    //   const contentDataURL = canvas.toDataURL('image/png')
-    //   let pdf = new jspdf();
-    //   pdf.addImage(contentDataURL, 'PNG', 0, 0, 208, imgHeight)
-    //   pdf.save(this.meal.mealName+"-מתכון");
-       
-    // });
-  
-
-}
-
-//  openPDF():void {
-//   var data = document.getElementById('x');
-//   var html = htmlToPdfmake(data.innerHTML);
-//   const documentDefinition = { content: html };
-//   pdfMake.createPdf(documentDefinition).download(); 
-       
-//   }
-  
-// @ViewChild('x',{static:false}) el:ElementRef;
-// d(){
-//   let pdf = new jsPDF('p','pt','a4');
-//   pdf.html(this.el.nativeElement,{
-//   callback:(pdf)=>{pdf.output("pdfobjectnewwindow")}
+//    const contentDataUrl = canvas.toDataURL('image/png')
+//    let pdf =  new jsPDF('l','mm','a4')
+//   pdf.addImage(contentDataUrl, 'PNG', 0, 0, 309, canvas.height*309/canvas.width)
+//   pdf.save(this.meal.mealName+"-מתכון");  
 //   })
+// document.getElementById('x').style.display="block";
+
+  
 // }
- 
+ convetToPDF() {
+  var data = document.getElementById('x');
+  // data.style.display="block"
+  html2canvas(data).then(canvas => {
+      var imgWidth = 208;
+      var pageHeight = 295;
+      var imgHeight = canvas.height * imgWidth / canvas.width;
+      var heightLeft = imgHeight;
+      const contentDataURL = canvas.toDataURL('image/png')
+      let pdf = new jspdf('p', 'mm', 'a4'); 
+      var position = 0;
+      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
+      pdf.save(this.meal.mealName+" מתכון "); 
+  });
 }
-import {jsPDF} from 'jspdf';
-// import * as pdfMake from "pdfmake/build/pdfmake";
-// import * as pdfFonts from "pdfmake/build/vfs_fonts";
-// const htmlToPdfmake = require("html-to-pdfmake");
-// (pdfMake as any).vfs = pdfFonts.pdfMake.vfs;
+
+}
+

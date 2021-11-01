@@ -4,6 +4,8 @@ using DTO.Convertors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 
 namespace BLL
@@ -90,7 +92,14 @@ namespace BLL
             U.Links = u.Links;
             U.Discription = u.Discription;
             U.DateUpdated = u.DateUpdated;
-            u.DateCreated = u.DateCreated;
+            U.DateCreated = u.DateCreated;
+            U.LevelCode = u.LevelCode;
+            U.DateUpload = u.DateUpload;
+            U.Publish = u.Publish;
+            U.Meals = MealConvertors.ToMealList(u.Meals);
+
+
+
             _context.SaveChanges();
             return MenuConvertors.ToMenuDto(U);
         }
@@ -105,6 +114,29 @@ namespace BLL
             {
                 throw e;
             }
+        }
+
+        void IMenuLogic.SendMenulInMail(string nameFrom,string from, string to, string message, MealDto meal)
+        {
+            //MailMessage mail = new MailMessage();
+
+            //mail.From = new MailAddress(from);
+            //mail.To.Add("");
+            //mail.Subject = "INCOMPLETE APPLICATION CASE ID [CASE ID]";
+            //mail.Body = "Your Incomplete Grade Application has been Result[]";
+
+            //System.Net.Mail.Attachment attachment;
+            //attachment = new System.Net.Mail.Attachment(Server.MapPath("files/test.pdf"));
+            //mail.Attachments.Add(attachment);
+            //var smtp = new System.Net.Mail.SmtpClient();
+            //{
+            //    smtp.Host = "10.12.46.3";
+            //    smtp.Port = 25;
+            //    smtp.EnableSsl = false;
+            //    smtp.DeliveryMethod = System.Net.Mail.SmtpDeliveryMethod.Network;
+            //    smtp.Credentials = new NetworkCredential("", "");
+            //}
+            //smtp.Send(mail);
         }
     }
 }

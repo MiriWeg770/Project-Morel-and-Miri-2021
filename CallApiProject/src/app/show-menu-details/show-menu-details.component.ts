@@ -26,9 +26,9 @@ export class ShowMenuDetailsComponent implements OnInit {
       let code = +parameters["id"];
        serm.GetMenuById(code).subscribe(succ=>{
         this.menu =succ
-        console.log(this.menu)      
-        this.GetMeals()    
+        console.log(this.menu)         
         this.GetUser() 
+        // this.GetMeals()    
       //   this.GetInstructions()  
       //   this.count=this.meal.numberOfDiners 
       //   this.GetCategory()
@@ -44,6 +44,7 @@ export class ShowMenuDetailsComponent implements OnInit {
   GetUser(){
     this.seru.GetUserById(this.menu.userCode).subscribe(succ=>{
       this.menu.userName=succ.userName
+      this.GetMeals()
     },err=>{
       console.log(err)
     })
@@ -51,9 +52,16 @@ export class ShowMenuDetailsComponent implements OnInit {
   GetMeals(){
     this.serm.GetMenuMeals(this.menu.menuCode).subscribe(succ=>{
      this.listMeals=succ
+     this.listMeals.forEach(element => {
+       element.userName=this.menu.userName
+     });
     },err=>{
       console.log(err)
     })
   }
- 
+  Date(){
+    let d:Date=new Date(this.menu.dateUpload)
+    return d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear();
+  }
+  
 }

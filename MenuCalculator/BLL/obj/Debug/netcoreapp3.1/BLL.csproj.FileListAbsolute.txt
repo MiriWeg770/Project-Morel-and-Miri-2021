@@ -92,7 +92,6 @@ C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Mi
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.AssemblyInfoInputs.cache
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.AssemblyInfo.cs
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.CoreCompileInputs.cache
-C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.csproj.CopyComplete
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.dll
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\BLL\obj\Debug\netcoreapp3.1\BLL.pdb
 C:\Users\Morel\Desktop\פרוייקט גמר\פרוייקט גמר\Project-Morel-and-Miri-2021\MenuCalculator\BLL\bin\Debug\netcoreapp3.1\BLL.deps.json

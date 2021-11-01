@@ -21,6 +21,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { LevelService } from '../level.service';
 import { Level } from 'src/Models/Level';
 import { ShareComponent } from '../share/share.component';
+import { DeletPublishedMealComponent } from '../delet-published-meal/delet-published-meal.component';
+import { PictureService } from '../picture.service';
+import { Picture } from 'src/Models/Picture';
 
 @Component({
   selector: 'app-my-meals',
@@ -42,25 +45,32 @@ export class MyMealsComponent implements OnInit {
   length = 0;
   dataSource;
   click = false
+  s=false
   displayedColumns: string[] = [
-    'y','s','MealName','Category','Level',  'NumberOfDiners', 'countIngredients', 'DateCreated','DateUpdated','NumberOfViews', 'x'];
+    'y','s','picture','MealName','Category','Level',  'NumberOfDiners', 'countIngredients', 'DateCreated','DateUpdated','NumberOfViews', 'x'];
 
   // expandedElement: Meal | null;
   c:MealCategories[]
   levels:Level[]=[]
 
-  constructor(private dialog:MatDialog,private _snackBar: MatSnackBar, private serc:MealCategoriesService,private ser:UserService,private serm:MealService,private serl:LevelService,private router:Router) {
+  constructor(private dialog:MatDialog,private _snackBar: MatSnackBar,private serp:PictureService, private serc:MealCategoriesService,private ser:UserService,private serm:MealService,private serl:LevelService,private router:Router) {
          this.u= JSON.parse(localStorage.getItem("user") );
          console.log(this.u)        
        
         this.GetCategories()
          this.GetAllMeals()
          this.GetLevels()
+         this.GetPictures()
          
    }
 
    ngOnInit(): void {
   }
+
+
+active() {
+  document.getElementById("b").classList.toggle("is_active");
+}
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
@@ -94,7 +104,7 @@ export class MyMealsComponent implements OnInit {
     disableClose:true,
     autoFocus:false,
     panelClass:'my-dialog',
-    width:'100%',
+    width:'80%',
     height:'100%',
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -110,7 +120,7 @@ export class MyMealsComponent implements OnInit {
     autoFocus:false,
     data:x,
     panelClass:'my-dialog',
-    width:'100%',
+    width:'80%',
     height:'100%',
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -129,19 +139,27 @@ export class MyMealsComponent implements OnInit {
     delet=false;
     Delet(x:Meal,d=false) {
       console.log(x)
-      const dialogRef = this.dialog.open(DeletMealComponent, {
+      let dialogRef;
+      if(x.publish){
+        dialogRef = this.dialog.open(DeletPublishedMealComponent, {
         width: '20%',
         data: d
       });
+      }
+      else{
+         dialogRef = this.dialog.open(DeletMealComponent, {
+          width: '20%',
+          data: d
+        });
+      }
+      
       dialogRef.afterClosed().subscribe(result => {
         console.log('The dialog was closed');
         if(result){
          this._snackBar.open(" נמחק  "+x.mealName, "סגור",{
             horizontalPosition: 'start',
             verticalPosition:'bottom' 
-            });
-          
-
+            });       
         this.serm.DeleteMeal(x).subscribe(succ=>{
         console.log(succ)  
         this.GetAllMeals();
@@ -152,7 +170,13 @@ export class MyMealsComponent implements OnInit {
   }
 
 
-  DeletItems(){        
+  DeletItems(){    
+    let x=false   
+    this.checked.forEach(element => {
+      if(element.publish)
+        x=true;
+    }); 
+    
     this.Delet(this.checked[0],true)
     this.checked.forEach(element => {
       this.serm.DeleteMeal(element).subscribe(succ=>{
@@ -166,18 +190,12 @@ export class MyMealsComponent implements OnInit {
 
   download(x:Meal){
     const dialogRef = this.dialog.open(DownloadComponent, {
-      // disableClose:true,
       data: x,
       height:'100%',
       // panelClass:'my-dialog'
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
-    //   console.log(result)
-    //   x.numberOfDiners=result
-    //   this.serm.UpdateMeal(x).subscribe(succ=>{
-    //     console.log(succ)
-    //   },err=>{console.log(err)})
     });
    }
   
@@ -266,8 +284,39 @@ Level(x:Meal){
 }
 
 
-  
+  selectAll(){
+    this.s=true
+    this.choose=true
+  }
+  selectNothing(){
+    this.s=false
+    this.choose=true
+  }
 
-
+  pictures:Picture[]=[]
+  GetPictures(){
+    this.serp.GetAllPictures().subscribe(succ=>{
+      this.pictures=succ
+      console.log(this.pictures)
+   },err=>{
+     console.log(err)
+   })
+  }
+  GetPicture(x:number){
+    let url;
+    this.pictures.forEach(element => {
+     if(element.pictureCode==x)
+        url= element.pictureName
+   });
+   return url
+  }
+  url2;
+  showPicture(x:Meal){
+     this.url2=this.GetPicture(x.pictureCode);
+      document.getElementById("myModal").style.display = "block";
+  }
+  closePicture(){
+    document.getElementById("myModal").style.display = "none";
+  }
 }
 

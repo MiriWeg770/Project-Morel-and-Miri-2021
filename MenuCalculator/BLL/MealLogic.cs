@@ -4,6 +4,8 @@ using DTO.Convertors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Text;
 
 namespace BLL
@@ -87,6 +89,22 @@ namespace BLL
            
         }
 
+        public void SendMealInMail(string nameFrom,string from, string to, string message, MealDto meal)
+        {
+            MailMessage mail = new MailMessage();
+            mail.To.Add(to);
+            mail.From = new MailAddress(from);
+            mail.IsBodyHtml = true;
+            mail.Body = "<h1>meal</h1>";
+            mail.Subject = "מתכון חדש";
+            SmtpClient s = new SmtpClient("smtp.gmail.com");
+            s.EnableSsl = true;
+            s.Port = 587;
+            s.DeliveryMethod = SmtpDeliveryMethod.Network;
+            s.Credentials = new NetworkCredential("MenuCalculatorWeb@gmail.com", "Mc2021@Mc");
+            s.Send(mail);        
+    }
+
         public MealDto UpdateMeal(MealDto u)
         {
             Meal U = _context.Meal.FirstOrDefault(w => w.MealCode == u.MealCode);
@@ -102,12 +120,13 @@ namespace BLL
             U.Instructions = u.Instructions;
             U.MealCategoryCode = u.MealCategoryCode;
             U.Publish = u.Publish;
-            U.PreparationTime = u.PreparationTime;
+            U.PreparationTime = u.PreparationTime.Value.TimeOfDay;
             U.MenuCode = u.MenuCode;
             U.DateCreated = u.DateCreated;
             U.DateUpdated = u.DateUpdated;
             U.DateUplaod = u.DateUplaod;
             U.LevelCode = u.LevelCode;
+            U.PictureCode = u.PictureCode;
             U.MealProducts = ProductConvertors.ToProductList(u.Products);
 
 

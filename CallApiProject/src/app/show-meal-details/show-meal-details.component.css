@@ -7,54 +7,40 @@
 mat-icon{
     font-family: 'Material Icons';
     cursor: pointer;
+    /* text-shadow: 0px -1px 7px rgb(0 0 0); */
+    color: white;
+    /* border: 2px solid black; */
+    border-radius: 50%;
+    height: 34px;
+    width: 34px;
+    padding: 5px;
+    /* text-align: center; */
+    background: rgb(0 0 0);
 }
-.body{
-    /* background: rgba(0,0,0,0.7)url(https://cdn.pixabay.com/photo/2017/01/11/11/33/cake-1971552_960_720.jpg); */
-    /* background:#f1f5f9 url(https://cdn.pixabay.com/photo/2016/11/12/21/15/pasta-1819782_640.jpg); */
-    
-    /* background-image: ; */
-/* background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: darken ; */
-    /* color: white; */
-    margin: 37px;
-}
-
-
 .header{
-     /* background-blend-mode: hue; */
-    /* background: rgb(0 0 0 / 25%)url(https://images.unsplash.com/photo-1568661290695-1e23938cf5be?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MjB8fGZvb2QlMjB0YWJsZXxlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60); */
-    /* background-attachment: fixed; */
-    /* background-position: center; */
-    /* background-repeat: no-repeat; */
-    /* background-size: cover; */
-    /* position: relative; */
+
     display: flex;
     background-position-y: 0;
     align-items: center;
     justify-content: space-between;
     height: 600px;
-    border-bottom: 2px solid #d4d3d3;
+    border: 2px solid white;
 
-    /* color: white;*/
 }
 
 
-.header-content{
+/* .header-content{
     text-align: center;
-    /* margin: 40px 0; */
-    /* animation: text 3s 1; */
+
     padding: 126px;
     background: #cccccc36;
     height: 100%;
     width: 30%;
    
-}
+} */
 
 
-.header-content label{
+/* .header-content label{
     text-align: center;
     color: #fff;
     display: inline-block;
@@ -69,8 +55,8 @@ mat-icon{
     font-family: 'Abraham';
     font-size: 16px;
     font-weight: 500;
-}
-.headline{
+} */
+/* .headline{
     min-height: 74px;
     line-height: 74px;
     font-size: 84px;
@@ -81,8 +67,8 @@ mat-icon{
     color: gold;
     text-shadow: 2px 3px 2px black;
 
-}
-.underline{
+} */
+/* .underline{
     margin-top: 10px;
     font-weight: 300;
     font-family: 'Abraham';
@@ -94,51 +80,46 @@ mat-icon{
     direction: rtl;
     justify-content: space-around;
 
-}
-.d{
-       /* background-color: rgb(0 0 0 / 87%); */
+} */
+/* .d{
        height: 85px;
-       /* margin-top: -12px; */
-       /* color: white; */
+   
        border-bottom: 2px solid gray;
    
 
-}
-.date{
+} */
+/* .date{
     display: inline-block;
-}
-.byline{
-    display: inline-block;
-    margin-left: 20px;
-}
+} */
+/* .
+} */
 
 
-.img{
+/* .img{
     width: 70%;
     height: 100%;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-}
+} */
 
 
-.container{
+/* .container{
     padding: 0 102px;
     margin: 0 auto;
     clear: both;
-text-align: center;}
-.discription{
+text-align: center;} */
+/* .discription{
     margin-bottom: 40px;
     margin-top: 40px;
-}
+} */
 .container .underline{
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     padding-bottom: 13px;
-    border-bottom: 1px solid #000;
-    margin-bottom: 40px;
+    border-top: 1px solid #000;
+    padding-top: 28px;
     direction: rtl;
-height: 78px;
 }
 ul.tags{
     list-style-type: none;
@@ -178,14 +159,12 @@ ul.social-share mat-icon:hover{
     text-align: right;
     width: 50%;
     margin: 5px;
-    border: 1px dotted;
+    border: 1px solid rgb(0 0 0 / 26%);
     padding: 27px;
-
-    
+    box-shadow: 1px 1px 16px -3px #80808073;
 }
  .Products span{
-    /* color: white; */
-    /* font-weight: 600; */
+
     padding: 10px;
 }
 .ingredients p{
@@ -223,7 +202,7 @@ ul.social-share mat-icon:hover{
     font-size: 17px;
     margin: 14px 0px;
     list-style: none;
-}
+}/*
 .nots{
     border-top: 1px solid;
     margin-top: 38px;
@@ -241,7 +220,7 @@ ul.social-share mat-icon:hover{
     border-top: 1px solid #e3e3e3;
     border-bottom: 1px solid #f7f7f7;
 }
-
+*/
 .model{
     width: 100%;
     height: 100%;
@@ -271,16 +250,18 @@ ul.social-share mat-icon:hover{
     padding: 50px 40px;
     font-size: 50px;
     line-height: 50px;
-    background: gold;
     word-break: break-word;
     float: right;
+    background-size: cover;
+    background-position: center;
+    margin: 4px;
 }
 .email .to .befor_title{
-    font-family: 'Abraham';
-    font-weight: normal;
-    font-size: 16px;
+    font-size: 27px;
     line-height: 16px;
-    vertical-align: top;
+    font-weight: 500;
+    color: white;
+    text-shadow: 2px 2px 2px black;
 }
 .email .to .the_title{
     display: block;
@@ -288,6 +269,8 @@ ul.social-share mat-icon:hover{
     height: 349px;
     text-align: center;
     font-weight: 600;
+    color: white;
+    text-shadow: 2px 2px 2px black;
 }
 .email .details{
  width: 50%;
@@ -300,11 +283,8 @@ ul.social-share mat-icon:hover{
     padding: 12px;
     color: black;
 }
-.close mat-icon{
-    font-size: 28px;
-}
+
 .email .details form{
-    /* float: left; */
     width: 100%;
     padding: 75px 41px ;
 }
@@ -348,7 +328,10 @@ input[type="submit"]{
     background: #1e1e1e;
     cursor: pointer;
 }
-
+input[type="submit"]:hover{
+    background: rgb(0 0 0 / 66%);
+}
+/*
 section{
  padding: 0 90px;}
  .comments h5{
@@ -381,10 +364,8 @@ section{
     height: 20px;
     font-size: 16px;
     height: 38px;
-    /* transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s; */
     resize: none;
     background: white;
-    /* float: right; */
     direction: rtl;
     border-radius: .25rem;
     border-color: rgba(0,0,0,.1);
@@ -414,6 +395,17 @@ section{
 .more ul li{   
      display: inline-block;
      margin: 9px 11px;
+}*/
+.options{
+    display: flex;
+    justify-content: space-between;
+    direction: rtl;
+    border-bottom: 1px solid;
+    margin-bottom: 20px;
+}
+.byline{
+    display: inline-block;
+    margin-left: 20px;
 }
 .amount{
     display: flex;
@@ -501,3 +493,169 @@ display: block;}
     border-right: 1px solid red;
     z-index: -1;
 }
+
+
+
+ .header{
+     display: grid;
+     align-items: center;
+     justify-content: center;
+     box-shadow: 0px 0px 12px 2px #0000006b;
+     background-size: cover;
+     background-position: center;
+ }
+ 
+ 
+ .header-content{
+    max-width: 980px;
+    text-align: center;
+    animation: text 3s 1;
+    padding: 46px;
+    background: #fafafaa1;
+    box-shadow: 0px 0px 49px -8px rgb(0 0 0);
+    font-weight: 700;
+    font-size: 17px;
+    /* animation: showup 7s infinite; */
+    animation: showup 7s ease-in;
+    /* animation: slidein 7s infinite;  */
+
+    
+ }
+
+
+
+  @keyframes showup {
+      0% {opacity:0;}
+      20% {opacity:1;}
+     100% {opacity:1;}
+  }
+  
+
+ .header-content label{
+     text-align: center;
+     color: #fff;
+     display: inline-block;
+     height: 32px;
+     line-height: 32px;
+     background-color: #000;
+     border: 1px #fff solid;
+     min-width: auto;
+     letter-spacing: 1px;
+     padding: 0 15px;
+     margin-bottom: 20px;
+     font-family: 'Abraham';
+     font-size: 16px;
+     font-weight: 500;
+ }
+ .headline{
+     min-height: 74px;
+     line-height: 74px;
+     font-size: 84px;
+     font-family: 'Barlev';
+     font-weight: 600;
+     letter-spacing: 1px;
+     margin-bottom: 0;
+     /* color: gold;
+     text-shadow: 2px 3px 2px black; */
+     color: #fafafa;
+     text-shadow: 3px 2px 1px rgb(0 0 0);
+ 
+ }
+ .underline{
+     margin-top: 10px;
+     font-weight: 300;
+     font-family: 'Abraham';
+     height: 20px;
+     line-height: 20px;
+     margin-bottom: 20px;
+     font-size: 20px;
+     font-weight: 700;
+     color: white;
+     text-shadow: 2px 0px 1px black;
+ 
+ }
+ .date{
+     display: inline-block;
+ }
+ .byline{
+     display: inline-block;
+     margin-left: 20px;
+ }
+ 
+ 
+ /* General styles and layout */
+ body {
+   background: black;
+   color: black;
+   font-family: 'Lato', Arial, sans-serif;
+   padding: 7px;
+   margin: 0px;
+   height: auto;
+ }
+ 
+ .container {
+   overflow: hidden;
+   width: 100%;
+   margin: 0px;
+   /* we don't want the pseudo-elements sticking out */
+ }
+ 
+ section {
+       position: relative;
+       /* padding: 6em; */
+       /* color: #fff; */
+       text-align: center;
+       background-size: cover;
+       background-position: center;
+       background-attachment: fixed;
+       /* height: 100%;*/
+ }
+ 
+ section h2 {
+   margin: 0;
+   padding: 0;
+   font-size: 2.8em;
+   font-weight: 400;
+ }
+ 
+ /* section p {
+   color: #cdffff;
+   font-size: 1.3em;
+   line-height: 1.5;
+ } */
+ 
+ .color {
+   background: white;
+   border-top: 10px solid black;
+   padding: 80px;
+ }
+ 
+ /*** Individual section styles and separators ***/
+ /* Common style for pseudo-elements */
+ section::before,
+ section::after {
+   position: absolute;
+   content: '';
+   pointer-events: none;
+ }
+ 
+ /* Triangles */
+ .ss-style-triangles::before,
+ .ss-style-triangles::after {
+   left: 50%;
+   width: 58px;
+   height: 58px;
+   -webkit-transform: translateX(-50%) rotate(45deg);
+   transform: translateX(-50%) rotate(45deg);
+ }
+ 
+ 
+ .ss-style-triangles::after {
+   bottom: -42px;
+   z-index: 1;
+   background: white;
+   border-left: 2px solid white;
+   border-top: 2px solid white;
+ }
+ 
+ 

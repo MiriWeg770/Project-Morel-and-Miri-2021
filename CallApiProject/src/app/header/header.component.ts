@@ -5,6 +5,8 @@ import { User } from 'src/Models/User';
 import { LogOutComponent } from '../log-out/log-out.component';
 import { MakeAccountComponent } from '../make-account/make-account.component';
 import { MyAccountComponent } from '../my-account/my-account.component';
+import { SignInComponent } from '../sign-in/sign-in.component';
+import { SignUpComponent } from '../sign-up/sign-up.component';
 import { UserService } from '../user.service';
 import { UserComponent } from '../user/user.component';
 // import { LogOutComponent } from '../log-out/log-out.component';
@@ -25,11 +27,12 @@ export class HeaderComponent implements OnInit {
   toggleSidebarForMe:EventEmitter<any>=new EventEmitter();
 
   constructor(private router:Router,public dialog:MatDialog,private ser:UserService) {
-      this.u= JSON.parse(localStorage.getItem("user"));  
       // this.name=this.u.userName;
 
 }
   ngOnInit(): void {     
+          this.u= JSON.parse(localStorage.getItem("user"));  
+
    console.log(this.u)
   }
 
@@ -85,6 +88,24 @@ export class HeaderComponent implements OnInit {
         console.log('The dialog was closed');      
   });
 }
+SignIn(){
+  const dialogRef = this.dialog.open(SignInComponent, {  
+    panelClass:'my-dialog'
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');      
+});
+}
+SignUp(){
+  const dialogRef = this.dialog.open(SignUpComponent, {  
+    panelClass:'my-dialog'
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');      
+});
+}
+
+
 
 
   

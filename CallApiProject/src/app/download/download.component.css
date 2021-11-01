@@ -1,9 +1,16 @@
+body{
+  /* display: none; */
+}
+
 #x{
   height: 100%;
-  background-color: blue;
-
+  /* background-color: blue; */
+  padding: 20px;
+  width: 700px;
+  display: inline-table;
 }
-.btn {
+
+/* .btn {
     background-color: rgb(255 176 2);
     border: none;
     color: white;
@@ -11,15 +18,13 @@
     cursor: pointer;
     font-size: 20px;
     display: flex;
-  }
+  } */
   
   /* Darker background on mouse-over */
-  .btn:hover {
+  /* .btn:hover {
     background-color: rgb(255 176 2 / 56%);
-  }
-  #x{
-      /* display: none; */
-  }
+  } */
+ 
   /* .img img{
       background-size: cover;
       background-repeat: no-repeat;
@@ -32,7 +37,7 @@
 
   .content div.title{
     border: 2px solid rgb(249 171 0 / 40%);
-    width: 49%;
+    width: 48%;
     margin: 56px 4px;
     float: right;
     min-height: 500px;
@@ -66,6 +71,7 @@
   h1 {
     overflow: hidden;
     text-align: center;
+    font-weight: 700;
   }
   
   h1:before,
@@ -104,7 +110,9 @@
     background-color: white;
     }
   .discription{
-font-size: 17px;  
+ font-size: 17px;  
+ text-align: center;
+ font-family: system-ui;
 }
 .title h2{
   width: inherit;
@@ -112,11 +120,11 @@ font-size: 17px;
   margin-top: -45px;
 }
 ul li{
-  font-size: 18px;
-  padding: 10px;
-  font-family: system-ui;
-  word-spacing: 11px;}
+  font-size: 12px;
+    padding: 2px;
+    font-family: system-ui;
+    /* list-style: disc; */
+}
 ul{
   direction: rtl;
-  list-style: circle;
 }

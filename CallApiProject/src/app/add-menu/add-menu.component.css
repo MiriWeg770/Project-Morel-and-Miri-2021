@@ -1,196 +1,19 @@
 @import "../add-meal/add-meal.component.css";
 @import "../my-menus/my-menus.component.css";
-/* .products .title{
-  font-size: 28px;
-  color: rgb(255 255 255 / 87%);
-  height: 39px;
-  padding: 8px;
-  justify-content: space-around;
-  display: flex;
-  border-bottom: 2px solid #80808061;
-} */
-/* 
-.container{
-  
-  width: 100%;
-}
-
-mat-toolbar{
-  margin: 0;
-  direction: rtl;
-  border-bottom: 2px solid rgb(0 0 0 / 12%);
-  justify-content: space-between;
-  background:rgb(0 0 0 / 87%);
-}
-mat-toolbar button{
-background-color: gold;
-margin-left: 17px;
-font-size: 16px;
-font-family: system-ui;
-}
-mat-toolbar button:hover{
-background-color: goldenrod;
-color: white;
-}
-mat-toolbar h2{
-color: gold;
-font-size: 28px;
-font-family: system-ui;
-box-shadow: 0px 0px 3px 3px;
-box-sizing: text;
-padding: 5px 11px;
-}
-
-.close{
-cursor: pointer;
-color: white;
-}
-
-
-
-
-div label {
-margin: 11px 0px;
-font-size: 17px;
-display: block;
-font-weight: 500;
-font-family: system-ui;
-}
-
-select{
-cursor: pointer;
-}
-div input , select {  
-width: 100%;
-height: 20px;
-font-size: 16px;
-height: 38px;
-font-weight: 500;
-resize: vertical;
-background: white;
-border-radius: .25rem;
-border-color:rgba(0,0,0,.1);
-
-}
-.content{
-  height: 100%;
-  display: inline-block;
-}
-.add{
-  margin: 12px 0px;
-  font-weight: 600;
-  display: flex;
-  font-family: system-ui;
-}  
-
-
-
-
-.details{
-
-display: flex;
-direction: rtl;
-}
-
-div.form{
-  direction: rtl;
-  box-shadow: 0px 0px 9px 3px #80808087;
-  padding: 43px 34px;
-  margin: 41px 20px;
-  background-color: white;
-  height: 540px;
-  overflow: auto;
-
- }
- 
-div.form input:focus ,textarea:focus{
-box-shadow: 0px 0px 5px gold;
-}
-div.form textarea{
-height: auto;
-resize: none;
-width: 100%;
-}
-div.form textarea#discription{
-height: auto;
-resize: none;
-width: 100%;
-height: 122px;
-}
-div.form textarea#how{
-height: auto;
-resize: none;
-width: 100%;
-height: 238px;
-}
-div .s{
-width: 300px;
-}
-
-div.content{
-width: 42%;
-direction: rtl;
-  box-shadow: 0px 0px 9px 3px #80808087;
-  padding: 43px 34px;
-  margin: 38px;
-  background-color: white;
-}
-
-
-.products .title{
-background-color: rgb(0 0 0 / 87%);
-font-size: 28px;
-color: gold;
-height: 39px;
-padding: 8px;
-justify-content: space-around;
-display: flex;
-}
-*/
-/* .list {
-  display: block;
-  overflow: hidden;
-  padding: 1rem;
-  width: 100%;
-  height: 220px;
-  display: flex;
-  justify-content: space-around;
-  border: 2px solid;
-} */
-
-
-element.style {
-}
-/* div[_ngcontent-cks-c146] .s[_ngcontent-cks-c146] {
-    width: 36%;
-} */
-
-/* .card:hover {
-  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
-  cursor: pointer;
-}
-
-.container {
-  padding: 2px 16px;
-}
-.card {
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-  transition: 0.3s;
-  width: 40%;
-} */
-
-
-
-
-
-
-/********************/
+@import "../meal/meal.component.css";
 :host{
   display: flex;
   height: 100%;
   flex-direction: column;
     padding: 2px;
 
+}
+.search-input{
+  text-align: center;
+  position: sticky;
+  top: 0;
+  background: #fafafa;
+  z-index: 2;
 }
 .search-input input{
   border-color: black;
@@ -215,23 +38,10 @@ mat-toolbar button:hover{
   background-color: goldenrod;
   color: white;
 }
-/* div label {
-  margin: 11px 0px;
-  font-size: 17px;
-  display: contents;
-  font-weight: 500;
-  font-family: system-ui;
-}
-div input, select{
-  width: 20%;
-} */
+
 
 mat-drawer-container{
 height: 100%;
-}
-mat-drawer {
-  /* background: #000000d4; */
-
 }
 mat-toolbar{
   background: black;
@@ -239,102 +49,11 @@ mat-toolbar{
 
 }
 div.form{
-  /* box-shadow: none; */
   padding: 19px 15px;
   direction: rtl;
-  /* background: none; */
-  
-}
-/* mat-grid-tile {
-border: 3px solid white;
-}
-.container {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  cursor: pointer;
-}
-
-.container img {
-  vertical-align: middle;
-}
-
-
-.container .content h1{
-  font-size: 17px;
-  font-family: system-ui;
-} */
-
-
-
-
-
-/* label img {
- 
-} */
-
-
-
-/* :checked + label .img {
-  transform: scale(0.9);
-  box-shadow: 0 0 5px #333;
-  z-index: -1;
-  opacity: 0.7;
-} */
-/* :checked + label .img .content{
-  left: -39px;
-  width: 203px;
-  height: 41px;
-} */
-/* label .content {
-  position: absolute;
-  left: -28px;
-  top: 123px;
-  background: rgba(0, 0, 0, 0.5);
-  color: #f1f1f1;
-  padding: 6px;
-  height: 48px;
-  width: 200px;
-  text-align: start;
-} */
-
-div label{
-  /* color: white; */
-}
-
-.container {
-  display: inline-block;
-  width: 22%;
-  margin: 8px 10px;
-  box-shadow: 0px 0px 5px 0px rgb(0 0 0 / 70%);
- cursor: pointer;
-}
-
-.image {
-  opacity: 1;
-  display: block;
-  width: 100%;
-  height: auto;
-  backface-visibility: hidden;
   
 }
 
-.middle {
-
-  text-align: center; 
-}
-
-.container:hover .image {
-  opacity: 0.3;
-}
-
-.text {
-  /* background-color: #ffd70099; */
-    font-size: 16px;
-    padding: 8px 32px;
-    font-family: system-ui;
-    font-weight: bolder;
-}
 .change{
   border: none;
 }
@@ -356,6 +75,7 @@ div label{
   text-align: center;
   line-height: 36px;
   transition-duration: 0.4s;
+  z-index: 1;
 }
 .change {
 
@@ -364,4 +84,30 @@ div label{
     /* z-index: -1; */
     opacity: 0.7;
   
+}
+.card{
+  text-align: center;
+}
+.ft-recipe {
+  height: auto;
+  background: rgb(0 0 0 / 87%);
+  color: white;
+  margin: 10px;
+  display: inline-block;
+  
+}
+.menu{
+  float: right;
+    font-size: 34px;
+    position: sticky;
+    margin: 16px;
+    cursor: pointer;
+    z-index: 3;
+    top: 16px;
+}
+.close{
+  color: #f1f1f1;
+  font-weight: bold;
+  position: inherit;
+  font-size: 26px;
 }

@@ -1,37 +1,38 @@
-<div class="body">
-  <header>
-    <div class="header">
-    <div class="header-content">
-    <label> תפריט</label>
-    <h1 class="headline "> {{menu.menuName}}</h1>
-    <div class="underline ">
-        <div class="date">{{menu.dateUpdated}}</div>
-        <div class="byline"> 
-         <span> מאת </span> <a>{{menu.userName}} </a>
+
+  <body>
+    <div class="container">
+    <section class="col-2 ss-style-triangles">
+        <div class="column text">
+          <header>
+            <div class="header">
+            <div class="header-content">
+            <label> תפריט</label>
+            <h1 class="headline "> {{menu.menuName}}</h1>
+            <div class="underline ">
+                <div class="byline"> 
+                 <span> מאת </span> <a>{{menu.userName}} </a>
+                </div>
+                <div class="date">{{Date()}}</div>
+              </div>                
+
+        
+            <div class="counter"> {{menu.viewsNumber}} <span>כמות צפיות</span></div>
+          </div></div>
+          </header>
         </div>
+    </section>
+    
+    <section class="color">
+      <div class="list-items">
+        <div class="list">
+        <ul > 
+          <li *ngFor="let item of listMeals">
+            <div class="container" >               
+        <app-meal [meal]="item"></app-meal>     
       </div>
-    <!-- <div class="ratings"> -->
-     <!-- <div class="stars">
-        <mat-icon>star</mat-icon>
-        <mat-icon>star</mat-icon>
-        <mat-icon>star</mat-icon>
-        <mat-icon>star</mat-icon>
-        <mat-icon>star</mat-icon>
-    </div> -->
-    <div class="counter"> {{menu.viewsNumber}} <span>כמות צפיות</span></div>
-  <!-- </div>  -->
-  </div></div>
-  </header>
-  
-  <div class="list-items">
-    <div class="list">
-    <ul > 
-      <li *ngFor="let item of listMeals">
-        <div class="container" >               
-    <app-meal [meal]="item"></app-meal>     
-  </div>
-  </li>
-    </ul>
+      </li>
+        </ul>
+        </div>
+      </div>    </section>
     </div>
-  </div>
-  </div>
+    </body>

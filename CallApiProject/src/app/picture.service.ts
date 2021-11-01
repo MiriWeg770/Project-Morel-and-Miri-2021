@@ -12,8 +12,15 @@ import { Picture } from 'src/Models/Picture';
 export class PictureService {
 
   constructor(private http:HttpClient) { }
-  uploadFile(theFile: Picture) : Observable<Picture> {
-    return this.http.post<Picture>(environment.url+"/api/Picture/", theFile);
-}
 
+   AddPicture(p:Picture): Observable<Picture>{
+    return this.http.post<Picture>(environment.url +"/api/Picture/AddPicture",p);
+  }
+
+  GetPictureById(id:number):Observable<Picture> {
+    return this.http.get<Picture>(environment.url +"/api/Picture/"+id);
+  }
+  GetAllPictures():Observable<Picture[]>{
+    return this.http.get<Picture[]>(environment.url +"/api/Picture/");
+  }
 }

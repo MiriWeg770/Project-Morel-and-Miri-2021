@@ -32,8 +32,8 @@ export class ChangePeopleComponent implements OnInit {
     m=x?this.meal:this.data
     const dialogRef = this.dialog.open(DownloadComponent, {
       data: m,
-      width:'100%',
-      height:'100%'
+      // width:'100%',
+      height:'100%',
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');

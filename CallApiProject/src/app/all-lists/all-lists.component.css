@@ -21,7 +21,7 @@
 }
 ul li{
   display: inline-block;
-  width: 280px;
+  /* width: 280px; */
 }
 
 select {  
@@ -45,8 +45,8 @@ select {
 .search{
   background: white;
   position: sticky;
-  top: 64px;
-  z-index: 2;
+  top: 65px;
+  z-index:2;
   box-shadow: 1px 1px 1px #0000004d;
 
 }
@@ -86,7 +86,6 @@ select {
   font-size: 17px;
   font-weight: 600;
 }
-.se
 
 #back-to-top{
 
@@ -278,4 +277,34 @@ color : #2f3640;
     padding: 6px;
 }
 
+
+/* :root {
+  --headlinesFont: "Josefin Sans", sans-serif;
+  --bodyFont: "Work Sans", sans-serif;
+  --wildWatermelon: #ff4f87;
+  --fuelYellow: #f0a035;
+  --textColor: #323232;
+  --bodyBg: #d6d6d6;
+  --white: #fff;
+  --black: #000;
+}
+
+html {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bodyBg);
+  font-family: var(--bodyFont);
+  color: var(--textColor);
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: inherit;
+}
+
+img { */
+  /* vertical-align: text-bottom;
+} */
 

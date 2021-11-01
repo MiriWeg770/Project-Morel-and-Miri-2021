@@ -6,9 +6,6 @@ import { environment } from 'src/environments/environment';
 import { Meal } from 'src/Models/Meal';
 import { Menu } from 'src/Models/Menu';
 
-const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
-}
 
 @Injectable({
   providedIn: 'root'

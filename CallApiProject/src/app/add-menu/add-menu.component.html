@@ -10,9 +10,8 @@
     </div>
   </mat-toolbar>
   <mat-drawer-container >
-    <mat-drawer mode="side" opened position="end">
+    <mat-drawer mode="over" [opened]="open" position="end">
       <div class=" form ">
-      
         <label>שם תפריט</label>
         <input type="text" name="MenuName" [(ngModel)]="newMenu.menuName" />
   
@@ -37,25 +36,32 @@
   
     </mat-drawer>
     <mat-drawer-content>
+      <mat-icon class="menu" (click)="open=!open">menu</mat-icon>
       <div class="search-input"><input  type="text" placeholder="חפש בתפריטים שלי" /></div>
-
-      <!-- <mat-grid-list cols="4" rowHeight="5:5">
-        <mat-grid-tile  ><input type="checkbox" id="cb{{i}}" /> -->
-          <!-- <label for="cb{{i}}"  >
-            <div class="img">
-            <img src=".././../assets/2.jpg">
-           <div class="content">
-          <h1>{{x.mealName}}</h1>
-        </div>   </div> 
-          </label>       -->
-        
-<div>
+        <div class="card">
+          <div class="ft-recipe" *ngFor="let x of ELEMENT_DATA" (click)="add(x)"  [ngClass]="MenuList.includes(x)? 'change' : ''"> 
+            <div class="ft-recipe__thumb">
+              <h3>{{x.mealName}}</h3>
+             <img src="{{GetPicture(x)}}" alt=""/>
+            </div>
+            <div class="ft-recipe__content">
+              <header class="content__header">
+                <ul class="recipe-details">
+                  <li class="recipe-details-item time"><mat-icon>schedule</mat-icon><span class="value">?</span><span class="title">דקות</span></li>
+                  <li class="recipe-details-item ingredients"><mat-icon>menu_book</mat-icon><span class="value">{{x.products.length}}</span><span class="title">מרכיבים</span></li>
+                  <li class="recipe-details-item servings"><mat-icon>person</mat-icon><span class="value">{{x.numberOfDiners}}</span><span class="title">סועדים</span></li>
+                </ul>
+              </header>
+            </div>
+          </div>
+        </div>
+    <!-- <div>
       <div class="container" *ngFor="let x of ELEMENT_DATA" (click)="add(x)"   [ngClass]="MenuList.includes(x)? 'change' : 'container'" >
         <img src="https://t3.ftcdn.net/jpg/02/79/75/74/240_F_279757407_LJTTkYBnulnFPkoKJLQjf5L7Xrl6mOZy.jpg" alt="Avatar" class="image" style="width:100%">
         <div class="middle">
           <div class="text">{{x.mealName}}</div>
         </div>
-      </div></div>
+      </div></div> -->
         <!-- </mat-grid-tile>   
       </mat-grid-list> -->
     </mat-drawer-content>

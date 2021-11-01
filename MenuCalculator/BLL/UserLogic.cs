@@ -1,5 +1,4 @@
 ﻿using DAL.Models;
-using DTO;
 using DTO.Convertors;
 using System;
 using System.Collections.Generic;
@@ -76,7 +75,6 @@ namespace BLL
 
         public string ResetPassword(string m)
         {
-
             if (_context.Users.FirstOrDefault(u => u.Mail == m)!= null)
             {
                 MailMessage mail = new MailMessage();

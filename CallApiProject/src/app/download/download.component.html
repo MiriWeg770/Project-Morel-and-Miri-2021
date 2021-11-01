@@ -1,17 +1,19 @@
-<div id="x" #x>
-<h1 mat-dialog-title>מתכון</h1>
-<h2>{{meal.mealName}}</h2>
+<div id="x">
+<h1 mat-dialog-title>{{meal.mealName}}</h1>
+<!-- <h2></h2> -->
     <h2 class="discription">{{meal.discription}}</h2>
       <div class="content">
   <!-- <div class="title img"><img src="../../assets/3.jpg"></div> -->
   <div class="details">
     <div>כמות סועדים<h3>{{meal.numberOfDiners}}</h3></div>
     <div>זמן הכנה<h3>xxxxxxxx</h3></div>
-    <div>רמת קושי<h3> xxxxxxx</h3></div>
+    <div>רמת קושי<h3> {{level}}</h3></div>
   </div>
     <div  class="title">
- <h2 > אופן ההכנה</h2>
- <h3>{{meal.instructions}}</h3>
+ <h2> אופן ההכנה</h2>
+ <ul>
+   <li *ngFor="let x of Instructions">{{x}}</li>
+ </ul>
   </div>
   <div class="title">
   <h2>מרכיבים</h2>
@@ -19,7 +21,6 @@
     <li *ngFor="let x of meal.products">{{x.amount}} כפות  {{x.productName}}</li>
   </ul>
   </div>
-
 </div>
 </div>
-<button  class="btn" (click)="d()"><mat-icon>download</mat-icon> הורד</button>
+<button  class="btn" (click)="convetToPDF()"><mat-icon>download</mat-icon> הורד</button>

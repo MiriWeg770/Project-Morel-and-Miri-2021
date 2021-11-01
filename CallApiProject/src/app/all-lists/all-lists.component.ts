@@ -1,10 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
+import { element } from 'protractor';
 // import { type } from 'os';
 import { Meal } from 'src/Models/Meal';
+import { MealCategories } from 'src/Models/MealCategories';
 import { Menu } from 'src/Models/Menu';
 import { Product } from 'src/Models/Product';
+import { MealCategoriesService } from '../meal-categories.service';
 import { MealService } from '../meal.service';
 import { MenuService } from '../menu.service';
 import { ShowMealDetailsComponent } from '../show-meal-details/show-meal-details.component';
@@ -20,7 +23,7 @@ export class AllListsComponent implements OnInit {
 
   show:string[]=["הכל","לפי מתכונים","לפי תפריטים"]
   sort:string[]=["הכל","פופולרי","לפי תאריך"]
-
+  category:string[]=["הכל",]
   listMenus:Menu[]=[
  
     // new Menu(1,"menu","discription",1,new Date(1,1,1),"1",1,"j",null),
@@ -29,9 +32,10 @@ export class AllListsComponent implements OnInit {
   listMeals:Meal[]=[];
   select1:string=this.show[0];
   select2:string=this.sort[0];
+  select3:string=this.category[0];
   AllLists:any[]=[]
   
-  constructor(public dialog:MatDialog,private ser:MealService,private serU:UserService,private serm:MenuService) {
+  constructor(public dialog:MatDialog,private ser:MealService,private serU:UserService,private serm:MenuService,private serc:MealCategoriesService) {
    
     this.ser.GetAllMeals().subscribe(succ=> {
        this.listMeals=succ
@@ -61,19 +65,31 @@ export class AllListsComponent implements OnInit {
         // console.log(this.listMeals)
       },err=>{
         console.log(err)
-      })
+      }) 
+      this.serm.GetMenuMeals(element.menuCode).subscribe(succ=>{
+        element.meals=succ
+      },err=>{console.log(err)})
       this.AllLists.push(element)
 
     })
+   
     console.log(succ)
     console.log(this.AllLists)
 
     },err=>{console.log(err)})
 
+
+    this.serc.GetAllCategories().subscribe(succ=> {
+      succ.forEach(element => {
+        this.category.push(element.mealCategoriesName)
+      });
+      console.log(this.category)
+    },err=>{console.log(err)}) 
+    this.showBy()   
+
   }
 
   ngOnInit(): void { 
-    this.showBy()   
     // window.addEventListener("scroll",this.scroll)
   }
   
@@ -115,7 +131,10 @@ export class AllListsComponent implements OnInit {
   //     console.log(err)
   //   })
   // }
-
+  gotoTop(){
+    
+  window.scrollTo(0,0) 
+ }
 isMeal;
 isMenu;
 showBy(){
@@ -142,10 +161,48 @@ showBy(){
       for (let index2 = 0; index2 < this.listMenus.length; index2++) {
          this.AllLists.push(this.listMenus[index2])  
       }        
+      this.shuffleArray()
+      console.log(this.AllLists)   
+  }
+
+  ///////////////----category-----////////////////////////
+    console.log(this.select3)
+    if(this.category[3]==this.select3){
+      console.log(this.category[3])
+      this.AllLists.forEach(element => {
+        if(element instanceof Meal)
+         if((element as Meal).mealCategoryCode==3){
+           console.log((element as Meal).mealCategoryCode)
+           let i=this.AllLists.indexOf((element as Meal))
+             delete this.AllLists[i]
+         }
+      });
+      console.log(this.AllLists)
+    }
+    if(this.category[2]==this.select3){
+      this.AllLists.forEach(element => {
+        if(element instanceof Meal)
+         if((element as Meal).mealCategoryCode!=2)
+             this.AllLists.splice(this.AllLists.indexOf((element as Meal)), 1);
+      });
+      console.log(this.AllLists)
+    }
+    if(this.category[1]==this.select3){
+      this.AllLists.forEach(element => {
+        if(element instanceof Meal)
+         if((element as Meal).mealCategoryCode!=2)
+             this.AllLists.splice(this.AllLists.indexOf((element as Meal)), 1);
+      });
+      console.log(this.AllLists)
+    }
+    if(this.category[0]==this.select3){
+      this.AllLists=[]
+      this.AllLists.push(this.listMeals)
+      this.AllLists.push(this.listMenus)
       console.log(this.AllLists)
     }
   // this.sortBy()
-}
+  }
 
 // sortBy(){
 //   for (let index1 = 0; index1 < this.AllLists.length; index1++) {
@@ -163,7 +220,20 @@ showMealDetails(x:Meal){
   console.log(this.theMeal)
 }
 
-gotoTop(){}
+
+
+ shuffleArray() {
+   console.log("shuffle")
+  var m = this.AllLists.length, t, i;
+  while (m) {
+    i = Math.floor(Math.random() * m--);
+    t = this.AllLists[m];
+    this.AllLists[m] = this.AllLists[i];
+    this.AllLists[i] = t;
+  }
+  console.log(this.AllLists)
+}
+
 
 
 

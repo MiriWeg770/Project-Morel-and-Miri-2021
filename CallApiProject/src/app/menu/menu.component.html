@@ -1,4 +1,4 @@
-<div class="card" >
+<!-- <div class="card" >
   <div class="content">
     <div class="title">
       <span>תפריט</span>
@@ -7,7 +7,7 @@
   <img src="https://assets.bonappetit.com/photos/6079b8f318bc22421e5363ab/1:1/w_1920,c_limit/0521-Fat-Choy-Mushroom-Sloppy.jpg" alt="Avatar" style="width:100%" (click)="count()"  routerLink="/Home/ShowMenuDetails/{{menu.menuCode}}">
        </div>
   <div class="container">
-    <h4><b>{{menu.menuName}}</b></h4> 
+    <h4><b></b></h4> 
     <div class="user_comment">
       <div> <mat-icon>person</mat-icon></div>
       <div class="d">
@@ -21,4 +21,30 @@
     </div>
   </div>
    </div>
-</div>      
+</div>       -->
+
+<div class="ft-recipe"> 
+  <div class="ft-recipe__thumb">
+    <span id="add" (click)="add()"><mat-icon>favorite</mat-icon></span>
+    <h3>{{menu.menuName}}</h3>
+   <img src="../../assets/help.png" alt="Strawberry Waffle"/>
+  </div>
+  <div class="ft-recipe__content">
+    <header class="content__header">
+      <div class="row-wrapper">
+        <div class="user_comment">
+      <div><span>{{menu.userName}}</span><mat-icon>person</mat-icon></div>    
+    </div>
+        <!-- <h2 class="recipe-title">Strawberry Waffle</h2> -->
+        <div class="user-rating"></div>
+      </div>
+      <ul class="recipe-details">
+        <li class="recipe-details-item time"><mat-icon>visibility</mat-icon><span class="value">{{menu.viewsNumber}}</span><span class="title">צפיות</span></li>
+        <li class="recipe-details-item time"><mat-icon>info</mat-icon><span class="value">{{level}}</span><span class="title">רמת קושי</span></li>
+        <li class="recipe-details-item ingredients"><mat-icon>list_alt</mat-icon><span class="value">{{menu.meals.length}}</span><span class="title">מספר מנות</span></li>
+      </ul>
+    </header>
+
+    <footer class="content__footer"><a (click)="count()" routerLink="/Home/ShowMenuDetails/{{menu.menuCode}}">לתפריט</a></footer>
+  </div>
+</div>

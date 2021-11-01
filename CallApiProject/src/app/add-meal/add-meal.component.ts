@@ -20,7 +20,10 @@ import { CategoriesToMeal } from 'src/Models/CategoriesToMeal';
 import { color } from 'html2canvas/dist/types/css/types/color';
 import { Level } from 'src/Models/Level';
 import { LevelService } from '../level.service';
+import { UnitMeasure } from 'src/Models/UnitMeasure';
+import { UnitMeasureService } from '../unit-measure.service';
 import { Picture } from 'src/Models/Picture';
+import { PictureService } from '../picture.service';
 
 @Component({
   selector: 'app-add-meal',
@@ -31,24 +34,25 @@ export class AddMealComponent implements OnInit {
 
   u: User
   ELEMENT_DATA: Product[] = [];
-  newMeal: Meal = new Meal(0, null, null, null,null,null,null,0,null,new Date(),new Date(),1,false,null,null,null,null,0);
-  newProduct: Product = new Product(0, null, null, null, "null");
+  newMeal: Meal = new Meal(0, null, null, null,null,null,null,0,null,new Date(),new Date(),null,false,null,null,null,null,null);
+  // newProduct: Product = new Product(0, null, null, null, null,null);
   categories: MealCategories[];
   levels:Level[]
-  selectCa: string
-  selectAm: string
+  selectCa:string
   selectLe:string
   newMealCategories: CategoriesToMeal = new CategoriesToMeal(0, 0, 0);
   Instructions:string[]=[]
   imageUrl: string="/assets/img/1.png"
   fileToUpload:File=null
+  UnitMeasures:UnitMeasure[]=[]
   picture:Picture=new Picture(1,"",1);
-  
-  constructor(private ser: MealService, private serc: MealCategoriesService,private serl:LevelService, public dialog: MatDialog, public active: ActivatedRoute,
+
+  constructor(private ser: MealService, private serc: MealCategoriesService,private serl:LevelService,private seru:UnitMeasureService,private serp:PictureService, public dialog: MatDialog, public active: ActivatedRoute,
     public dialogRef: MatDialogRef<AddMealComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Meal) {
     this.u = JSON.parse(localStorage.getItem("user"));
     this.newMeal.userCode = this.u.userCode;
+    
     if (data != null) {
       this.newMeal = data
       serc.GetCategoryById(this.newMeal.mealCategoryCode).subscribe(succ => {
@@ -69,6 +73,11 @@ export class AddMealComponent implements OnInit {
       }, err => {
         console.log(err)
       })
+    
+      serp.GetPictureById(this.newMeal.pictureCode).subscribe(succ=>{
+         console.log(succ)
+          this.url=succ.pictureName
+      },err=>{console.log(err)})
       let x:string=""
       for (let index = 0; index < this.newMeal.instructions.length; index++) {
         if(this.newMeal.instructions[index]=='#'){
@@ -84,18 +93,20 @@ export class AddMealComponent implements OnInit {
   ngOnInit(): void {
     this.GetCategories()
     this.GetLevels()
+    this.GetAllUnitMeasures()
   }
 
   saveMeal() {
     console.log(this.selectCa)
+
+    this.ELEMENT_DATA.forEach(element => {
+      element.unitMeasureCode=Number(element.unitMeasureCode)
+    });   
     this.newMeal.products = this.ELEMENT_DATA;
+    
     // this.categories.forEach(element => {
     //   if (element.mealCategoriesName == this.selectCa)
     //     this.newMealCategories.mealCategoriesCode = element.mealCategoriesCode
-    // });
-    // this.levels.forEach(element => {
-    //   if (element.levelName == this.selectLe)
-    //     this.newMealCategories.mealCategoriesCode = element.levelCode
     // });
     this.categories.forEach(element => {
       if (element.mealCategoriesName == this.selectCa)
@@ -118,26 +129,24 @@ export class AddMealComponent implements OnInit {
    this.newMeal.instructions=s
    console.log(this.newMeal)
     this.picture.pictureName=this.url;
-   this.ser.AddPicture(this.picture).subscribe((data:Picture) => {
-    this.newMeal.PictureCode=data.pictureCode;
-     this.ser.AddMealToUser(this.newMeal).subscribe(data => {
-       console.log("meal",data);
-       
-      // this.newMealCategories.mealCode = data.mealCode;
+   this.serp.AddPicture(this.picture).subscribe(succ=>{
+     console.log(succ)
+     this.newMeal.pictureCode=succ.pictureCode;
+     this.ser.UpdateMeal(this.newMeal).subscribe(succ => {
+          // this.newMealCategories.mealCode = data.mealCode;
 
       // this.ser.AddCategoriesToMeal(this.newMealCategories).subscribe();
-      // console.log(data);
+      console.log(succ);
     }, err => {
       console.log(err);
-    })
-   },err=>{
-     console.log(err);
-     
-   })
-   
+    })  
+    },err=>{console.log(err)})
 
   }
   updateMeal() {
+    this.ELEMENT_DATA.forEach(element => {
+      element.unitMeasureCode=Number(element.unitMeasureCode)
+    });   
     this.newMeal.products = this.ELEMENT_DATA
     this.newMeal.dateUpdated=new Date()
     console.log(this.newMeal)
@@ -158,24 +167,28 @@ export class AddMealComponent implements OnInit {
         console.log(s)
       }
    });
-   this.newMeal.instructions=s
-   console.log(this.Instructions)
-    this.ser.UpdateMeal(this.newMeal).subscribe(succ => {
+   this.picture.pictureName=this.url;
+   this.serp.AddPicture(this.picture).subscribe((succ:Picture)=>{
+     console.log(succ)
+     this.newMeal.pictureCode=succ.pictureCode;
+     this.ser.UpdateMeal(this.newMeal).subscribe(succ => {
       console.log(succ);
     }, err => {
       console.log(err);
-    })
+    })  
+    },err=>{console.log(err)})
+   this.newMeal.instructions=s
+   console.log(this.Instructions)
+   
 
   }
 
-  addProduct() {
-    this.newProduct.amountName = this.selectAm
-    console.log(this.newProduct)
-    this.ELEMENT_DATA.push(this.newProduct)
-    this.newProduct = new Product(null, null, null, null, null)
-  }
+  // addProduct() {
+  //   console.log(this.newProduct)
+  //   this.ELEMENT_DATA.push(this.newProduct)
+  //   this.newProduct = new Product(null, null, null, null, null,null)
+  // }
 
-  
 
   GetLevels() {
     this.serl.GetAllLevels().subscribe(succ => {
@@ -194,33 +207,37 @@ export class AddMealComponent implements OnInit {
       console.log(err)
     })
   }
-  
+  GetAllUnitMeasures(){
+    this.seru.GetAllUnitMeasures().subscribe(succ=>{
+      console.log(succ)
+      this.UnitMeasures=succ
+    }),err=>{console.log(err)}
+  }
 
+  url ;
+  name;
+  onSelectFile(event) {
+    if (event.target.files && event.target.files[0]) {
+      var reader = new FileReader();
+      reader.readAsDataURL(event.target.files[0]); // read file as data url
+      console.log(event.target.files[0].name);
+      reader.onload = (event) => { // called once readAsDataURL is completed
+        this.url = event.target.result;
+        console.log(this.url);
+        
+      }
+    }
+  }
   // handlerFileInput(file:FileList){
-  //   let f;
   //   this.fileToUpload=file.item(0)
   //       var reader= new FileReader();
   //       reader.onload=(event:any)=>{
-  //         // this.imageUrl= event.target.result;
-  //         f=<File> event.target.files[0];
+  //         this.imageUrl= event.target.result;
   //       }
   //       reader.readAsDataURL(this.fileToUpload);
   //   }
 
-    url ;
-    name;
-    onSelectFile(event) {
-      if (event.target.files && event.target.files[0]) {
-        var reader = new FileReader();
-        reader.readAsDataURL(event.target.files[0]); // read file as data url
-        console.log(event.target.files[0].name);
-        reader.onload = (event) => { // called once readAsDataURL is completed
-          this.url = event.target.result;
-          console.log(this.url);
-          
-        }
-      }
-    }
+
     AddStep(){
       this.Instructions.push("")
       console.log(this.Instructions)
@@ -236,10 +253,11 @@ export class AddMealComponent implements OnInit {
     // }
 
     AddProduct(){
-     let p:Product=new Product(1,null,null,null,"")
-      this.ELEMENT_DATA.push(p)
+      let p:Product=new Product(1,null,null,null,"null",null)
+      this.ELEMENT_DATA.push(p)   
       console.log(this.ELEMENT_DATA)
     }
+
     RemoveProduct(x:Product){
       if(this.ELEMENT_DATA.includes(x))  
       this.ELEMENT_DATA.splice(this.ELEMENT_DATA.indexOf(x), 1);

@@ -12,6 +12,8 @@ import { UserService } from '../user.service';
 import {CdkDragDrop, moveItemInArray, transferArrayItem} from '@angular/cdk/drag-drop';
 import { Level } from 'src/Models/Level';
 import { LevelService } from '../level.service';
+import { PictureService } from '../picture.service';
+import { Picture } from 'src/Models/Picture';
 
 @Component({
   selector: 'app-add-menu',
@@ -29,11 +31,12 @@ export class AddMenuComponent implements OnInit {
   levels:Level[]
   selectLe:string
   ELEMENT_DATA: Meal[] = [];
-
-  constructor(private seru: UserService, private ser: MenuService,private serl:LevelService,private serm:MealService, private dialogRef: MatDialogRef<AddMealComponent>,@Inject(MAT_DIALOG_DATA) public data: Menu) {
+ open=true
+  constructor(private seru: UserService,private serp:PictureService,private ser: MenuService,private serl:LevelService,private serm:MealService, private dialogRef: MatDialogRef<AddMealComponent>,@Inject(MAT_DIALOG_DATA) public data: Menu) {
     this.u=JSON.parse(localStorage.getItem("user"));
     this.GetAllMeals()
     this.GetLevels()
+    this.GetPictures()
     if (data != null) {
       this.newMenu = data
       console.log(this.newMenu)  
@@ -150,5 +153,26 @@ export class AddMenuComponent implements OnInit {
     })
   }
  
+  pictures:Picture[]=[]
+  GetPictures(){
+    this.serp.GetAllPictures().subscribe(succ=>{
+      this.pictures=succ
+      console.log(this.pictures)
+   },err=>{
+     console.log(err)
+   })
+  }
+  GetPicture(x:Meal){
+    let url=" ";
+    this.pictures.forEach(element => {
+     if(element.pictureCode==x.pictureCode)
+        url= element.pictureName
+   });
+   return url
+  }
 
+Open(){
+  this.open=true
+  console.log(this.open)
+}
 }

@@ -22,13 +22,12 @@ export class MyAccountComponent implements OnInit {
   }
   signOut(){
     localStorage.removeItem("user")
-    this.router.navigate(["/Home/AllLists"])
+    window.location.reload(); 
+    this.router.navigate(["/Home"])
   }
  save(){
  this.ser.UpdateUser(this.data).subscribe(succ=>{
    console.log(succ)
-   localStorage.setItem("user", JSON.stringify(this.data));    
   },err=>{console.log(err)})
- 
  }
 }

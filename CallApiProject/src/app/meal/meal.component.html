@@ -1,23 +1,24 @@
-<div class="card" >
-  <div class="content">
-    <div class="title">
-      <span >מתכון</span>
-       </div>
-       <div class="item-zoom">
-  <img src="https://assets.bonappetit.com/photos/6130db1c4bce11dda9294435/1:1/w_1920,c_limit/Baked%20Oatmeal.jpg" alt="Avatar" style="width:100%" (click)="count()" routerLink="/Home/ShowMealDetails/{{meal.mealCode}}">
-  </div><div class="container">
-    <h4><b> {{meal.mealName}}</b></h4> 
-    <div class="user_comment">
-      <div> <mat-icon>person</mat-icon></div>
-      <div class="d">
-      <div>
-        <span>{{meal.userName}}</span> <span>{{DateUplaod()}}</span>
-      </div>
-      <div class="icons">
-        <mat-icon matTooltip="הורד"  (click)="download()" >download</mat-icon>
-        <mat-icon matTooltip="שמור" (click)="add()">favorite</mat-icon>
-      </div></div>
-    </div>
+
+<div class="ft-recipe"> 
+  <div class="ft-recipe__thumb">
+    <span id="add" (click)="add()"><mat-icon>favorite</mat-icon></span>
+    <h3>{{meal.mealName}}</h3>
+   <img src="{{url}}" (load)="GetPicture(meal.pictureCode)" alt="Strawberry Waffle"/>
   </div>
-   </div>
-</div> 
+  <div class="ft-recipe__content">
+    <header class="content__header">
+      <div class="row-wrapper">
+        <div class="user_comment">
+      <div><span>{{meal.userName}}</span><mat-icon>person</mat-icon></div>    
+    </div>
+        <div class="user-rating"></div>
+      </div>
+      <ul class="recipe-details">
+        <li class="recipe-details-item time"><mat-icon>schedule</mat-icon><span class="value">?</span><span class="title">דקות</span></li>
+        <li class="recipe-details-item ingredients"><mat-icon>menu_book</mat-icon><span class="value">{{meal.products.length}}</span><span class="title">מרכיבים</span></li>
+        <li class="recipe-details-item servings"><mat-icon>person</mat-icon><span class="value">{{meal.numberOfDiners}}</span><span class="title">סועדים</span></li>
+      </ul>
+    </header>
+    <footer class="content__footer"><a (click)="count()" routerLink="/Home/ShowMealDetails/{{meal.mealCode}}">למתכון</a></footer>
+  </div>
+</div>

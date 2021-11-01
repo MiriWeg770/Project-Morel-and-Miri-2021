@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Menu } from 'src/Models/Menu';
 import { User } from 'src/Models/User';
+import { LevelService } from '../level.service';
 import { MakeAccountComponent } from '../make-account/make-account.component';
 import { MenuService } from '../menu.service';
 
@@ -16,9 +17,9 @@ export class MenuComponent implements OnInit {
   u:User; 
    
   @Input() menu:Menu;
-  constructor(private ser:MenuService,private _snackBar:MatSnackBar,private dialog:MatDialog) { 
+  constructor(private ser:MenuService,private _snackBar:MatSnackBar,private serl:LevelService,private dialog:MatDialog) { 
     this.u= JSON.parse(localStorage.getItem("user"));
-
+    this.GetLevel()
   }
 
   ngOnInit(): void {
@@ -59,5 +60,16 @@ export class MenuComponent implements OnInit {
     this.ser.UpdateMenu(this.menu).subscribe(succ=>{
     console.log(succ.viewsNumber)
     },err=>{console.log(err)})
+  }
+level:string="";
+  GetLevel(){
+    this.serl.GetAllLevels().subscribe(succ => { 
+      succ.forEach(element => {
+        if(element.levelCode==this.menu.levelCode)
+          this.level= element.levelName;
+      });
+     }, err => {
+       console.log(err)
+     })
   }
 }

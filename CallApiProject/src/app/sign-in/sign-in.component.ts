@@ -36,6 +36,8 @@ export class SignInComponent implements OnInit {
         console.log(this.myUser)
           localStorage.setItem("user", JSON.stringify(this.myUser));    
          this.router.navigate(["/Home"])
+         window.location.reload()
+         
        })  
      
       }

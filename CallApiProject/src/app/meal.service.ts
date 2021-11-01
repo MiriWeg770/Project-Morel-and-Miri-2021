@@ -38,7 +38,8 @@ export class MealService {
   AddCategoriesToMeal(mc:CategoriesToMeal) {
     return this.http.post(environment.url +"/api/CategoriesToMeal/AddCategoriesToMeal",mc);
   }
-  AddPicture(p:Picture) {
-    return this.http.post(environment.url +"/api/Picture/AddPicture",p);
+  SendMealInMail(NameFrom:string,from:string, to:string, message:string,meal:Meal): Observable<Meal>{
+    return this.http.post<Meal>(environment.url +"/api/Meals/SendMealPDFinMail",{NameFrom,from,to,message,meal})  
   }
+ 
 }

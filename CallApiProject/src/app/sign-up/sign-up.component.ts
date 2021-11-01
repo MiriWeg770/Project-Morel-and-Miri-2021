@@ -39,8 +39,9 @@ export class SignUpComponent implements OnInit {
           console.log(succ);
           this.myUser=succ        
       localStorage.setItem("user", JSON.stringify(this.myUser));    
-       this.router.navigate(["/Home"])
-    }, err => {
+      this.router.navigate(["/Home"])
+      window.location.reload()
+        }, err => {
       console.log(err);
       this.pro=!this.pro
       this.openSnackBar()

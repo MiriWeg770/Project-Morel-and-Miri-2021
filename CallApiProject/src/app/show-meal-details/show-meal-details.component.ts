@@ -6,12 +6,15 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { Meal } from 'src/Models/Meal';
 import { Product } from 'src/Models/Product';
+import { UnitMeasure } from 'src/Models/UnitMeasure';
 import { User } from 'src/Models/User';
 import { ChangePeopleComponent } from '../change-people/change-people.component';
 import { DownloadComponent } from '../download/download.component';
 import { LevelService } from '../level.service';
 import { MealCategoriesService } from '../meal-categories.service';
 import { MealService } from '../meal.service';
+import { PictureService } from '../picture.service';
+import { UnitMeasureService } from '../unit-measure.service';
 import { UserService } from '../user.service';
 // import * as jsPDF from 'jspdf'
 @Component({
@@ -21,7 +24,7 @@ import { UserService } from '../user.service';
 })
 export class ShowMealDetailsComponent implements OnInit {
 
-  meal:Meal=new Meal(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
+  meal:Meal=new Meal(null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null);
  
   // bgVariable:Boolean=false
   // headerVariable:boolean=false
@@ -33,19 +36,26 @@ export class ShowMealDetailsComponent implements OnInit {
   category:string="";
   level:string="";
   products:Product[]=[]
-  constructor(private router:ActivatedRoute,private ser:MealService,private serc:MealCategoriesService,private serl:LevelService,private serUser:UserService, private _snackBar: MatSnackBar,private dialog:MatDialog) { 
+
+
+  from:string="";
+to:string="";
+message:string="";
+Namefrom:string="";
+  constructor(private router:ActivatedRoute,private serp:PictureService ,private ser:MealService,private serc:MealCategoriesService,private seru:UnitMeasureService, private serl:LevelService,private serUser:UserService, private _snackBar: MatSnackBar,private dialog:MatDialog) { 
     this.u=JSON.parse(localStorage.getItem("user"))
     this.router.params.subscribe(parameters => {
       let code = +parameters["id"];
        ser.GetMealById(code).subscribe(succ=>{
         this.meal =succ
-        this.GetProducts(this.meal.mealCode)    
+        this.GetProducts(this.meal.mealCode)
         console.log(this.meal)
         this.GetUser(this.meal.userCode) 
         this.GetInstructions()  
         this.count=this.meal.numberOfDiners 
         this.GetCategory()
         this.GetLevel()
+        this.GetPicture(this.meal.pictureCode)
         // this.more=[]  
         // ser.GetAllMeals().subscribe(succ=>{
         // succ.forEach(element => {
@@ -79,7 +89,7 @@ export class ShowMealDetailsComponent implements OnInit {
   document.getElementById("send").style.display="block";
  }
  Date(){
-   let d:Date=new Date()
+   let d:Date=new Date(this.meal.dateUplaod)
    return d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear();
  }
  
@@ -105,6 +115,10 @@ export class ShowMealDetailsComponent implements OnInit {
    this.ser.GetProductsMeal(code).subscribe(succ=>{
      console.log(succ)
     this.meal.products=succ;
+    this.meal.products.forEach(prod => {
+      prod.amountInMeal=prod.amount*this.count;
+    });
+    this.GetAllUnitMeasures()    
    },err=>{
      console.log(err)
    })
@@ -153,30 +167,70 @@ GetCategory(){
      console.log(err)
    })
 }
+UnitMeasures:string[]=[]
+GetAllUnitMeasures(){
+  this.seru.GetAllUnitMeasures().subscribe(succ=>{
+    console.log(succ)
+    console.log(this.meal.products)
+    this.meal.products.forEach(element => {
+      for (let index = 0; index < succ.length; index++) {
+        if(element.unitMeasureCode==succ[index].unitCode){
+           let x=""
+            if(element.amountInMeal>1){
+             switch (succ[index].unitName) {        
+              case "יחידה":x="יחידות";break;
+              case "כף":x="כפות";break;                                 
+              case "כפית":x="כפיות";break;
+              case "ליטר":x="ליטרים";break;
+              case "כוס":x="כוסות";break;
+              default:x=succ[index].unitName;break;
+            }
+             this.UnitMeasures.push(x)       
+            }      
+            else{this.UnitMeasures.push(succ[index].unitName)}                         
+              
+        }         
+      }
+    }); 
+  }),err=>{console.log(err)}       
 
+}
+
+GetMeasure(x:Product){
+  let p:Product=new Product(x.productCode,x.productName,x.amount,x.amount,x.unitMeasureCode,x.company,x.mealCode)
+ console.log(p)
+  this.UnitMeasures.forEach(element => {
+ 
+});
+
+}
+
+
+url;
+GetPicture(x:number){
+  this.serp.GetPictureById(x).subscribe(succ=>{
+    this.url=succ.pictureName
+    console.log(this.url)
+ },err=>{
+   console.log(err)
+ })
+}
  download(){
-  //  console.log("download")
-  //  const doc=new jsPDF();
-
-  //  let data= document.getElementById("recipy")
-
-
-  //   html2canvas(data).then(canvas=>{
-  //   let imgWidth=290;
-  //   let imgHeight=(canvas.height * imgWidth / canvas.width)
-  //   const contentDataUrl = canvas.toDataURL('image/png')
-  //   let pdf =  new jsPDF('l','mm','a4')
-  //   var position = 10;
-  //   pdf.addImage(contentDataUrl,'PNG',0,position,imgWidth,imgHeight);
-  //   pdf.save(this.meal.mealName +" מתכון")
-  // })
-
-  const dialogRef = this.dialog.open(ChangePeopleComponent, {
-    data: this.meal
+   this.meal.numberOfDiners=this.count
+  const dialogRef = this.dialog.open(DownloadComponent, {
+    data: this.meal,
+    height:'100%',
   });
   dialogRef.afterClosed().subscribe(result => {
     console.log('The dialog was closed');
   });
+
+  // const dialogRef = this.dialog.open(ChangePeopleComponent, {
+  //   data: this.meal
+  // });
+  // dialogRef.afterClosed().subscribe(result => {
+  //   console.log('The dialog was closed');
+  // });
  }
 
  print(){
@@ -186,10 +240,32 @@ GetCategory(){
  
 plus(){
 this.count++
+this.meal.products.forEach(element => {
+  element.amountInMeal=element.amount*this.count;
+});
 }
 minus(){
-  if(this.count!=1)
+  if(this.count!=1){
     this.count--
+    this.meal.products.forEach(element => {
+      element.amountInMeal=element.amount*this.count;
+    });
+  }
 }
+
+
+
+
+
+sendMeal(){
+  console.log(this.Namefrom)
+  console.log(this.from)
+  console.log(this.to)
+  console.log(this.message)
+  console.log(this.meal)
+  this.ser.SendMealInMail(this.Namefrom,this.from,this.to,this.message,this.meal).subscribe(succ=>{},err=>{console.log(err)})
+}
+
+
 
 }

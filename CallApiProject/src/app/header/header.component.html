@@ -29,7 +29,7 @@
   <div class="user_options">  
     <span><mat-icon>person</mat-icon></span>
     <ul >
-      <li *ngIf="u==null" > <a routerLink="/Home/SignIn">הכנס למערכת</a>/<a routerLink="/Home/SignUp">הירשם</a> </li>
+      <li *ngIf="u==null" > <a (click)="SignIn()">הכנס למערכת</a>/<a (click)="SignUp()">הירשם</a> </li>
       <li *ngIf="u!=null"> <b>{{u.userName}}</b> </li>
       <mat-divider></mat-divider>
       <li *ngIf="u!=null"><a routerLink="/Home/MyMeals">המנות שלי</a></li>

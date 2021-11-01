@@ -182,6 +182,7 @@ namespace DAL.Models
                 entity.Property(e => e.UserName).HasMaxLength(50);
             });
 
+
             modelBuilder.Entity<Picture>(entity =>
             {
                 entity.HasKey(e => e.PictureCode);
@@ -192,6 +193,7 @@ namespace DAL.Models
 
                 entity.Property(e => e.PictureName).HasMaxLength(50);
             });
+
             modelBuilder.Entity<Level>(entity =>
             {
                 entity.HasKey(e => e.LevelCode);

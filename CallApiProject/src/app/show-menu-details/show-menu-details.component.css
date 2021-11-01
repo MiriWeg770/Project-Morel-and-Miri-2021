@@ -1,91 +1,20 @@
 @import "../all-lists/all-lists.component.css";
-
-.body{
-    
-    /* background-image: ; */
-/* background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-blend-mode: darken ;
-    color: white; */
-    /* background: ivory; */
-    /* background: url(https://media.istockphoto.com/photos/table-scene-of-assorted-take-out-or-delivery-foods-top-down-view-on-a-picture-id1232401725?b=1&k=20&m=1232401725&s=170667a&w=0&h=r2DaSWRMjud_-gaOPmDsCizCtdYFzdx9NYTeimCcSnc=);
-    background-size: cover;
-    height: 680px;
-    background-position: center; */
-
-}
+@import "../show-meal-details/show-meal-details.component.css";
 
 .header{
-    display: grid;
-    align-items: center;
-    justify-content: center;
-    /* height: 432px; */
-    box-shadow: 0px 0px 12px 2px #0000006b;
-    /* background: #00000052; */
-    /* background: url(https://media.istockphoto.com/photos/table-scene-of-assorted-take-out-or-delivery-foods-top-down-view-on-a-picture-id1232401725?b=1&k=20&m=1232401725&s=170667a&w=0&h=r2DaSWRMjud_-gaOPmDsCizCtdYFzdx9NYTeimCcSnc=); */
-    background-size: cover;
-    /* height: 680px; */
-    background-position: center;
+  height: 395px;
 }
-
-
 .header-content{
-    max-width: 980px;
-    text-align: center;
-    /* margin: 40px 0; */
-    /* border: 2px solid; */
-    animation: text 3s 1;
-    border-radius: 50px 0px 50px;
-    padding: 35px;
-   
-}
-.header-content label{
-    text-align: center;
-    color: #fff;
-    display: inline-block;
-    height: 32px;
-    line-height: 32px;
-    background-color: #000;
-    border: 1px #fff solid;
-    min-width: auto;
-    letter-spacing: 1px;
-    padding: 0 15px;
-    margin-bottom: 20px;
-    font-family: 'Abraham';
-    font-size: 16px;
-    font-weight: 500;
+    background: #fafafa;
+    box-shadow: 0px 0px 49px -8px rgb(249 171 0); 
+     width: 980px;
+
 }
 .headline{
-    min-height: 74px;
-    line-height: 74px;
-    font-size: 84px;
-    font-family: 'Barlev';
-    font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 0;
-    color: gold;
-    text-shadow: 2px 3px 2px black;
-
+    color: black;
+    text-shadow: 4px -2px 1px rgb(249 171 0);
 }
-.underline{
-    margin-top: 10px;
-    font-weight: 300;
-    font-family: 'Abraham';
-    height: 20px;
-    line-height: 20px;
-    margin-bottom: 20px;
-    font-size: 16px;
+.underline {
+    color: black;
+    text-shadow: none;
 }
-.date{
-    display: inline-block;
-}
-.byline{
-    display: inline-block;
-    margin-left: 20px;
-    color: #333;
-}
-/* ul{
-    background-color: chartreuse;
-} */

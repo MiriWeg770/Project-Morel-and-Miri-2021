@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace WebApi.Controllers
 {
-    //[EnableCors("AllowOrigin")]
+    [EnableCors("AllowOrigin")]
     [Route("api/[controller]")]
     [ApiController]
     public class MealsController : ControllerBase
@@ -70,7 +70,15 @@ namespace WebApi.Controllers
         {
             return Ok(_logic.GetMealProducts(id));
         }
-        
+
+        [HttpPost("SendMealPDFinMail")]
+        public IActionResult SendPDFinMail(string NameFrom,string from, string to , string message, MealDto meal)
+        {
+            _logic.SendMealInMail(NameFrom,from, to, message, meal);
+            return Ok(meal);
+
+        }
+
 
     }
 }

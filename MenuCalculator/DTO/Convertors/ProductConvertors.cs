@@ -14,8 +14,11 @@ namespace DTO.Convertors
             return new MealProducts()
             {
                 MealProductName=u.ProductName,
-                AmountInMeal=u.Amount,
+                AmountInMeal=u.AmountInMeal,
                 MealProductCompany=u.Company,
+                UnitMeasureCode=u.UnitMeasureCode,
+                MealCode=u.MealCode
+                
             };
 
         }
@@ -23,12 +26,11 @@ namespace DTO.Convertors
         {
             return new ProductDto()
             {
-             ProductName=u.MealProductName,
-             Amount=(int)u.AmountInMeal,
-             Company=u.MealProductCompany,
-             
-             
-
+                ProductName = u.MealProductName,
+                AmountInMeal = u.AmountInMeal,
+                Company = u.MealProductCompany,
+                UnitMeasureCode = u.UnitMeasureCode,
+                MealCode=u.MealCode,
             };
         }
 

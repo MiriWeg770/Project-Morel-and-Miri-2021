@@ -9,6 +9,7 @@ using System.Text;
 namespace BLL
 {
     public class PictureLogic : IPictureLogic
+
     {
         private MenuCalculatorContext _context;
         public PictureLogic(MenuCalculatorContext context)
@@ -20,7 +21,7 @@ namespace BLL
             try
             {
                 Picture m = PictureConvertors.ToPicture(p);
-                Picture m1 = new Picture() { PictureName = p.PictureName};
+                Picture m1 = new Picture() { PictureName = p.PictureName };
                 _context.Picture.Add(m1);
                 _context.SaveChanges();
                 m1 = _context.Picture.FirstOrDefault(i => i.PictureName == p.PictureName);
@@ -46,12 +47,19 @@ namespace BLL
 
         public List<PictureDto> GetAllPicture()
         {
-            throw new NotImplementedException();
+            return PictureConvertors.ToPictureDtoList(_context.Picture.ToList());
         }
 
         public PictureDto GetPictureById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return PictureConvertors.ToPictureDto(_context.Picture.FirstOrDefault(p => p.PictureCode == id));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public List<PictureDto> GetUserPicture(int id)
