@@ -70,6 +70,11 @@ import { ShowMonthsComponent } from './show-months/show-months.component';
 import { DeletMenuComponent } from './delet-menu/delet-menu.component';
 import { ShareComponent } from './share/share.component';
 import { DeletPublishedMealComponent } from './delet-published-meal/delet-published-meal.component';
+import { AllMealsComponent } from './all-meals/all-meals.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { AboutComponent } from './about/about.component';
+import { AllMenusComponent } from './all-menus/all-menus.component';
+import { MealCategoryComponent } from './meal-category/meal-category.component';
 
 
 @NgModule({
@@ -113,7 +118,12 @@ import { DeletPublishedMealComponent } from './delet-published-meal/delet-publis
     ShowMonthsComponent,
     DeletMenuComponent,
     ShareComponent,
-    DeletPublishedMealComponent
+    DeletPublishedMealComponent,
+    AllMealsComponent,
+    NotFoundComponent,
+    AboutComponent,
+    AllMenusComponent,
+    MealCategoryComponent
     
   ],
   imports: [

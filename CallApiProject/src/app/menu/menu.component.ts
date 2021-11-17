@@ -1,11 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Meal } from 'src/Models/Meal';
 import { Menu } from 'src/Models/Menu';
+import { Picture } from 'src/Models/Picture';
 import { User } from 'src/Models/User';
 import { LevelService } from '../level.service';
 import { MakeAccountComponent } from '../make-account/make-account.component';
 import { MenuService } from '../menu.service';
+import { PictureService } from '../picture.service';
 
 @Component({
   selector: 'app-menu',
@@ -17,14 +20,22 @@ export class MenuComponent implements OnInit {
   u:User; 
    
   @Input() menu:Menu;
-  constructor(private ser:MenuService,private _snackBar:MatSnackBar,private serl:LevelService,private dialog:MatDialog) { 
+  constructor(private serp:PictureService, private ser:MenuService,private _snackBar:MatSnackBar,private serl:LevelService,private dialog:MatDialog) { 
     this.u= JSON.parse(localStorage.getItem("user"));
     this.GetLevel()
   }
 
   ngOnInit(): void {
   }
-
+  url;
+  GetPicture(x:Meal){
+  this.serp.GetPictureById(x.pictureCode).subscribe(succ=>{
+    this.url=succ.pictureName
+    console.log(this.url)
+ },err=>{
+   console.log(err)
+ })
+}
 
   add(){
     if(this.u!=null){

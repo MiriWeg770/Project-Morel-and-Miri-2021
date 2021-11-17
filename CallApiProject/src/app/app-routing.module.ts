@@ -23,18 +23,27 @@ import { CalendarComponent } from './calendar/calendar.component';
 import { HeaderComponent } from './header/header.component';
 import { DownloadComponent } from './download/download.component';
 import { EditMealComponent } from './edit-meal/edit-meal.component';
+import { AllMealsComponent } from './all-meals/all-meals.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { AboutComponent } from './about/about.component';
+import { AllMenusComponent } from './all-menus/all-menus.component';
+import { MealCategoryComponent } from './meal-category/meal-category.component';
 
 const routes: Routes = [
   // {path:"Home", component:HomeComponent},
   {path:"Home", component:HeaderComponent,children:[
     {path:"MyMeals",component:MyMealsComponent},
     {path:"AllLists",component:AllListsComponent},
+    {path:"AllMeals",component:AllMealsComponent},
+    {path:"AllMenus",component:AllMenusComponent},
     {path:"MyLists",component:MyListsComponent},
     {path:"EditMeal/:id",component:EditMealComponent},
+    {path:"MealCategory/:id",component:MealCategoryComponent},
     {path:"Settings",component:SettingsComponent},
     {path:"Help",component:HelpComponent},
     {path:"MyShares",component:MySharesComponent},
     {path:"ShowMealDetails/:id",component:ShowMealDetailsComponent}, 
+    {path:"ShowMealDetails",component:ShowMealDetailsComponent}, 
     {path:"ShowMenuDetails/:id",component:ShowMenuDetailsComponent}, 
     {path:"MyAccount",component:MyAccountComponent},
     {path:"AddMeal", component:AddMealComponent},
@@ -45,9 +54,12 @@ const routes: Routes = [
     {path:"SignUp", component:SignUpComponent},
     {path:"SignIn", component:SignInComponent},
     {path:"User", component:UserComponent},
+    {path:"User", component:UserComponent},
+    {path:"NotFound", component:NotFoundComponent},
+    {path:"About", component:AboutComponent},
 
     {path:"", component:HomeComponent, pathMatch:"full"},
-    {path:"**",component:HomeComponent, pathMatch:"full"},
+    {path:"**", component:NotFoundComponent, pathMatch:"full"}
 
   ]},
   {path:"User",component:UserComponent,children:[
@@ -56,8 +68,8 @@ const routes: Routes = [
   ]},
 
   {path:"ResetPassword",component:ResetPasswordComponent},
-  {path:"", redirectTo:"Home", pathMatch:"full"},
-  {path:"**", redirectTo:"SignIn", pathMatch:"full"}
+  {path:"", redirectTo:"Home/NotFound", pathMatch:"full"},
+  {path:"**", redirectTo:"Home/NotFound", pathMatch:"full"}
 ];
 
 @NgModule({

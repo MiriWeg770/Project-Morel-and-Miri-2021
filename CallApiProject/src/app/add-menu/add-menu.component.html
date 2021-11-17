@@ -10,7 +10,7 @@
     </div>
   </mat-toolbar>
   <mat-drawer-container >
-    <mat-drawer mode="over" [opened]="open" position="end">
+    <mat-drawer mode="side" [opened]=open position="end">
       <div class=" form ">
         <label>שם תפריט</label>
         <input type="text" name="MenuName" [(ngModel)]="newMenu.menuName" />
@@ -31,15 +31,12 @@
         <label> מספר מנות שנבחרו : {{MenuList.length}}</label>
   
       </div>    
-  
-   
-  
     </mat-drawer>
-    <mat-drawer-content>
-      <mat-icon class="menu" (click)="open=!open">menu</mat-icon>
+    <mat-drawer-content *ngIf="add">
+      <mat-icon  class="menu" (click)="change()">check_circle</mat-icon>
       <div class="search-input"><input  type="text" placeholder="חפש בתפריטים שלי" /></div>
         <div class="card">
-          <div class="ft-recipe" *ngFor="let x of ELEMENT_DATA" (click)="add(x)"  [ngClass]="MenuList.includes(x)? 'change' : ''"> 
+          <div class="ft-recipe" *ngFor="let x of ELEMENT_DATA" (click)="Add(x)"  [ngClass]="MenuList.includes(x)? 'change' : ''"> 
             <div class="ft-recipe__thumb">
               <h3>{{x.mealName}}</h3>
              <img src="{{GetPicture(x)}}" alt=""/>
@@ -65,5 +62,35 @@
         <!-- </mat-grid-tile>   
       </mat-grid-list> -->
     </mat-drawer-content>
+    <mat-drawer-content *ngIf="!add">
+      
+      <div class="header"><h1>מנות  ({{MenuList.length}})</h1><mat-icon (click)="change()" title="הוסף מנות">add_circle_outline</mat-icon></div>
+         <div class="container__text" *ngFor="let x of MenuList">
+          <div class="img" style="background-image: url('{{GetPicture(x)}}');">
+         </div>
+          <div class="details">
+          <h1>{{x.mealName}}</h1>
+          <p>
+           {{x.discription}}
+          </p>
+          <div class="container__text__timing">
+           <div class="container__text__timing_time">
+            <h2>Hands-on Time</h2>
+            <p>30 min</p>
+           </div>
+           <div class="container__text__timing_time">
+            <h2>Total Time</h2>
+            <p>40 min</p>
+           </div>
+           <div class="container__text__timing_time">
+            <h2>Yield</h2>
+            <p>40 min</p>
+           </div>
+          </div>
+          <button (click)="editMeal(x)"class="btn">ערוך מתכון<mat-icon >edit</mat-icon></button>
+         </div>
+        </div>
+      
+    </mat-drawer-content >
   </mat-drawer-container>
   

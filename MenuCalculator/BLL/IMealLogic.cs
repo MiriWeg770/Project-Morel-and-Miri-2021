@@ -1,5 +1,7 @@
-﻿using DAL.Models;
+﻿using Chilkat;
+using DAL.Models;
 using DTO;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,9 +18,8 @@ namespace BLL
         List<ProductDto> GetMealProducts(int id);
         MealDto DeletMeal(MealDto u);
         MealDto UpdateMeal(MealDto u);
-        void SendMealInMail(string nameFrom,string from, string to, string message, MealDto meal);
-
-        //  MealDto IsExists(MealDto b);
+        void SendMealInMail(string to, string from, string meal);
+        bool IsExists(MealDto b);
 
     }
 }

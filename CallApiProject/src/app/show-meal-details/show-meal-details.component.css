@@ -196,7 +196,7 @@ ul.social-share mat-icon:hover{
 .Products ul li {
     font-size: 17px;
     margin: 14px 0px;
-    list-style: square;
+    list-style: disc;
 }
 .ingredients ul li {
     font-size: 17px;
@@ -484,7 +484,7 @@ display: block;}
     height: .9375rem;
     left: 50%;
     position: absolute;
-    top: 19px;
+    top: 22px;
     transform: rotate( 
 45deg);
     width: .9375rem;
@@ -658,4 +658,87 @@ display: block;}
    border-top: 2px solid white;
  }
  
+  .social-icons li:hover:before {
+    transform: scale(0);
+    transition: all 265ms ease-in;
+  }
+  .social-icons li:hover mat-icon {
+    transform: scale(2.2);
+    -webkit-transform: scale(1.2);
+    color: rgb(249 171 0 / 67%);
+    background: -webkit-linear-gradient(
+45deg, rgb(249 171 0 / 89%), rgb(249 171 0 / 21%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transition: all 265ms ease-in;
+  }
  
+
+
+  
+  
+  
+  /* @keyframes pulse {
+    from {
+      opacity: 1;
+      transform: scale(1);
+    }
+    to {
+      opacity: .25;
+      transform: scale(.75);
+    }
+  } */
+  
+@keyframes spin {
+    from {
+      transform: rotate(0);
+    }
+    to{
+      transform: rotate(359deg);
+    }
+  }
+ #spinner{
+     display: none;
+ }
+  .spinner-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    position: absolute;
+    top: 62%;
+    left: 23%;
+  }
+  .three-quarter-spinner {
+    width: 30px;
+    height:30px;
+    border: 3px solid black;
+    border-top: 3px solid transparent;
+    border-radius: 50%;
+    animation: spin .5s linear 0s infinite;
+  }
+  /* .pulse-container {
+    width: 120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .pulse-bubble {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #3ff9dc;
+  }
+  
+  .pulse-bubble-1 {
+      animation: pulse .4s ease 0s infinite alternate;
+  }
+  .pulse-bubble-2 {
+      animation: pulse .4s ease .2s infinite alternate;
+  }
+  .pulse-bubble-3 {
+      animation: pulse .4s ease .4s infinite alternate;
+  }
+   */
+  

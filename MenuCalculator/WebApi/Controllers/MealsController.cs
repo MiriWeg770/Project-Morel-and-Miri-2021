@@ -1,16 +1,18 @@
 ﻿using BLL;
+using Chilkat;
 using DTO;
 using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace WebApi.Controllers
 {
-    [EnableCors("AllowOrigin")]
+    //[EnableCors("AllowOrigin")]
     [Route("api/[controller]")]
     [ApiController]
     public class MealsController : ControllerBase
@@ -72,11 +74,16 @@ namespace WebApi.Controllers
         }
 
         [HttpPost("SendMealPDFinMail")]
-        public IActionResult SendPDFinMail(string NameFrom,string from, string to , string message, MealDto meal)
+        public IActionResult SendPDFinMail(string []arr)
         {
-            _logic.SendMealInMail(NameFrom,from, to, message, meal);
-            return Ok(meal);
+            _logic.SendMealInMail(arr[1],arr[0],arr[2]);
+            return Ok(arr);
 
+        }
+        [HttpPut("MealIsExists")]
+        public IActionResult GetProductsById([FromBody] MealDto m)
+       {
+            return Ok(_logic.IsExists(m));
         }
 
 

@@ -1,11 +1,6 @@
 
 
-
-
-
-
-
-    <body >
+    <body  id="b">
         <div class="container">
         <section class="col-2 ss-style-triangles" style="background-image: url({{url}});">
             <div class="column text">
@@ -41,15 +36,19 @@
                          
                             <li><p><span>רמת קושי </span>{{level}}   </p></li>
                         </ul>
-                        <ul class="social-share">
-                            <li matTooltip="הוסף למנות"><mat-icon (click)="addMeal()">favorite</mat-icon></li>
+                        <ul class="social-share social-icons">
+                            <li *ngIf="u==null" matTooltip="הוסף למנות" ><mat-icon  (click)="addMeal()" style="color: white;" >favorite</mat-icon></li>
+                            <li *ngIf="u!=null && u.userName!=meal.userName &&!add" matTooltip="הוסף למנות" ><mat-icon  (click)="addMeal()" style="color: white;" >favorite</mat-icon></li>
+                            <li *ngIf="u!=null && u.userName!=meal.userName && add" matTooltip="הסר מהמנות" ><mat-icon  (click)="deletMeal()" style="color: red;">favorite</mat-icon></li>
                             <li matTooltip="הורד מתכון"><mat-icon (click)="download()"> download</mat-icon></li>
                             <li matTooltip="הדפס מתכון"><mat-icon (click)="print()">print</mat-icon></li>
                             <li matTooltip="שלח מתכון באימייל" ><mat-icon (click)="open()">email</mat-icon></li>        
                         </ul>
-                
-                        <div class="model" id="send">      
+                                 
+                        <div class="model" id="send">   
+                              
                         <div class="email" >
+              
                          <div class="to" style="background-image: url({{url}})">
                              <div class="befor_title">
                                  שלחו באימייל:
@@ -61,12 +60,13 @@
                          <div class="details">
                              <div class="close"><mat-icon (click)="close()"  >close</mat-icon></div>
                           <form>
-                        <div class="row"> <input type="text" name="" [(ngModel)]="Namefrom" [ngModelOptions]="{standalone: true}" placeholder="שמך"></div>
-                        <div class="row"><input type="email" name="" [(ngModel)]="from" [ngModelOptions]="{standalone: true}" placeholder="אימייל שלך"></div>
-                       <div class="row"> <input type="email" name="" [(ngModel)]="to" [ngModelOptions]="{standalone: true}" placeholder="אימייל הנמען"></div> 
-                      <div class="row"><textarea type="text" name="" [(ngModel)]="message" [ngModelOptions]="{standalone: true}" placeholder="הודעה"></textarea></div>
-                       <div class="submit">
-                           <input type="submit" (click)="sendMeal()" value="שליחה">
+                        <div class="row"> <input type="text" name="" [(ngModel)]="from" [ngModelOptions]="{standalone: true}" placeholder="שמך" required></div>
+                       <div class="row"> <input type="email" name="" [(ngModel)]="to" [ngModelOptions]="{standalone: true}" placeholder="אימייל הנמען" required></div> 
+                       <div class="submit">                  
+                           <input type="submit" (click)="convetToPDF()" value="שליחה">
+                           <div class="spinner-box" id="spinner">
+                            <div class="three-quarter-spinner" ></div>
+                          </div>
                        </div> 
                     </form>
                     </div>
@@ -78,7 +78,7 @@
                  {{meal.discription}}         </p>
                 <div class="amount">
                           <label>בחרו כמות מנות</label>
-                          <div class="counter"><img src="../../assets/plus.png" alt="" (click)="plus()"><input  type="number" min=1 value={{count}}> <img src="../../assets/minus.png" alt=""  (click)="minus()"> </div>
+                          <div class="counter"><img src="../../assets/plus.png" alt="" (click)="plus()"><input  type="number" min=1 value={{count}}  [(ngModel)]="count" > <img src="../../assets/minus.png" alt=""  (click)="minus()"> </div>
                   
                         <div class="help">  
                           <span><img src="../../assets/help.png" alt=""></span>
@@ -93,7 +93,7 @@
                       
                       <ul>
                           <li *ngFor="let x of meal.products;let i=index" role="listitem">
-                            <span> {{x.amountInMeal}}</span> <span>{{UnitMeasures[i]}}</span> <span>של</span><span> {{x.productName}}</span>
+                            <span> {{x.allamountInMeal}}</span> <span>{{UnitMeasures[i]}}</span> <span>של</span><span> {{x.productName}}</span>
                         </li>
                       </ul>
                  
@@ -115,6 +115,12 @@
         </section>
         </div>
         </body>
+     
+
+
+
+
+        
     <!-- </div>
 
     <section class="comments">

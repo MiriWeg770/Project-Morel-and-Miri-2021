@@ -5,9 +5,9 @@
 }
 
 header{
-    /* background: url("https://www.chitrakootweb.com/template/cefrax/img/bg9.jpg"); */
+ 
 
-   
+   background-image: url(https://radiustheme.com/demo/wordpress/redchili/wp-content/uploads/2017/06/slide1-1-ok.jpg);
     background-repeat: no-repeat;
     background-size: cover; 
     background-position: 0px 0px;
@@ -15,18 +15,7 @@ header{
 height: 100%;
     background-attachment: fixed;
 }
-/* header::before{
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1;
-    background: #000;
-    opacity: 0.2;
-    height: 100%;
 
-} */
 
 .search{
     position: absolute;
@@ -38,11 +27,11 @@ height: 100%;
     animation-name: text 0.3s;
 }
 .search h1{
-    font-size: 60px;
+    font-size: 98px;
     font-weight: 700;
     animation-delay: 0.8s;
-    font-family: system-ui;
-    /* color: white; */
+    font-family: Roboto;
+    color: white;
 }
 
 .search-input{
@@ -59,7 +48,7 @@ height: 100%;
         border-radius: 14px;
         font-size: 25px;
         background: white;
-        margin: 24px;
+        margin: 58px;
         padding: 10px 10px 10px 50px;
         direction: rtl;
         background-repeat: no-repeat;
@@ -83,46 +72,311 @@ height: 100%;
         }
 
       
-        /* .wave{
-            height: 50px;
-            position: relative;
-            background: linear-gradient(90deg, #27b6b9 0%, #0f4061 100%);
-          }
-          
-          #wave {
-     
-            padding-top:25px;
-            padding-bottom:25px;
-            background: #f1f5f9;
-            
-          }
-        
-          
-          #wave::before{
-            position: absolute;
-            left: 0;
-            bottom: 150px;
-            right: 0;
-            background-repeat: repeat;
-            height: 10px;
-            background-size: 20px 20px;
-            background-image: radial-gradient(circle at 10px -5px, transparent 12px, #f1f5f9 13px);
-            z-index: 1;
-          }
-          #wave::after{
-            position: absolute;
-            left: 0;
-            bottom:150px;
-            right: 0;
-            background-repeat: repeat;
-            height: 15px;
-            background-size: 40px 20px;
-            background-image:
-              radial-gradient(circle at 10px 15px, #f1f5f9 12px, transparent 13px);
-              z-index: 1;
-
-          }
+        #wave {
+          position: relative;
+          height: 70px;
+          /* width: 600px; */
+          background: black;
+        }
+        #wave:before {
+          content: "";
+          display: block;
+          position: absolute;
+          border-radius: 100% 50%;
+          width: 725px;
+          height: 80px;
+          background-color: #f1f5f9;
+          right: -5px;
+          top: 40px;
+        }
+        #wave:after {
+          content: "";
+          display: block;
+          position: absolute;
+          border-radius: 100% 50%;
+          width: 59%;
+          height: 70px;
+          background-color: black;
+          left: 0;
+          top: 27px;
+        }
           section{
             background: #f1f5f9;
-            height: 50%;             
-          } */
+            /* height: 50%;              */
+          }
+          section.about{
+            padding: 60px;
+          }
+          section.rating{
+            background: url(https://radiustheme.com/demo/wordpress/redchili/wp-content/uploads/2017/02/special-dishes-back-1.jpg);
+           display: flex;
+           justify-content: space-evenly;
+           /* height: 34%; */
+           direction: rtl;
+           background-size: cover;
+          }
+          section.rating div{
+            width: 200px;
+            height: 200px;
+                display: flow-root;
+                text-align: center;
+                padding: 42px;         
+              color: white;        
+                 margin-bottom: 40px;
+
+          }
+          section.rating h1, section.rating h2{
+            font-size: 36px;
+            font-weight: 600;
+            font-family: fantasy;
+          }
+          section.rating h2{
+            font-size: 27px;
+          }
+          section.rating mat-icon{
+            font-size: 36px;
+            margin-bottom: 10px;
+            color: #e7272d;
+          }
+
+          section.recipe{
+            background: url(https://radiustheme.com/demo/wordpress/redchili/wp-content/uploads/2017/02/foody_bg-1.jpg?id=356);
+           background-size: cover;
+           
+          }
+          section.recipe .title{
+            display: flex;
+            justify-content: center;
+            padding-top: 50px;
+          }
+          section.recipe .title h1{
+            color: white;
+            text-align: center;
+            font-size: 39px;
+            /* padding-top: 72px; */
+          }
+          section.recipe span{
+            border-top: 1px solid #707070;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    display: inline-flex;
+    float: none;
+    height: 2px;
+    margin-right: 17px;
+    margin-left: 16px;
+    position: relative;
+    top: 19px;
+  width: 70px;
+  background-color: white;
+          }
+          section.recipe ul, section.menu ul{
+            display: inline-flex;
+            justify-content: space-between;
+            width: 100%;
+            padding: 27px;     
+            margin: 0;      
+            list-style: none;
+          }
+          section.recipe ul li{
+            border: 3px solid white;
+          }
+
+
+          section.menu{
+          background: url(https://radiustheme.com/demo/wordpress/redchili/wp-content/uploads/2017/06/about2-back.jpg?id=2921);
+          }
+          section.menu .title h1{
+            color: black;
+            text-align: center;
+            font-size: 39px;
+          }
+
+         
+          .button-more{
+            display: flex;
+            justify-content: center;
+          }
+.shiny-btn {
+  font-weight: bold;
+  font-size: 20px;
+  text-decoration: none;
+  color: black;
+  border-radius: 3px;
+      margin: 10px;
+      padding: 16px 37px; 
+   background-color: white;
+  transition: transform 500ms cubic-bezier(0.68, -0.55, 0.265, 1.55), background-position 800ms cubic-bezier(0.68, -0.55, 0.265, 1.55), box-shadow 500ms linear;}
+.shiny-btn:hover {
+  transform: scale(1.1);
+  background-position: -60px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+.shiny-btn:active {
+  transform: scale(1);
+  background-position: 500px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.slideshow-container {
+  /* max-width: 1000px;
+  position: relative;
+  margin: auto; */
+}
+
+/* Next & previous buttons */
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  width: auto;
+  padding: 16px;
+  margin-top: -22px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  user-select: none;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+
+/* Caption text */
+.text {
+  color: #f2f2f2;
+  font-size: 15px;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+/* Number text (1/3 etc) */
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  cursor: pointer;
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active, .dot:hover {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+/* On smaller screens, decrease text size */
+@media only screen and (max-width: 300px) {
+  .prev, .next,.text {font-size: 11px}
+}
+.brace {
+  width: auto;
+  min-width: 35px;
+  padding-bottom: 20px;
+  font-size: 2em;
+  line-height: 2em;
+  position: relative;
+  text-align: center;
+  vertical-align: middle;
+  margin: 0 15px 15px;
+  border: none;
+  background-color: transparent;
+  background-image: radial-gradient(circle at 0 0, rgba(255,255,255,0) 14.5px, #fff 15.5px, #fff 19.5px, rgba(255,255,255,0) 20.5px), radial-gradient(circle at 35px 0, rgba(255,255,255,0) 14.5px, #fff 15.5px, #fff 19.5px, rgba(255,255,255,0) 20.5px);
+  background-size: 35px 20px;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  text-transform: lowercase;
+  font-style: italic;
+  color: #fff;
+  filter: drop-shadow(0 1px 1px rgba(0,0,0,0.15));
+  overflow: visible;
+}
+.brace:before {
+  width: 50%;
+  border-top: 5px solid #fff;
+  border-left: 1px solid transparent; /* play with this until you like the look of it */
+  border-top-left-radius: 20% 30px;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: -15px;
+  box-sizing: border-box;
+  margin-top: -5px;
+}
+.brace:after {
+  width: 50%;
+  border-top: 5px solid #fff;
+  border-right: 1px solid transparent; /* play with this until you like the look of it */
+  border-top-right-radius: 20% 30px;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 100%;
+  right: -15px;
+  box-sizing: border-box;
+  margin-top: -5px;
+}
+.ss-style-triangles::before,
+ .ss-style-triangles::after {
+   left: 50%;
+   width: 58px;
+   height: 58px;
+   -webkit-transform: translateX(-50%) rotate(45deg);
+   transform: translateX(-50%) rotate(45deg);
+ }
+ 
+ 
+ .ss-style-triangles::after {
+   bottom: -122px;
+   z-index: 1;
+   background: #f1f5f9;
+   
+ }
+ header::before,
+ header::after {
+   position: absolute;
+   content: '';
+   pointer-events: none;
+ }
+ 

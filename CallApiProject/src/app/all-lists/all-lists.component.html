@@ -11,7 +11,7 @@
     
    </div>
   </div>
-  <div class="searchResult">
+   <div class="searchResult">
   <div class="search-input"> 
     <div>
       <span>קטגוריה </span>
@@ -33,7 +33,7 @@
     </div>
    
     </div>
-    </div>     
+    </div>      
 
   </div>
   <div class="result_message"><h1>   ...נמצאו {{AllLists.length}}  תוצאות</h1></div>
@@ -41,7 +41,7 @@
     <div class="list">
     <ul *ngIf="isMeal" > 
       <li *ngFor="let item of listMeals" >
-        <div class="container" ><app-meal [meal]="item"   (click)="showMealDetails(item)"></app-meal></div>
+        <div class="container" ><app-meal [meal]="item" ></app-meal></div>
      </li>
     </ul>
     <ul *ngIf="isMenu">
@@ -68,3 +68,4 @@
 
 
     
+  

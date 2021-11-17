@@ -54,6 +54,7 @@ C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Mi
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.dev.json
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\DAL\bin\Debug\netcoreapp3.1\DAL.dll
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\DAL\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.csprojAssemblyReference.cache
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfoInputs.cache
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfo.cs
 C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.CoreCompileInputs.cache
@@ -97,5 +98,16 @@ C:\Users\מירי\Desktop\‏‏תיקיה חדשה\לימודים\פרוייק�
 C:\Users\מירי\Desktop\‏‏תיקיה חדשה\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.dll
 C:\Users\מירי\Desktop\‏‏תיקיה חדשה\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.pdb
 C:\Users\מירי\Desktop\‏‏תיקיה חדשה\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.genruntimeconfig.cache
-C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.AssemblyReference.cache
-C:\Users\מירי\Desktop\לימודים\פרוייקט\Git\Project-Morel-and-Miri-2021\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\מירי\Desktop\MP\p\MenuCalculator\DAL\bin\Debug\netcoreapp3.1\DAL.deps.json
+C:\Users\מירי\Desktop\MP\p\MenuCalculator\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.json
+C:\Users\מירי\Desktop\MP\p\MenuCalculator\DAL\bin\Debug\netcoreapp3.1\DAL.runtimeconfig.dev.json
+C:\Users\מירי\Desktop\MP\p\MenuCalculator\DAL\bin\Debug\netcoreapp3.1\DAL.dll
+C:\Users\מירי\Desktop\MP\p\MenuCalculator\DAL\bin\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\מירי\Desktop\MP\p\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.AssemblyReference.cache
+C:\Users\מירי\Desktop\MP\p\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\מירי\Desktop\MP\p\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfoInputs.cache
+C:\Users\מירי\Desktop\MP\p\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.AssemblyInfo.cs
+C:\Users\מירי\Desktop\MP\p\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.csproj.CoreCompileInputs.cache
+C:\Users\מירי\Desktop\MP\p\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.dll
+C:\Users\מירי\Desktop\MP\p\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.pdb
+C:\Users\מירי\Desktop\MP\p\MenuCalculator\DAL\obj\Debug\netcoreapp3.1\DAL.genruntimeconfig.cache

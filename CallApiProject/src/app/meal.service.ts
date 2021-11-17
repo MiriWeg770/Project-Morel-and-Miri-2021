@@ -6,6 +6,7 @@ import { environment } from 'src/environments/environment';
 import { Product } from 'src/Models/Product';
 import { CategoriesToMeal } from 'src/Models/CategoriesToMeal';
 import { Picture } from 'src/Models/Picture';
+import jsPDF from 'jspdf';
 
 @Injectable({
   providedIn: 'root'
@@ -38,8 +39,13 @@ export class MealService {
   AddCategoriesToMeal(mc:CategoriesToMeal) {
     return this.http.post(environment.url +"/api/CategoriesToMeal/AddCategoriesToMeal",mc);
   }
-  SendMealInMail(NameFrom:string,from:string, to:string, message:string,meal:Meal): Observable<Meal>{
-    return this.http.post<Meal>(environment.url +"/api/Meals/SendMealPDFinMail",{NameFrom,from,to,message,meal})  
+  SendMealInMail(from:string, to:string,meal:string ){
+    let arr:Object[]=[from,to,meal]
+    // return this.http.post('/api/email/upload', meal, { headers: this.headers });
+    return this.http.post(environment.url +"/api/Meals/SendMealPDFinMail",arr)  
+  }
+  MealIsExists(meal:Meal):Observable<boolean>{
+    return this.http.put<boolean>(environment.url +"/api/Meals/MealIsExists",meal)  
   }
  
 }

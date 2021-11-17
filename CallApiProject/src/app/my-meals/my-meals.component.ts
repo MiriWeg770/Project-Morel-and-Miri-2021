@@ -52,7 +52,8 @@ export class MyMealsComponent implements OnInit {
   // expandedElement: Meal | null;
   c:MealCategories[]
   levels:Level[]=[]
-
+   list=true
+   loader=true
   constructor(private dialog:MatDialog,private _snackBar: MatSnackBar,private serp:PictureService, private serc:MealCategoriesService,private ser:UserService,private serm:MealService,private serl:LevelService,private router:Router) {
          this.u= JSON.parse(localStorage.getItem("user") );
          console.log(this.u)        
@@ -104,7 +105,7 @@ active() {
     disableClose:true,
     autoFocus:false,
     panelClass:'my-dialog',
-    width:'80%',
+    width:'70%',
     height:'100%',
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -120,7 +121,7 @@ active() {
     autoFocus:false,
     data:x,
     panelClass:'my-dialog',
-    width:'80%',
+    width:'70%',
     height:'100%',
     });
     dialogRef.afterClosed().subscribe(result => {
@@ -298,6 +299,8 @@ Level(x:Meal){
     this.serp.GetAllPictures().subscribe(succ=>{
       this.pictures=succ
       console.log(this.pictures)
+      this.GetAllMeals()
+      this.loader=false
    },err=>{
      console.log(err)
    })
@@ -318,5 +321,23 @@ Level(x:Meal){
   closePicture(){
     document.getElementById("myModal").style.display = "none";
   }
+text:string=""
+find:Meal[]=[]
+search(){
+  if(this.text==""){
+    this.GetAllMeals()
+  }
+  else{
+    console.log(this.text)
+this.find.length=0;
+ this.ELEMENT_DATA.forEach(element => {
+ if(element.mealName.includes(this.text)){ 
+   this.find.push(element);  
+ }
+});
+ this.ELEMENT_DATA=this.find
+ 
+
+}}
 }
 

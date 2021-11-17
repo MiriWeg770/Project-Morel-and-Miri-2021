@@ -1,0 +1,18 @@
+<body>
+    <div class=img>
+        <div class="title">
+            <h1>קטגוריה:{{name}}</h1>
+        </div>
+    </div>
+    <div class="list">
+        <ul>
+            <li *ngFor="let x of list"> <app-meal [meal]="x"></app-meal></li>
+        </ul>
+       </div>
+       <div class="sidebar">     
+        <div class="category">   
+            <h2 class="title-bar">קטגוריות</h2>
+            <ul><li *ngFor="let x of listCategories"><mat-icon>arrow_back_ios</mat-icon><a routerLink="/Home/MealCategory/{{x.mealCategoriesCode}}">{{x.mealCategoriesName}}({{GetMealsByCategory(x)}})</a></li></ul>
+        </div>
+       </div>
+</body>

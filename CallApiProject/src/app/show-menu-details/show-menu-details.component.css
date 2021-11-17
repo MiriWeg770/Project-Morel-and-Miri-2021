@@ -7,8 +7,8 @@
 .header-content{
     background: #fafafa;
     box-shadow: 0px 0px 49px -8px rgb(249 171 0); 
-     width: 980px;
-
+     width: 980px; 
+      margin: 20px;
 }
 .headline{
     color: black;
@@ -17,4 +17,11 @@
 .underline {
     color: black;
     text-shadow: none;
+}
+
+ul.social-share{
+    height: 0;
+}
+.email .to{
+    background: gold;
 }

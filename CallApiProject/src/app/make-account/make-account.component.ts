@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { SignInComponent } from '../sign-in/sign-in.component';
+import { SignUpComponent } from '../sign-up/sign-up.component';
 
 @Component({
   selector: 'app-make-account',
@@ -7,9 +10,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MakeAccountComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialog:MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  SignIn(){ 
+    this.connect(false)
+  }
+  SignUp(){
+   this.connect(true)
+  }
+  
+  connect(x){
+     const dialogRef = this.dialog.open(SignUpComponent, {  
+      panelClass:'my-dialog',
+      data:x
+    });
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');      
+  });
+  }
 }

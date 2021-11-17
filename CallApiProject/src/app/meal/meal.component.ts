@@ -24,41 +24,75 @@ export class MealComponent implements OnInit {
   @Input() meal:Meal;
 
  name:string
-  constructor(private ser:MealService,private dialog:MatDialog,private serp:PictureService,private _snackBar: MatSnackBar) { 
+  constructor(private ser:MealService,private seru:UserService,private dialog:MatDialog,private serp:PictureService,private _snackBar: MatSnackBar) { 
     this.u= JSON.parse(localStorage.getItem("user"));
-    // this.getUserName(this.meal.mealCode)  
+    // this.getUserName(this.meal.userCode)  
   }
 
   ngOnInit(): void {
   }
+//   getUserName(x:number){
+//  this.seru.GetUserById(x).subscribe(succ=>{this.meal.userName=succ.userName},err=>{console.log(err)})
+//   }
 
-  add(){
-    if(this.u!=null){
-    let m:Meal=new Meal(0,this.meal.mealName,this.meal.instructions,this.meal.numberOfDiners,this.meal.discription,this.meal.mealCategoryCode,this.u.userCode,null,this.meal.preparationTime,null,new Date(),this.meal.pictureCode, false,null,this.meal.menuCode,this.u.userName,this.meal.products,this.meal.levelCode)
-    console.log(this.meal)
-    this.ser.AddMealToUser(m).subscribe(succ=>{
-      console.log(succ)
-      this._snackBar.open("המנה התווספה ", "סגור",{
-        horizontalPosition: 'center',
-        verticalPosition:'top' 
-        });
-    },err=>{
-      console.log(err)
-    })
+// mealName:boolean
+// sameName(x:string){
+// if(x==this.u.userName)
+//   this.mealName=true
+// else
+//   this.mealName=false
+// }
+  MealIsExists(x:number){
+    console.log(x)
+    let m:Meal=this.meal
+    m.userCode=x
+    console.log(m)
+    this.ser.MealIsExists(m).subscribe(succ=>{
+     console.log(succ)
+     this.add=succ
+    },err=>{console.log(err)})
   }
-  else{
-      const dialogRef = this.dialog.open(MakeAccountComponent, {  
-        });
-        dialogRef.afterClosed().subscribe(result => {
-          console.log('The dialog was closed');      
+ 
+  add=false
+ addMeal(){
+   if(this.u!=null){
+    let m:Meal=new Meal(0,this.meal.mealName,this.meal.instructions,this.meal.numberOfDiners,this.meal.discription,this.meal.mealCategoryCode,this.u.userCode,null,this.meal.preparationTime,null,new Date(),this.meal.pictureCode, false,null,null,this.u.userName,this.meal.products,this.meal.levelCode)
+    console.log(m)
+    this.ser.AddMealToUser(m).subscribe(succ=>{
+     console.log(succ)   
+     this.add=true
+     this._snackBar.open("המנה התווספה ", "סגור",{
+      horizontalPosition: 'center',
+      verticalPosition:'top' 
+      });
+   },err=>{
+     console.log(err)
+   })}
+   else{
+    const dialogRef = this.dialog.open(MakeAccountComponent, {  
     });
-  
-}}
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');      
+});
+}
+ }
+
+ deletMeal(){
+  this.meal.userCode=this.u.userCode
+    this.ser.DeleteMeal(this.meal).subscribe(succ=>{console.log(succ)},err=>{console.log(err)})
+    this.add=false
+    this._snackBar.open("המנה הוסרה ", "סגור",{
+      horizontalPosition: 'center',
+      verticalPosition:'top' 
+      });
+ }
+
 url="../../assets/help.png";
 GetPicture(x:number){
+  
   this.serp.GetPictureById(x).subscribe(succ=>{
     this.url=succ.pictureName
-    console.log(this.url)
+    // console.log(this.url)
  },err=>{
    console.log(err)
  })
@@ -103,4 +137,7 @@ count(){
   console.log(succ.numberOfViews)
   },err=>{console.log(err)})
 }
+
+
+
   }

@@ -88,17 +88,17 @@ export class HeaderComponent implements OnInit {
         console.log('The dialog was closed');      
   });
 }
-SignIn(){
-  const dialogRef = this.dialog.open(SignInComponent, {  
-    panelClass:'my-dialog'
-  });
-  dialogRef.afterClosed().subscribe(result => {
-    console.log('The dialog was closed');      
-});
+SignIn(){ 
+  this.connect(false)
 }
 SignUp(){
-  const dialogRef = this.dialog.open(SignUpComponent, {  
-    panelClass:'my-dialog'
+ this.connect(true)
+}
+
+connect(x){
+   const dialogRef = this.dialog.open(SignUpComponent, {  
+    panelClass:'my-dialog',
+    data:x
   });
   dialogRef.afterClosed().subscribe(result => {
     console.log('The dialog was closed');      

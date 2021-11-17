@@ -12,26 +12,28 @@ mat-drawer{
 mat-drawer-container{
   height: 100%;
   overflow: hidden;
+  background: white;
 }
 header{
-  display: flex;
+   display: flex;
   justify-content: space-between;
   width: 100%;
   padding: 11px 26px;
   align-items: center;
-  /* background: #ffffff; */
   background: black;
-  /* border-bottom: 2px solid rgb(0 0 0 / 3%); */
   box-shadow:0 2px 4px 0 rgb(52 52 52 / 10%);
  position: sticky;
+ border-bottom: 2px solid #e7272d;
  top: 0;
  z-index: 3;
+
 
 }
 /* header mat-icon{
   padding: 0 25px;
 
 } */
+
 .mat-button{
   background: rgb(247 208 122);
   font-family: system-ui;
@@ -45,10 +47,10 @@ header{
 }
 .logo {
   font-size: 41px;
-    text-shadow: 0.025em 0.025em 0 yellow, 0.05em 0.05em 0 #000000, 0.075em 0.075em 0 rgb(249 171 0), 0.01em 0.01em 0 rgb(0 0 0 / 87%);
+    text-shadow: 0.025em 0.025em 0 rgb(255, 30, 0), 0.05em 0.05em 0 #000000, 0.075em 0.075em 0 red, 0.01em 0.01em 0 rgb(0 0 0 / 87%);
     font-family: fantasy;
     font-weight: 700;
-    color: white;
+    color: black;
     font-family: cursive;
  
 
@@ -56,7 +58,7 @@ header{
 
   
   .menu_icon{
-    color: white;
+    /* color: white; */
     padding: -7px;
     width: 46px;
     height: 45px;
@@ -87,42 +89,38 @@ header{
     background-color: blue;
     padding: 0;
   } */
-  .sidebar{
+  /* .sidebar{ */
     /* direction: rtl; */
     /* position: fixed; */
     /* padding: 0px 13px; */
   
   
   
-  }
+  /* } */
   
   
-   .sidebar mat-icon{
+   /* .sidebar mat-icon{
     color: black;
-    /* height: 60px; */
-    /* min-width: 50px; */
     font-size: 28px;
     text-align: center;
     cursor: pointer;
-    /* line-height: 60px; */
     
-  }
-  .sidebar .nav-list{
+  } */
+  /* .sidebar .nav-list{
     height: 100%;
     display: flex;
-  }
-  
+  } */
+/*   
   .sidebar li{
     position: relative;
     list-style: none;
     display: grid;
     text-align: center;
-    padding: 0 20px;
+    padding: 0 20px; */
   
-  }
+  /* }
   .sidebar li .tooltip{
     z-index: 2;
-    /* right: 7%; */
     top: 96%;
     background: #fff;
     box-shadow: 0 5px 10px rgb(0 0 0 / 30%);
@@ -136,11 +134,10 @@ header{
     padding: 6px 10px;
     position: absolute;
     width: 74px;
-    /* margin: -1px; */
-    text-align: center;
+    text-align: center; */
 
 
-  }
+  /* }
   .sidebar li:hover .tooltip{
     opacity: 1;
     pointer-events: auto;
@@ -161,11 +158,9 @@ header{
   .sidebar li a:hover mat-icon{
     color: rgb(249 171 0 / 79%);
   }
-   /* .active a {
-    border: 2px solid #ffd073fc;
-  } */
-  .active mat-icon {
-  color: rgb(249 171 0 / 79%);
+  */
+  .active mat-icon ,.active li {
+  color: red;
   }
   .nav{
     display: flex;
@@ -180,38 +175,38 @@ header{
     /* border: 2px solid darkslategray; */
     /* border-radius: 50%; */
     text-align: center;
-    color: white;
+    /* color: white; */
     margin-left: 9px;
 
   }
-  .user_options ul, .home span{
+ .user_options ul, .home span{
     position: absolute;
     background: white;
     list-style: none;
-    right: 3px;
-    top: 34px;
+    right: 7px;
+   top:39px;
     z-index: 2;
     display: none;
     box-shadow: 0px 0px 7px 1px lightgrey;
    padding: 8px;
    direction: rtl;   
    cursor: pointer;
-  }
+  } 
 
-  .home span{
+  /* .home span{
     right:70px;
     top: 58px;
-  }
+  }*/
 .user_options li,a{
   padding: 3px 0;
     font-size: 16px;
     text-decoration: none;
     cursor: pointer;
-    color: rgb(0 0 0 / 62%);
+    color: white;
 }
 .user mat-icon:hover, .home mat-icon:hover{
   text-shadow: 0px 0px 2px rgb(0 0 0 / 87%);
-  color: white;
+  /* color: white; */
 
 }
 .user:hover .user_options ul, .home:hover span{
@@ -219,8 +214,9 @@ display: block;
 }
 .user_options a:hover{
 color: black;
-font-weight: 600;
+font-weight: 600; 
 }
+
 
 
 /* 
@@ -272,5 +268,55 @@ color : #2f3640;
   padding: 0 6px;
 } */
 /* } */
+
+
+
+
+
+
+nav{
+  display: flex;
+  align-items: center;
+  /* color: white; */
+
+}
+nav ul{
+  list-style: none;
+  display: flex;
+  direction: rtl;
+
+}
+nav ul li{
+  padding: 3px  21px;
+}
+nav ul li a{
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: 500;
+  font-family: system-ui;
+  /* color: white; */
+
+}
+.search-icon{
+  border-right: 2px solid; 
+  padding-right: 28px; 
+  color: red;
+}
+.favorite-icon{
+  margin-left: 11px;
+}
+.icon{
+  cursor: pointer;
+}
+.active{
+color: red;
+}
+footer{
+  background: black;
+    color: white;
+    text-align: center;
+    padding: 15px;
+}
+
 
 

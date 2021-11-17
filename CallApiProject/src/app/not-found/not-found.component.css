@@ -1,0 +1,45 @@
+.container{
+    background-color: #e7272d;
+    margin: 75px 200px;
+    height: 450px;
+}
+h1{
+    color: white;
+    font-size: 198px;
+    text-align: center;
+    padding-top: 165px;
+    padding-bottom: 88px;
+    font-family: fantasy;
+}
+p{
+    color: white;
+    text-align: center;
+    font-size: 30px;
+    font-family: system-ui;
+    font-weight: 500;
+}
+button{
+    color: white;
+    background: #e7272d;
+    border: none;
+    font-size: 19px;
+    padding: 12px;
+    font-weight: 700;
+    font-family: system-ui;
+    cursor: pointer
+}
+button:hover{
+    background:#f8555a ;
+}
+.btn{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.text{
+    color: rgb(0 0 0 / 54%);
+    font-family: system-ui;
+    font-size: 23px;
+    position: relative;
+    top: -29px;
+}

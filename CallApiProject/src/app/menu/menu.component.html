@@ -23,7 +23,7 @@
    </div>
 </div>       -->
 
-<div class="ft-recipe"> 
+<!-- <div class="ft-recipe"> 
   <div class="ft-recipe__thumb">
     <span id="add" (click)="add()"><mat-icon>favorite</mat-icon></span>
     <h3>{{menu.menuName}}</h3>
@@ -35,7 +35,6 @@
         <div class="user_comment">
       <div><span>{{menu.userName}}</span><mat-icon>person</mat-icon></div>    
     </div>
-        <!-- <h2 class="recipe-title">Strawberry Waffle</h2> -->
         <div class="user-rating"></div>
       </div>
       <ul class="recipe-details">
@@ -45,6 +44,29 @@
       </ul>
     </header>
 
-    <footer class="content__footer"><a (click)="count()" routerLink="/Home/ShowMenuDetails/{{menu.menuCode}}">לתפריט</a></footer>
+    <footer class="content__footer"><a  >לתפריט</a></footer>
   </div>
-</div>
+</div> -->
+
+
+<div class="blog-card spring-fever" (load)="GetPicture(menu.meals[0])" style="background: url('{{url}}');background-size: cover;background-repeat: no-repeat;background-position: center;">
+  <div class="title-content">
+    <h3>{{menu.menuName}}</h3>
+    <div class="intro"><div class="user_comment">
+      <div><span>{{menu.userName}}</span><mat-icon>person</mat-icon></div>    
+    </div> </div>
+  </div>
+  <div class="card-info">
+  {{menu.discription}}
+    <a (click)="count()" routerLink="/Home/ShowMenuDetails/{{menu.menuCode}}">לתפריט <span class="licon icon-arr icon-black"></span></a>
+  </div>
+  <div class="utility-info">
+    <ul class="utility-list">
+      <li class="recipe-details-item time"><mat-icon>visibility</mat-icon><span class="value">{{menu.viewsNumber}}</span><span class="title">צפיות</span></li>
+      <li class="recipe-details-item time"><mat-icon>info</mat-icon><span class="value">{{level}}</span><span class="title">רמת קושי</span></li>
+      <li class="recipe-details-item ingredients"><mat-icon>list_alt</mat-icon><span class="value">{{menu.meals.length}}</span><span class="title">מספר מנות</span></li>
+     </ul>
+  </div>
+  <div class="gradient-overlay"></div>
+  <div class="color-overlay"></div>
+</div><!-- /.blog-card -->

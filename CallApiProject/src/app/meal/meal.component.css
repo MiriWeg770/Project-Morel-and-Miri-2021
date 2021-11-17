@@ -259,9 +259,11 @@
     letter-spacing: 0.2px;
     font-size: 17px;
     transition: transform 250ms ease, box-shadow 250ms ease;
-    background: burlywood;
+    background: red;
   }
   .ft-recipe .ft-recipe__content .content__footer a:hover {
     transform: translateY(-3px);
     box-shadow: 0 10px 34px 0 rgba(255, 79, 135, 0.32);
   }
+
+  

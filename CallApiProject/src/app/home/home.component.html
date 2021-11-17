@@ -1,12 +1,46 @@
 
 <div class="body">
-<header>
+<header class="col-2 ss-style-triangles">
   <div class="search">
  <h1>חפש מנה / תפריט</h1>
   <div class="search-input" routerLink="/Home/AllLists"><input #input type="text" placeholder="חפש"/></div>   
 </div>
+
 </header>
-<div id="wave"></div>
-<section>
+<!-- <hr class="brace"> -->
+
+<!-- <div id="wave"> </div> -->
+
+<section class="about">
+<p>On the other hand, timeless beauties like Sophia Loren, Jane Mansfield and Elizabeth Taylor knew that a soft set of pearls, some red lipstick and 
+  a body hugging, flattering swimsuit were all it took to grab a man's attention and keep it!
+  On the other hand, timeless beauties like Sophia Loren, Jane Mansfield and Elizabeth Taylor knew that a soft set of pearls, some red lipstick and a body hugging, flattering swimsuit were all it took to grab a man's attention and keep it!
+  On the other hand, timeless beauties like Sophia Loren, Jane Mansfield and Elizabeth Taylor knew that a soft set of pearls, some red lipstick and a body hugging, flattering swimsuit were all it took to grab a man's attention and keep it!
+  On the other hand, timeless beauties like Sophia Loren, Jane Mansfield and Elizabeth Taylor knew that a soft set of pearls, some red lipstick and a body hugging, flattering swimsuit were all it took to grab a man's attention and keep it!
+  On the other hand, timeless beauties like Sophia Loren, Jane Mansfield and Elizabeth Taylor knew that a soft set of pearls, some red lipstick and a body hugging, flattering swimsuit were all it took to grab a man's attention and keep it!</p>
+  On the other hand, timeless beauties like Sophia Loren, Jane Mansfield and Elizabeth Taylor knew that a soft set of pearls, some red lipstick and a body hugging, flattering swimsuit were all it took to grab a man's attention and keep it!
+  On the other hand, timeless beauties like Sophia Loren, Jane Mansfield and Elizabeth Taylor knew that a soft set of pearls, some red lipstick and a body hugging, flattering swimsuit were all it took to grab a man's attention and keep it!
+</section>
+<section class="rating">
+  <div> <mat-icon>person</mat-icon><h1> {{listUsers.length}}</h1><h2>נרשמים</h2></div>
+  <div> <mat-icon>restaurant_menu</mat-icon><h1> {{listMeals.length}}</h1><h2>מתכונים</h2></div>
+  <div> <mat-icon>menu_book</mat-icon><h1> {{listMenus.length}}</h1><h2>תפריטים</h2></div>
+</section>
+<section class="recipe">
+<div class="title"><span> </span><h1>מתכונים </h1><span> </span></div>
+<div>
+  <ul><li *ngFor="let x of Meals;"><app-meal  [meal]="x"></app-meal></li></ul>
+</div>
+ <div class="button-more">
+  <a href="#" class="shiny-btn">ראה הכל</a>
+</div>
+</section>
+<section class="menu">
+  <div class="title"><span> </span><h1>תפריטים </h1><span> </span></div>
+  <div>
+    <ul><li *ngFor="let x of Menus;"><app-menu  [menu]="x"></app-menu></li></ul>
+  </div>
 </section>
 </div>
+
+

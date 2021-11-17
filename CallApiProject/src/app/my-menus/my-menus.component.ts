@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Level } from 'src/Models/Level';
 import { Meal } from 'src/Models/Meal';
 import { Menu } from 'src/Models/Menu';
+import { Picture } from 'src/Models/Picture';
 import { User } from 'src/Models/User';
 import { AddMenuComponent } from '../add-menu/add-menu.component';
 import { DeletMealComponent } from '../delet-meal/delet-meal.component';
@@ -13,6 +14,7 @@ import { LevelService } from '../level.service';
 // import { DeleteMenuComponent } from '../delete-menu/delete-menu.component';
 import { MealService } from '../meal.service';
 import { MenuService } from '../menu.service';
+import { PictureService } from '../picture.service';
 import { RemoveShareComponent } from '../remove-share/remove-share.component';
 import { UserService } from '../user.service';
 
@@ -30,15 +32,15 @@ export class MyMenusComponent implements OnInit {
     newMenu: Menu = new Menu(1,null,null,1,null,null,null,1,null,null,null,null,null,null);
     ELEMENT_DATA: Menu[] =[]
     click = false
-    dataSource;
+    // dataSource;
     length = this.ELEMENT_DATA.length;
 
-    displayedColumns: string[] = ['y','s', 'MenuName','Level', 'countMeals', 'DateCreated','DateUpdated', 'x'];
+    // displayedColumns: string[] = ['y','s', 'MenuName','Level', 'countMeals', 'DateCreated','DateUpdated', 'x'];
     levels:Level[]=[]
 
-    constructor(private dialog:MatDialog,private ser:UserService,private serl:LevelService,private _snackBar: MatSnackBar,private serm:MenuService) {
+    constructor(private dialog:MatDialog,private ser:UserService,private serp:PictureService,private serl:LevelService,private _snackBar: MatSnackBar,private serm:MenuService) {
      this.u= JSON.parse(localStorage.getItem("user"));
-     this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+    //  this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
      this.GetAllMenus()
      this.GetLevels()
 
@@ -49,6 +51,7 @@ export class MyMenusComponent implements OnInit {
     }
   
 
+    pictures:Picture[]=[]
     GetMenuMeals(){
       this.ELEMENT_DATA.forEach(element => {
         this.serm.GetMenuMeals(element.menuCode).subscribe(succ => {
@@ -63,18 +66,23 @@ export class MyMenusComponent implements OnInit {
       this.ser.GetUserMenus(this.u.userCode).subscribe(succ => {
        this.ELEMENT_DATA = succ;
        this.length= this.ELEMENT_DATA.length;
-       this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+      //  this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
       this.GetMenuMeals()    
          console.log(this.ELEMENT_DATA);
-
      }, err => {
         console.log(err);
       }) 
    }
-     applyFilter(event: Event) {
-       const filterValue = (event.target as HTMLInputElement).value;
-       this.dataSource.filter = filterValue.trim().toLowerCase();
-     }
+ 
+   GetMenuPictures(x:Menu){
+     this.pictures=[]
+     x.meals.forEach(element => {    
+      this.serp.GetPictureById(x.pictureCode).subscribe(succ=>{
+      this.pictures.push(succ)
+      console.log(this.pictures)
+      },err=>{console.log(err)})
+   });
+   }
   
      AddMenu(){
      const dialogRef = this.dialog.open(AddMenuComponent, {
@@ -222,4 +230,21 @@ Level(x:Menu){
 }
 
 
+text:string=""
+find:Menu[]=[]
+search(){
+  if(this.text==""){
+    this.GetAllMenus()
+  }
+  else{
+   console.log(this.text)
+   this.find.length=0;
+   this.ELEMENT_DATA.forEach(element => {
+   if(element.menuName.includes(this.text)){ 
+   this.find.push(element);  
+   }
+  });
+ this.ELEMENT_DATA=this.find
+
+}}
  }

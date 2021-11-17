@@ -1,5 +1,5 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { CategoriesToMenu } from 'src/Models/CategoriesToMenu';
 import { Meal } from 'src/Models/Meal';
 import { Menu } from 'src/Models/Menu';
@@ -32,7 +32,8 @@ export class AddMenuComponent implements OnInit {
   selectLe:string
   ELEMENT_DATA: Meal[] = [];
  open=true
-  constructor(private seru: UserService,private serp:PictureService,private ser: MenuService,private serl:LevelService,private serm:MealService, private dialogRef: MatDialogRef<AddMealComponent>,@Inject(MAT_DIALOG_DATA) public data: Menu) {
+ add=false
+  constructor(private seru: UserService,private serp:PictureService,private ser: MenuService,private serl:LevelService,private serm:MealService,private dialog:MatDialog, private dialogRef: MatDialogRef<AddMealComponent>,@Inject(MAT_DIALOG_DATA) public data: Menu) {
     this.u=JSON.parse(localStorage.getItem("user"));
     this.GetAllMeals()
     this.GetLevels()
@@ -42,6 +43,9 @@ export class AddMenuComponent implements OnInit {
       console.log(this.newMenu)  
      ser.GetMenuMeals(this.newMenu.menuCode).subscribe(succ=>{
      this.MenuList=succ  
+     this.MenuList.forEach(element => {
+      element.mealCode=0
+    });
      console.log(this.MenuList)
 
      },err=>{
@@ -104,7 +108,7 @@ export class AddMenuComponent implements OnInit {
   }
 
 
- add(x:Meal){
+ Add(x:Meal){
    console.log(x)
    if(this.MenuList.includes(x))  
    this.MenuList.splice(this.MenuList.indexOf(x), 1);
@@ -120,7 +124,7 @@ export class AddMenuComponent implements OnInit {
       if (element.levelName == this.selectLe)
         this.newMenu.levelCode = element.levelCode
     });
-  this.MenuList.forEach(element => {
+    this.MenuList.forEach(element => {
       element.mealCode=0
     });
     this.ser.AddMenuToUser(this.newMenu).subscribe(succ=>{
@@ -174,5 +178,29 @@ export class AddMenuComponent implements OnInit {
 Open(){
   this.open=true
   console.log(this.open)
+}
+
+
+change(){
+  this.open=!this.open
+  this.add=!this.add
+}
+editMeal(x:Meal){
+  console.log(x)
+  const dialogRef = this.dialog.open(AddMealComponent, {
+  disableClose:true,
+  autoFocus:false,
+  data:x,
+  panelClass:'my-dialog',
+  width:'80%',
+  height:'100%',
+  });
+  dialogRef.afterClosed().subscribe(result => {
+    console.log('The dialog was closed');
+    this.GetAllMeals()
+    console.log(result)
+    x=result
+ });
+
 }
 }

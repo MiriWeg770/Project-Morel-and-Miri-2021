@@ -41,12 +41,19 @@ export class AddMealComponent implements OnInit {
   selectCa:string
   selectLe:string
   newMealCategories: CategoriesToMeal = new CategoriesToMeal(0, 0, 0);
-  Instructions:string[]=[]
+  Instructions:String[]=[]
   imageUrl: string="/assets/img/1.png"
   fileToUpload:File=null
   UnitMeasures:UnitMeasure[]=[]
   picture:Picture=new Picture(1,"",1);
+  // hour:number;
+  // minute:number
 
+  content1:boolean=true;
+  content2:boolean;
+  content3:boolean;
+  content4:boolean;
+empty=false;
   constructor(private ser: MealService, private serc: MealCategoriesService,private serl:LevelService,private seru:UnitMeasureService,private serp:PictureService, public dialog: MatDialog, public active: ActivatedRoute,
     public dialogRef: MatDialogRef<AddMealComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Meal) {
@@ -89,13 +96,16 @@ export class AddMealComponent implements OnInit {
       }    
       console.log(this.Instructions)
     }
+    this.AddProduct()
+    this.AddStep()
+    
   }
   ngOnInit(): void {
     this.GetCategories()
     this.GetLevels()
     this.GetAllUnitMeasures()
   }
-
+time:Date=new Date()
   saveMeal() {
     console.log(this.selectCa)
 
@@ -129,17 +139,27 @@ export class AddMealComponent implements OnInit {
    this.newMeal.instructions=s
    console.log(this.newMeal)
     this.picture.pictureName=this.url;
+    // this.time.setHours(this.hour,this.minute)
+    // this.newMeal.preparationTime= this.time;
+
    this.serp.AddPicture(this.picture).subscribe(succ=>{
      console.log(succ)
      this.newMeal.pictureCode=succ.pictureCode;
-     this.ser.UpdateMeal(this.newMeal).subscribe(succ => {
-          // this.newMealCategories.mealCode = data.mealCode;
-
-      // this.ser.AddCategoriesToMeal(this.newMealCategories).subscribe();
+     
+     let x=this.newMeal;
+     if(x.mealName!=null && x.numberOfDiners!=null && x.pictureCode!=null && x.products!=[] 
+       && x.preparationTime!=null && x.instructions!=null && x.levelCode!=null && x.mealCategoryCode!=null
+       && x.discription!=null
+      ){
+     this.ser.AddMealToUser(this.newMeal).subscribe(succ => {
       console.log(succ);
     }, err => {
       console.log(err);
-    })  
+    })  }
+    else{
+      alert("מלא את כל הפרטים")
+      this.empty=true
+    }
     },err=>{console.log(err)})
 
   }
@@ -214,7 +234,7 @@ export class AddMealComponent implements OnInit {
     }),err=>{console.log(err)}
   }
 
-  url ;
+  url;
   name;
   onSelectFile(event) {
     if (event.target.files && event.target.files[0]) {
@@ -237,7 +257,7 @@ export class AddMealComponent implements OnInit {
   //       reader.readAsDataURL(this.fileToUpload);
   //   }
 
-
+    
     AddStep(){
       this.Instructions.push("")
       console.log(this.Instructions)
@@ -266,6 +286,14 @@ export class AddMealComponent implements OnInit {
 
 
 
-
+check(x:number){
+  switch (x) {
+  case 1:this.content1=true;this.content2=false;this.content3=false;this.content4=false;break;
+  case 2:this.content1=false;this.content2=true;this.content3=false;this.content4=false;break;
+  case 3:this.content1=false;this.content2=false;this.content3=true;this.content4=false;break;
+  case 4:this.content1=false;this.content2=false;this.content3=false;this.content4=true;break;
+  default:console.log("err");break;
+}
+}
     
 }

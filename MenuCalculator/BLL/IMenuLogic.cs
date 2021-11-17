@@ -17,8 +17,6 @@ namespace BLL
         MenuDto DeletMenu(MenuDto u);
         MenuDto UpdateMenu(MenuDto u);
         List<MealDto> GetMenuMeals(int id);
-        void SendMenulInMail(string nameFrom, string from, string to, string message, MealDto meal);
-
 
         //   MenuDto IsExists(MenuDto b);
 
