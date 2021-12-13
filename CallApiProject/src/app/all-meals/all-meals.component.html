@@ -1,63 +1,33 @@
 <body>
     <div class=img>
     <div class="title">
-        <h1>כל המנות</h1>
+        <h1>({{arr.length}})כל המנות</h1> 
     </div>
 </div><div class="container">
       <div class="contain" >
         <div class="search-options">
             <div class="search">       
        <div class="searchBox">
-        <input class="searchInput"type="text" name="" placeholder="Search">
-        <button class="searchButton" href="#">
-            <mat-icon>search</mat-icon>
-        </button>
+        <input class="searchInput" type="text" (keyup)="search()" [(ngModel)]="text"  name="" placeholder="חפש מנה...">
     </div>
  </div>
  <div class="box">
-  <select [(ngModel)]="s" (click)="sort()">
+  <select [(ngModel)]="s" (change)="sort()">
     <option  *ngFor="let x of sortBy;let i=index">{{x}}</option>
   </select>
 </div>
-<!-- <div class="search">
- 
-     <div class="searchResult">
-    <div class="search-input">      
-      <div>
-        <span>מיין לפי</span>
-        <select name=" " [(ngModel)]="select2" >
-          <option *ngFor="let x of sort" value="{{x}}">{{x}}</option>
-        </select>
-      </div>
-     
-      </div>
-      </div>      
-  
-    </div>
-     -->
-<!-- <div class="select-box">
-  <div class="select-box__current" tabindex="1">
-    <div class="select-box__value" *ngFor="let x of sortBy;let i=index">
-      <input class="select-box__input" type="radio" id="i" value="i+1" name="Ben" checked="checked"/>
-      <p class="select-box__input-text">{{x}}</p>
-    </div>
-    <img class="select-box__icon" src="http://cdn.onlinewebfonts.com/svg/img_295694.svg" alt="Arrow Icon" aria-hidden="true"/>
-  </div>
-  <ul class="select-box__list">
-    <li *ngFor="let x of sortBy;let i=index">
-      <label class="select-box__option" for="i" (click)="sort(i)" aria-hidden="aria-hidden">{{x}}</label>
-    </li>
-  </ul>
-</div> -->
-          
         </div>
+        <div class="selectCa"><span *ngFor="let x of serc.checkListCategories">{{x.mealCategoriesName}}</span></div>
       <div class="list">
      <ul *ngIf="!choose">
       <li *ngFor="let x of listMeals"> <app-meal [meal]="x"></app-meal></li>
     </ul>
     <ul *ngIf="choose">
-      <li *ngFor="let x of meal"> <app-meal [meal]="x"></app-meal></li>
+      <li *ngFor="let x of meals"> <app-meal [meal]="x"></app-meal></li>
     </ul>
+    <div class="notFound" *ngIf="notFound">
+      <p  ><b> מצטערים,לא נמצאה התאמה למילה  שחיפשת<b class="bold">{{text}}</b>!!</b></p>
+    </div>
     </div>
   </div>
     <div class="sidebar">

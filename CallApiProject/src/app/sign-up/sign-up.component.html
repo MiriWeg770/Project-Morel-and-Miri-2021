@@ -23,13 +23,13 @@
                  </div>
                  <div class="input-group">
                   <span *ngIf="userPassword.hasError('required') && userPassword.touched" class="popuptext" id="myPopup">!זהו שדה חובה</span>
-                  <input class="input-group__input" type="password" name="password" #userPassword="ngModel" [(ngModel)]="myUser.password" placeholder="&nbsp;" id="password" required />
+                  <input class="input-group__input" type="password" name="password" #userPassword="ngModel" maxlength="8" [(ngModel)]="myUser.password" placeholder="&nbsp;" id="password" required />
                   <label class="input-group__label" for="password">סיסמה</label>
                  </div>
                   <div class="input-group">
                     <span *ngIf="userpassword.hasError('required') && userpassword.touched" class="popuptext" id="myPopup">!זהו שדה חובה</span>
                     <span *ngIf="userpassword.value!=userPassword.value && userpassword.touched" class="popuptext" id="myPopup">סיסמאות לא תואמות</span>
-                    <input class="input-group__input" type="password" name="password2" #userpassword="ngModel" [(ngModel)]="password2" placeholder="&nbsp;" id="password2" required />
+                    <input class="input-group__input" type="password" name="password2" maxlength="8" #userpassword="ngModel" [(ngModel)]="password2" placeholder="&nbsp;" id="password2" required />
                     <label class="input-group__label" for="password2">חזור על הסיסמה</label>
                   </div>                 
                   <button type="submit" [disabled]="!myForm.valid" >הירשם</button>
@@ -50,7 +50,7 @@
                   </div>
                   <div class="input-group">
                     <span *ngIf="userPassword2.hasError('required') && userPassword2.touched" class="popuptext" id="myPopup">זהו שדה חובה!</span>
-                    <input class="input-group__input" type="password" name="repassword" #userPassword2="ngModel" [(ngModel)]="myUser.Password" placeholder="&nbsp;" id="repassword" required />
+                    <input class="input-group__input" type="password" name="repassword" maxlength="8" #userPassword2="ngModel" [(ngModel)]="myUser.Password" placeholder="&nbsp;" id="repassword" required />
                     <label class="input-group__label" for="password">סיסמה</label>
                   </div> 
                   <div class="flex-space-between">

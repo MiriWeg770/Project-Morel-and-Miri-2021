@@ -22,6 +22,11 @@ namespace WebApi.Controllers
         {
             _logic = logic;
         }
+        [HttpGet("GetAllUsersMenus")]
+        public IActionResult GetAllUserMenus()
+        {
+            return Ok(_logic.GetAllUsersMenus());
+        }
         [HttpGet]
         public IActionResult GetAllMenus()
         {
@@ -47,13 +52,22 @@ namespace WebApi.Controllers
         }
 
         [HttpPut("UpdateMenu")]
-        public IActionResult UpdateMeal([FromBody] MenuDto menu)
+        public IActionResult UpdateMenu([FromBody] MenuDto menu)
         {
             return Ok(_logic.UpdateMenu(menu));
-
+        }
+        [HttpPut("PublishMenu")]
+        public IActionResult Publish([FromBody] MenuDto menu)
+        {
+            return Ok(_logic.Publish(menu));
+        }
+        [HttpPut("ChangeViewsNumber")]
+        public IActionResult ChangeViewsNumber([FromBody] MenuDto menu)
+        {
+            return Ok(_logic.ChangeViewsNumber(menu));
         }
         [HttpPut("DeleteMenu")]
-        public IActionResult DeleteMeal([FromBody] MenuDto Meal)
+        public IActionResult DeleteMenu([FromBody] MenuDto Meal)
         {
             return Ok(_logic.DeletMenu(Meal));
         }
@@ -62,5 +76,23 @@ namespace WebApi.Controllers
         {
             return Ok(_logic.GetMenuMeals(id));
         }
+        [HttpPut("MenuIsExists")]
+        public IActionResult MenuIsExists([FromBody] MenuDto m)
+        {
+            return Ok(_logic.IsExists(m));
+        }
+        [HttpPost("SendMenuPDFinMail")]
+        public IActionResult SendPDFinMail(string[] arr)
+        {
+            _logic.SendMenuInMail(arr[1], arr[0], arr[2]);
+            return Ok(arr);
+
+        }
+        [HttpGet("GetMenuProducts/{id}")]
+        public IActionResult GetMenuProducts(int id)
+        {
+            return Ok(_logic.GetMenuProducts(id));
+        }
+
     }
 }

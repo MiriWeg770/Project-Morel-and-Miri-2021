@@ -1,170 +1,144 @@
-<!--    
-   <body>
-  <div class="toolbar"> 
-    <div style="display: flex;
-    align-items: baseline;cursor: pointer;">    
-    <mat-icon mat-dialog-close class="close">close</mat-icon>
-    <mat-icon matTooltip="שמור" *ngIf="data==null"(click)="saveMeal()" mat-dialog-close>save</mat-icon>
-    <mat-icon matTooltip="שמור" *ngIf="data!=null"(click)="updateMeal()" mat-dialog-close>save</mat-icon>
-       </div> 
-         <h2 *ngIf="data==null"> הוסף מנה</h2>
-         <h2 *ngIf="data!=null"> עדכן מנה</h2>
-  </div>
- 
-  <div class="details">
-    <div class="form ">
-      <div>
-        <input type="file" class="file" id="image" accept="image/*" (change)="onSelectFile($event)">
-        <img [src]="url" style="width: 200px;">
-        </div>
-        <div>
-      <label>שם המנה</label>
-      <input type="text" name="MealName" [(ngModel)]="newMeal.mealName" required  #MealName="ngModel"/>
- 
-      <label>קטגוריה</label>
-      <select name=" " [(ngModel)]="selectCa">
-        <option *ngFor="let x of categories; let i=index" value={{x.mealCategoriesName}} >{{x.mealCategoriesName}}</option>
-        <option value="">הוסף קטגוריה</option>
-      </select>
-      <label> זמן הכנה</label>
-      <input type="time" [(ngModel)]="newMeal.preparationTime">
-      <label>דרגת קושי</label>
-      <select name=" " [(ngModel)]="selectLe">
-        <option *ngFor="let x of levels; let i=index" value={{x.levelName}} >{{x.levelName}}</option>
-      </select>
-      <label>כמות סועדים</label>
-      <input type="number" name="NumberOfDiners" [(ngModel)]="newMeal.numberOfDiners">
-    </div>
- 
-      <label>תאור המנה</label>
-      <textarea id="discription" name="Discription" [(ngModel)]="newMeal.discription"></textarea>
-      </div>
-       <mat-divider></mat-divider>
-      <div class="instructions form">
-      <label> אופן ההכנה </label>
-      <div class="how" *ngFor="let x of Instructions;let i=index">       
-         <mat-icon (click)="RemoveStep(Instructions[i])">cancel</mat-icon>
-        <textarea   [(ngModel)]="Instructions[i]" ></textarea>
-      </div>
-      <h2 (click)="AddStep()" matTooltip="הוסף שלב"><mat-icon>add</mat-icon></h2>
-    </div>
-    <mat-divider></mat-divider>
-    <div class="instructions form">
-      <label>  מוצרים </label>
-      <div class="how" *ngFor="let x of ELEMENT_DATA;let i=index">       
-         <mat-icon (click)="RemoveProduct(ELEMENT_DATA[i])">cancel</mat-icon>
-        <input type="text" placeholder="שם מוצר" [(ngModel)]="ELEMENT_DATA[i].productName">
-        <input type="number" placeholder="כמות" [(ngModel)]="ELEMENT_DATA[i].amountInMeal">
-        <select name="AmountName" [(ngModel)]="ELEMENT_DATA[i].unitMeasureCode">
-            <option *ngFor="let x of UnitMeasures; let i=index" value={{x.unitCode}} >{{x.unitName}}</option>
-        </select>
-    </div>    
-      <h2 (click)="AddProduct()" matTooltip="הוסף מוצר"><mat-icon>add</mat-icon></h2> 
-</div>
-
-  </div>
-</body>
-
-
-
-
-
-
-
-
-
-
-
- -->
-
 <div class="main">
   <form>
- <div class="toolbar"> 
-  <div style="display: flex;
-  align-items: baseline;cursor: pointer;">    
-  <mat-icon mat-dialog-close class="close">close</mat-icon>
-  <mat-icon matTooltip="שמור" *ngIf="data==null"(click)="saveMeal()" >save</mat-icon>
-  <mat-icon matTooltip="שמור" *ngIf="data!=null"(click)="updateMeal()" >save</mat-icon>
-     </div> 
-       <h2 *ngIf="data==null"> הוסף מנה</h2>
-       <h2 *ngIf="data!=null"> עדכן מנה</h2>
-</div>
- 
-	<input id="radio1" type="radio" name="css-tabs" checked>
-	<input id="radio2" type="radio" name="css-tabs">
-	<input id="radio3" type="radio" name="css-tabs">
-	<input id="radio4" type="radio" name="css-tabs">
-	<div id="tabs">
-		<label id="tab1" for="radio1" (click)="check(1)"> <mat-icon>info</mat-icon>פרטים</label>
-		<label id="tab2" for="radio2" (click)="check(2)"> <mat-icon>list_alt</mat-icon>אופן ההכנה</label>
-		<label id="tab3" for="radio3" (click)="check(3)"><mat-icon>ballot</mat-icon>מרכיבי המנה</label>
-		<label id="tab4" for="radio4" (click)="check(4)"><mat-icon>photo_library</mat-icon>תמונה</label>
-	</div>
-	<div id="content">
-		<section id="content1" *ngIf="content1">
-      <div class="form">     
+    <div class="toolbar">
+      <div style="display: flex;align-items: baseline;cursor: pointer;">
+        <mat-icon mat-dialog-close class="close">close</mat-icon>
+        <mat-icon matTooltip="שמור" *ngIf="data==null" (click)="saveMeal()">save</mat-icon>
+        <mat-icon matTooltip="שמור" *ngIf="data!=null" (click)="updateMeal()">save</mat-icon>
+      </div>
+      <h2 *ngIf="data==null"> הוסף מנה</h2>
+      <h2 *ngIf="data!=null"> עדכן מנה</h2>
+    </div>
+    <input id="radio1" type="radio" name="css-tabs" checked>
+    <input id="radio2" type="radio" name="css-tabs">
+    <input id="radio3" type="radio" name="css-tabs">
+    <input id="radio4" type="radio" name="css-tabs">
+    <div id="tabs">
+      <label id="tab1" for="radio1" (click)="check(1)">
+        <mat-icon>info</mat-icon>פרטים
+      </label>
+      <label id="tab2" for="radio2" (click)="check(2)">
+        <mat-icon>ballot</mat-icon>מרכיבי המנה
+      </label>
+      <label id="tab3" for="radio3" (click)="check(3)">
+        <mat-icon>list_alt</mat-icon>אופן ההכנה
+      </label>
+      <label id="tab4" for="radio4" (click)="check(4)">
+        <mat-icon>photo_library</mat-icon>תמונה
+      </label>
+    </div>
+    <div id="content">
+      <section id="content1" *ngIf="content1">
+        <div class="form">
           <div>
-        <!-- <span *ngIf="MealName.hasError('required') && MealName.touched" class="popuptext" id="myPopup">זהו שדה חובה!</span>
-        <span *ngIf="MealName.hasError('pattern') && MealName.touched" class="popuptext" id="myPopup">השדה חייב להכיל עד 25 אותיות !</span>                -->
-        <label><span *ngIf="empty && MealName.hasError('required')">*</span>שם המנה</label>
-        <input type="text"  [ngStyle]="{'border-color':empty && MealName.hasError('required')? 'red' :''}" name="MealName"  [(ngModel)]="newMeal.mealName" pattern="[A-Za-z ]+" maxlength="30" required  #MealName="ngModel"/>
-       
-        <!-- <span *ngIf="category.hasError('required')" class="popuptext" id="myPopup">זהו שדה חובה!</span> -->
-        <label><span *ngIf="empty && category.hasError('required')">*</span>קטגוריה</label>
-        <select name=" " [(ngModel)]="selectCa" #category="ngModel"  required>
-          <option *ngFor="let x of categories; let i=index" value={{x.mealCategoriesName}} >{{x.mealCategoriesName}}</option>
-          <option value="">הוסף קטגוריה</option>
-        </select>
-        
-        <!-- <span *ngIf="time.hasError('required')" class="popuptext" id="myPopup">זהו שדה חובה!</span> -->
-        <label><span *ngIf="empty && time.hasError('required')">*</span> זמן הכנה</label>
-        <input type="number" class="time" name="time" [(ngModel)]="minute" #time="ngModel" required>
-        <span>דקות</span>
-        <!-- <input type="number" class="time" name="time" [(ngModel)]="hour" #time="ngModel" required>
-        <span>שעות</span> -->
-        <label><span *ngIf="empty && level.hasError('required')">*</span>דרגת קושי</label>
-        <select name=" " [(ngModel)]="selectLe" #level="ngModel" required>
-          <option *ngFor="let x of levels; let i=index" value={{x.levelName}} >{{x.levelName}}</option>
-        </select>
-        <label><span *ngIf="empty && numberOfDiners.hasError('required')">*</span>כמות סועדים</label>
-        <input type="number" [ngStyle]="{'border-color':empty && numberOfDiners.hasError('required')? 'red' :''}" name="numberOfDiners" #numberOfDiners="ngModel" [(ngModel)]="newMeal.numberOfDiners" required>
-      </div>
-        <label><span *ngIf="empty && discription.hasError('required')">*</span>תאור המנה</label>
-        <textarea id="discription"  [ngStyle]="{'border-color':empty && discription.hasError('required')? 'red' :''}" name="Discription" #discription="ngModel" [(ngModel)]="newMeal.discription" required></textarea>
+            <label>שם המנה</label>
+            <input type="text" name="MealName" [(ngModel)]="newMeal.mealName" maxlength="30" required
+              #MealName="ngModel"
+              [ngStyle]="{'border-color': MealName.hasError('required') && empty || MealName.hasError('pattern') || name!=null ? 'red' : '' }" />
+
+            <label>קטגוריה</label>
+            <select name=" " [(ngModel)]="selectCa" required
+              [ngStyle]="{'border-color': selectCa=='' && empty ? 'red' : '' }">
+              <option *ngFor="let x of categories" value={{x.mealCategoriesName}}>{{x.mealCategoriesName}}</option>
+            </select>
+            <button (click)="c()"></button>
+
+            <label>דרגת קושי</label>
+            <select name=" " [(ngModel)]="selectLe" required
+              [ngStyle]="{'border-color': selectLe=='' && empty ? 'red' : '' }">
+              <option *ngFor="let x of levels" value={{x.levelName}}>{{x.levelName}}</option>
+            </select>
+
+            <label> זמן הכנה</label>
+            <div class="time-input">
+              <select name=" " [(ngModel)]="minute" required
+                [ngStyle]="{'border-color': minute==null && empty ? 'red' : '' }">
+                <option *ngFor="let x of minutes" value={{x}}>{{x}}</option>
+              </select><span>דקות</span>
+              <select name=" " [(ngModel)]="hour" required
+                [ngStyle]="{'border-color': hour==null && empty ? 'red' : '' }">
+                <option *ngFor="let x of hours" value={{x}}>{{x}}</option>
+              </select> <span>שעות</span>
+            </div>
+
+
+
+            <label>כמות סועדים</label>
+            <input type="number" name="numberOfDiners" #numberOfDiners="ngModel" [(ngModel)]="newMeal.numberOfDiners"
+              required [ngStyle]="{'border-color': numberOfDiners.hasError('required') && empty ? 'red' : '' }">
+
+            <label>תאור המנה</label>
+            <textarea id="discription" name="Discription" #discription="ngModel" [(ngModel)]="newMeal.discription"
+              required [ngStyle]="{'border-color': discription.hasError('required') && empty? 'red' : '' }"></textarea>
+
+          </div>
         </div>
-    </section>
-		<section id="content2" *ngIf="content2">
-      <div class="instructions form">
-        <label><span *ngIf="empty && Instructions[0]==null">*</span> אופן ההכנה </label>
-        <div class="how" *ngFor="let x of Instructions;let i=index">       
-           <mat-icon (click)="RemoveStep(Instructions[i])">cancel</mat-icon>
-          <input  [(ngModel)]="Instructions[i]" [ngModelOptions]="{standalone: true}" required />
+      </section>
+
+      <section id="content2" *ngIf="content2">
+        <div class="instructions form">
+          <label><span *ngIf="empty && ELEMENT_DATA==null">*</span> מוצרים </label>
+          <div class="how" *ngFor="let x of ELEMENT_DATA;let i=index">
+            <mat-icon (click)="RemoveProduct(ELEMENT_DATA[i])">cancel</mat-icon>
+            <input type="text" (keyup)="Options(ELEMENT_DATA[i].productName)" [matAutocomplete]="auto"
+              placeholder="שם מוצר" [(ngModel)]="ELEMENT_DATA[i].productName" [ngModelOptions]="{standalone: true}"
+              [ngStyle]="{'border-color': empty && ELEMENT_DATA[i].productName==null? 'red' : '' }">
+            <mat-autocomplete #auto="matAutocomplete">
+              <mat-option *ngFor="let option of options" [value]="option">
+                {{option}}
+              </mat-option>
+            </mat-autocomplete>
+            <input type="number" placeholder="כמות" [(ngModel)]="ELEMENT_DATA[i].amountInMeal"
+              [ngModelOptions]="{standalone: true}"
+              [ngStyle]="{'border-color': empty && ELEMENT_DATA[i].amountInMeal==null? 'red' : '' }">
+            <select name="AmountName" [(ngModel)]="ELEMENT_DATA[i].unitMeasureCode"
+              [ngStyle]="{'border-color': empty && ELEMENT_DATA[i].unitMeasureCode==null? 'red' : '' }">
+              <option *ngFor="let y of UnitMeasures; let index=index" [value]="UnitMeasures[i].unitCode">{{y.unitName}}</option>
+            </select>
+            <!-- <span *ngIf="empty && (ELEMENT_DATA[i].productName==null || ELEMENT_DATA[i].amountInMeal==null || ELEMENT_DATA[i].unitMeasureCode==null)" class="popuptext" id="myPopup">זהו שדה חובה!</span>     -->
+          </div>
+          <h2 (click)="AddProduct()" matTooltip="הוסף מוצר">
+            <mat-icon>add</mat-icon>
+          </h2>
         </div>
-        <h2 (click)="AddStep()" matTooltip="הוסף שלב"><mat-icon>add</mat-icon></h2>
-      </div>
-   </section>
-		<section id="content3" *ngIf="content3">
-      <div class="instructions form">
-        <label><span *ngIf="empty && ELEMENT_DATA==null">*</span> מוצרים </label>
-        <div class="how" *ngFor="let x of ELEMENT_DATA;let i=index">       
-           <mat-icon (click)="RemoveProduct(ELEMENT_DATA[i])">cancel</mat-icon>
-          <input type="text" placeholder="שם מוצר" [(ngModel)]="ELEMENT_DATA[i].productName" [ngModelOptions]="{standalone: true}">
-          <input type="number" placeholder="כמות" [(ngModel)]="ELEMENT_DATA[i].amountInMeal" [ngModelOptions]="{standalone: true}">
-          <select name="AmountName" [(ngModel)]="ELEMENT_DATA[i].unitMeasureCode">
-              <option *ngFor="let x of UnitMeasures; let i=index" value={{x.unitCode}} >{{x.unitName}}</option>
-          </select>
-      </div>    
-        <h2 (click)="AddProduct()" matTooltip="הוסף מוצר"><mat-icon>add</mat-icon></h2> 
-  </div>
-   </section>
-		<section id="content4" *ngIf="content4">
-      <div class="file">
-        <input type="file" name="file"  class="inputfile" id="file" accept="image/*" (change)="onSelectFile($event)"/>
-        <label *ngIf="data==null && url==null" for="file"><span *ngIf="empty && url==null ">*</span>בחר תמונה</label>
-        <label *ngIf="data!=null || url!=null" for="file"><span *ngIf="empty && url==null ">*</span>שנה תמונה</label>
-        <div *ngIf="url" style="background: url({{url}});border: 7px solid white;box-shadow: 1px 1px 11px 0px rgb(0 0 0 / 54%);height: 500px;background-size: cover;background-position: center;background-repeat: no-repeat;" class="img"></div>
+      </section>
+
+      <section id="content3" *ngIf="content3">
+        <div class="instructions form">
+          <label> אופן ההכנה </label>
+          <div class="how" *ngFor="let field of Instructions; let i = index; trackBy: trackByFn">
+            <mat-icon (click)="removeField(i)">cancel</mat-icon>
+            <input [(ngModel)]="field.key" #modelField="ngModel" [name]=" 'Instructions['+i+'].key' " type="text"
+              required [ngStyle]="{'border-color': empty && field.key==''? 'red' : '' }" />
+          </div>
+          <h2 (click)="addField()" matTooltip="הוסף שלב">
+            <mat-icon>add</mat-icon>
+          </h2>
         </div>
-  </section>
-	</div>
-</form>
+      </section>
+
+      <section id="content4" *ngIf="content4">
+        <div class="file">
+          <input type="file" name="file" class="inputfile" id="file" accept="image/*" (change)="onSelectFile($event)" />
+          <label *ngIf="data==null && url==null" for="file"><span *ngIf="empty && url==null ">*</span>בחר תמונה</label>
+          <label *ngIf="data!=null || url!=null" for="file"><span *ngIf="empty && url==null ">*</span>שנה תמונה</label>
+          <div *ngIf="url"
+            style="background: url({{url}});border: 7px solid white;box-shadow: 1px 1px 11px 0px rgb(0 0 0 / 54%);height: 500px;background-size: cover;background-position: center;background-repeat: no-repeat;"
+            class="img"></div>
+        </div>
+      </section>
+    </div>
+  </form>
 </div>
+<dialog id="dialog">
+  <p *ngIf="!edit">!!המנה התווספה בהצלחה</p>
+  <p *ngIf="edit">!!המנה עודכנה בהצלחה</p>
+</dialog>
+<dialog id="dialog2">
+  <p>!!מלא את כל הפרטים</p>
+</dialog>
+<dialog id="dialog3">
+  <p>!!יש לך כבר מנה בשם זה , שנה שם</p>
+</dialog>
+
+<div class="loader" *ngIf="loader"></div>

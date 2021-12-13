@@ -10,5 +10,10 @@ namespace DTO.Convertors
         public string UserName { get; set; }
         public string Password { get; set; }
         public string Mail { get; set; }
+        public int? PictureCode { get; set; }
+        public bool? Manager { get; set; }
+
     }
 }
+
+

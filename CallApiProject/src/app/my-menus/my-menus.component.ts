@@ -5,17 +5,21 @@ import { MatTableDataSource } from '@angular/material/table';
 import { Level } from 'src/Models/Level';
 import { Meal } from 'src/Models/Meal';
 import { Menu } from 'src/Models/Menu';
+import { MenuCategories } from 'src/Models/MenuCategories';
 import { Picture } from 'src/Models/Picture';
 import { User } from 'src/Models/User';
 import { AddMenuComponent } from '../add-menu/add-menu.component';
 import { DeletMealComponent } from '../delet-meal/delet-meal.component';
 import { DeletMenuComponent } from '../delet-menu/delet-menu.component';
+import { DeletPublishedMenuComponent } from '../delet-published-menu/delet-published-menu.component';
 import { LevelService } from '../level.service';
 // import { DeleteMenuComponent } from '../delete-menu/delete-menu.component';
 import { MealService } from '../meal.service';
 import { MenuService } from '../menu.service';
 import { PictureService } from '../picture.service';
+import { RemoveShareToUpdateComponent } from '../remove-share-to-update/remove-share-to-update.component';
 import { RemoveShareComponent } from '../remove-share/remove-share.component';
+import { ShareMenuComponent } from '../share-menu/share-menu.component';
 import { UserService } from '../user.service';
 
 
@@ -25,32 +29,31 @@ import { UserService } from '../user.service';
   styleUrls: ['./my-menus.component.css']
 })
 export class MyMenusComponent implements OnInit {
-    // listMenus:Menu[]=[]; 
-    u: User = new User(null, null, null, null);
+    u: User = new User(null, null, null, null,null,null);
     choose = false
     add = false
-    newMenu: Menu = new Menu(1,null,null,1,null,null,null,1,null,null,null,null,null,null);
+    newMenu: Menu = new Menu(1,null,null,null,null,null,0,null,null,null,null,null,null,null);
     ELEMENT_DATA: Menu[] =[]
     click = false
-    // dataSource;
     length = this.ELEMENT_DATA.length;
-
-    // displayedColumns: string[] = ['y','s', 'MenuName','Level', 'countMeals', 'DateCreated','DateUpdated', 'x'];
     levels:Level[]=[]
-
+    checked:Menu[]=[]
+    text:string=""
+    find:Menu[]=[]
+    c:MenuCategories[]=[]
+    arr:Menu[]=[]
+    loader=false
     constructor(private dialog:MatDialog,private ser:UserService,private serp:PictureService,private serl:LevelService,private _snackBar: MatSnackBar,private serm:MenuService) {
      this.u= JSON.parse(localStorage.getItem("user"));
-    //  this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+     this.GetCategories()
      this.GetAllMenus()
-     this.GetLevels()
-
-   
+     this.GetLevels()   
+     this.GetPictures()
      }
   
     ngOnInit(): void {
     }
   
-
     pictures:Picture[]=[]
     GetMenuMeals(){
       this.ELEMENT_DATA.forEach(element => {
@@ -65,15 +68,13 @@ export class MyMenusComponent implements OnInit {
       console.log(this.u.userCode)
       this.ser.GetUserMenus(this.u.userCode).subscribe(succ => {
        this.ELEMENT_DATA = succ;
-       this.length= this.ELEMENT_DATA.length;
-      //  this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
+       this.arr=succ
       this.GetMenuMeals()    
          console.log(this.ELEMENT_DATA);
      }, err => {
         console.log(err);
       }) 
    }
- 
    GetMenuPictures(x:Menu){
      this.pictures=[]
      x.meals.forEach(element => {    
@@ -83,8 +84,7 @@ export class MyMenusComponent implements OnInit {
       },err=>{console.log(err)})
    });
    }
-  
-     AddMenu(){
+   AddMenu(){
      const dialogRef = this.dialog.open(AddMenuComponent, {
      disableClose:true,
      autoFocus:false,
@@ -99,6 +99,7 @@ export class MyMenusComponent implements OnInit {
   
    }
    UpdateMenu(x:Menu){
+     if(!x.publish){
      const dialogRef = this.dialog.open(AddMenuComponent, {
      disableClose:true,
      autoFocus:false,
@@ -113,23 +114,18 @@ export class MyMenusComponent implements OnInit {
        console.log(result)
     });
    }
-  
-   checked:Menu[]=[]
+    else{
+    const dialogRef = this.dialog.open(RemoveShareToUpdateComponent, {
+      width: '20%',
+      data:true
+    });
+   }
+  }
    check(x:Menu){
      if(!this.checked.includes(x))
        this.checked.push(x) 
    console.log(this.checked)
    }
-  
-  
-  
-  
-  //  DeletItems(){
-  //    this.checked.forEach(element => {
-  //        this.Delet(element,true)
-  //    });
-  //  }
-
   DateCreated(x:Menu){
     let d:Date= new Date( x.dateCreated)
     return d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear();
@@ -141,14 +137,19 @@ export class MyMenusComponent implements OnInit {
     else
       return ""
   }
-
-  delet=false;
   Delet(x:Menu,d=false) {
     console.log(x)
-    const dialogRef = this.dialog.open(DeletMenuComponent, {
+    let dialogRef;
+    if(x.publish){
+      dialogRef = this.dialog.open(DeletPublishedMenuComponent, {
       width: '20%',
-      data: d
     });
+    }
+    else{
+       dialogRef = this.dialog.open(DeletMenuComponent, {
+        width: '20%',
+      });
+    }
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
       if(result){
@@ -166,36 +167,19 @@ export class MyMenusComponent implements OnInit {
       }) }
     });
 }
-
-
-DeletItems(){
-  this.checked.forEach(element => {
-      this.Delet(element,true)
-  });
-}
-
-
-share(){
-  this.checked.forEach(element => {
-   //  element.publish=true,
-   //  element.dateUplaod=new Date()
-   //  this.serm.UpdateMeal(element).subscribe(succ=>{
-   //    console.log("share")
-   // console.log(succ)
-   //  },err=>{console.log(err)})
-   this.shareOne(element)
-  });
-}
 shareOne(x:Menu){
  x.publish=true,
  x.dateUpload=new Date()
- this.serm.UpdateMenu(x).subscribe(succ=>{
+ x.viewsNumber=0
+ console.log(x)
+ this.serm.PublishMenu(x).subscribe(succ=>{
    console.log("share")
    console.log(succ)
+   const dialogRef = this.dialog.open(ShareMenuComponent, {
+    data:x
+   })
  },err=>{console.log(err)})
 }
-
-
 removeShare(x:Menu) {
   console.log(x)
   const dialogRef = this.dialog.open(RemoveShareComponent, {
@@ -205,7 +189,7 @@ removeShare(x:Menu) {
     console.log('The dialog was closed');
     if(result){
     x.publish=false;
-    this.serm.UpdateMenu(x).subscribe(succ=>{
+    this.serm.PublishMenu(x).subscribe(succ=>{
     console.log(succ)  
     this.GetAllMenus();
     },err => {
@@ -228,10 +212,6 @@ Level(x:Menu){
   });
   return le;
 }
-
-
-text:string=""
-find:Menu[]=[]
 search(){
   if(this.text==""){
     this.GetAllMenus()
@@ -239,6 +219,7 @@ search(){
   else{
    console.log(this.text)
    this.find.length=0;
+   this.ELEMENT_DATA=this.arr
    this.ELEMENT_DATA.forEach(element => {
    if(element.menuName.includes(this.text)){ 
    this.find.push(element);  
@@ -247,4 +228,38 @@ search(){
  this.ELEMENT_DATA=this.find
 
 }}
+GetCategories(){
+  this.serm.GetAllCategories().subscribe(succ => {
+    this.c=succ   
+    console.log(this.c)      
+   }, err => {
+     console.log(err)
+   })
+}
+Category(x:Menu){
+  let ca:string;
+  this.c.forEach(element => {
+    if(element.menuCategoriesCode==x.menuCategoryCode)
+      ca= element.menuCategoriesName;
+  });
+  return ca;
+}
+GetPictures(){
+  this.pictures=[]
+  this.serp.GetAllPictures().subscribe(succ=>{
+    this.pictures=succ
+    console.log(this.pictures)
+    this.GetAllMenus()
+ },err=>{
+   console.log(err)
+ })
+}
+GetPicture(x:number){
+  let url;
+  this.pictures.forEach(element => {
+   if(element.pictureCode==x)
+      url= element.pictureName
+ });
+ return url
+}
  }

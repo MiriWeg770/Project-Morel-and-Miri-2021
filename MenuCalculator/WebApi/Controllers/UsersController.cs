@@ -33,13 +33,11 @@ namespace WebApi.Controllers
         {
             return Ok(_logic.GetUserById(id));
         }
-        //[HttpPost]
-        //public IActionResult AddUser([FromBody] UserDto b)
-        //{
-        //    if (_logic.IsExists(b))
-        //        return StatusCode(409, "קיים כבר משתמש בשם זה");
-        //    return Ok(_logic.AddUser(b));
-        //}
+        [HttpPut("DeletUser")]
+        public IActionResult DeletUser([FromBody] UserDto b)
+        {
+            return Ok(_logic.DeletUser(b));
+        }
         [HttpPost("SignIn")]
         public IActionResult SignIn(UserDto u)
         {
@@ -54,7 +52,7 @@ namespace WebApi.Controllers
             {
                 if (_logic.IsExists(u))
                     return Conflict("מצטערים כבר יש כזה משתמש");
-                return Ok(_logic.SignUp(u.UserName, u.Mail, u.Password));
+                return Ok(_logic.SignUp(u.UserName, u.Mail, u.Password,u.Manager.Value));
             }
             catch (Exception e)
             {
@@ -78,9 +76,20 @@ namespace WebApi.Controllers
             if(s!= null)
                 return Ok(E);
             return NotFound("מצטערים אין כזה מייל");
+        }
+        [HttpPost("SendMessage")]
+        public IActionResult SendMessage(string [] arr)
+        {
+            return Ok(_logic.SendMessage(arr[0], arr[1],arr[2]));
 
         }
-     
+        [HttpPut("IsManager")]
+        public IActionResult IsManager([FromBody] UserDto u)
+        {
+            return Ok(_logic.IsManager(u));
+
+        }
+
 
     }
 }

@@ -1,0 +1,110 @@
+/* @import "../show-meal-details/show-meal-details.component.css"; */
+
+.body{
+    padding: 57px;
+    /* border: 7px double; */
+    direction: rtl;
+}
+
+
+
+
+
+
+.title-header{
+  text-align: center;
+  border: none;
+}
+#x{
+    height: 100%;
+    padding: 20px;
+    width: 700px;
+    display: inline-table;
+  }
+   .content{
+    display: contents;
+    }
+  
+    .content div.title{
+      border: 2px solid #eb4747;
+      width: 48%;
+      margin: 56px 4px;
+      /* float: right; */
+      min-height: 500px;
+      padding: 14px;
+  
+    }
+    
+    h1 {
+      overflow: hidden;
+      font-weight: 700;
+      color: #e7272b;
+      font-family: system-ui;
+      text-align: right;
+      margin: 20px 0px;
+      border-bottom: 1px solid;
+  
+    }
+    
+    /* h1:before,
+    h1:after {
+      background-color: #000;
+      content: "";
+      display: inline-block;
+      height: 1px;
+      position: relative;
+      vertical-align: middle;
+      width: 50%;
+    } */
+    
+    /* h1:before {
+      right: 0.5em;
+      margin-left: -50%;
+    }
+    
+    h1:after {
+      left: 0.5em;
+      margin-right: -50%;
+    } */
+    .details{
+      display: flex;
+      justify-content: space-around;
+      height: 64px;
+      }
+    .details div{ 
+        background-color: #eb4747;
+      width: 193px;
+      text-align: center;
+      padding: 6px 6px;
+    }
+    .details div h3{
+      margin-top: 6px;
+      background-color: white;
+      }
+    .discription{
+   font-size: 17px;  
+   text-align: center;
+   font-family: system-ui;
+  }
+  .title h2{
+    width: inherit;
+    margin-left: 112px;
+    margin-top: -45px;
+  }
+  ul li{
+    font-size: 12px;
+      padding: 2px;
+      font-family: system-ui;
+  }
+  ul{
+    direction: rtl;
+  }
+  .center{
+      display: flex;
+      justify-content: center;
+  }
+  
+  
+  
+  
+  

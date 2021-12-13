@@ -1,0 +1,5 @@
+@import "../add-category/add-category.component.css";
+p{
+    display: flex;
+    direction: rtl;
+}

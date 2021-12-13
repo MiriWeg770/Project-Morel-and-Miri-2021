@@ -22,6 +22,16 @@ namespace WebApi.Controllers
         {
             _logic = logic;
         }
+        [HttpGet("GetAllUsersMeals")]
+        public IActionResult GetAllUsersMeals()
+        {
+            return Ok(_logic.GetAllUsersMeals());
+        }
+        [HttpGet("GetAllUsersMealsProducts")]
+        public IActionResult GetAllUsersMealsProducts()
+        {
+            return Ok(_logic.GetAllUsersMealsProducts());
+        }
         [HttpGet("GetAllMeals")]
         public IActionResult GetAllMeals()
         {
@@ -52,6 +62,12 @@ namespace WebApi.Controllers
             return Ok(_logic.DeletMeal(Meal));
 
         }
+        [HttpPut("DeleteMenuMeal")]
+        public IActionResult DeleteMenuMeal([FromBody] MealDto Meal)
+        {
+            return Ok(_logic.DeletMenuMeal(Meal));
+
+        }
 
         [HttpPut("UpdateMeal")]
         public IActionResult UpdateMeal([FromBody] MealDto Meal)
@@ -64,6 +80,13 @@ namespace WebApi.Controllers
         public IActionResult AddMealToUser([FromBody] MealDto meal)
         {
             return Ok(_logic.AddMealToUser(meal));
+
+        }
+
+        [HttpPost("checkMealName")]
+        public IActionResult CheckMealName([FromBody] MealDto meal)
+        {
+            return Ok(_logic.checkMealName(meal));
 
         }
 
@@ -81,9 +104,14 @@ namespace WebApi.Controllers
 
         }
         [HttpPut("MealIsExists")]
-        public IActionResult GetProductsById([FromBody] MealDto m)
+        public IActionResult MealIsExists([FromBody] MealDto m)
        {
             return Ok(_logic.IsExists(m));
+        }
+        [HttpPut("ChangeViewsNumber")]
+        public IActionResult ChangeViewsNumber([FromBody] MealDto m)
+        {
+            return Ok(_logic.ChangeViewsNumber(m));
         }
 
 

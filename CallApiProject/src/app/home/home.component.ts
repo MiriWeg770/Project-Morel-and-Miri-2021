@@ -19,17 +19,32 @@ export class HomeComponent implements OnInit {
  listMenus:Menu[]=[]
  Meals:Meal[]=[]
  Menus:Menu[]=[]
+ urls:string[]=[
+   "../../assets/slide1-1-ok.jpg",
+   "../../assets/slide1-2-ok.jpg",
+   "../../assets/slide1-3-ok.jpg",]
+ url=this.urls[0];
   constructor(private router:Router,private serm:MealService,private seru:UserService,private sern:MenuService) {      
     //  localStorage.setItem("user", JSON.stringify(this.myUser));   
     this.GetAllMeals() 
     this.GetAllUsers()
     this.GetAllMenus()
-    
+    this.startTimer()
+    let x=0
+    let interval = setInterval(() => {
+    if(this.urls.length>x){
+     this.url=this.urls[x]
+     x++}
+     else
+     x=0
+    },7300)
+
  }
 
   ngOnInit(): void {
-
+  
   }
+
   continue(){   
        this.router.navigate(["/MyHome/AllLists"])
 }
@@ -54,6 +69,26 @@ GetAllMenus(){
   },err=>{console.log(err)})
 }
 
+meals:number=0;
+menus:number=0;
+users:number=0;
+interval;
+startTimer() {
+    this.interval = setInterval(() => {
+      if(this.meals <= this.listMeals.length) {
+        this.meals++;  
+      }
+      if(this.menus <= this.listMenus.length) {
+        this.menus++;  
+      }
+      if(this.users <= this.listUsers.length) {
+        this.users++;  
+      }
+    },50)
+  }
+
+
+  
 
 
 }

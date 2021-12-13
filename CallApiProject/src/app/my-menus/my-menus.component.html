@@ -1,167 +1,43 @@
 <div class="container_page">
-  <div class="page_box">
-    <div class="search-input"><input (keyup)="search()" #input type="text" [(ngModel)]="text" placeholder="חפש בתפריטים שלי" /></div>
-    <div>התפריטים שלי({{length}})</div>
+  <div class="page_box" id="header">
+    <div class="search-input"><input (keyup)="search()" #input type="text" [(ngModel)]="text" placeholder="חפש בתפריטים שלי"/></div>   
+       <div>התפריטים שלי ({{ELEMENT_DATA.length}})</div> 
   </div>
-  
-  <div class="icons">
+  <div class="info">
     <button id="add" (click)="AddMenu()" mat-button>
-    <mat-icon>add</mat-icon> הוסף תפריט חדש
-  </button>
-  <!-- <mat-icon *ngIf="!choose" class="select" matTooltip="בחר" matTooltipPosition="below"(click)="choose=!choose">check_box_outline_blank</mat-icon>
-  <div *ngIf="choose" class="select"><mat-icon  (click)="choose=!choose">check_box</mat-icon>
-  <mat-icon  [matMenuTriggerFor]="menu">arrow_drop_down</mat-icon>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="DeletItems()"> מחק</button>
-    <button mat-menu-item (click)="share()"> שתף</button>
-  </mat-menu></div> -->
-    <div class="page_content" *ngIf="length!=0">
-      <!-- <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-       
-        <ng-container  matColumnDef="y" >
-          <th mat-header-cell *matHeaderCellDef>
-            <mat-icon *ngIf="!choose" matTooltip="בחר" matTooltipPosition="below"(click)="choose=!choose">check_box_outline_blank</mat-icon>
-            <div *ngIf="choose" class="select"><mat-icon  (click)="choose=!choose">check_box</mat-icon>
-            <mat-icon [matMenuTriggerFor]="menu">arrow_drop_down</mat-icon>
-            <mat-menu #menu="matMenu">
-              <button mat-menu-item (click)="DeletItems()"> מחק</button>
-              <button mat-menu-item (click)="share()"> שתף</button>
-            </mat-menu></div>
-                </th>
-          <td mat-cell *matCellDef="let element" class="check_box"  > <mat-checkbox *ngIf="choose"(click)="check(element)"></mat-checkbox> </td>
-        </ng-container>
-
-        <ng-container  matColumnDef="s" >
-          <th mat-header-cell *matHeaderCellDef> </th>
-          <td mat-cell *matCellDef="let element" class="check_box"  ></td>
-        </ng-container>
-
-        <ng-container matColumnDef="MenuName">
-          <th mat-header-cell *matHeaderCellDef>שם תפריט</th>
-          <td mat-cell *matCellDef="let element"> {{element.menuName}} </td>
-        </ng-container>
-        
-        <ng-container  matColumnDef="Level" >
-          <th mat-header-cell *matHeaderCellDef> דרגת קושי </th>
-          <td mat-cell *matCellDef="let element"   >{{Level(element)}} </td>
-        </ng-container>
-     
-
-        <ng-container matColumnDef="countMeals">
-          <th mat-header-cell *matHeaderCellDef>מספר מנות</th>
-          <td mat-cell *matCellDef="let element">{{element.meals.length}}</td>
-        </ng-container>
-
-        <ng-container matColumnDef="DateCreated">
-          <th mat-header-cell *matHeaderCellDef> נוצר בתאריך</th>
-          <td mat-cell *matCellDef="let element"> {{DateCreated(element)}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="DateUpdated">
-          <th mat-header-cell *matHeaderCellDef> עודכן בתאריך</th>
-          <td mat-cell *matCellDef="let element"> {{DateUpdated(element)}} </td>
-        </ng-container>
-
-        <ng-container matColumnDef="x">
-          <th mat-header-cell *matHeaderCellDef> </th>
-          <td mat-cell *matCellDef="let element" class="i"> 
-            <mat-icon mat-button [matMenuTriggerFor]="menu">more_vert</mat-icon>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item>
-            <mat-icon matTooltip="הורד" (click)="download(element)"> file_download</mat-icon>
-            <mat-icon matTooltip="עדכן" (click)="UpdateMenu(element)"> edit</mat-icon>
-            <mat-icon matTooltip="מחק" (click)="Delet(element)" > delete</mat-icon>
-            <mat-icon matTooltip="שתף" (click)="shareOne(element)" *ngIf="!element.publish" > share</mat-icon>
-         </button>
-        </mat-menu>
-          </td>
-        </ng-container>
-
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
-        <tr class="mat-row" *matNoDataRow>
-          <td class="mat-cell" colspan="4">אין תוצאות ל {{input.value}}"</td>
-        </tr>
-      </table> -->
-<!-- 
-      <section class="light">
-        <div class="container py-2">    
-          <article class="postcard light blue" *ngFor="let x of ELEMENT_DATA">
-            <a class="postcard__img_link" href="#">
-              <img class="postcard__img" src="https://picsum.photos/1000/1000" alt="Image Title" />
-            </a>
-            <div class="postcard__text t-dark">
-              <h1 class="postcard__title blue"><a href="#">{{x.menuName}}</a></h1>
-              <div class="postcard__subtitle small">
-                <time datetime="2020-05-25 12:00:00">
-                  <i class="fas fa-calendar-alt mr-2"></i>Mon, May 25th 2020
-                </time>
-              </div>
-              <div class="postcard__bar"></div>
-              <div class="postcard__preview-txt">
-                {{x.discription}}
-              </div>
-              <ul class="postcard__tagbox">
-                <li class="tag__item"><i class="fas fa-tag mr-2"></i>Podcast</li>
-                <li class="tag__item"><i class="fas fa-clock mr-2"></i>55 mins.</li>
-                <li class="tag__item play blue">
-                  <a href="#"><i class="fas fa-play mr-2"></i>Play Episode</a>
-                </li>
-              </ul>
-
-             
-            </div>
-          </article>
-        </div>
-      </section> -->
-
-
-
-
-      <div class="container" *ngFor="let x of ELEMENT_DATA" style="background-image: url(../../assets/strawberry-waffles-1024x668.jpg);background-size: cover;">
-      <div class="container-info">
-        <mat-icon *ngIf="x.publish" class="publish" matTooltip="הסר שיתוף" (click)="removeShare(element)">star</mat-icon>
-        <mat-icon class="options" mat-button [matMenuTriggerFor]="menu">more_vert</mat-icon>
-        <mat-menu #menu="matMenu">
-          <button mat-menu-item>
-            <mat-icon matTooltip="הורד" (click)="download(x)"> file_download</mat-icon>
-            <mat-icon matTooltip="עדכן" (click)="UpdateMenu(x)"> edit</mat-icon>
-            <mat-icon matTooltip="מחק" (click)="Delet(x)" > delete</mat-icon>
-            <mat-icon matTooltip="שתף" (click)="shareOne(x)" *ngIf="!x.publish" > share</mat-icon>
-         </button>
-        </mat-menu>
-        <h1 class="title">{{x.menuName}}</h1>
-        <label><b>מספר מנות</b>{{x.meals.length}}</label>
-          <label><b> רמת קושי</b>{{Level(x)}}</label>
-          <label><b> נוצר בתאריך</b>{{DateCreated(x)}}</label>
-          <label><b> עודכן בתאריך</b>{{DateUpdated(x)}}</label>
-      </div>
+      <mat-icon>add</mat-icon> הוסף תפריט חדש
+    </button>
+ <div class="page_content" *ngIf="ELEMENT_DATA.length!=0">
+<div class="container">
+  <div class="recipe-card" *ngFor="let x of ELEMENT_DATA">
+    <div class="header" style="background: url('{{GetPicture(x.pictureCode)}}');background-size: cover;background-repeat: no-repeat;background-position: center;" >
+      <button class="edit" (click)="UpdateMenu(x)" title="ערוך"><mat-icon>edit</mat-icon></button>
+      <button class="delete" (click)="Delet(x)" title="מחק"><mat-icon>delete</mat-icon></button>
+      <button class="share" (click)="shareOne(x)" *ngIf="!x.publish" title="שתף"><mat-icon>share</mat-icon></button>
+      <button class="download"   title="הורד"><mat-icon>download</mat-icon></button>
+      <button *ngIf="x.publish" class="share publish" ><mat-icon  class="" title="הסר שיתוף" (click)="removeShare(x)">star</mat-icon></button>
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-    </div>
-
-    <div *ngIf="length==0" class="empty">
-      <mat-icon>list_alt</mat-icon>
-      <h1>רשימת התפריטים שלך ריקה </h1>
+    <div class="body">
+      <span class="title" >{{x.menuName}}</span>
+      <ul class="details">
+        <li><b>קטגוריה:</b>{{Category(x)}}</li>
+        <li><b>דרגת קושי:</b>{{Level(x)}} </li>
+        <li>{{x.meals.length}}<b>:מספר מנות</b></li>
+        <li>{{DateCreated(x)}}<b>:נוצר בתאריך</b></li>
+        <li *ngIf="x.dateUpdated!=null">{{DateUpdated(x)}}<b>:עודכן בתאריך</b></li>
+        <li *ngIf="x.publish">{{x.viewsNumber}}<b>:מספר צפיות</b></li>
+      </ul>
     </div>
   </div>
+</div>
+ </div>
+  <div *ngIf="ELEMENT_DATA.length==0" class="empty">
+    <mat-icon>list_alt</mat-icon><h1>רשימת התפריטים שלך ריקה </h1>
+</div>
+</div>
+</div>
+ <div class="loader" *ngIf="loader"></div> 
 
 
 
-  
-  
-  
- 
-  
+

@@ -8,7 +8,7 @@ using System.Text;
 
 namespace BLL
 {
-    class MenuCategoriesLogic:IMenuCategoriesLogic
+   public class MenuCategoriesLogic:IMenuCategoriesLogic
     {
         private MenuCalculatorContext _context;
 
@@ -21,7 +21,10 @@ namespace BLL
         {
             try
             {
-                return m;
+                MenuCategories m1 = MenuCategoriesConvertors.ToMeunCategories(m);
+                _context.MenuCategories.Add(m1);
+                _context.SaveChanges();
+                return MenuCategoriesConvertors.ToMenuCategoriesDto(m1);
             }
             catch (Exception e)
             {
@@ -31,7 +34,9 @@ namespace BLL
   
         public MenuCategoriesDto DeletCategory(MenuCategoriesDto m)
         {
-            throw new NotImplementedException();
+            _context.MenuCategories.Remove(MenuCategoriesConvertors.ToMeunCategories(m));
+            _context.SaveChanges();
+            return m;
         }
 
         public List<MenuCategoriesDto> GetAllCategories()
@@ -42,7 +47,14 @@ namespace BLL
 
         public MenuCategoriesDto GetCategoryById(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return MenuCategoriesConvertors.ToMenuCategoriesDto(_context.MenuCategories.FirstOrDefault(p => p.MenuCategoriesCode == id));
+            }
+            catch (Exception e)
+            {
+                throw e;
+            }
         }
 
         public MenuCategoriesDto UpdateCategory(MenuCategoriesDto m)

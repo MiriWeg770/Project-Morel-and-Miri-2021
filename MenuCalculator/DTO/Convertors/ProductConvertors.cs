@@ -15,7 +15,6 @@ namespace DTO.Convertors
             {
                 MealProductName=u.ProductName,
                 AmountInMeal=u.AmountInMeal,
-                MealProductCompany=u.Company,
                 UnitMeasureCode=u.UnitMeasureCode,
                 MealCode=u.MealCode
                 
@@ -28,7 +27,6 @@ namespace DTO.Convertors
             {
                 ProductName = u.MealProductName,
                 AmountInMeal = u.AmountInMeal,
-                Company = u.MealProductCompany,
                 UnitMeasureCode = u.UnitMeasureCode,
                 MealCode=u.MealCode,
             };

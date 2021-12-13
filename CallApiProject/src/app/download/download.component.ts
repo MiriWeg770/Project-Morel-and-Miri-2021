@@ -14,31 +14,32 @@ import { MealService } from '../meal.service';
 export class DownloadComponent implements OnInit {
 
   @ViewChild('x') content:ElementRef;
-  meal:Meal=null;
   level:string=""
   Instructions:string[]=[]
-  constructor(public dialogRef: MatDialogRef<DownloadComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: Meal,private ser:MealService,private serl:LevelService) { 
-   this.meal=data
-   console.log(this.data)
-   this.ser.GetProductsMeal(this.meal.mealCode).subscribe(succ=>{
-     console.log(succ)
-     this.meal.products=succ; 
-     this.GetLevel()
+  
+  @Input()
+  meal:Meal
+  constructor() { 
+ 
+  //  this.convetToPDF()
+  //  this.ser.GetProductsMeal(this.meal.mealCode).subscribe(succ=>{
+  //    console.log(succ)
+  //    this.meal.products=succ; 
+  //    this.GetLevel()
 
-     let x:string=""
-     for (let index = 0; index < this.meal.instructions.length; index++) {
-       if(this.meal.instructions[index]=='#'){
-          this.Instructions.push(x)
-          x=""
-       }
-      else
-         x+=this.meal.instructions[index]       
-     }  
+  //    let x:string=""
+  //    for (let index = 0; index < this.meal.instructions.length; index++) {
+  //      if(this.meal.instructions[index]=='#'){
+  //         this.Instructions.push(x)
+  //         x=""
+  //      }
+  //     else
+  //        x+=this.meal.instructions[index]       
+  //    }  
      
-   },err=>{
-     console.log(err)
-   }) 
+  //  },err=>{
+  //    console.log(err)
+  //  }) 
 
   }
 
@@ -46,15 +47,24 @@ export class DownloadComponent implements OnInit {
 
   }
 
+  print(){
+    // const printContent = document.getElementById("d");
+    // const WindowPrt = window.open('', '', 'left=0,top=0,width=900,height=900,toolbar=0,scrollbars=0,status=0');
+    // WindowPrt.document.write(printContent.innerHTML);
+    // WindowPrt.document.close();
+    // WindowPrt.focus();
+    // window.print();
+    // WindowPrt.close();  
+  }
   GetLevel(){
-    this.serl.GetAllLevels().subscribe(succ => { 
-      succ.forEach(element => {
-        if(element.levelCode==this.meal.levelCode)
-          this.level= element.levelName;
-      });
-     }, err => {
-       console.log(err)
-     })
+    // this.serl.GetAllLevels().subscribe(succ => { 
+    //   succ.forEach(element => {
+    //     if(element.levelCode==this.meal.levelCode)
+    //       this.level= element.levelName;
+    //   });
+    //  }, err => {
+    //    console.log(err)
+    //  })
   }
 //   download(){
 //    this.dialogRef.close()
@@ -75,21 +85,36 @@ export class DownloadComponent implements OnInit {
 
   
 // }
+
+
+
  convetToPDF() {
-  var data = document.getElementById('x');
-  // data.style.display="block"
-  html2canvas(data).then(canvas => {
-      var imgWidth = 208;
-      var pageHeight = 295;
-      var imgHeight = canvas.height * imgWidth / canvas.width;
-      var heightLeft = imgHeight;
-      const contentDataURL = canvas.toDataURL('image/png')
-      let pdf = new jspdf('p', 'mm', 'a4'); 
-      var position = 0;
-      pdf.addImage(contentDataURL, 'PNG', 0, position, imgWidth, imgHeight)
-      pdf.save(this.meal.mealName+" מתכון "); 
-  });
+  html2canvas(document.getElementById('x')).then(canvas => {
+    var imgWidth = 208;
+    const contentDataURL = canvas.toDataURL('image/png')
+    let pdf = new jspdf('p', 'mm', 'a4'); 
+    pdf.addImage(contentDataURL, 'PNG', 0, 0, imgWidth, 100)
+    pdf.save("ss")
+});
+  
+  // let pdf= new jsPDF('p','mm','a4');
+  // pdf.html(document.getElementById("x"),{
+  //   callback:(pdf)=>{
+  //     pdf.save("ss")
+  //   }
+  // })
 }
 
+  generatePdf(){
+   const documentDefinition = { content: 'This is an sample PDF printed with pdfMake' };
+   pdfMake.createPdf(documentDefinition).open();
+  }
+ 
+
+
+  
 }
 
+import pdfMake from 'pdfmake/build/pdfmake';
+import pdfFonts from 'pdfmake/build/vfs_fonts';
+pdfMake.vfs = pdfFonts.pdfMake.vfs;

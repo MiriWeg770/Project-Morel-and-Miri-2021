@@ -1,28 +1,30 @@
-
 <div class="ft-recipe"> 
   <div class="ft-recipe__thumb" > 
-
-    <span id="add"><mat-icon *ngIf="u==null || !add" (click)="addMeal(meal)" style="color: white;" >favorite</mat-icon></span>
-    <span id="add"><mat-icon *ngIf="u!=null &&u.userName!=meal.userName &&!add"   (click)="addMeal(meal)" style="color: white;" >favorite</mat-icon></span>
-    <!-- <span id="add" ><mat-icon *ngIf="u.userName!=meal.userName && add"  (click)="deletMeal(meal)" style="color: red;">favorite</mat-icon></span> -->
-
-    <h3>{{meal.mealName}}</h3>
-   <img src="{{url}}" (load)="GetPicture(meal.pictureCode)"(load)="MealIsExists(meal.userCode)" alt="img"/>
+    <span id="add" title="הוסף"><mat-icon *ngIf="u==null" (click)="Account()" style="color: white;" >favorite</mat-icon></span>
+    <span id="add" title="הוסף"><mat-icon *ngIf="u!=null && u.userName!=meal.userName && !add" (click)="AddMeal()" style="color: white;" >favorite</mat-icon></span>
+    <span id="add" title="הוסף"><mat-icon *ngIf="u!=null && u.userName!=meal.userName && add"  (click)="DeletMeal()" style="color: red;">favorite</mat-icon></span>
+   <img src="{{url}}" (load)="GetPicture(meal.pictureCode)" alt="img"/>
   </div>
   <div class="ft-recipe__content">
     <header class="content__header">
       <div class="row-wrapper">
-        <div class="user_comment">
-      <div><span>{{meal.userName}}</span><mat-icon>person</mat-icon></div>    
-    </div>
-        <div class="user-rating"></div>
+        <span>{{meal.mealName}}</span>
       </div>
       <ul class="recipe-details">
-        <li class="recipe-details-item time"><mat-icon>schedule</mat-icon><span class="value">?</span><span class="title">דקות</span></li>
+        <li class="recipe-details-item time"><mat-icon>info</mat-icon><span class="value">{{level}}</span><span class="title">רמת קושי</span></li>
         <li class="recipe-details-item ingredients"><mat-icon>menu_book</mat-icon><span class="value">{{meal.products.length}}</span><span class="title">מרכיבים</span></li>
-        <li class="recipe-details-item servings"><mat-icon>person</mat-icon><span class="value">{{meal.numberOfDiners}}</span><span class="title">סועדים</span></li>
+        <li class="recipe-details-item servings"><mat-icon>visibility</mat-icon><span class="value">{{meal.numberOfViews}}</span><span class="title">צפיות</span></li>
       </ul>
     </header>
-    <footer class="content__footer"><a (click)="count()" routerLink="/Home/ShowMealDetails/{{meal.mealCode}}">למתכון</a></footer>
+    <footer class="content__footer"><a (click)="count()" >למתכון</a></footer>
   </div>
 </div>
+
+
+<dialog id="dialog" >
+  <p > !!המנה הוסרה מרשימת המנות שלך </p>  
+</dialog>
+<dialog id="dialog2"> 
+  <p> !!המנה התווספה לרשימת המנות שלך </p>
+</dialog>
+

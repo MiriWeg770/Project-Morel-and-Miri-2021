@@ -1,0 +1,4 @@
+@import "../delet-user/delet-user.component.css";
+.modal-confirm .modal-content{
+    padding: 0;
+}

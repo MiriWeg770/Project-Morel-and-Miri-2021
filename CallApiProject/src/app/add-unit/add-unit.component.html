@@ -1,0 +1,12 @@
+<div>
+    <h1 *ngIf="!data" >הוסף שם יחידה</h1>
+    <h1 *ngIf="data">עדכן שם יחידה</h1>
+    <input type="text" placeholder="הכנס שם" [(ngModel)]="u.unitName">
+    <select name="unit" [(ngModel)]="u.convertionMeasureCode">
+        <option *ngFor="let x of UnitMeasures; let i=index" value={{x.unitCode}} >{{x.unitName}}</option>
+    </select> 
+    <input type="text" placeholder="הכנס כמות " [(ngModel)]="u.convertionMeasureAmount">
+    <button *ngIf="!data" [mat-dialog-close]="u" >הוסף</button>
+    <button *ngIf="data" [mat-dialog-close]="u" >עדכן</button>
+    <button (click)="no()" [mat-dialog-close]="u" >ללא המרה</button>
+</div>

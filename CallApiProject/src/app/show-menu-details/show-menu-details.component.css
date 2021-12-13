@@ -1,27 +1,37 @@
-@import "../all-lists/all-lists.component.css";
 @import "../show-meal-details/show-meal-details.component.css";
+.prev, .next {
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    width: auto;
+    padding: 16px;
+    margin-top: -22px;
+    color: white;
+    font-weight: bold;
+    font-size: 18px;
+    transition: 0.6s ease;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+  }
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  .prev {
+    left: 0;
+    border-radius: 3px 0 0 3px;
+  }
+    .prev:hover, .next:hover {
+    background-color: rgba(0,0,0,0.8);
+  }
+  @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+  }
+  .ingredients h1{
+    color: #fafafa;
+    background: black;
+    width: fit-content;
+    padding: 0 15px;
+    margin-top: 21px;
+}
 
-.header{
-  height: 395px;
-}
-.header-content{
-    background: #fafafa;
-    box-shadow: 0px 0px 49px -8px rgb(249 171 0); 
-     width: 980px; 
-      margin: 20px;
-}
-.headline{
-    color: black;
-    text-shadow: 4px -2px 1px rgb(249 171 0);
-}
-.underline {
-    color: black;
-    text-shadow: none;
-}
-
-ul.social-share{
-    height: 0;
-}
-.email .to{
-    background: gold;
-}

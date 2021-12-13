@@ -15,4 +15,13 @@ export class UnitMeasureService {
   GetAllUnitMeasures():Observable<UnitMeasure[]>{
     return this.http.get<UnitMeasure[]>(environment.url +"/api/UnitMeasure");
   }
+  AddUnitMeasure(m:UnitMeasure):Observable<UnitMeasure>{
+    return this.http.post<UnitMeasure>(environment.url+"/api/UnitMeasure/AddUnitMeasure",m)
+  }
+  DeleteUnitMeasure(m:UnitMeasure):Observable<UnitMeasure>{
+    return this.http.put<UnitMeasure>(environment.url+"/api/UnitMeasure/DeleteUnitMeasure",m)
+  }
+  UpdateUnitMeasure(m:UnitMeasure):Observable<UnitMeasure> {
+    return this.http.put<UnitMeasure>(environment.url +"/api/UnitMeasure/UpdateUnitMeasure",m);
+  }
 }

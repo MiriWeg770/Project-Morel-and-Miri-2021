@@ -15,7 +15,6 @@ namespace DTO.Convertors
                 DateCreated = m.DateCreated,
                 DateUpdated = m.DateUpdated,
                 Discription = m.Discription,
-                Links = m.Links,
                 MenuCode = m.MenuCode,
                 MenuName = m.MenuName,
                 UserCode = m.UserCode,
@@ -24,6 +23,7 @@ namespace DTO.Convertors
                 DateUpload=m.DateUpload,
                 Publish=m.Publish,
                 LevelCode=m.LevelCode,
+                MenuCategoryCode=m.MenuCategoryCode,
                 Meals = MealConvertors.ToMealDtoList(m.Meals.ToList()),
                 UserName = m.User != null ? m.User.UserName : default(string),
             };
@@ -35,7 +35,6 @@ namespace DTO.Convertors
                 DateCreated = m.DateCreated,
                 DateUpdated = m.DateUpdated,
                 Discription = m.Discription,
-                Links = m.Links,
                 MenuCode = m.MenuCode,
                 MenuName = m.MenuName,
                 UserCode = m.UserCode,
@@ -44,6 +43,7 @@ namespace DTO.Convertors
                 Publish=m.Publish,
                 DateUpload=m.DateUpload,
                 LevelCode=m.LevelCode,
+                MenuCategoryCode=m.MenuCategoryCode,
                 Meals = MealConvertors.ToMealList(m.Meals)
             };
 

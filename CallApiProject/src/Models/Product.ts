@@ -4,8 +4,6 @@ export class Product{
          public productName:string,
          public amountInMeal:number,
          public unitMeasureCode:number,
-         public company:string,
-         public mealCode:number,
-         public allamountInMeal?:number){       
+         public mealCode:number){       
     }
 }

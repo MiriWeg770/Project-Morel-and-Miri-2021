@@ -1,0 +1,6 @@
+<div>
+    <h1> <b>{{data.userName}}</b> : שלח הודעה ל</h1>
+    <input type="text" [(ngModel)]="sub" placeholder="נושא ההודעה">
+    <textarea type="text" [(ngModel)]="mess" placeholder="כתוב את ההודעה"></textarea>
+    <button [mat-dialog-close]="data" (click)="send()">שלח</button>
+</div>

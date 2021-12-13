@@ -1,27 +1,29 @@
- 
-
-     <div class="user" > 
-       
-        <div class="close" mat-dialog-close (click)="save()"><mat-icon>close</mat-icon></div>
-
-         <div id="avatar" class='fas fa-user-circle' style='font-size:100px;'></div>
-         <h1>הגדרות</h1>
-         <form #myForm="ngForm" >
-            <div>
-             <label> שם משתמש  </label>
-               <input  type="text"  name="userName"  [(ngModel)]="data.userName"  >
-           </div>
-           <div>
-            <label>אמייל</label>
-              <input  type="text"  name="mail"  [(ngModel)]="data.mail"  >
-          </div>
-              <div>
-               <label> סיסמה</label>
-                <input  type="password"  name="password"  [(ngModel)]="data.password"  >
-               </div>
-              <button  (click)="signOut()"  mat-dialog-close>יציאה</button>
- 
-     </form>
+<div class="user" >       
+  <div class="close" mat-dialog-close ><mat-icon>close</mat-icon></div>
+  <div class="file">
+    <input *ngIf="update" type="file" name="file"  class="inputfile" id="file" accept="image/*" (change)="onSelectFile($event)"/>
+    <label *ngIf="update" for="file"><span *ngIf="empty && url==null ">*</span><mat-icon>photo_camera</mat-icon></label>
+    <div *ngIf="url" id="avatar"><img src="{{url}}" alt=""></div>
+    <div *ngIf="!url" id="avatar"><img src="../../assets/user-icon-flat-isolated-on-white-background-user-symbol-vector-vector-id1300845620.jpg" alt=""></div>
+    </div>  <h1>הגדרות<mat-icon class="edit" title="ערוך" (click)="update=!update">edit</mat-icon>  </h1>
+         <form *ngIf="!update" #myForm="ngForm" >
+         <div> <label> שם משתמש  </label><span>{{data.userName}}</span></div>                                         
+          <div><label>אימייל</label>{{data.mail}}</div>      
+          <div><label> סיסמה</label>{{data.password}}</div>
+          <button (click)="signOut()"  mat-dialog-close>יציאה</button>
+         </form>
+         <form *ngIf="update" #myForm1="ngForm" >
+          <div> <label> שם משתמש  </label>  <input  type="text"  name="userName"  [(ngModel)]="data.userName"></div>                                         
+           <div><label>אימייל</label><input  type="text"  name="mail"  [(ngModel)]="data.mail"  ></div>      
+           <div><label> סיסמה</label><input  type="password"  name="password"  [(ngModel)]="data.password" ></div>
+           <button  (click)="save()"  >עדכן</button>
+          </form>
        </div>
- 
+       
+    
+              
+              
+               
+              
+   
  

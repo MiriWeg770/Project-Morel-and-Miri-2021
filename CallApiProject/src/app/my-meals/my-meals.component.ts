@@ -4,10 +4,8 @@ import { Router } from '@angular/router';
 import { Meal } from 'src/Models/Meal';
 import { Menu } from 'src/Models/Menu';
 import { User } from 'src/Models/User';
-// import { runInThisContext } from 'vm';
 import { AddMealComponent } from '../add-meal/add-meal.component';
 import { DeletMealComponent } from '../delet-meal/delet-meal.component';
-import { DeleteProductComponent } from '../delete-product/delete-product.component';
 import {animate, state, style, transition, trigger} from '@angular/animations';
 import { UserService } from '../user.service';
 import { MatTableDataSource } from '@angular/material/table';
@@ -24,66 +22,38 @@ import { ShareComponent } from '../share/share.component';
 import { DeletPublishedMealComponent } from '../delet-published-meal/delet-published-meal.component';
 import { PictureService } from '../picture.service';
 import { Picture } from 'src/Models/Picture';
+import { RemoveShareToUpdateComponent } from '../remove-share-to-update/remove-share-to-update.component';
 
 @Component({
   selector: 'app-my-meals',
   templateUrl: './my-meals.component.html',
   styleUrls: ['./my-meals.component.css'],
-  animations: [
-    trigger('detailExpand', [
-      state('collapsed', style({height: '0px', minHeight: '0'})),
-      state('expanded', style({height: '*'})),
-      transition('expanded <=> collapsed', animate('225ms cubic-bezier(0.4, 0.0, 0.2, 1)')),
-    ]),]
 })
 export class MyMealsComponent implements OnInit {
-  u: User = new User(0, null, null, null);
-  choose = false
-  add = false
-  // newMeal: Meal = new Meal(0, null, null, 0, null, 0, 0, 0, null, null,null);
+  u: User = new User(0, null, null, null,null,null);
   ELEMENT_DATA: Meal[] = [];
-  length = 0;
-  dataSource;
-  click = false
-  s=false
-  displayedColumns: string[] = [
-    'y','s','picture','MealName','Category','Level',  'NumberOfDiners', 'countIngredients', 'DateCreated','DateUpdated','NumberOfViews', 'x'];
-
-  // expandedElement: Meal | null;
-  c:MealCategories[]
+  c:MealCategories[]=[]
   levels:Level[]=[]
-   list=true
-   loader=true
+  pictures:Picture[]=[]
+  loader=true
+  text:string=""
+  find:Meal[]=[]
+  arr:Meal[]=[]
   constructor(private dialog:MatDialog,private _snackBar: MatSnackBar,private serp:PictureService, private serc:MealCategoriesService,private ser:UserService,private serm:MealService,private serl:LevelService,private router:Router) {
          this.u= JSON.parse(localStorage.getItem("user") );
-         console.log(this.u)        
-       
-        this.GetCategories()
+         this.GetCategories()
          this.GetAllMeals()
+         this.GetPictures() 
          this.GetLevels()
-         this.GetPictures()
-         
+           
    }
-
    ngOnInit(): void {
   }
 
-
-active() {
-  document.getElementById("b").classList.toggle("is_active");
-}
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
-
-  count:number[]=[]
   GetAllMeals(){
      this.ser.GetUserMeals(this.u.userCode).subscribe(succ => {
-      this.ELEMENT_DATA = succ;
-      this.length= this.ELEMENT_DATA.length;
-      this.dataSource = new MatTableDataSource(this.ELEMENT_DATA);
-       
+      this.ELEMENT_DATA = succ;   
+      this.arr=succ;    
       this.ELEMENT_DATA.forEach(element => {
         this.serm.GetProductsMeal(element.mealCode).subscribe(succ=>{
         element.products=succ
@@ -91,15 +61,10 @@ active() {
       },err=>{
         console.log(err)
       });
-      
-      console.log(this.ELEMENT_DATA);
     }, err => {
        console.log(err);
      }) 
   }
-
-   
- 
   AddMeal(){
     const dialogRef = this.dialog.open(AddMealComponent, {
     disableClose:true,
@@ -109,13 +74,12 @@ active() {
     height:'100%',
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');    
         this.GetAllMeals()
    });  
   }
-  
   UpdateMeal(x:Meal){
     console.log(x)
+    if(!x.publish){
     const dialogRef = this.dialog.open(AddMealComponent, {
     disableClose:true,
     autoFocus:false,
@@ -125,32 +89,27 @@ active() {
     height:'100%',
     });
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
       this.GetAllMeals()
-      console.log(result)
    });
+   }
+   else{
+    const dialogRef = this.dialog.open(RemoveShareToUpdateComponent, {
+      width: '20%',
+      data:false
+    });
+   } 
   }
-  checked:Meal[]=[]
-  check(x:Meal){
-    if(!this.checked.includes(x))
-       this.checked.push(x) 
-       console.log(this.checked)
-  }
-
-    delet=false;
-    Delet(x:Meal,d=false) {
+  Delet(x:Meal) {
       console.log(x)
       let dialogRef;
       if(x.publish){
         dialogRef = this.dialog.open(DeletPublishedMealComponent, {
         width: '20%',
-        data: d
       });
       }
       else{
          dialogRef = this.dialog.open(DeletMealComponent, {
           width: '20%',
-          data: d
         });
       }
       
@@ -162,52 +121,25 @@ active() {
             verticalPosition:'bottom' 
             });       
         this.serm.DeleteMeal(x).subscribe(succ=>{
-        console.log(succ)  
         this.GetAllMeals();
         },err => {
           console.log(err);
         }) }
       });
   }
-
-
-  DeletItems(){    
-    let x=false   
-    this.checked.forEach(element => {
-      if(element.publish)
-        x=true;
-    }); 
-    
-    this.Delet(this.checked[0],true)
-    this.checked.forEach(element => {
-      this.serm.DeleteMeal(element).subscribe(succ=>{
-        console.log(succ)  
-        this.GetAllMeals();
-        },err => {
-          console.log(err);
-        }) })
-
-  }
-
   download(x:Meal){
     const dialogRef = this.dialog.open(DownloadComponent, {
       data: x,
       height:'100%',
-      // panelClass:'my-dialog'
     });
     dialogRef.afterClosed().subscribe(result => {
       console.log('The dialog was closed');
     });
-   }
-  
- share(){
-   this.checked.forEach(element => {
-    this.shareOne(element)
-   });
- }
+   }  
  shareOne(x:Meal){
   x.publish=true,
   x.dateUplaod=new Date()
+  x.numberOfViews=0
   this.serm.UpdateMeal(x).subscribe(succ=>{
     console.log("share")
    console.log(succ)
@@ -216,13 +148,9 @@ active() {
   });
   },err=>{
    console.log(err) 
-  //  const dialogRef = this.dialog.open(ShareComponent, {
-  //   data:false
-  // });
 })
 }
- 
-   DateCreated(x:Meal){
+  DateCreated(x:Meal){
     let d:Date= new Date(x.dateCreated)
     return d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear();
   }
@@ -233,7 +161,6 @@ active() {
     else
       return ""
   }
-
   removeShare(x:Meal) {
     console.log(x)
     const dialogRef = this.dialog.open(RemoveShareComponent, {
@@ -251,51 +178,38 @@ active() {
       }) }
     });
 }
-
-GetCategories(){
+ GetCategories(){
   this.serc.GetAllCategories().subscribe(succ => {
     this.c=succ   
     console.log(this.c)      
    }, err => {
      console.log(err)
    })
-}
-GetLevels(){
+ }
+ GetLevels(){
   this.serl.GetAllLevels().subscribe(succ => {
     this.levels=succ   
    }, err => {
      console.log(err)
    })
-}
-Category(x:Meal){
+ }
+ Category(x:Meal){
   let ca:string;
   this.c.forEach(element => {
     if(element.mealCategoriesCode==x.mealCategoryCode)
       ca= element.mealCategoriesName;
   });
   return ca;
-}
-Level(x:Meal){
+ }
+ Level(x:Meal){
   let le:string;
   this.levels.forEach(element => {
     if(element.levelCode==x.levelCode)
       le= element.levelName;
   });
   return le;
-}
-
-
-  selectAll(){
-    this.s=true
-    this.choose=true
-  }
-  selectNothing(){
-    this.s=false
-    this.choose=true
-  }
-
-  pictures:Picture[]=[]
-  GetPictures(){
+ }
+ GetPictures(){
     this.serp.GetAllPictures().subscribe(succ=>{
       this.pictures=succ
       console.log(this.pictures)
@@ -312,32 +226,22 @@ Level(x:Meal){
         url= element.pictureName
    });
    return url
+   
   }
-  url2;
-  showPicture(x:Meal){
-     this.url2=this.GetPicture(x.pictureCode);
-      document.getElementById("myModal").style.display = "block";
-  }
-  closePicture(){
-    document.getElementById("myModal").style.display = "none";
-  }
-text:string=""
-find:Meal[]=[]
 search(){
   if(this.text==""){
-    this.GetAllMeals()
+    this.ELEMENT_DATA=this.arr
   }
   else{
     console.log(this.text)
-this.find.length=0;
- this.ELEMENT_DATA.forEach(element => {
- if(element.mealName.includes(this.text)){ 
-   this.find.push(element);  
+    this.find.length=0;
+    this.ELEMENT_DATA=this.arr
+    this.ELEMENT_DATA.forEach(element => {
+    if(element.mealName.includes(this.text)){ 
+    this.find.push(element);  
  }
 });
  this.ELEMENT_DATA=this.find
- 
-
 }}
 }
 

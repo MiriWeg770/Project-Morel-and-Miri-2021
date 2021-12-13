@@ -37,5 +37,11 @@ namespace WebApi.Controllers
         {
             return Ok(_logic.AddPicture(p));
         }
+        [HttpPut("DeletePicture")]
+        public IActionResult DeleteMeal([FromBody] PictureDto p)
+        {
+            return Ok(_logic.DeletPicture(p));
+
+        }
     }
 }

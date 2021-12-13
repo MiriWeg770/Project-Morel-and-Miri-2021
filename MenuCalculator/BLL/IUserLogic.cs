@@ -13,13 +13,12 @@ namespace BLL
         UserDto GetUserByName(string name);
         UserDto AddUser(UserDto u);
         string ResetPassword(string m);
+        string SendMessage(string m,string s, string u);
         UserDto DeletUser(UserDto u);
         UserDto UpdateUser(UserDto u);
         UserDto  SignIn(string Name, string password);
-        UserDto SignUp(string Name, string Mail,string Password );
+        UserDto SignUp(string Name, string Mail,string Password,bool manager);
         bool IsExists(UserDto b);
-
-
-
+        bool IsManager(UserDto b);
     }
 }

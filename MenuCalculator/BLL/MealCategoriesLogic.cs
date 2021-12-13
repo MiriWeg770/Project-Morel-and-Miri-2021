@@ -33,7 +33,9 @@ namespace BLL
 
         public MealCategoriesDto DeletCategory(MealCategoriesDto m)
         {
-            throw new NotImplementedException();
+            _context.MealCategories.Remove(MealCategoriesConvertors.ToMealCategories(m));
+            _context.SaveChanges();
+            return m;
         }
 
         public List<MealCategoriesDto> GetAllCategories()

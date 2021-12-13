@@ -1,0 +1,28 @@
+<div class="body" >
+    <img src="{{url}}" (load)="GetInstructions(m.instructions)"  alt="">
+    <h1 class="title-header" >{{m.mealName}}</h1>
+        <h2 class="discription">{{m.discription}}</h2>
+          <div class="content">
+      <div class="details">
+        <div>כמות סועדים<h3>{{m.numberOfDiners}}</h3></div>
+        <div>זמן הכנה<h3>{{Time()}}</h3></div>
+        <div>קטגוריה<h3>{{category}}</h3></div>
+        <div>רמת קושי<h3> {{level}}</h3></div>
+      </div>
+      <div class="center">
+        <div  class="title">
+     <h2> אופן ההכנה</h2>
+       <p *ngFor="let x of Instructions;let i=index"><b>{{i+1}}.</b> {{x}}</p>
+      </div>
+      <div class="title">
+      <h2>מרכיבים</h2>
+        <p *ngFor="let x of m.products;let i=index">
+            <b>{{i+1}}.</b><span> {{x.amountInMeal}} </span> <span> {{u[i]}} </span> <span>של</span><span> {{x.productName}} </span>
+        </p>
+      </div>
+    </div>
+    </div>
+    </div>
+    
+    
+    

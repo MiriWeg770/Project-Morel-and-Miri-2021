@@ -1,72 +1,29 @@
-<!-- <div class="card" >
-  <div class="content">
-    <div class="title">
-      <span>תפריט</span>
-       </div>
-       <div class="item-zoom">
-  <img src="https://assets.bonappetit.com/photos/6079b8f318bc22421e5363ab/1:1/w_1920,c_limit/0521-Fat-Choy-Mushroom-Sloppy.jpg" alt="Avatar" style="width:100%" (click)="count()"  routerLink="/Home/ShowMenuDetails/{{menu.menuCode}}">
-       </div>
-  <div class="container">
-    <h4><b></b></h4> 
-    <div class="user_comment">
-      <div> <mat-icon>person</mat-icon></div>
-      <div class="d">
-      <div>
-        <span>{{menu.userName}}</span> <span>{{DateUplaod()}}</span>
-      </div>
-      <div class="icons">
-        <mat-icon id="down">download</mat-icon>
-        <mat-icon id="save" (click)="add()">favorite</mat-icon>
-      </div></div>
-    </div>
-  </div>
-   </div>
-</div>       -->
 
-<!-- <div class="ft-recipe"> 
-  <div class="ft-recipe__thumb">
-    <span id="add" (click)="add()"><mat-icon>favorite</mat-icon></span>
-    <h3>{{menu.menuName}}</h3>
-   <img src="../../assets/help.png" alt="Strawberry Waffle"/>
+<div class="ft-recipe"> 
+  <div class="ft-recipe__thumb" > 
+    <span id="add"><mat-icon *ngIf="u==null" (click)="Account()" style="color: white;" >favorite</mat-icon></span>
+    <span id="add"><mat-icon *ngIf="u!=null && u.userName!=menu.userName && !add" (click)="AddMenu()" style="color: white;" >favorite</mat-icon></span>
+    <span id="add"><mat-icon *ngIf="u!=null && u.userName!=menu.userName && add"  (click)="DeletMenu()" style="color: red;">favorite</mat-icon></span>
+    <img src="{{url}}" (load)="GetPicture(menu.pictureCode)" alt="img"/>
   </div>
   <div class="ft-recipe__content">
     <header class="content__header">
       <div class="row-wrapper">
-        <div class="user_comment">
-      <div><span>{{menu.userName}}</span><mat-icon>person</mat-icon></div>    
+    <span>{{menu.menuName}}</span>    
     </div>
-        <div class="user-rating"></div>
-      </div>
       <ul class="recipe-details">
-        <li class="recipe-details-item time"><mat-icon>visibility</mat-icon><span class="value">{{menu.viewsNumber}}</span><span class="title">צפיות</span></li>
         <li class="recipe-details-item time"><mat-icon>info</mat-icon><span class="value">{{level}}</span><span class="title">רמת קושי</span></li>
-        <li class="recipe-details-item ingredients"><mat-icon>list_alt</mat-icon><span class="value">{{menu.meals.length}}</span><span class="title">מספר מנות</span></li>
+        <li class="recipe-details-item ingredients"><mat-icon>list_alt</mat-icon><span class="value">{{menu.meals.length}}</span><span class="title">מנות</span></li>
+        <li class="recipe-details-item servings"><mat-icon>visibility</mat-icon><span class="value">{{menu.viewsNumber}}</span><span class="title">צפיות</span></li>
       </ul>
     </header>
+    <footer class="content__footer"><a (click)="count()">לתפריט</a></footer>
+  </div>
+</div>
+<dialog id="dialog" >
+  <p > !!התפריט הוסר מרשימת התפריטים שלך </p>  
+</dialog>
+<dialog id="dialog2"> 
+  <p> !!התפריט התווסף לרשימת התפריטים שלך </p>
+</dialog>
 
-    <footer class="content__footer"><a  >לתפריט</a></footer>
-  </div>
-</div> -->
-
-
-<div class="blog-card spring-fever" (load)="GetPicture(menu.meals[0])" style="background: url('{{url}}');background-size: cover;background-repeat: no-repeat;background-position: center;">
-  <div class="title-content">
-    <h3>{{menu.menuName}}</h3>
-    <div class="intro"><div class="user_comment">
-      <div><span>{{menu.userName}}</span><mat-icon>person</mat-icon></div>    
-    </div> </div>
-  </div>
-  <div class="card-info">
-  {{menu.discription}}
-    <a (click)="count()" routerLink="/Home/ShowMenuDetails/{{menu.menuCode}}">לתפריט <span class="licon icon-arr icon-black"></span></a>
-  </div>
-  <div class="utility-info">
-    <ul class="utility-list">
-      <li class="recipe-details-item time"><mat-icon>visibility</mat-icon><span class="value">{{menu.viewsNumber}}</span><span class="title">צפיות</span></li>
-      <li class="recipe-details-item time"><mat-icon>info</mat-icon><span class="value">{{level}}</span><span class="title">רמת קושי</span></li>
-      <li class="recipe-details-item ingredients"><mat-icon>list_alt</mat-icon><span class="value">{{menu.meals.length}}</span><span class="title">מספר מנות</span></li>
-     </ul>
-  </div>
-  <div class="gradient-overlay"></div>
-  <div class="color-overlay"></div>
-</div><!-- /.blog-card -->

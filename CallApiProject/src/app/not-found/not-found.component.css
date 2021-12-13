@@ -1,7 +1,9 @@
 .container{
-    background-color: #e7272d;
-    margin: 75px 200px;
-    height: 450px;
+    background: #e7272d;
+    margin: auto;
+    height: 408px;
+    width: 80%;
+    margin-top: 52px;
 }
 h1{
     color: white;
@@ -40,6 +42,5 @@ button:hover{
     color: rgb(0 0 0 / 54%);
     font-family: system-ui;
     font-size: 23px;
-    position: relative;
-    top: -29px;
+    padding: 27px;
 }

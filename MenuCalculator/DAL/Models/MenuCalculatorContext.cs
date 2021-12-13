@@ -112,10 +112,6 @@ namespace DAL.Models
             {
                 entity.HasKey(e => e.MealProductCode);
 
-                entity.Property(e => e.MealProductCompany)
-                    .IsRequired()
-                    .HasMaxLength(50);
-
                 entity.Property(e => e.MealProductName).HasMaxLength(50);
 
                 entity.HasOne(d => d.MealCodeNavigation)
@@ -180,6 +176,11 @@ namespace DAL.Models
                 entity.Property(e => e.Password).HasMaxLength(50);
 
                 entity.Property(e => e.UserName).HasMaxLength(50);
+
+                entity.HasOne(d => d.PictureCodeNavigation)
+                .WithMany(p => p.Users)
+                .HasForeignKey(d => d.PictureCode)
+                .HasConstraintName("FK_Users_Picture");
             });
 
 

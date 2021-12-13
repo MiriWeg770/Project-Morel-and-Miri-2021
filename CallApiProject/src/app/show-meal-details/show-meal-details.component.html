@@ -1,6 +1,4 @@
-
-
-    <body  id="b">
+  <body  id="b" #b>
         <div class="container">
         <section class="col-2 ss-style-triangles" style="background-image: url({{url}});">
             <div class="column text">
@@ -11,28 +9,22 @@
                     <h1 class="headline "> {{meal.mealName}} </h1>
                     <div class="underline ">
                         <div class="byline"> 
-                         <span> מאת </span> <a>{{meal.userName}}</a>
+                        <div style="background-image:url({{userImg}});background-size: cover;" class="img"></div> <a>{{meal.userName}}</a>
                         </div>
                         <div class="date">{{Date()}}</div>  
-                    </div>
-            
+                    </div>  
                 <div class="counter"> {{meal.numberOfViews}} <span>כמות צפיות</span></div>
                  </div>
-                </div>
-                
+                </div>              
                 </header>
-
             </div>
-        </section>
-        
+        </section>   
         <section class="color">
             <div class="container" >
-
-
                     <div class="options">
                         <ul class="tags">  
                             <li><p><span>קטגוריה</span>{{category}}  </p></li>
-                            <li><p><span>זמן הכנה</span>  </p></li>
+                            <li><p><span>זמן הכנה</span>{{Time()}}  </p></li>
                          
                             <li><p><span>רמת קושי </span>{{level}}   </p></li>
                         </ul>
@@ -41,14 +33,11 @@
                             <li *ngIf="u!=null && u.userName!=meal.userName &&!add" matTooltip="הוסף למנות" ><mat-icon  (click)="addMeal()" style="color: white;" >favorite</mat-icon></li>
                             <li *ngIf="u!=null && u.userName!=meal.userName && add" matTooltip="הסר מהמנות" ><mat-icon  (click)="deletMeal()" style="color: red;">favorite</mat-icon></li>
                             <li matTooltip="הורד מתכון"><mat-icon (click)="download()"> download</mat-icon></li>
-                            <li matTooltip="הדפס מתכון"><mat-icon (click)="print()">print</mat-icon></li>
+                            <li matTooltip="הדפס מתכון"><mat-icon (click)="print()" >print</mat-icon></li>
                             <li matTooltip="שלח מתכון באימייל" ><mat-icon (click)="open()">email</mat-icon></li>        
-                        </ul>
-                                 
-                        <div class="model" id="send">   
-                              
-                        <div class="email" >
-              
+                        </ul>                                 
+                        <div class="model" id="send">                                
+                        <div class="email" >             
                          <div class="to" style="background-image: url({{url}})">
                              <div class="befor_title">
                                  שלחו באימייל:
@@ -77,9 +66,8 @@
                 <p class="discription">
                  {{meal.discription}}         </p>
                 <div class="amount">
-                          <label>בחרו כמות מנות</label>
-                          <div class="counter"><img src="../../assets/plus.png" alt="" (click)="plus()"><input  type="number" min=1 value={{count}}  [(ngModel)]="count" > <img src="../../assets/minus.png" alt=""  (click)="minus()"> </div>
-                  
+                          <label>בחרו כמות סועדים</label>
+                          <div class="counter"><img src="../../assets/plus.png" alt="" (click)="plus()"><input  type="number" min=1 value={{count}}  [(ngModel)]="count" > <img src="../../assets/minus.png" alt=""  (click)="minus()"> </div> 
                         <div class="help">  
                           <span><img src="../../assets/help.png" alt=""></span>
                           <div class="h">בלחיצה על הפלוס והמינוס תוכלו לבחור את כמות המנות שתרצו להכין
@@ -89,14 +77,12 @@
         
                 <div class="single_content">
                   <div class="Products e">
-                      <label>מצרכים</label>
-                      
+                      <label>מצרכים</label>            
                       <ul>
-                          <li *ngFor="let x of meal.products;let i=index" role="listitem">
-                            <span> {{x.allamountInMeal}}</span> <span>{{UnitMeasures[i]}}</span> <span>של</span><span> {{x.productName}}</span>
+                          <li *ngFor="let x of meal.products;let i=index" role="listitem" >
+                            <span> {{x.amountInMeal}}</span> <span>{{UnitMeasures[i]}}</span> <span>של</span><span> {{x.productName}}</span>
                         </li>
-                      </ul>
-                 
+                      </ul>          
                   </div>
                   <div class="ingredients">
                      <label>אופן ההכנה</label>
@@ -115,73 +101,15 @@
         </section>
         </div>
         </body>
-     
-
-
-
-
-        
-    <!-- </div>
-
-    <section class="comments">
-        <h5> <span> תגובות 12 </span></h5>
-        <ol>
-            <li>
-                <div> <mat-icon>person</mat-icon></div>
-                <div><header>
-                    <span>אני</span> <div class="level">
-                        <mat-icon>star</mat-icon>
-                        <mat-icon>star</mat-icon>
-                        <mat-icon>star</mat-icon>
-                        <mat-icon>star</mat-icon>
-                        <mat-icon>star</mat-icon>
-                    </div>
-                </header>
-                 <article>
-                  <input class="new-comment " type="text" placeholder="כתיבת תגובה">
-                 </article>
-                </div>
-            </li>
-            <li>
-                <div> <mat-icon>person</mat-icon></div>
-                 <div>
-                     <header>
-                        <span>ss</span>
-                        <span>10/10</span>
-                    </header>
-                     <article>ddddd</article>
-                    </div>
-            </li>
-            <li>
-                <div> <mat-icon>person</mat-icon></div>
-                 <div>
-                     <header>
-                        <span>ss</span>
-                        <span>10/10</span>
-                    </header>
-                     <article>ddddd</article>
-                    </div>
-            </li>
-        </ol>
-    </section>  -->
-
-
-    <!-- <div class="more" *ngIf="more">    
-        <mat-divider></mat-divider>
-        <h1> מתכונים נוספים מקטגוריית <b>{{category}}</b>
-        </h1>
-        <ul>
-            <li *ngFor="let x of more">
-             <app-meal [meal]="x"></app-meal>
-            </li>
-        </ul>              
-    </div> -->
-    
-    <!-- </div> -->
-    
-
   
+<dialog id="dialog" >
+    <p > !!המנה הוסרה מרשימת המנות שלך </p>  
+  </dialog>
+  <dialog id="dialog2"> 
+    <p> !!המנה התווספה לרשימת המנות שלך </p>
+  </dialog>
 
+<app-print-meal #printMeal id="d" [m]="MealChange()" [u]="UnitMeasures"></app-print-meal>
     
     
     

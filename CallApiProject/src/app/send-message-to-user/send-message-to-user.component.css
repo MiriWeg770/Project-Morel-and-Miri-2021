@@ -1,0 +1,12 @@
+@import "../add-category/add-category.component.css";
+textarea {  
+    resize: none;
+    width: 100%;
+    height: 70px;
+    border: 1px solid darkgray;
+    direction: rtl;
+    border-radius: 8px;
+    font-size: 15px;
+    display: block;
+    margin: 17px 0;
+} 

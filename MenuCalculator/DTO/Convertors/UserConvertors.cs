@@ -6,9 +6,7 @@ using System.Text;
 namespace DTO.Convertors
 {
    public class UserConvertors
-    {
-        
-
+    {        
         public static Users ToUser(UserDto u)
         {
             return new Users()
@@ -17,7 +15,8 @@ namespace DTO.Convertors
                 Password = u.Password,
                 UserCode = u.UserCode,
                 UserName = u.UserName,
-                
+                PictureCode=u.PictureCode,
+                Manager=u.Manager      
             };
 
         }
@@ -29,9 +28,11 @@ namespace DTO.Convertors
                 Password = u.Password,
                 UserCode = u.UserCode,
                 UserName = u.UserName,
-                
+                PictureCode = u.PictureCode,
+                Manager = u.Manager            
             };
         }
+
 
         public static List<UserDto> ToUserDtoList(List<Users> uList)
         {

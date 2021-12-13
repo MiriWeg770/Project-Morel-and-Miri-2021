@@ -15,8 +15,14 @@ namespace DAL.Models
         public string UserName { get; set; }
         public string Password { get; set; }
         public string Mail { get; set; }
+        public int? PictureCode { get; set; }
+        public bool? Manager { get; set; }
+
 
         public virtual ICollection<Meal> Meal { get; set; }
         public virtual ICollection<Menu> Menu { get; set; }
+        public virtual Picture PictureCodeNavigation { get; set; }
+
     }
 }
+

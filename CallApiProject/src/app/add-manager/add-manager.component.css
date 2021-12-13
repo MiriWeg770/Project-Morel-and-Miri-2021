@@ -1,0 +1,19 @@
+@import "../add-category/add-category.component.css";
+@import "../manager-entry/manager-entry.component.css";
+td{
+    width: 240px;
+}
+.users{
+    padding: 0;
+}
+tr th{
+    position: sticky;
+    top: 90px;
+}
+.search-input{
+    position: sticky;
+    top: 0;
+    background: white;
+    display: block;
+}
+

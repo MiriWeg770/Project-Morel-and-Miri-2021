@@ -1,0 +1,21 @@
+<div *ngIf="manager">
+    <h1> מנהל חדש</h1>
+    <input type="text" [(ngModel)]="manager.userName" placeholder="שם משתמש">
+    <input type="text" [(ngModel)]="manager.mail" placeholder=" אימייל">
+    <input type="password" [(ngModel)]="manager.password" placeholder="סיסמה">
+    <button mat-dialog-close (click)="Add()">צור</button>
+</div>
+<div *ngIf="!manager" class="users">
+    <div class="search-input"><input type="text" (keyup)="SearchUser()" [(ngModel)]="UserText"  placeholder="חפש משתמש"/></div>   
+    <table>
+        <tr>
+          <th *ngFor="let x of UsersTable">{{x}}</th>
+        </tr>
+        <tr *ngFor="let u of Users" class="row" (click)="AddUser(u)">
+          <td class="img"><img src="{{GetPicture(u.pictureCode)}}" alt=""></td>
+          <td>{{u.userCode}}</td>
+          <td>{{u.userName}}</td>
+          <td>{{u.mail}}</td>
+        </tr>
+      </table>
+</div>

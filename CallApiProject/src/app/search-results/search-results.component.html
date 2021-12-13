@@ -1,0 +1,19 @@
+<body>
+    <div class=img >
+    <div class="title">
+        <h1>(<b>{{text}}</b>)תוצאות חיפוש עבור </h1> 
+    </div>
+</div><div class="container">
+      <div class="contain" >
+        <div class="search-options">
+            <p>נמצאו {{meals.length+menus.length}} תוצאות </p>
+        </div>
+      <div class="list">
+     <ul>
+        <li *ngFor="let x of meals"> <app-meal [meal]="x"></app-meal></li>
+        <li *ngFor="let x of menus"> <app-menu [menu]="x"></app-menu></li>
+    </ul>
+    </div>
+  </div>
+  </div>
+</body>

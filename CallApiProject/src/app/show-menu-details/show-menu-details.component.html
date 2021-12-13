@@ -1,84 +1,124 @@
-
-  <body>
-    <div class="container">
-    <section class="col-2 ss-style-triangles">
-        <div class="column text">
+<body  id="b">
+  <div class="container">
+  <section class="col-2 ss-style-triangles" style="background-image: url({{url}});">
+      <div class="column text">
           <header>
-            <div class="header">
-            <div class="header-content">
-            <label> תפריט</label>
-            <h1 class="headline "> {{menu.menuName}}</h1>
-            <div class="underline ">
-                <div class="byline"> 
-                 <span> מאת </span> <a>{{menu.userName}} </a>
-                </div>
-                <div class="date">{{Date()}}</div>
-              </div>                
-  
-            <div class="counter"> {{menu.viewsNumber}} <span>כמות צפיות</span></div>
-            
-          </div>
-        
-          <div class="options">          
-            <ul class="social-share">
-                <li matTooltip="הוסף לתפריטים"><mat-icon (click)="addMenu()">favorite</mat-icon></li>
-                <li matTooltip="הורד תפריט"><mat-icon (click)="download()"> download</mat-icon></li>
-                <li matTooltip="שלח תפריט באימייל" ><mat-icon (click)="open()">email</mat-icon></li>        
-            </ul>
-    
-            <div class="model" id="send">      
-            <div class="email" >
-             <div class="to" style="background-image: url({{url}})">
-                 <div class="befor_title">
-                     שלחו באימייל:
-                 </div>
-                 <div class="the_title">
-                    {{menu.menuName}}         
-                    </div>
-             </div>
-             <div class="details">
-                 <div class="close"><mat-icon (click)="close()"  >close</mat-icon></div>
-              <form>
-            <div class="row"> <input type="text" name="" [(ngModel)]="Namefrom" [ngModelOptions]="{standalone: true}" placeholder="שמך"></div>
-            <div class="row"><input type="email" name="" [(ngModel)]="from" [ngModelOptions]="{standalone: true}" placeholder="אימייל שלך"></div>
-           <div class="row"> <input type="email" name="" [(ngModel)]="to" [ngModelOptions]="{standalone: true}" placeholder="אימייל הנמען"></div> 
-          <div class="row"><textarea type="text" name="" [(ngModel)]="message" [ngModelOptions]="{standalone: true}" placeholder="הודעה"></textarea></div>
-           <div class="submit">
-              <input type="submit" (click)="sendMenu()" value="שליחה">
-           </div> 
-        </form>
-        </div>
-    
-            </div>
-        </div>
-     </div>
-     </div>
+              <div class="header">
+              <div class="header-content">
+              <label> תפריט</label>
+              <h1 class="headline "> {{menu.menuName}} </h1>
+              <div class="underline ">
+                  <div class="byline"> 
+                    <div style="background-image:url({{userImg}});background-size: cover;" class="img"></div> <a>{{menu.userName}}</a>
+                  </div>
+                  <div class="date">{{Date()}}</div>  
+              </div>  
+          <div class="counter"> {{menu.viewsNumber}} <span>כמות צפיות</span></div>
+           </div>
+          </div>              
           </header>
+      </div>
+      <a class="prev" (click)="prev()">&#10094;</a>
+<a class="next" (click)="next()" >&#10095;</a>
 
-        </div>
-    </section>
+  </section>   
+  <section class="color">
+      <div class="container" >
+              <div class="options">
+                  <ul class="tags">  
+                      <li><p><span>קטגוריה</span>{{category}}  </p></li>
+                      <li><p><span>זמן הכנה</span>{{time}}</p></li>         
+                      <li><p><span>רמת קושי </span>{{level}}</p></li>
+                      <li><p *ngIf="menu.meals"><span>כמות מנות</span>{{menu.meals.length}}</p></li>
+                  </ul>
+                  <ul class="social-share social-icons">
+                      <li *ngIf="u==null" matTooltip="הוסף לתפריטים" ><mat-icon  (click)="addMenu()" style="color: white;" >favorite</mat-icon></li>
+                      <li *ngIf="u!=null && u.userName!=menu.userName &&!add" matTooltip="הוסף לתפריטים" ><mat-icon  (click)="addMenu()" style="color: white;" >favorite</mat-icon></li>
+                      <li *ngIf="u!=null && u.userName!=menu.userName && add" matTooltip="הסר מהתפריטים" ><mat-icon  (click)="deletMenu()" style="color: red;">favorite</mat-icon></li>
+                      <li matTooltip="הורד תפריט"><mat-icon (click)="download()"> download</mat-icon></li>
+                      <li matTooltip="הדפס תפריט"><mat-icon (click)="print()" >print</mat-icon></li>
+                      <li matTooltip="שלח תפריט באימייל" ><mat-icon (click)="open()">email</mat-icon></li>        
+                  </ul>                                 
+                  <div class="model" id="send">                                
+                  <div class="email" >             
+                   <div class="to" style="background-image: url({{url}})">
+                       <div class="befor_title">
+                           שלחו באימייל:
+                       </div>
+                       <div class="the_title">
+                          {{menu.menuName}}         
+                          </div>
+                   </div>
+                   <div class="details">
+                       <div class="close"><mat-icon (click)="close()"  >close</mat-icon></div>
+                    <form>
+                  <div class="row"> <input type="text" name="" [(ngModel)]="from" [ngModelOptions]="{standalone: true}" placeholder="שמך" required></div>
+                 <div class="row"> <input type="email" name="" [(ngModel)]="to" [ngModelOptions]="{standalone: true}" placeholder="אימייל הנמען" required></div> 
+                 <div class="submit">                  
+                     <input type="submit" (click)="convetToPDF()" value="שליחה">
+                     <div class="spinner-box" id="spinner">
+                      <div class="three-quarter-spinner" ></div>
+                    </div>
+                 </div> 
+              </form>
+              </div>
+          
+                  </div>
+              </div>
+           </div> 
+          <p class="discription">
+           {{menu.discription}}         </p>
+          <div class="amount">
+                    <label>בחרו כמות סועדים</label>
+                    <div class="counter"><img src="../../assets/plus.png" alt="" (click)="plus()"><input  type="number" min=1 value={{count}}  [(ngModel)]="count" > <img src="../../assets/minus.png" alt=""  (click)="minus()"> </div>
+            
+                  <div class="help">  
+                    <span><img src="../../assets/help.png" alt=""></span>
+                    <div class="h">בלחיצה על הפלוס והמינוס תוכלו לבחור את כמות המנות שתרצו להכין
+                  </div>
+                </div>       
+                  </div>
+  
+          <div class="single_content">
+            <div class="Products e">
+                <label>מצרכים</label>          
+                <ul>
+                    <li *ngFor="let x of products;let i=index" role="listitem">
+                      <span> {{x.amountInMeal}}</span> <span>{{UnitMeasures[i]}}</span> <span>של</span><span> {{x.productName}}</span>
+                  </li>
+                </ul>
+           
+            </div>
+            <div class="ingredients">
+               <label>אופן ההכנה</label>
+               <div *ngFor="let x of menu.meals">
+                 <h1>{{x.mealName}}</h1>
+               <p *ngFor="let y of GetInstructions(x) ;let i=index" >
+                  <span>{{i+1}}.</span> {{y}}
+               </p>
+              </div>
+            </div>
+            
+          
+      
+  
+      </div> 
+      </div>
+
+  </section>
+  </div>
+  </body>
     
-    <section class="color">
-      <div class="amount">
-        <label>בחרו כמות מנות</label>
-        <div class="counter"><img src="../../assets/plus.png" alt="" (click)="plus()"><input  type="number" min=1 value={{count}}> <img src="../../assets/minus.png" alt=""  (click)="minus()"> </div>
+<dialog id="dialog" >
+  <p > !!התפריט הוסר מרשימת התפריטים שלך </p>  
+</dialog>
+<dialog id="dialog2"> 
+  <p> !!התפריט התווסף לרשימת התפריטים שלך </p>
+</dialog>
 
-      <div class="help">  
-        <span><img src="../../assets/help.png" alt=""></span>
-        <div class="h">בלחיצה על הפלוס והמינוס תוכלו לבחור את כמות המנות שתרצו להכין
-      </div>
-    </div>       
-      </div>
-      <div class="list-items">
-        <div class="list">
-        <ul > 
-          <li *ngFor="let item of listMeals">
-            <div class="container" >               
-        <app-meal [meal]="item"></app-meal>     
-      </div>
-      </li>
-        </ul>
-        </div>
-      </div>    </section>
-    </div>
-    </body>
+  <app-print-menu id="d"
+   [m]="menu" [c]="count" [meals]="menu.meals" [products]="products" [count]="count" 
+  [UnitMeasures]="UnitMeasures" [category]="category" [time]="time" [level]="level"></app-print-menu>
+
+
+

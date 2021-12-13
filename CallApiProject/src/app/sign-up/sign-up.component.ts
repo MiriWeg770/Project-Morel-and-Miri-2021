@@ -13,7 +13,7 @@ import { UserService } from '../user.service';
 })
 export class SignUpComponent implements OnInit {
   pro:boolean=false;
-  myUser:User= new User(0,null,null,null);
+  myUser:User= new User(0,null,null,null,null,null);
   forget=false
   pass:boolean
   checked1:boolean;
@@ -47,8 +47,7 @@ export class SignUpComponent implements OnInit {
        this.ser.GetUserById(succ.userCode).subscribe(s=>{
         this.myUser=s
         console.log(this.myUser)
-          localStorage.setItem("user", JSON.stringify(this.myUser));    
-         this.router.navigate(["/Home"])
+          localStorage.setItem("user", JSON.stringify(this.myUser));
          window.location.reload()       
        })     
       }
@@ -67,11 +66,11 @@ export class SignUpComponent implements OnInit {
     });    
   })    
   }
-
   SignUp(){
     this.pro=!this.pro;
     if(this.myUser.password==this.password2){
-    this.ser.SignUp(this.myUser).subscribe(succ => {  
+      this.myUser.manager=false
+      this.ser.SignUp(this.myUser).subscribe(succ => {  
           console.log(succ);
           this.myUser=succ        
       localStorage.setItem("user", JSON.stringify(this.myUser));    
@@ -87,7 +86,6 @@ else{
   this.pro=!this.pro;
   console.log("error password");
   }}
-
  sendEmail(){
     if(this.myUser.mail!=""){
     console.log("סיסמה חדשה")
@@ -111,7 +109,6 @@ else{
   }); 
      
   }
-  
   changePass(){
   if(this.password1!=this.password3)
    this._snackBar.open("  הסיסמאות לא תואמות ", "סגור",{

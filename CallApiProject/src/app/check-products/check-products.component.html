@@ -1,0 +1,10 @@
+<div>
+    <h1> {{data[0].productName}} יש כפילות במוצר בשם </h1>
+    <h3> ?האם ברצונך לאחד את הכמויות</h3>
+    <p *ngFor="let x of data">
+    <input type="text" [(ngModel)]="x.productName">
+    <select name="AmountName" [(ngModel)]="x.unitMeasureCode" [ngStyle]="{'border-color': empty && ELEMENT_DATA[i].unitMeasureCode==null? 'red' : '' }">
+        <option *ngFor="let x of UnitMeasures; let i=index" value={{x.unitCode}} >{{x.unitName}}</option>
+    </select>
+        </p>
+</div>

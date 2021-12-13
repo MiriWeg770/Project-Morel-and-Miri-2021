@@ -1,0 +1,195 @@
+   <body *ngIf="manager">
+   <header> 
+      <div class="logo" ><img routerLink="/Home"  src="../../assets/img/logo.png"> </div>
+      <div><span (click)="out()">התנתק</span><span class="m">מנהל ראשי</span></div> 
+  </header>
+  <div class="button">
+    <button (click)="check(1)" [ngClass]="user? 'focus' : 'notFocus'">({{Users.length}})משתמשים</button>
+    <button (click)="check(2)" [ngClass]="menu? 'focus' : 'notFocus'">({{Menus.length}})תפריטים</button>
+    <button (click)="check(3)" [ngClass]="meal? 'focus' : 'notFocus'">({{Meals.length}})מתכונים</button>
+    <button (click)="check(4)" [ngClass]="categories? 'focus' : 'notFocus'">קטגוריות</button>
+    <button (click)="check(5)" [ngClass]="product? 'focus' : 'notFocus'">({{Products.length}})מרכיבים</button>
+    <button (click)="check(6)" [ngClass]="unitMeasure? 'focus' : 'notFocus'">({{UnitMeasures.length}})יחדות מידה</button>
+    <button (click)="check(7)" [ngClass]="managers? 'focus' : 'notFocus'"> הוספת מנהל חדש</button>
+</div>
+  <div class="container" *ngIf="user">
+        <div class="search-input"><input type="text" (keyup)="SearchUser()" [(ngModel)]="UserText"  placeholder="חפש משתמש"/></div>   
+         <table>
+        <tr>
+          <th *ngFor="let x of UsersTable">{{x}}</th>
+        </tr>
+        <tr *ngFor="let u of Users" class="row">
+          <td class="img"><img src="{{GetPicture(u.pictureCode)}}" alt=""></td>
+          <td>{{u.userCode}}</td>
+          <td>{{u.userName}}</td>
+          <td>{{u.mail}}</td>
+          <td>
+            <mat-icon title="מחק" (click)="DeletUser(u)">delete</mat-icon>
+            <mat-icon title="שלח הודעה" (click)="SendMessage(u)">email</mat-icon>
+          </td>
+        </tr>
+      </table>
+  </div>
+  <div class="container" *ngIf="menu">
+    <div class="search-input"><input type="text" (keyup)="SearchMenu()" [(ngModel)]="MenuText" placeholder="חפש תפריט"/></div>   
+      <table >
+        <button id="add" (click)="AddMenuCategory()" mat-button>
+          <mat-icon>add</mat-icon>הוספה  
+        </button>
+        <tr>
+          <th *ngFor="let x of MenusTable">{{x}}</th>
+        </tr>
+        <tr *ngFor="let menu of Menus" class="row" (click)="UpdateMenu(menu)">
+          <td>{{menu.menuCode}}</td>
+          <td>{{menu.menuName}}</td>    
+          <td>{{CategoryMenu(menu.menuCategoryCode)}}</td>
+          <td>{{menu.discription}}</td>
+          <td>{{Level(menu.levelCode)}}</td>
+          <td>{{menu.meals.length}}</td> 
+          <td><mat-checkbox [(ngModel)]="menu.publish" color="warn"  (click)="ShareMenu(menu)"></mat-checkbox></td>
+          <td>{{menu.viewsNumber}}</td>
+          <td>{{menu.userName}}</td>
+          <td><mat-icon title="מחק" (click)="DeletMenu(menu)">delete</mat-icon></td>
+        </tr>
+      </table>
+  </div>
+  <div class="container" *ngIf="meal">
+    <div class="search-input"><input type="text" (keyup)="SearchMeal()" [(ngModel)]="MealText"  placeholder="חפש מנה"/></div>   
+      <table >
+        <button id="add" (click)="AddMenuCategory()" mat-button>
+          <mat-icon>add</mat-icon>הוספה  
+        </button>
+        <tr>
+          <th *ngFor="let x of MealsTable">{{x}}</th>
+        </tr>
+        <tr *ngFor="let meal of Meals" class="row" (click)="UpdateMeal(meal)">
+          <td class="img"><img src="{{GetPicture(meal.pictureCode)}}" alt=""></td>
+          <td>{{meal.mealCode}}</td>
+          <td>{{meal.mealName}}</td>
+          <td>{{CategoryMeal(meal.mealCategoryCode)}}</td>
+          <td>{{meal.numberOfDiners}}</td>
+          <td>{{meal.discription}}</td>
+          <td>{{Level(meal.levelCode)}}</td>
+          <td>{{meal.products.length}}</td>
+          <td><mat-checkbox [(ngModel)]="meal.publish" (click)="ShareMeal(meal)" color="warn"></mat-checkbox></td>
+          <td>{{meal.numberOfViews}}</td>
+          <td>{{meal.userName}}</td>
+          <td ><mat-icon title="מחק" (click)="DeletMeal(meal)">delete</mat-icon>
+         </td>
+        </tr>
+      </table>
+  </div>  
+  <div class="container" *ngIf="product">
+    <div class="search-input"><input type="text" placeholder="חפש מוצר"/></div>   
+      <table >
+        <tr>
+          <th *ngFor="let x of ProductTable">{{x}}</th>
+        </tr>
+        <tr *ngFor="let pro of Products;let i=index" class="row">
+          <td>{{i+1}}</td>
+          <td>{{pro.productName}}</td>
+          <td>{{pro.amountInMeal}}</td>
+          <td>{{GetUnit(pro.unitMeasureCode)}}</td>
+          <td><mat-icon title="מחק">delete</mat-icon></td>
+       
+        </tr>
+      </table>
+  </div> 
+  <div class="container" *ngIf="unitMeasure">
+      <table>
+        <button id="add" (click)="AddUnit()" mat-button>
+          <mat-icon>add</mat-icon>הוספה  
+        </button>
+        <tr>
+          <th *ngFor="let x of UnitMeasuresTable" >{{x}}</th>
+        </tr>
+        <tr *ngFor="let unit of UnitMeasures" class="row" (click)="UpdateUnit(unit)">
+          <td>{{unit.unitCode}}</td>
+          <td>{{unit.unitName}}</td>
+          <td>{{unit.convertionMeasureAmount}} {{GetUnit(unit.convertionMeasureCode)}}</td>
+          <td><mat-icon title="מחק">delete</mat-icon></td>
+        </tr>
+      </table>
+  </div>  
+  <div class="container" *ngIf="categories">
+    <div class="category">
+      <table>
+        <caption> תפריט</caption>
+        <button id="add" (click)="AddMenuCategory()" mat-button>
+          <mat-icon>add</mat-icon>הוספה  
+        </button>
+        <tr>
+          <th *ngFor="let x of MenuCategoriesTable">{{x}}</th>
+        </tr>
+        <tr *ngFor="let ca of MenuCategories" class="row">
+          <td>{{ca.menuCategoriesCode}}</td>
+          <td>{{ca.menuCategoriesName}}</td>
+          <td><mat-icon title="מחק" (click)="DeleteMenuCategory(ca)">delete</mat-icon></td>
+        </tr>
+      </table>
+      <table>
+        <caption>מנות</caption>
+        <button id="add" (click)="AddMealCategory()" mat-button>
+          <mat-icon>add</mat-icon>הוספה  
+        </button>
+        <tr>
+          <th *ngFor="let x of MealCategoriesTable">{{x}}</th>
+        </tr>
+        <tr *ngFor="let ca of MealCategories" class="row">
+          <td>{{ca.mealCategoriesCode}}</td>
+          <td>{{ca.mealCategoriesName}}</td>
+          <td><mat-icon title="מחק" (click)="DeleteMealCategory(ca)">delete</mat-icon></td>
+        </tr>
+      </table>
+    </div>
+  </div>  
+  <div class="container" *ngIf="managers">
+  <!-- <div class="search-input"><input type="text" (keyup)="SearchUser()" [(ngModel)]="UserText"  placeholder="חפש משתמש"/></div>    -->
+   <table>
+    <button id="add" (click)="AddManager()" mat-button>
+      <mat-icon>add</mat-icon>הוסף מנהל חדש  
+    </button>
+    <button id="add" (click)="AddManagerFromUsers()" mat-button>
+      <mat-icon>add</mat-icon>הוסף מנהל ממשתמש קיים  
+    </button> 
+  <tr>
+    <th *ngFor="let x of ManagerTable">{{x}}</th>
+  </tr>
+  <tr *ngFor="let u of Managers" class="row">
+    <td class="img"><img src="{{GetPicture(u.pictureCode)}}" alt=""></td>
+    <td>{{u.userCode}}</td>
+    <td>{{u.userName}}</td>
+    <td>{{u.mail}}</td>
+    <td>
+      <mat-icon title="מחק" (click)="DeletManager(u)">delete</mat-icon>
+  </tr>
+</table>
+  </div> 
+    </body>  
+      
+    <body class="body" *ngIf="!manager">
+      <header> 
+        <div class="logo" ><img routerLink="/Home"  src="../../assets/img/logo.png"> </div>
+    </header>
+      <form>  
+        <div class="segment">
+          <h1> כניסת מנהל</h1>
+        </div>   
+        <label>
+          <input type="text" [(ngModel)]="managerUser.userName" [ngModelOptions]="{standalone: true}" placeholder="שם משתמש"/>
+        </label>
+        <label>
+          <input type="password" [(ngModel)]="managerUser.password" [ngModelOptions]="{standalone: true}" placeholder="סיסמה"/>
+        </label>
+        <button class="red" type="button" (click)="enter()">כנס</button>
+      </form>
+      
+    <dialog id="dialog" >
+      <p >מצטערים, אין לך הרשאת מנהל !!</p>  
+    </dialog>
+    <dialog id="dialog2"> 
+     <p >מלא את כל הפרטים</p>  
+    </dialog>
+
+    </body>
+      

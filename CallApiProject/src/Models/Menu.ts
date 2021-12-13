@@ -9,7 +9,6 @@ export class Menu {
         public userCode: number,
         public dateCreated: Date,
         public dateUpdated: Date,
-        public links: string,
         public viewsNumber: number,
         public userName: string, 
         public dateUpload:Date,
@@ -17,6 +16,7 @@ export class Menu {
         public publish:boolean,
         public levelCode:number,
         public meals:Meal[],
+        public menuCategoryCode:number, 
         )
                  { }
 }

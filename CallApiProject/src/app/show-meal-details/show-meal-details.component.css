@@ -1,46 +1,51 @@
-
 *{
     font-family:  system-ui;
     
 }
-
 mat-icon{
     font-family: 'Material Icons';
     cursor: pointer;
-    /* text-shadow: 0px -1px 7px rgb(0 0 0); */
     color: white;
-    /* border: 2px solid black; */
     border-radius: 50%;
     height: 34px;
     width: 34px;
     padding: 5px;
-    /* text-align: center; */
     background: rgb(0 0 0);
 }
-.header{
-
-    display: flex;
-    background-position-y: 0;
+body {
+    background: black;
+    color: black;
+    font-family: 'Lato', Arial, sans-serif;
+    padding: 7px;
+    margin: 0px;
+    height: auto;
+  }
+.header{   
+     height: 600px;
+    display: grid;
     align-items: center;
-    justify-content: space-between;
-    height: 600px;
-    border: 2px solid white;
-
+    justify-content: center;
+    box-shadow: 0px 0px 12px 2px #0000006b;
+    background-size: cover;
+    background-position: center;
 }
-
-
-/* .header-content{
-    text-align: center;
-
-    padding: 126px;
-    background: #cccccc36;
-    height: 100%;
-    width: 30%;
-   
-} */
-
-
-/* .header-content label{
+.header-content{
+   max-width: 980px;
+   text-align: center;
+   animation: text 3s 1;
+   padding: 46px;
+   background: #fafafaa1;
+   box-shadow: 0px 0px 49px -8px rgb(0 0 0);
+   font-weight: 700;
+   font-size: 17px;
+   animation: showup 7s ease-in;
+}
+ @keyframes showup {
+     0% {opacity:0;}
+     20% {opacity:1;}
+    100% {opacity:1;}
+ }
+.header-content label{
     text-align: center;
     color: #fff;
     display: inline-block;
@@ -55,8 +60,8 @@ mat-icon{
     font-family: 'Abraham';
     font-size: 16px;
     font-weight: 500;
-} */
-/* .headline{
+}
+.headline{
     min-height: 74px;
     line-height: 74px;
     font-size: 84px;
@@ -64,55 +69,36 @@ mat-icon{
     font-weight: 600;
     letter-spacing: 1px;
     margin-bottom: 0;
-    color: gold;
-    text-shadow: 2px 3px 2px black;
-
-} */
-/* .underline{
+    text-shadow: 3px 2px 1px white;
+    direction: rtl;
+}
+.underline{
     margin-top: 10px;
     font-weight: 300;
     font-family: 'Abraham';
     height: 20px;
     line-height: 20px;
     margin-bottom: 20px;
-    font-size: 16px;
-    display: flex;
-    direction: rtl;
-    justify-content: space-around;
-
-} */
-/* .d{
-       height: 85px;
-   
-       border-bottom: 2px solid gray;
-   
-
-} */
-/* .date{
+    font-size: 20px;
+    font-weight: 700; 
+}
+.underline .byline .img{
+width: 45px;
+height: 45px;
+border-radius: 50%;
+display: inline-block;
+margin-left: 10px;
+border: 2px solid;
+}
+.underline .byline{
+   display: flex;
+   align-items: center;
+   margin-top: 9px;
+}
+.date{
     display: inline-block;
-} */
-/* .
-} */
-
-
-/* .img{
-    width: 70%;
-    height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-} */
-
-
-/* .container{
-    padding: 0 102px;
-    margin: 0 auto;
-    clear: both;
-text-align: center;} */
-/* .discription{
-    margin-bottom: 40px;
-    margin-top: 40px;
-} */
+    padding: 0 12px;
+}
 .container .underline{
     display: flex;
     justify-content: center;
@@ -136,7 +122,8 @@ ul.tags li{
 }
 ul.tags li span {
     display: block;
-font-weight: 700;}
+font-weight: 700;
+}
 ul.social-share{
     height: 56px;
     list-style: none;
@@ -146,10 +133,6 @@ ul.social-share{
 ul.social-share li{
     margin-left: 20px;
 }
-ul.social-share mat-icon:hover{
-    color: gold;
-}
-
 .single_content{
     direction: rtl;
     display: flex;
@@ -164,7 +147,6 @@ ul.social-share mat-icon:hover{
     box-shadow: 1px 1px 16px -3px #80808073;
 }
  .Products span{
-
     padding: 10px;
 }
 .ingredients p{
@@ -176,23 +158,10 @@ ul.social-share mat-icon:hover{
     font-size: 20px;
     padding: 0px 0px 0px 6px;
 }
-.ingredients div {
-    padding: 7px;
-    color: brown;
-    display: inline-block;
-    background: rgb(249 171 0 / 20%);
-    width: 24px;
-    height: 34px;
-    border-radius: 50%;
-    font-weight: 700;
-    margin-left: 10px;
-
-}
 .ingredients label, .Products label{
     font-size: 27px;
     font-weight: 600;
 }
-
 .Products ul li {
     font-size: 17px;
     margin: 14px 0px;
@@ -202,25 +171,7 @@ ul.social-share mat-icon:hover{
     font-size: 17px;
     margin: 14px 0px;
     list-style: none;
-}/*
-.nots{
-    border-top: 1px solid;
-    margin-top: 38px;
-    text-align: end; 
 }
-.nots h2{
-    font-size: 27px;
-    font-weight: 600;
-}
-
-
-.comments::before{
-    content: " ";
-    display: block;
-    border-top: 1px solid #e3e3e3;
-    border-bottom: 1px solid #f7f7f7;
-}
-*/
 .model{
     width: 100%;
     height: 100%;
@@ -229,8 +180,7 @@ ul.social-share mat-icon:hover{
     left: 0;
     z-index: 999;
     display: none;
-    background: rgba(0,0,0,0.8);
-    
+    background: rgba(0,0,0,0.8);  
 }
 .email{
     width: 750px;
@@ -277,13 +227,11 @@ ul.social-share mat-icon:hover{
  float: right;
  
 }
-
 .close{
     float: left;
     padding: 12px;
     color: black;
 }
-
 .email .details form{
     width: 100%;
     padding: 75px 41px ;
@@ -298,9 +246,6 @@ ul.social-share mat-icon:hover{
     border: 1px solid;
     outline: none;
 }
-
-
-
 .email .details .row input {
         width: 100%;
         font-size: 18px;
@@ -331,81 +276,12 @@ input[type="submit"]{
 input[type="submit"]:hover{
     background: rgb(0 0 0 / 66%);
 }
-/*
-section{
- padding: 0 90px;}
- .comments h5{
-  font-size: 16px;
-  text-align: end;
- }
-.comments li{
-    text-align: right;
-    direction: rtl;
-    font-size: 20px;
-    padding: 13px;
-    border: 2px solid #cccccc69;
-    display: flex;
-    border-radius: 8px;
-    margin: 5px 0;
-}
-.comments li mat-icon{
-    background-color: #b0b0b0;
-    border-radius: 50%;
-    padding: 7px;
-    display: inline;
-    margin-left: 26px;
-}
-.comments li span{
-    display: block;
-    padding-bottom: 13px;
-}
-.new-comment {
-    width: 400px;
-    height: 20px;
-    font-size: 16px;
-    height: 38px;
-    resize: none;
-    background: white;
-    direction: rtl;
-    border-radius: .25rem;
-    border-color: rgba(0,0,0,.1);
-}
-.comments .level{
-    padding: 4px 0;}
-.comments .level mat-icon{
-    background: none;
-    margin: -6px;
-}
-.comments .level mat-icon:hover{
-   color: gold;
-}
-.more{
-    width: 100%;
-    padding-right: 15px;
-    padding-left: 15px;
-    margin-right: auto;
-    margin-left: auto;
-    padding: 9px 9px;
-    text-align: end;
-    display: grid;
-}
-.more ul{
-    width: 91%;
-}
-.more ul li{   
-     display: inline-block;
-     margin: 9px 11px;
-}*/
 .options{
     display: flex;
     justify-content: space-between;
     direction: rtl;
     border-bottom: 1px solid;
     margin-bottom: 20px;
-}
-.byline{
-    display: inline-block;
-    margin-left: 20px;
 }
 .amount{
     display: flex;
@@ -450,7 +326,6 @@ section{
     padding: 0;
     outline: none; 
 }
-
 input[type=number]::-webkit-inner-spin-button, 
 input[type=number]::-webkit-outer-spin-button { 
   -webkit-appearance: none; 
@@ -473,11 +348,8 @@ input[type=number]::-webkit-outer-spin-button {
     z-index: 3;
     display: none;
 }
-
 .help:hover .h{
 display: block;}
-
-
 .amount .h:before{
     content: "";
     display: block;
@@ -494,152 +366,36 @@ display: block;}
     z-index: -1;
 }
 
-
-
- .header{
-     display: grid;
-     align-items: center;
-     justify-content: center;
-     box-shadow: 0px 0px 12px 2px #0000006b;
-     background-size: cover;
-     background-position: center;
- }
- 
- 
- .header-content{
-    max-width: 980px;
-    text-align: center;
-    animation: text 3s 1;
-    padding: 46px;
-    background: #fafafaa1;
-    box-shadow: 0px 0px 49px -8px rgb(0 0 0);
-    font-weight: 700;
-    font-size: 17px;
-    /* animation: showup 7s infinite; */
-    animation: showup 7s ease-in;
-    /* animation: slidein 7s infinite;  */
-
-    
- }
-
-
-
-  @keyframes showup {
-      0% {opacity:0;}
-      20% {opacity:1;}
-     100% {opacity:1;}
-  }
-  
-
- .header-content label{
-     text-align: center;
-     color: #fff;
-     display: inline-block;
-     height: 32px;
-     line-height: 32px;
-     background-color: #000;
-     border: 1px #fff solid;
-     min-width: auto;
-     letter-spacing: 1px;
-     padding: 0 15px;
-     margin-bottom: 20px;
-     font-family: 'Abraham';
-     font-size: 16px;
-     font-weight: 500;
- }
- .headline{
-     min-height: 74px;
-     line-height: 74px;
-     font-size: 84px;
-     font-family: 'Barlev';
-     font-weight: 600;
-     letter-spacing: 1px;
-     margin-bottom: 0;
-     /* color: gold;
-     text-shadow: 2px 3px 2px black; */
-     color: #fafafa;
-     text-shadow: 3px 2px 1px rgb(0 0 0);
- 
- }
- .underline{
-     margin-top: 10px;
-     font-weight: 300;
-     font-family: 'Abraham';
-     height: 20px;
-     line-height: 20px;
-     margin-bottom: 20px;
-     font-size: 20px;
-     font-weight: 700;
-     color: white;
-     text-shadow: 2px 0px 1px black;
- 
- }
- .date{
-     display: inline-block;
- }
- .byline{
-     display: inline-block;
-     margin-left: 20px;
- }
- 
- 
- /* General styles and layout */
- body {
-   background: black;
-   color: black;
-   font-family: 'Lato', Arial, sans-serif;
-   padding: 7px;
-   margin: 0px;
-   height: auto;
- }
  
  .container {
    overflow: hidden;
    width: 100%;
    margin: 0px;
-   /* we don't want the pseudo-elements sticking out */
  }
- 
  section {
        position: relative;
-       /* padding: 6em; */
-       /* color: #fff; */
        text-align: center;
        background-size: cover;
        background-position: center;
        background-attachment: fixed;
-       /* height: 100%;*/
  }
- 
  section h2 {
    margin: 0;
    padding: 0;
    font-size: 2.8em;
    font-weight: 400;
  }
- 
- /* section p {
-   color: #cdffff;
-   font-size: 1.3em;
-   line-height: 1.5;
- } */
- 
  .color {
    background: white;
    border-top: 10px solid black;
    padding: 80px;
  }
- 
- /*** Individual section styles and separators ***/
- /* Common style for pseudo-elements */
  section::before,
  section::after {
    position: absolute;
    content: '';
    pointer-events: none;
  }
- 
- /* Triangles */
  .ss-style-triangles::before,
  .ss-style-triangles::after {
    left: 50%;
@@ -648,8 +404,6 @@ display: block;}
    -webkit-transform: translateX(-50%) rotate(45deg);
    transform: translateX(-50%) rotate(45deg);
  }
- 
- 
  .ss-style-triangles::after {
    bottom: -42px;
    z-index: 1;
@@ -657,7 +411,6 @@ display: block;}
    border-left: 2px solid white;
    border-top: 2px solid white;
  }
- 
   .social-icons li:hover:before {
     transform: scale(0);
     transition: all 265ms ease-in;
@@ -666,29 +419,11 @@ display: block;}
     transform: scale(2.2);
     -webkit-transform: scale(1.2);
     color: rgb(249 171 0 / 67%);
-    background: -webkit-linear-gradient(
-45deg, rgb(249 171 0 / 89%), rgb(249 171 0 / 21%));
+background: red;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     transition: all 265ms ease-in;
   }
- 
-
-
-  
-  
-  
-  /* @keyframes pulse {
-    from {
-      opacity: 1;
-      transform: scale(1);
-    }
-    to {
-      opacity: .25;
-      transform: scale(.75);
-    }
-  } */
-  
 @keyframes spin {
     from {
       transform: rotate(0);
@@ -717,28 +452,82 @@ display: block;}
     border-radius: 50%;
     animation: spin .5s linear 0s infinite;
   }
-  /* .pulse-container {
-    width: 120px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+  @keyframes appear {
+    0%{
+      opacity: 0;
+      transform: translateY(-10px);
+    }
   }
+#dialog,#dialog2{
+  animation: appear 350ms ease-in 1;
+  max-width: 500px;
+  border: 2px  solid red;
+  box-shadow: 1px 1px 10px 2px rgb(0 0 0 / 38%);
+  display: none;
+  position: fixed;
+  z-index: 3;
+  top: 105px;
+}
+#dialog p,#dialog2 p{
+  padding: 1px 2px;
+  font-size: 17px;
+  font-weight: 700;
+  margin: 0;
+}
+@media  screen and (max-width: 1080px) {
+    ul.tags li {
+      font-size: 15px;
+    }
+    .single_content{
+        display: block;
+    }
+    .ingredients , .Products {
+      width: 98%;
+    }
+    .options{
+        display: grid;
+    }
+    ul.social-share{
+        width: 500px;
+      display: flex;
+       justify-content: center;
+    }
+    
+  }
+ @media  screen and (max-width: 700px) {
+     .headline{
+         font-size: 62px;  
+          }
+     .underline .byline .img{
+              width: 35px;
+              height: 35px;
+        }
+    .amount{
+        justify-content: center;
+    }
+    .ingredients , .Products ul li {
+     font-size: 13px;  
+    }
+    
+    
   
-  .pulse-bubble {
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    background-color: #3ff9dc;
   }
+  app-print-meal {
+    display: none;
+  }
+  @media print {
+   
+    app-print-meal {
+      display: block;
+    }
   
-  .pulse-bubble-1 {
-      animation: pulse .4s ease 0s infinite alternate;
+     #b {
+      display: none;
+    }
+    /* .help{
+        opacity: 0;
+    } */
+    
   }
-  .pulse-bubble-2 {
-      animation: pulse .4s ease .2s infinite alternate;
-  }
-  .pulse-bubble-3 {
-      animation: pulse .4s ease .4s infinite alternate;
-  }
-   */
   

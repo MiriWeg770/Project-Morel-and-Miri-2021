@@ -38,6 +38,7 @@ namespace WebApi
             services.AddTransient<ILevelLogic, LevelLogic>();
             services.AddTransient<IPictureLogic, PictureLogic>();
             services.AddTransient<IUnitMeasureLogic, UnitMeasureLogic>();
+            services.AddTransient<IMenuCategoriesLogic, MenuCategoriesLogic>();
             services.AddCors(c =>
             {
                 c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod());

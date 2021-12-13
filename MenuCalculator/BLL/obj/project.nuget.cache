@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "T4F2kUN+zd/ncYIdgpQ/vtIgKfiMkoPSYYMzOB8yTGimnLOw4XggffWThXaeXL2kh9rMBR9jZOftiyNF66eoxQ==",
+  "dgSpecHash": "PWffRMjxENQGva/n9vQ96Od+cJeoy0Pja7U/7ky/5z0wc8cm0ID6GdIQmMqWp3u9m5HjeYztmCZS304JYkBXnQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\מירי\\Desktop\\MP\\p\\MenuCalculator\\BLL\\BLL.csproj",
+  "projectFilePath": "C:\\Users\\מירי\\Desktop\\p (1)\\p\\MenuCalculator\\BLL\\BLL.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\מירי\\.nuget\\packages\\bouncycastle\\1.8.6.1\\bouncycastle.1.8.6.1.nupkg.sha512",
     "C:\\Users\\מירי\\.nuget\\packages\\chilkat-x64\\9.5.0.88\\chilkat-x64.9.5.0.88.nupkg.sha512",

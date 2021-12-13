@@ -1,0 +1,53 @@
+<div class="body" >
+    <img src="{{url}}"  alt="">
+    <h1 class="title-header">{{m.menuName}}</h1>
+        <h2 class="discription">{{m.discription}}</h2>
+          <div class="content">
+      <div class="details">
+        <div>כמות סועדים<h3>{{count}}</h3></div>
+        <div>זמן הכנה<h3>{{time}}</h3></div>
+        <div>קטגוריה<h3>{{category}}</h3></div>
+        <div>רמת קושי<h3> {{level}}</h3></div>
+      </div>
+      <!-- <div class="center">
+        <div  class="title">
+     <h2> אופן ההכנה</h2>
+       <p *ngFor="let x of Instructions;let i=index"><b>{{i+1}}.</b> {{x}}</p>
+      </div>
+      <div class="title">
+      <h2>מרכיבים</h2>
+        <p *ngFor="let x of products;let i=index">
+            <b>{{i+1}}.</b><span> {{x.amountInMeal}} </span> <span> {{UnitMeasures[i]}} </span> <span>של</span><span> {{x.productName}} </span>
+        </p>
+      </div>
+    </div> -->
+    
+    <div class="single_content">
+        <div class="Products e">
+            <label>מצרכים</label>          
+            <ul>
+                <li *ngFor="let x of products;let i=index" role="listitem">
+                  <span> {{x.amountInMeal}} </span> <span> {{UnitMeasures[i]}} </span> <span>של</span><span> {{x.productName}} </span>
+              </li>
+            </ul>
+       
+        </div>
+        <div class="ingredients">
+           <label>אופן ההכנה</label>
+           <div *ngFor="let x of meals">
+             <h1>{{x.mealName}}</h1>
+           <p *ngFor="let y of GetInstructions(x) ;let i=index" >
+              <span>{{i+1}}.</span> {{y}}
+           </p>
+          </div>
+        </div>
+        
+      
+  
+
+  </div> 
+    </div>
+    </div>
+    
+    
+    

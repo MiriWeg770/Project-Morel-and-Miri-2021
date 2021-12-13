@@ -23,4 +23,7 @@ export class PictureService {
   GetAllPictures():Observable<Picture[]>{
     return this.http.get<Picture[]>(environment.url +"/api/Picture/");
   }
+  DeletePicture(p:Picture):Observable<Picture> {
+    return this.http.put<Picture>(environment.url +"/api/Picture/DeletePicture",p);
+  }
 }

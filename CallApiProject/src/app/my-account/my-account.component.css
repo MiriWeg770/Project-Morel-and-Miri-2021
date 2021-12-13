@@ -1,26 +1,19 @@
-
-     
-    .user{
+.user{
         width: 267px;
         color: black;
         box-sizing: border-box;
         direction: rtl;
-        /* box-shadow: 0 6px 23px rgb(0 0 0); */
-        /* padding: 25px 28px; */
         background-color: #fff;
-        /* border: 6px solid dimgray; */
-    }
+}
 
-
-   
-#avatar{
-    margin-right: 88px;
-    color: darkgray;
+#avatar img{
+    width: 105px;
+    height: 105px;
+    border-radius: 100%;
+    margin: 0px 82px;
+    border: 1px solid;
 }
 h1{
-    /* margin: 0;
-    padding: 0 0 20px; */
-    /* text-align: ; */
     font-size: 22px;
     border-bottom-style: solid;
     border-bottom-width: 1px;
@@ -28,6 +21,12 @@ h1{
     color: rgba(0,0,0,.7);
     font-weight: bold;
     line-height: 2;
+}
+label mat-icon:hover{
+    color: #e7272b;
+}
+mat-icon{
+    cursor: pointer;
 }
 label{
     margin-bottom: 10px;
@@ -40,15 +39,9 @@ label{
     text-align: center;
     text-decoration: underline;  
 }
-
 .user input{  
-      width: 100%;
-    /* border:none; */
-    /* border-bottom:1px solid #fff; */
-    /* background: transparent;
-    outline: none; */
+    width: 100%;
     height: 20px;
-    /* color:bl; */
     font-size: 16px;
     height: 38px;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
@@ -59,21 +52,47 @@ label{
 
 }
 .user input:hover{
-    border-color: gold;
+    border-color: red;
 }
 button{
     width: 50%;
     border-radius: 30px;
     margin: 16px 66px;
-    background: linear-gradient( 
-184deg
- , yellow, rgb(249 171 0 / 23%));
     box-shadow: 0px 0px 7px -1px;
     font-size: 19px;
     font-weight: bolder;  
+    background: red;
+    border: 1px solid black;
+    padding: 5px;
+    cursor: pointer;
 }
 .close{
     cursor: pointer;
     text-align: end;
-
+    width: 20px;
+    float: left;
+}
+.inputfile {
+	width: 0.1px;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.file label{
+    position: relative;
+    top: 106px;
+    left: -154px;
+    background: #fafafa;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 100%;
+    padding: 3px;
+    color: rgb(0 0 0 / 59%);
+    box-shadow: 0px 0px 7px 1px rgb(0 0 0 / 54%);
+}
+.img{
+    background-size: cover;
 }

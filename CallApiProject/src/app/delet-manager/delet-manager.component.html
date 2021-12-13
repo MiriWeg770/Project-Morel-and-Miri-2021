@@ -1,0 +1,19 @@
+<div id="myModal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header flex-column">
+				<div class="icon-box">
+					<i class="material-icons">&#xE5CD;</i>
+				</div>						
+				<h4 class="modal-title w-100">מחיקת מנהל</h4>	
+			</div>
+			<div class="modal-body">
+				<p>{{data.userName}} האם אתה בטוח שברצונך לבטל הרשאת מנהל ל</p>
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button type="button" class="btn btn-secondary" [mat-dialog-close]="false">ביטול</button>
+				<button type="button" class="btn btn-danger" [mat-dialog-close]="true">בטל הרשאה</button>
+			</div>
+		</div>
+	</div>
+</div> 

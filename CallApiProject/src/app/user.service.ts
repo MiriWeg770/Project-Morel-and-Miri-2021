@@ -14,17 +14,21 @@ export class UserService {
 
   constructor(private http:HttpClient) { }
 
+  user:User=new User(null,null,null,null,null,null)
   GetAllUsers(): Observable<User[]>{
     return this.http.get<User[]>(environment.url +"/api/Users");
   }
   GetUserById(id:number):Observable<User> {
     return this.http.get<User>(environment.url +"/api/Users/"+id);
   }
-  // AddUser(U:User):Observable<User> {
-  //   return this.http.post<User>(environment.url +"/api/Users/add",U);
-  // }
+  DeletUser(U:User):Observable<User> {
+    return this.http.put<User>(environment.url +"/api/Users/DeletUser",U);
+  }
   UpdateUser(u: User):Observable<User>  {
     return this.http.post<User>(environment.url + "/api/Users/Update", u);
+  }
+  IsManager(u: User):Observable<boolean> {
+    return this.http.put<boolean>(environment.url + "/api/Users/IsManager", u);
   }
   SignIn(u: User):Observable<User> {
     return this.http.post<User>(environment.url + "/api/Users/SignIn", u);
@@ -41,10 +45,10 @@ export class UserService {
   sendMail(u:User): Observable<User>{
     return this.http.post<User>(environment.url +"/api/Users/SendMail",u)  
   }
-  
-  // AddMeal(u:User,m:Meal):Observable<User>{
-  //   return this.http.post<User>(environment.url + "/api/Users/AddMeal",u);
-  // }
- 
+  sendMessage(m:string,s:string, u:string): Observable<User>{
+    let arr:string[]=[m,s,u]
+    return this.http.post<User>(environment.url +"/api/Users/SendMessage",arr)  
+  }
+
   
 }

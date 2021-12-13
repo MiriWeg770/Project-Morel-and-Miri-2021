@@ -1,16 +1,15 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { count } from 'console';
 import html2canvas from 'html2canvas';
 import jspdf from 'jspdf';
 import jsPDF from 'jspdf';
+import { NgxPrintModule } from 'ngx-print';
 import { Meal } from 'src/Models/Meal';
 import { Product } from 'src/Models/Product';
 import { UnitMeasure } from 'src/Models/UnitMeasure';
 import { User } from 'src/Models/User';
-import { ChangePeopleComponent } from '../change-people/change-people.component';
 import { DownloadComponent } from '../download/download.component';
 import { LevelService } from '../level.service';
 import { MakeAccountComponent } from '../make-account/make-account.component';
@@ -26,23 +25,22 @@ import { UserService } from '../user.service';
   styleUrls: ['./show-meal-details.component.css']
 })
 export class ShowMealDetailsComponent implements OnInit {
-
+  @ViewChild('printMeal') printMeal: ElementRef;
   meal: Meal = new Meal(null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null);
-
-  // bgVariable:Boolean=false
-  // headerVariable:boolean=false
-
   Instructions: string[] = []
-  more: Meal[] = []
   u: User;
   count: number = 0;
   category: string = "";
   level: string = "";
   products: Product[] = []
-  unitMeasures: UnitMeasure[] = [];
-
   from: string = "";
   to: string = "";
+  add = false
+  UnitMeasures: string[] = []
+  unit: UnitMeasure[] = []
+  url;
+  proCalc: number[] = []
+  userImg;
   constructor(private router: ActivatedRoute, private serp: PictureService, private ser: MealService, private serc: MealCategoriesService, private seru: UnitMeasureService, private serl: LevelService, private serUser: UserService, private _snackBar: MatSnackBar, private dialog: MatDialog) {
     this.u = JSON.parse(localStorage.getItem("user"))
     this.router.params.subscribe(parameters => {
@@ -60,15 +58,11 @@ export class ShowMealDetailsComponent implements OnInit {
         this.GetPicture(this.meal.pictureCode)
       }, err => { console.log(err) })
     });
-
-
-
   }
 
 
   ngOnInit(): void {
-    window.scrollTo(0, 0);
-
+    window.scrollTo(0, 0)
 
   }
   close() {
@@ -81,7 +75,15 @@ export class ShowMealDetailsComponent implements OnInit {
     let d: Date = new Date(this.meal.dateUplaod)
     return d.getDate() + "/" + (d.getMonth() + 1) + "/" + d.getFullYear();
   }
-
+  Time() {
+    let t: Date = new Date(this.meal.preparationTime)
+    if (t.getHours() > 0 && t.getMinutes() > 0)
+      return t.getHours() + " שעות ו " + t.getMinutes() + " דקות "
+    else if (t.getHours() <= 0 && t.getMinutes() > 0)
+      return t.getMinutes() + " דקות "
+    else if (t.getHours() > 0 && t.getMinutes() <= 0)
+      return t.getHours() + " שעות "
+  }
   MealIsExists() {
     if (this.u != null) {
       let m: Meal = this.meal
@@ -93,20 +95,40 @@ export class ShowMealDetailsComponent implements OnInit {
       }, err => { console.log(err) })
     }
   }
-
-
-  add = false
+  interval
+  openMessage() {
+    console.log(this.add)
+    if (this.add)
+      document.getElementById("dialog2").style.display = "block"
+    else
+      document.getElementById("dialog").style.display = "block"
+    let x = 0
+    this.interval = setInterval(() => {
+      x++
+      if (x == 5) {
+        this.closeMessage()
+      }
+      console.log(x)
+    }, 1000)
+  }
+  closeMessage() {
+    clearInterval(this.interval)
+    document.getElementById("dialog").style.display = "none"
+    document.getElementById("dialog2").style.display = "none"
+  }
   addMeal() {
     if (this.u != null) {
-      let m: Meal = new Meal(0, this.meal.mealName, this.meal.instructions, this.meal.numberOfDiners, this.meal.discription, this.meal.mealCategoryCode, this.u.userCode, null, this.meal.preparationTime, null, new Date(), this.meal.pictureCode, false, null, null, this.u.userName, this.meal.products, this.meal.levelCode)
+      let pro: Product[] = this.meal.products;
+      pro.forEach(element => {
+        element.productCode = 0
+      });
+      let m: Meal = new Meal(0, this.meal.mealName, this.meal.instructions, this.meal.numberOfDiners, this.meal.discription, this.meal.mealCategoryCode, this.u.userCode, null, this.meal.preparationTime, null, new Date(), this.meal.pictureCode, false, null, null, this.u.userName, pro, this.meal.levelCode)
       console.log(m)
       this.ser.AddMealToUser(m).subscribe(succ => {
         console.log(succ)
         this.add = true
-        this._snackBar.open("המנה התווספה ", "סגור", {
-          horizontalPosition: 'center',
-          verticalPosition: 'top'
-        });
+        this.closeMessage()
+        this.openMessage()
       }, err => {
         console.log(err)
       })
@@ -114,43 +136,44 @@ export class ShowMealDetailsComponent implements OnInit {
     else {
       const dialogRef = this.dialog.open(MakeAccountComponent, {
       });
-      dialogRef.afterClosed().subscribe(result => {
-        console.log('The dialog was closed');
-      });
     }
   }
-
-
   deletMeal() {
     this.meal.userCode = this.u.userCode
     this.ser.DeleteMeal(this.meal).subscribe(succ => { console.log(succ) }, err => { console.log(err) })
     this.add = false
-    this._snackBar.open("המנה הוסרה ", "סגור", {
-      horizontalPosition: 'center',
-      verticalPosition: 'top'
-    });
+    this.closeMessage()
+    this.openMessage()
   }
-
   GetProducts(code: number) {
     this.ser.GetProductsMeal(code).subscribe(succ => {
       console.log(succ)
       this.meal.products = succ;
-      this.calcAmountProducts();
+      this.products = succ
       this.GetAllUnitMeasures()
+      this.meal.products.forEach(element => {
+        this.proCalc.push(this.calcAmount(element.amountInMeal))
+      });
     }, err => {
       console.log(err)
     })
   }
-
   GetUser(id: number) {
     this.serUser.GetUserById(id).subscribe(succ => {
-
       this.meal.userName = succ.userName
+      if (succ.pictureCode != null) {
+        this.serp.GetPictureById(succ.pictureCode).subscribe(succ => {
+          this.userImg = succ.pictureName
+        }, err => { console.log(err) })
+      }
+      else {
+        this.userImg = "../../assets/user.jpg"
+      }
+
     }, err => {
       console.log(err)
     })
   }
-
   GetInstructions() {
     this.Instructions = []
     let x: string = ""
@@ -164,7 +187,6 @@ export class ShowMealDetailsComponent implements OnInit {
     }
     console.log(this.Instructions)
   }
-
   GetLevel() {
     this.serl.GetAllLevels().subscribe(succ => {
       succ.forEach(element => {
@@ -185,12 +207,11 @@ export class ShowMealDetailsComponent implements OnInit {
       console.log(err)
     })
   }
-  UnitMeasures: string[] = []
   GetAllUnitMeasures() {
     this.seru.GetAllUnitMeasures().subscribe(succ => {
       console.log(succ)
-      this.unitMeasures = succ;
       console.log(this.meal.products)
+      this.unit = succ
       this.meal.products.forEach(element => {
         for (let index = 0; index < succ.length; index++) {
           if (element.unitMeasureCode == succ[index].unitCode) {
@@ -207,106 +228,70 @@ export class ShowMealDetailsComponent implements OnInit {
               this.UnitMeasures.push(x)
             }
             else { this.UnitMeasures.push(succ[index].unitName) }
-
           }
         }
       });
     }), err => { console.log(err) }
 
   }
-
-  GetMeasure(x: Product) {
-    let p: Product = new Product(x.productCode, x.productName, x.amountInMeal, x.unitMeasureCode, x.company, x.mealCode)
-    console.log(p)
-    this.UnitMeasures.forEach(element => {
-
-    });
-
-  }
-
-
-  url;
   GetPicture(x: number) {
     this.serp.GetPictureById(x).subscribe(succ => {
       this.url = succ.pictureName
-      // console.log(this.url)
     }, err => {
       console.log(err)
     })
   }
   download() {
     this.meal.numberOfDiners = this.count
-    const dialogRef = this.dialog.open(DownloadComponent, {
-      data: this.meal,
-      height: '100%',
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-  }
+    document.getElementById("d").style.display = "block";
+    // document.getElementById("d").style.opacity="0";
 
+    var data = document.getElementById('d')
+    html2canvas(data).then(canvas => {
+      const contentDataUrl = canvas.toDataURL('image/png')
+      let pdf = new jsPDF('l', 'mm', 'a4')
+      pdf.addImage(contentDataUrl, 'PNG', 0, 0, 295, canvas.height * 309 / canvas.width)
+      pdf.save(this.meal.mealName + "-מתכון");
+      document.getElementById("d").style.display = "none";
+
+    })
+  }
+  change() {
+    this.meal.numberOfDiners = this.count
+    console.log("print")
+    this.print()
+  }
   print() {
-    // let printContents = document.getElementById('b');
-    //  document.body=printContents;
-    window.print();
-  }
+    document.getElementById("d").style.display = "block";
+    var data = document.getElementById('d')
+    html2canvas(data).then(canvas => {
+      const contentDataUrl = canvas.toDataURL('image/png')
+      let pdf = new jsPDF('l', 'mm', 'a4')
+      pdf.addImage(contentDataUrl, 'PNG', 0, 0, 295, canvas.height * 309 / canvas.width)
+      window.print();
+      document.getElementById("d").style.display = "none";
 
-  // plus(){
-  // this.count++
-  // this.meal.products.forEach(element => {
-  //   element.amountInMeal++
-  // });
-  // }
-  // minus(){
-  //   if(this.count!=1){
-  //     this.count--
-  //     this.meal.products.forEach(element => {
-  //       element.amountInMeal--
-  //     });
-  //   }
-  // }
-
-  plus() {
-    this.count++;
-    this.calcAmountProducts();
-  }
-  minus() {
-    if (this.count != 1) {
-      this.count--;
-      this.calcAmountProducts();
-    }
-  }
-
-  calcAmountProducts() {
-    this.meal.products.forEach(element => {
-      element.allamountInMeal = element.amountInMeal * this.count;
-      if (element.allamountInMeal > 100) {
-        let unit = this.unitMeasures.find(x => x.unitName == 'גרם');
-        if (unit) {
-          element.unitMeasureCode = this.unitMeasures.find(x => x.unitName == "ק''ג").unitCode;
-          element.allamountInMeal /= 1000;
-          element.amountInMeal /= 1000;
-        }
-      }
     })
   }
 
-
+  calcAmount(x: number) {
+    return x / this.meal.numberOfDiners;
+  }
   convetToPDF() {
-    // this.close()
-    document.getElementById("spinner").style.display = "block";
-    window.scrollTo(0, 0)
-    html2canvas(document.getElementById('b')).then(canvas => {
-      var imgWidth = 208;
-      // var imgHeight = canvas.height * imgWidth / canvas.width;
-      const contentDataURL = canvas.toDataURL('image/png')
-      let pdf = new jspdf('p', 'mm', 'a4');
-      pdf.addImage(contentDataURL, 'PNG', 0, 0, imgWidth, 100)
+    document.getElementById('spinner').style.display = "block";
+    this.meal.numberOfDiners = this.count
+    var data = document.getElementById('d')
+    html2canvas(data).then(canvas => {
+      const contentDataUrl = canvas.toDataURL('image/png')
+      let pdf = new jsPDF('l', 'mm', 'a4')
+      pdf.addImage(contentDataUrl, 'PNG', 0, 0, 295, canvas.height * 309 / canvas.width)
       let binary = pdf.output();
       this.sendMeal(btoa(binary))
+      document.getElementById('spinner').style.display = "none";
+      document.getElementById("send").style.display = "none";
+
     });
   }
-
   sendMeal(f) {
     console.log(this.from)
     console.log(this.to)
@@ -320,7 +305,54 @@ export class ShowMealDetailsComponent implements OnInit {
       });
     }, err => { console.log(err) })
   }
+  plus() {
+    this.count++
+    this.calcAmountProducts(this.count)
+  }
+  minus() {
+    if (this.count > 1)
+      this.count--
+    if (this.count < 1)
+      this.count = 1
+    this.calcAmountProducts(this.count)
+  }
+  calcAmountProducts(c: number) {
+    let x = 0
+    let z = 0
+    let y = 0
+    console.log("*******************************")
 
-
-
+    this.meal.products.forEach(element => {
+      y = c * this.proCalc[x]
+      z = y
+      this.unit.forEach(element1 => {
+        if (element.unitMeasureCode == element1.convertionMeasureCode) {
+          if (y >= Number(element1.convertionMeasureAmount)) {
+            this.unit.forEach(unit => {
+              if (unit.unitCode == element1.unitCode) {
+                this.UnitMeasures[x] = unit.unitName
+                console.log(y + "----------" + unit.unitName)
+                z = Number((y / Number(element1.convertionMeasureAmount)).toFixed(2));
+              }
+            });
+          }
+          else {
+            this.unit.forEach(element3 => {
+              if (element3.unitCode == element1.convertionMeasureCode) {
+                this.UnitMeasures[x] = element3.unitName
+              }
+            });
+          }
+        }
+        else {
+          element.amountInMeal = Number(z.toFixed(2));
+        }
+      });
+      x++
+    });
+  }
+  MealChange() {
+    this.meal.numberOfDiners = this.count
+    return this.meal;
+  }
 }

@@ -15,6 +15,9 @@ export class MealService {
 
   constructor(private http:HttpClient) { }
 
+  GetAllUsersMeals(): Observable<Meal[]>{
+    return this.http.get<Meal[]>(environment.url +"/api/Meals/GetAllUsersMeals");
+  }
   GetAllMeals():Observable<Meal[]>{
     return this.http.get<Meal[]>(environment.url +"/api/Meals/GetAllMeals/");
   }
@@ -30,6 +33,9 @@ export class MealService {
   DeleteMeal(m:Meal):Observable<Meal> {
     return this.http.put<Meal>(environment.url +"/api/Meals/DeleteMeal",m);
   }
+  DeleteMenuMeal(m:Meal):Observable<Meal> {
+    return this.http.put<Meal>(environment.url +"/api/Meals/DeleteMenuMeal",m);
+  }
   UpdateMeal(m:Meal):Observable<Meal> {
     return this.http.put<Meal>(environment.url +"/api/Meals/UpdateMeal",m);
   }
@@ -41,11 +47,18 @@ export class MealService {
   }
   SendMealInMail(from:string, to:string,meal:string ){
     let arr:Object[]=[from,to,meal]
-    // return this.http.post('/api/email/upload', meal, { headers: this.headers });
     return this.http.post(environment.url +"/api/Meals/SendMealPDFinMail",arr)  
   }
   MealIsExists(meal:Meal):Observable<boolean>{
     return this.http.put<boolean>(environment.url +"/api/Meals/MealIsExists",meal)  
   }
- 
+  checkMealName(m:Meal):Observable<Meal> {
+    return this.http.post<Meal>(environment.url +"/api/Meals/checkMealName",m);
+  }
+  GetAllUsersMealsProducts(): Observable<Product[]>{
+    return this.http.get<Product[]>(environment.url +"/api/Meals/GetAllUsersMealsProducts");
+  }
+  ChangeViewsNumber(m:Meal):Observable<Meal> {
+    return this.http.put<Meal>(environment.url +"/api/Meals/ChangeViewsNumber",m);
+  }
 }

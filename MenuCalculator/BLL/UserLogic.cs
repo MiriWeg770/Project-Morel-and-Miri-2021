@@ -33,6 +33,7 @@ namespace BLL
             }
         }
 
+   
         public UserDto DeletUser(UserDto u)
         {
             _context.Users.Remove(UserConvertors.ToUser(u));
@@ -45,6 +46,7 @@ namespace BLL
             return UserConvertors.ToUserDtoList(_context.Users.ToList());
         }
 
+     
         public UserDto GetUserById(int id)
         {
             try
@@ -56,6 +58,7 @@ namespace BLL
                 throw e;
             }
         }
+
         public UserDto GetUserByName(string name)
         {
             try
@@ -70,7 +73,13 @@ namespace BLL
 
         public bool IsExists(UserDto b)
         {
-            return _context.Users.Any(p => p.UserName == b.UserName);
+            return _context.Users.Any(p => p.UserName == b.UserName || p.UserCode==b.UserCode);
+        }
+
+        public bool IsManager(UserDto b)
+        {    if (_context.Users.Any(p => p.Password==b.Password && p.Manager == true))
+                return true;
+            return false;
         }
 
         public string ResetPassword(string m)
@@ -84,7 +93,6 @@ namespace BLL
 
                 string sb =new string("");
                 Random rnd = new Random();
-
                 for (int i = 0; i < 7; i++)
                 {
                     int index = rnd.Next(chars.Length);
@@ -102,7 +110,22 @@ namespace BLL
             }
             else
                 return null;
+        }
 
+        public string SendMessage(string m,string sub, string u)
+        {
+            MailMessage mail = new MailMessage();
+            mail.To.Add(u);
+            mail.From = new MailAddress("MenuCalculatorWeb@gmail.com");
+            mail.Subject = sub;
+            mail.Body =m;
+            SmtpClient s = new SmtpClient("smtp.gmail.com");
+            s.EnableSsl = true;
+            s.Port = 587;
+            s.DeliveryMethod = SmtpDeliveryMethod.Network;
+            s.Credentials = new NetworkCredential("MenuCalculatorWeb@gmail.com", "Mc2021@Mc");
+            s.Send(mail);
+            return u;
         }
 
         public UserDto SignIn(string Name, string password)
@@ -113,17 +136,19 @@ namespace BLL
             return null;
         }
 
-    
-        public UserDto SignUp(string Name, string Mail, string Password)
+        public UserDto SignUp(string Name, string Mail, string Password,bool manager)
         {
             UserDto u = new UserDto();
             u.UserName = Name;
             u.Mail = Mail;
-            u.Password = Password;          
+            u.Password = Password;
+            u.PictureCode = null;
+            u.Manager = manager;
             _context.Users.Add(UserConvertors.ToUser(u));
             _context.SaveChanges();
             return SignIn(u.UserName,u.Password);
         }
+
         public UserDto UpdateUser(UserDto u)
         {
             Users U = _context.Users.FirstOrDefault(w => w.UserCode == u.UserCode);
@@ -132,6 +157,8 @@ namespace BLL
             U.Mail = u.Mail;
             U.Password = u.Password;
             U.UserName = u.UserName;
+            U.PictureCode = u.PictureCode;
+            U.Manager = u.Manager;
             _context.SaveChanges();
             return UserConvertors.ToUserDto(U);
         }

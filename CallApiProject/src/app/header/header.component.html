@@ -1,179 +1,64 @@
 
 <mat-drawer-container >
-  <mat-drawer-content>
-   
-
-    
+  <mat-drawer-content>  
     <header> 
   <div>
-<div class="logo" routerLink="/Home" >MenuCalculator </div> 
+<div class="logo" ><img routerLink="/Home"  src="../../assets/img/logo.png"> </div> 
 </div>
-<nav>
+<div style="display: flex;align-items: center;">
+<nav class="nav1">
   <ul>
-    <li routerLinkActive="active"><a routerLink="/Home">דף הבית</a></li>
-    <li routerLinkActive="active"><a routerLink="/Home/About"> אודות</a></li>
+    <li ><a routerLink="/Home">דף הבית</a></li>
     <li routerLinkActive="active"><a routerLink="/Home/AllMenus"> תפריטים</a></li>
     <li routerLinkActive="active"><a routerLink="/Home/AllMeals"> מנות</a></li>
     <li routerLinkActive="active" *ngIf="u==null"><a  (click)="SignIn()">התחבר</a>/<a (click)="SignUp()">הירשם</a></li>
     <li routerLinkActive="active" *ngIf="u!=null"> 
-      <!-- <div class="user">
-      <div class="user_options">  
-        <span><mat-icon>person</mat-icon></span>
-        <ul>
-          <li *ngIf="u==null" > <a (click)="SignIn()">הכנס למערכת</a>/<a (click)="SignUp()">הירשם</a> </li>
-          <li *ngIf="u!=null"> <b>{{u.userName}}</b> </li>
-          <mat-divider></mat-divider>
-          <li *ngIf="u!=null"><a routerLink="/Home/MyMeals">המנות שלי</a></li>
-          <li *ngIf="u!=null"><a routerLink="/Home/MyMenus">התפריטים שלי</a></li>
-          <li *ngIf="u==null"><a (click)="makeAccount()">המנות שלי</a></li>
-          <li *ngIf="u==null"><a (click)="makeAccount()">התפריטים שלי</a></li>
-          <li *ngIf="u!=null"><a (click)="MyAccount()"> הגדרות פרופיל</a></li>
-        </ul>
-      </div>
-    </div>  -->
-    
-    </li>
-  </ul>
-  <div style="display: flex;">
-    <mat-icon class="search-icon icon">search</mat-icon>
-    <div class="user">
-      <div class="user_options">  
-        <mat-icon>person</mat-icon>
-        <ul>
-          <li *ngIf="u==null" > <a (click)="SignIn()">הכנס למערכת</a>/<a (click)="SignUp()">הירשם</a> </li>
-          <li *ngIf="u!=null"> <b>{{u.userName}}</b> </li>
-          <mat-divider></mat-divider>
-          <li *ngIf="u!=null"><a routerLink="/Home/MyMeals">המנות שלי</a></li>
-          <li *ngIf="u!=null"><a routerLink="/Home/MyMenus">התפריטים שלי</a></li>
-          <li *ngIf="u==null"><a (click)="makeAccount()">המנות שלי</a></li>
-          <li *ngIf="u==null"><a (click)="makeAccount()">התפריטים שלי</a></li>
-          <li *ngIf="u!=null"><a (click)="MyAccount()"> הגדרות פרופיל</a></li>
-        </ul>
-      </div>
-    </div>
-   <!-- <mat-icon matBadge="15" class="favorite-icon icon" matBadgeColor="warn">favorite</mat-icon> -->
-      </div>
-<!-- <div class="home">
-  <mat-icon routerLink="/Home/AllLists">home</mat-icon>
-  <span>דף הבית</span>
-</div> -->
-
-<!-- <div class="user">
-  <div class="user_options">  
-    <span><mat-icon>person</mat-icon></span>
-    <ul>
-      <li *ngIf="u==null" > <a (click)="SignIn()">הכנס למערכת</a>/<a (click)="SignUp()">הירשם</a> </li>
-      <li *ngIf="u!=null"> <b>{{u.userName}}</b> </li>
-      <mat-divider></mat-divider>
-      <li *ngIf="u!=null"><a routerLink="/Home/MyMeals">המנות שלי</a></li>
-      <li *ngIf="u!=null"><a routerLink="/Home/MyMenus">התפריטים שלי</a></li>
-      <li *ngIf="u==null"><a (click)="makeAccount()">המנות שלי</a></li>
-      <li *ngIf="u==null"><a (click)="makeAccount()">התפריטים שלי</a></li>
-      <li *ngIf="u!=null"><a (click)="MyAccount()"> הגדרות פרופיל</a></li>
-    </ul>
-  </div>
-</div> -->
-</nav>
-</header>
-<!-- <button   mat-button>התחבר</button> -->
-<!-- <button *ngIf="u==null"  mat-button>הירשם</button> -->
-
-<!-- <div> -->
-  <!-- <div class="sidebar"> -->
- <!-- <ul class="nav-list"> -->
-  
-  <!-- -->
-<!--  
-   <li *ngIf="name!=null">
-    <a (click)="MyAccount()">
-        <mat-icon>account_circle</mat-icon>
-    </a>
-     <span class="tooltip"> {{u.userName}}</span>
-  </li>
-  <li *ngIf="name==null">
-    <a routerLink="/Home/SignIn" >
-        <mat-icon>person</mat-icon>
-    </a>
-     <span class="tooltip">התחבר</span>
-  </li>
-
-
-   <li routerLinkActive="active">
-    <a routerLink="/Home/AllLists">
-        <mat-icon>home</mat-icon>
-    </a>
-     <span class="tooltip"> דף הבית</span>
-  </li>
-
-
-   <li *ngIf="name!=null" routerLinkActive="active">
-     <a routerLink="/Home/MyMeals"  >
-         <mat-icon>ballot</mat-icon>
-     </a>
-      <span class="tooltip">המנות שלי</span>
    </li>
-   <li *ngIf="name==null" (click)="makeAccount()">
-    <a>
-        <mat-icon>ballot</mat-icon>
-    </a>
-     <span class="tooltip">המנות שלי</span>
-  </li>
-  
-   <li  *ngIf="name!=null" routerLinkActive="active">
-    <a routerLink="/Home/MyMenus">
-        <mat-icon>list_alt</mat-icon>
-    </a>
-     <span class="tooltip">התפריטים שלי</span>
-  </li>
-  <li *ngIf="name==null" (click)="makeAccount()">
-    <a>
-        <mat-icon>list_alt</mat-icon>
-    </a>
-     <span class="tooltip">התפריטים שלי</span>
-  </li>
+  </ul>
+</nav>
+<nav class="nav2">
+  <span style="font-size:30px;cursor:pointer" (click)="openNav()"><mat-icon>menu</mat-icon></span>
+  <div id="mySidenav" class="sidenav">
+    <a  class="closebtn" (click)="closeNav()">&times;</a>
+    <a routerLink="/Home">דף הבית</a>
+    <a routerLink="/Home/AllMenus">תפריטים</a>
+    <a routerLink="/Home/AllMeals">מנות</a>
+    <a routerLink="/Home">התחבר</a>
+  </div>
+</nav>
+<div style="display: flex;">
+  <div id="search-text">
+    <form (ngSubmit)="search()" >
+    <input type="text"  placeholder="חפש" [(ngModel)]="text" [ngModelOptions]="{standalone: true}">
+    <button type="submit"><mat-icon >search</mat-icon></button>
+  </form>
+</div>
+  <mat-icon class="search-icon icon" (click)="openSearch()">search</mat-icon>
+  <div class="user">
+    <div class="user_options">  
+      <mat-icon>person</mat-icon>
+      <ul>
+        <li *ngIf="u==null" > <a (click)="SignIn()">הכנס למערכת</a>/<a (click)="SignUp()">הירשם</a> </li>
+        <li *ngIf="u!=null"> <b>{{u.userName}}</b> </li>
+        <mat-divider></mat-divider>
+        <li *ngIf="u!=null"><a routerLink="/Home/MyMeals">המנות שלי</a></li>
+        <li *ngIf="u!=null"><a routerLink="/Home/MyMenus">התפריטים שלי</a></li>
+        <li *ngIf="u==null"><a (click)="makeAccount()">המנות שלי</a></li>
+        <li *ngIf="u==null"><a (click)="makeAccount()">התפריטים שלי</a></li>
+        <li *ngIf="u!=null"><a (click)="MyAccount()"> הגדרות פרופיל</a></li>
+      </ul>
+    </div>
+  </div>
+    </div>
+    </div>
+</header>
 
-  <li  *ngIf="name!=null" routerLinkActive="active">
-    <a routerLink="/Home/MyEvent">
-        <mat-icon>event</mat-icon>
-    </a>
-     <span class="tooltip">ארועים</span>
-  </li>
-  <li *ngIf="name==null" (click)="makeAccount()">
-    <a>
-        <mat-icon>event</mat-icon>
-    </a>
-     <span class="tooltip"> ארועים</span>
-  </li> -->
-  <!-- <li routerLinkActive="active">
-    <a routerLink="/Home/MyHistory">
-        <mat-icon>history</mat-icon>
-    </a>
-     <span class="tooltip">היסטוריה </span>
-  </li>
-   <li routerLinkActive="active">
-    <a routerLink="/Home/AddMeal">
-     <mat-icon>settings</mat-icon>
-    </a>
-    <span class="tooltip"> הגדרות</span>
-  </li> -->
+<div>
+  <router-outlet></router-outlet> 
 
-  
- <!-- </ul> -->
-<!-- </div>
-
--->
-<!-- </div> -->
-
-<!-- <div id="overlay" >
-  <app-my-account *ngIf="u!=null" (closeEvent)="open_close($event)"></app-my-account>
-</div> -->
-
-<!-- <app-nav *ngIf="u!=null"></app-nav> -->
-<router-outlet></router-outlet> 
+</div>
  <!-- <footer>©MenuCalculator2021 by morel & miri</footer> -->
-
-  </mat-drawer-content>
-
+ </mat-drawer-content>
 </mat-drawer-container>
 
 

@@ -26,7 +26,7 @@ namespace DTO.Convertors
                 MenuCode=m.MenuCode,
                 Publish=m.Publish,
                 PictureCode=m.PictureCode,
-                PreparationTime=m.PreparationTime,
+                PreparationTime=new TimeSpan(m.PreparationTime.Value.Hour,m.PreparationTime.Value.Minute,0),
                 LevelCode=m.LevelCode,
                 MealProducts = ProductConvertors.ToProductList(m.Products)
                 
@@ -51,7 +51,7 @@ namespace DTO.Convertors
                 DateUpdated=m.DateUpdated,
                 DateCreated=m.DateCreated,
                 MenuCode=m.MenuCode,
-                PreparationTime=m.PreparationTime,
+                PreparationTime=new DateTime(2021,2,2,m.PreparationTime.Value.Hours,m.PreparationTime.Value.Minutes,0),
                 PictureCode=m.PictureCode,
                 LevelCode=m.LevelCode,
                 Products=ProductConvertors.ToProductDtoList(m.MealProducts.ToList())

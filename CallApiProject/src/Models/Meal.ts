@@ -12,7 +12,7 @@ export class Meal{
         public mealCategoryCode:number,
         public userCode:number,
         public numberOfViews:number,
-        public preparationTime:Time,
+        public preparationTime:Date,
         public dateUplaod:Date,
         public dateCreated:Date,
         public pictureCode:number,

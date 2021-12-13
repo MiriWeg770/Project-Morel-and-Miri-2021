@@ -1,0 +1,16 @@
+<div id="myModal" class="modal fade">
+	<div class="modal-dialog modal-confirm">
+		<div class="modal-content">
+			<div class="modal-header flex-column">
+				<div class="icon-box">
+					<mat-icon>info</mat-icon>
+				</div>						
+				<h4 class="modal-title w-100">?האם אתה בטוח שברצונך לבטל את השיתוף</h4>	
+			</div>
+			<div class="modal-footer justify-content-center">
+				<button type="button" class="btn btn-secondary" [mat-dialog-close]="false">ביטול</button>
+				<button type="button" class="btn btn-danger" [mat-dialog-close]="true">בטל שיתוף</button>
+			</div>
+		</div>
+	</div>
+</div> 

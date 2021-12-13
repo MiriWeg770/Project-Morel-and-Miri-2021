@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using BLL;
+using DTO;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -22,6 +23,23 @@ namespace WebApi.Controllers
         public IActionResult GetAllCategories()
         {
             return Ok(_logic.GetAllUnitMeasures());
+        }
+        [HttpPost("AddUnitMeasure")]
+        public IActionResult AddUnitMeasure([FromBody] UnitMeasureDto m)
+        {
+            return Ok(_logic.AddUnitMeasures(m));
+        }
+
+        [HttpPut("DeleteUnitMeasure")]
+        public IActionResult DeleteUnitMeasure([FromBody] UnitMeasureDto m)
+        {
+            return Ok(_logic.DeleteUnitMeasures(m));
+        }
+
+        [HttpPut("UpdateUnitMeasure")]
+        public IActionResult UpdateUnitMeasure([FromBody] UnitMeasureDto m)
+        {
+            return Ok(_logic.UpdateUnitMeasures(m));
         }
     }
 }

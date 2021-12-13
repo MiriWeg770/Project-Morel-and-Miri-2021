@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { SignInComponent } from '../sign-in/sign-in.component';
 import { SignUpComponent } from '../sign-up/sign-up.component';
 
 @Component({
@@ -14,14 +13,12 @@ export class MakeAccountComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
   SignIn(){ 
     this.connect(false)
   }
   SignUp(){
    this.connect(true)
   }
-  
   connect(x){
      const dialogRef = this.dialog.open(SignUpComponent, {  
       panelClass:'my-dialog',

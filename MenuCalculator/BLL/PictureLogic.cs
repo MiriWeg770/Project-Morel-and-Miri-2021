@@ -42,7 +42,9 @@ namespace BLL
 
         public PictureDto DeletPicture(PictureDto u)
         {
-            throw new NotImplementedException();
+            _context.Picture.Remove(PictureConvertors.ToPicture(u));
+            _context.SaveChanges();
+            return u;
         }
 
         public List<PictureDto> GetAllPicture()
