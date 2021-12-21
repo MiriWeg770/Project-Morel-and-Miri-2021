@@ -1,0 +1,10 @@
+@import "../delete/delete.component.css";
+.modal-confirm  h4 {
+    font-size: 20px;
+    font-weight: 500;
+    color: red;
+}
+.modal-confirm .btn {
+    background: #f44336;
+    font-size: 19px;
+}

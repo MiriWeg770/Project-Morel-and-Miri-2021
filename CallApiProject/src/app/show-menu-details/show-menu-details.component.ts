@@ -310,6 +310,8 @@ GetPicture(x:number){
   this.serp.GetPictureById(x).subscribe(succ=>{
     url=succ.pictureName
     this.img.push(url)
+    if(this.img.length==this.menu.meals.length-1)
+      this.next()
  },err=>{
    console.log(err)
  })
@@ -317,12 +319,10 @@ GetPicture(x:number){
 indexPic=0
 img:string[]=[]
 GetAllPictures(){
+  let x=0;
   this.menu.meals.forEach(element => {
    this.GetPicture(element.pictureCode)
   });
-  console.log(this.img)
-  // this.next()
-  this.changePicture()
 }
 changePicture(){
  this.url=this.img[this.indexPic];

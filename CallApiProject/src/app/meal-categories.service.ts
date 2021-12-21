@@ -8,8 +8,7 @@ import { MealCategories } from 'src/Models/MealCategories';
   providedIn: 'root'
 })
 export class MealCategoriesService {
-  checkListCategories:MealCategories[]=[];
-  
+
   constructor(private http:HttpClient) { }
 
   GetAllCategories():Observable<MealCategories[]>{
@@ -23,5 +22,8 @@ export class MealCategoriesService {
   }
   DeleteMealCategory(m:MealCategories){
     return this.http.put<MealCategories>(environment.url+"/api/MealCategories/DeleteMealCategory",m)
+  }
+  UpdateMealCategory(m:MealCategories){
+    return this.http.put<MealCategories>(environment.url+"/api/MealCategories/UpdateMealCategory",m)
   }
 }

@@ -10,7 +10,13 @@
 
 </div>
 </div>
-<div class="arrow"><mat-icon routerLink="/Home/AllMeals">keyboard_backspace</mat-icon></div>
+<div id="search-text">
+<form (ngSubmit)="search()" >
+  <input type="text"  placeholder="חפש" [(ngModel)]="text" [ngModelOptions]="{standalone: true}">
+  <button type="submit"><mat-icon >search</mat-icon></button>
+</form>
+</div>
+<!-- <div class="arrow"><mat-icon routerLink="/Home/AllMeals">keyboard_backspace</mat-icon></div> -->
 </header>
 <!-- <hr class="brace"> -->
 
@@ -27,9 +33,9 @@
   On the other hand, timeless beauties like Sophia Loren, Jane Mansfield and Elizabeth Taylor knew that a soft set of pearls, some red lipstick and a body hugging, flattering swimsuit were all it took to grab a man's attention and keep it!
 </section> -->
 <section class="rating">
-  <div> <mat-icon>person</mat-icon><h1> {{users}}</h1><h2>נרשמים</h2></div>
-  <div> <mat-icon>restaurant_menu</mat-icon><h1> {{meals}}</h1><h2>מתכונים</h2></div>
-  <div> <mat-icon>menu_book</mat-icon><h1> {{menus}}</h1><h2>תפריטים</h2></div>
+  <div> <mat-icon>person</mat-icon><h1> {{users-1}}</h1><h2>נרשמים</h2></div>
+  <div> <mat-icon>restaurant_menu</mat-icon><h1> {{meals-1}}</h1><h2>מתכונים</h2></div>
+  <div> <mat-icon>menu_book</mat-icon><h1> {{menus-1}}</h1><h2>תפריטים</h2></div>
 </section>
 <!-- <section class="recipe">
 <div class="title"><span> </span><h1>מתכונים </h1><span> </span></div>

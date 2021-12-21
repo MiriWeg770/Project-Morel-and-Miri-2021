@@ -64,6 +64,9 @@ export class MenuService {
   }
   DeleteMenuCategory(m:MenuCategories){
     return this.http.put<MenuCategories>(environment.url+"/api/MenuCategories/DeleteMenuCategory",m)
+  } 
+  UpdateMenuCategory(m:MenuCategories){
+    return this.http.put<MenuCategories>(environment.url+"/api/MenuCategories/UpdateMenuCategory",m)
   }
   SendMenuInMail(from:string, to:string,menu:string ){
     let arr:Object[]=[from,to,menu]

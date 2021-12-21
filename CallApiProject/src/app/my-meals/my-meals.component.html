@@ -10,7 +10,7 @@
  <div class="page_content" *ngIf="ELEMENT_DATA.length!=0">
 <div class="container">
   <div class="recipe-card" *ngFor="let x of ELEMENT_DATA" >
-    <div class="header" style="background: url('{{GetPicture(x.pictureCode)}}');background-size: cover;background-repeat: no-repeat;background-position: center;" >
+    <div class="header" style="background: url('{{checkPic(x.pictureCode)}}');background-size: cover;background-repeat: no-repeat;background-position: center;" >
       <button class="edit" (click)="UpdateMeal(x)" title="ערוך"><mat-icon>edit</mat-icon></button>
       <button class="delete" (click)="Delet(x)" title="מחק"><mat-icon>delete</mat-icon></button>
       <button class="share" (click)="shareOne(x)" *ngIf="!x.publish" title="שתף"><mat-icon>share</mat-icon></button>
@@ -38,6 +38,7 @@
 </div>
 </div>
  <div class="loader" *ngIf="loader"></div> 
+ <app-print-meal *ngIf="downloadMeal" #printMeal id="d" [m]="downloadMeal" [u]="UnitMeasures"></app-print-meal>
 
 
 

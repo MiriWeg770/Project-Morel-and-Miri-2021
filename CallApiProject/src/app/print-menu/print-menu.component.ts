@@ -12,7 +12,6 @@ import { UnitMeasure } from 'src/Models/UnitMeasure';
 export class PrintMenuComponent implements OnInit {
 
   @Input() m:Menu
-  @Input() c:number
   @Input() meals:Meal[]
   @Input() products:Product[]
   @Input() UnitMeasures:UnitMeasure[]

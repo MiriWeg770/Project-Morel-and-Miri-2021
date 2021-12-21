@@ -13,6 +13,7 @@ import jsPDF from 'jspdf';
 })
 export class MealService {
 
+  MEALS:Meal[]=[]
   constructor(private http:HttpClient) { }
 
   GetAllUsersMeals(): Observable<Meal[]>{
@@ -60,5 +61,11 @@ export class MealService {
   }
   ChangeViewsNumber(m:Meal):Observable<Meal> {
     return this.http.put<Meal>(environment.url +"/api/Meals/ChangeViewsNumber",m);
+  }
+  AddProduct(p:Product):Observable<Product>{
+    return this.http.post<Product>(environment.url +"/api/Meals/AddProduct",p);
+  } 
+  DeleteProduct(p:Product):Observable<Product>{
+    return this.http.put<Product>(environment.url +"/api/Meals/DeleteProduct",p);
   }
 }

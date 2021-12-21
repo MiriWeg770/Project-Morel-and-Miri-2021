@@ -1,106 +1,130 @@
-<div class="loader" *ngIf="pro" ></div> 
+<div class="loader" *ngIf="pro"></div>
 <div class="wrapper">
   <div class="container">
-      <div class="tabs">
-           <!-- Sign Up -->
-          <input type="radio" class="tabs__button" name="signForm" id="signIn" [checked]=checked1 />
-          <label class="tabs__text" for="signIn">הרשמה</label>
-          <div class="tabs__content">
-              <h1>הרשמה</h1>
-              <p>צור את החיבור שלך</p>
-              <form class="form" #myForm="ngForm" (ngSubmit)="SignUp()">
-                 <div class="input-group">
-                   <span *ngIf="userName.hasError('required') && userName.touched" class="popuptext" id="myPopup">זהו שדה חובה!</span>
-                   <span *ngIf="userName.hasError('pattern') && userName.touched" class="popuptext" id="myPopup">השדה חייב להכיל 4-20 תווים ללא רווחים!</span>
-                   <input class="input-group__input" type="text" placeholder="&nbsp;" name="username" pattern="[A-Za-z0-9]{4,20}" #userName="ngModel" [(ngModel)]="myUser.userName" id="username" autocomplete="off" required />
-                   <label class="input-group__label" for="username">שם משתמש</label>
-                 </div>
-                 <div class="input-group">
-                  <span *ngIf="userMail.hasError('required') && userMail.touched" class="popuptext" id="myPopup">!זהו שדה חובה</span>
-                  <span *ngIf="userMail.hasError('pattern') && userMail.touched" class="popuptext" id="myPopup">השדה לא בתבנית המתאימה</span>
-                  <input class="input-group__input" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  [(ngModel)]="myUser.mail" #userMail="ngModel" placeholder="&nbsp;" id="email" required />
-                  <label class="input-group__label" for="email">אימייל</label>
-                 </div>
-                 <div class="input-group">
-                  <span *ngIf="userPassword.hasError('required') && userPassword.touched" class="popuptext" id="myPopup">!זהו שדה חובה</span>
-                  <input class="input-group__input" type="password" name="password" #userPassword="ngModel" maxlength="8" [(ngModel)]="myUser.password" placeholder="&nbsp;" id="password" required />
-                  <label class="input-group__label" for="password">סיסמה</label>
-                 </div>
-                  <div class="input-group">
-                    <span *ngIf="userpassword.hasError('required') && userpassword.touched" class="popuptext" id="myPopup">!זהו שדה חובה</span>
-                    <span *ngIf="userpassword.value!=userPassword.value && userpassword.touched" class="popuptext" id="myPopup">סיסמאות לא תואמות</span>
-                    <input class="input-group__input" type="password" name="password2" maxlength="8" #userpassword="ngModel" [(ngModel)]="password2" placeholder="&nbsp;" id="password2" required />
-                    <label class="input-group__label" for="password2">חזור על הסיסמה</label>
-                  </div>                 
-                  <button type="submit" [disabled]="!myForm.valid" >הירשם</button>
-                </form>
-          </div>
-          <!-- Sign In -->
-          <input type="radio" class="tabs__button" name="signForm" id="signUp" [checked]=checked2/>
-          <label class="tabs__text" for="signUp">התחברות</label>
-          <div class="tabs__content" *ngIf="!forget">
-              <h1>התחברות</h1>
-              <p>התחבר לחשבונך</p>
-              <form class="form" #myForm2="ngForm" (ngSubmit)="SignIn()">
-                  <div class="input-group">
-                    <span *ngIf="userName2.hasError('required') && userName2.touched" class="popuptext" id="myPopup">זהו שדה חובה!</span>
-                    <span *ngIf="userName2.hasError('pattern') && userName2.touched" class="popuptext" id="myPopup">השדה חייב להכיל 4-20 תווים ללא רווחים!</span>               
-                    <input class="input-group__input" type="text"  [(ngModel)]="myUser.UserName" #userName2="ngModel"  pattern="[A-Za-z]{4,20}" placeholder="&nbsp;" name="username" id="username2" autocomplete="off" required />
-                    <label class="input-group__label" for="username">שם משתמש</label>
-                  </div>
-                  <div class="input-group">
-                    <span *ngIf="userPassword2.hasError('required') && userPassword2.touched" class="popuptext" id="myPopup">זהו שדה חובה!</span>
-                    <input class="input-group__input" type="password" name="repassword" maxlength="8" #userPassword2="ngModel" [(ngModel)]="myUser.Password" placeholder="&nbsp;" id="repassword" required />
-                    <label class="input-group__label" for="password">סיסמה</label>
-                  </div> 
-                  <div class="flex-space-between">
-                    <p> <a class="forget" (click)="forget=!forget">שכחתי שם משתמש/סיסמה?</a></p>
-                </div>
-                  <button type="submit"  [disabled]="!myForm2.valid" >התחבר</button>
-              </form>
-          </div>
-          <div class="tabs__content" *ngIf="forget">
-            <h1>שחזור סיסמה</h1>
-            <div *ngIf="!pass">  
-              <mat-icon (click)="forget=!forget">trending_flat</mat-icon>        
-            <form #myForm3="ngForm"   (ngSubmit)="sendEmail()">
-            <div class="input-group">
-              <span *ngIf="userMail2.hasError('required') && userMail2.touched" class="popuptext" id="myPopup">זהו שדה חובה!</span>
-              <span *ngIf="userMail2.hasError('pattern') && userMail2.touched" class="popuptext" id="myPopup">השדה לא בתבנית המתאימה!</span>
-              <input class="input-group__input" type="email"  [(ngModel)]="myUser.mail" #userMail2="ngModel" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"  placeholder="&nbsp;" name="username" id="username" autocomplete="off" required />
-              <label class="input-group__label" for="usermail">הכנס אימייל </label>
-           </div>
-           <button class="button" type="submit" [disabled]="!myForm3.valid">שלח</button>
-          </form>
-           <form #myForm4="ngForm" (ngSubmit)="check()">
+    <div class="tabs">
+      <!-- Sign Up -->
+      <input type="radio" class="tabs__button" name="signForm" id="signIn" [checked]=checked1 />
+      <label class="tabs__text" for="signIn">הרשמה</label>
+      <div class="tabs__content">
+        <h1>הרשמה</h1>
+        <p>צור את החיבור שלך</p>
+        <form class="form" #myForm="ngForm" (ngSubmit)="SignUp()">
           <div class="input-group">
-            <span *ngIf="code1.hasError('required') && code1.touched" class="popuptext" id="myPopup">זהו שדה חובה!</span>
-            <input class="input-group__input" type="text" [(ngModel)]="code" #code1="ngModel" maxlength="7" placeholder="&nbsp;" name="username" id="username" autocomplete="off" required />
-            <label class="input-group__label" for="code1">הכנס קוד אימות </label>
-         </div>
-          <button class="button" type="submit"[disabled]="!myForm4.valid">אישור</button>
-          </form>
-        </div>
-            
-                  
-       <div *ngIf="pass">
-        <mat-icon (click)="pass=!pass">trending_flat</mat-icon>        
-            <form>
-            <div class="input-group">
-              <input class="input-group__input" type="password"[(ngModel)]="password1" placeholder="&nbsp;" name="password1"  autocomplete="off" required />
-              <label class="input-group__label" for="password1">הכנס  סיסמה חדשה </label>
+            <span *ngIf="userName.hasError('required') && userName.touched" class="popuptext" id="myPopup">זהו שדה
+              חובה!</span>
+            <span *ngIf="userName.hasError('pattern') && userName.touched" class="popuptext" id="myPopup">השדה חייב
+              להכיל 4-20 תווים ללא רווחים!</span>
+            <input class="input-group__input" type="text" placeholder="&nbsp;" name="username"
+              pattern="[A-Za-z0-9]{4,20}" #userName="ngModel" [(ngModel)]="myUser.userName" id="username"
+              autocomplete="off" required />
+            <label class="input-group__label" for="username">שם משתמש</label>
           </div>
           <div class="input-group">
-            <input class="input-group__input" type="password"[(ngModel)]="password3" placeholder="&nbsp;" name="password2"  autocomplete="off" required />
-            <label class="input-group__label" for="password3"> חזור על הסיסמה </label>
-        </div>
-         <button (click)="changePass()" >אישור</button> 
-        </form></div> 
+            <span *ngIf="userMail.hasError('required') && userMail.touched" class="popuptext" id="myPopup">!זהו שדה
+              חובה</span>
+            <span *ngIf="userMail.hasError('pattern') && userMail.touched" class="popuptext" id="myPopup">השדה לא בתבנית
+              המתאימה</span>
+            <input class="input-group__input" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              [(ngModel)]="myUser.mail" #userMail="ngModel" placeholder="&nbsp;" id="email" required />
+            <label class="input-group__label" for="email">אימייל</label>
           </div>
-        
+          <div class="input-group">
+            <span *ngIf="userPassword.hasError('required') && userPassword.touched" class="popuptext" id="myPopup">!זהו
+              שדה חובה</span>
+            <input class="input-group__input" type="password" name="password" #userPassword="ngModel" maxlength="8"
+              [(ngModel)]="myUser.password" placeholder="&nbsp;" id="password" required />
+            <label class="input-group__label" for="password">סיסמה</label>
+          </div>
+          <div class="input-group">
+            <span *ngIf="userpassword.hasError('required') && userpassword.touched" class="popuptext" id="myPopup">!זהו
+              שדה חובה</span>
+            <span *ngIf="userpassword.value!=userPassword.value && userpassword.touched" class="popuptext"
+              id="myPopup">סיסמאות לא תואמות</span>
+            <input class="input-group__input" type="password" name="password2" maxlength="8" #userpassword="ngModel"
+              [(ngModel)]="password2" placeholder="&nbsp;" id="password2" required />
+            <label class="input-group__label" for="password2">חזור על הסיסמה</label>
+          </div>
+          <button type="submit" [disabled]="!myForm.valid">הירשם</button>
+        </form>
       </div>
+      <!-- Sign In -->
+      <input type="radio" class="tabs__button" name="signForm" id="signUp" [checked]=checked2 />
+      <label class="tabs__text" for="signUp">התחברות</label>
+      <div class="tabs__content" *ngIf="!forget">
+        <h1>התחברות</h1>
+        <p>התחבר לחשבונך</p>
+        <form class="form" #myForm2="ngForm" (ngSubmit)="SignIn()">
+          <div class="input-group">
+            <span *ngIf="userName2.hasError('required') && userName2.touched && userName2.untouched" class="popuptext"
+              id="myPopup">זהו שדה חובה!</span>
+            <span *ngIf="userName2.hasError('pattern') && userName2.touched" class="popuptext" id="myPopup">השדה חייב
+              להכיל 4-20 תווים ללא רווחים!</span>
+            <input class="input-group__input" type="text" [(ngModel)]="myUser.UserName" #userName2="ngModel"
+              pattern="[A-Za-z]{4,20}" placeholder="&nbsp;" name="username" id="username2" autocomplete="off"
+              required />
+            <label class="input-group__label" for="username">שם משתמש</label>
+          </div>
+          <div class="input-group">
+            <span *ngIf="userPassword2.hasError('required') && userPassword2.touched && userName2.untouched"
+              class="popuptext" id="myPopup">זהו שדה חובה!</span>
+            <input class="input-group__input" type="password" name="repassword" maxlength="8" #userPassword2="ngModel"
+              [(ngModel)]="myUser.Password" placeholder="&nbsp;" id="repassword" required />
+            <label class="input-group__label" for="password">סיסמה</label>
+          </div>
+          <div class="flex-space-between">
+            <p> <a class="forget" (click)="forget=!forget">שכחתי שם משתמש/סיסמה?</a></p>
+          </div>
+          <button type="submit" [disabled]="!myForm2.valid">התחבר</button>
+        </form>
+      </div>
+      <div class="tabs__content" *ngIf="forget">
+        <h1>שחזור סיסמה</h1>
+        <div *ngIf="!pass">
+          <mat-icon (click)="forget=!forget">trending_flat</mat-icon>
+          <form #myForm3="ngForm" (ngSubmit)="sendEmail()">
+            <div class="input-group">
+              <span *ngIf="userMail2.hasError('required') && userMail2.touched" class="popuptext" id="myPopup">זהו שדה
+                חובה!</span>
+              <span *ngIf="userMail2.hasError('pattern') && userMail2.touched" class="popuptext" id="myPopup">השדה לא
+                בתבנית המתאימה!</span>
+              <input class="input-group__input" type="email" [(ngModel)]="myUser.mail" #userMail2="ngModel"
+                pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" placeholder="&nbsp;" name="username" id="username"
+                autocomplete="off" required />
+              <label class="input-group__label" for="usermail">הכנס אימייל </label>
+            </div>
+            <button class="button" type="submit" [disabled]="!myForm3.valid">שלח</button>
+          </form>
+          <form #myForm4="ngForm" (ngSubmit)="check()">
+            <div class="input-group">
+              <span *ngIf="code1.hasError('required') && code1.touched" class="popuptext" id="myPopup">זהו שדה
+                חובה!</span>
+              <input class="input-group__input" type="text" [(ngModel)]="code" #code1="ngModel" maxlength="7"
+                placeholder="&nbsp;" name="username" id="username" autocomplete="off" required />
+              <label class="input-group__label" for="code1">הכנס קוד אימות </label>
+            </div>
+            <button class="button" type="submit" [disabled]="!myForm4.valid">אישור</button>
+          </form>
+        </div>
+
+
+        <div *ngIf="pass">
+          <mat-icon (click)="pass=!pass">trending_flat</mat-icon>
+          <form>
+            <div class="input-group">
+              <input class="input-group__input" type="password" [(ngModel)]="password1" placeholder="&nbsp;"
+                name="password1" autocomplete="off" required />
+              <label class="input-group__label" for="password1">הכנס סיסמה חדשה </label>
+            </div>
+            <div class="input-group">
+              <input class="input-group__input" type="password" [(ngModel)]="password3" placeholder="&nbsp;"
+                name="password2" autocomplete="off" required />
+              <label class="input-group__label" for="password3"> חזור על הסיסמה </label>
+            </div>
+            <button (click)="changePass()">אישור</button>
+          </form>
+        </div>
+      </div>
+
+    </div>
   </div>
 </div>
-
-
-

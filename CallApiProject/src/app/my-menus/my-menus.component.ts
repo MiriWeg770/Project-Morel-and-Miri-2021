@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatTableDataSource } from '@angular/material/table';
+import html2canvas from 'html2canvas';
+import jspdf from 'jspdf';
 import { Level } from 'src/Models/Level';
 import { Meal } from 'src/Models/Meal';
 import { Menu } from 'src/Models/Menu';
@@ -69,21 +71,22 @@ export class MyMenusComponent implements OnInit {
       this.ser.GetUserMenus(this.u.userCode).subscribe(succ => {
        this.ELEMENT_DATA = succ;
        this.arr=succ
+       this.GetPictures()
       this.GetMenuMeals()    
          console.log(this.ELEMENT_DATA);
      }, err => {
         console.log(err);
       }) 
    }
-   GetMenuPictures(x:Menu){
-     this.pictures=[]
-     x.meals.forEach(element => {    
-      this.serp.GetPictureById(x.pictureCode).subscribe(succ=>{
-      this.pictures.push(succ)
-      console.log(this.pictures)
-      },err=>{console.log(err)})
-   });
-   }
+  //  GetMenuPictures(x:Menu){
+  //    this.pictures=[]
+  //    x.meals.forEach(element => {    
+  //     this.serp.GetPictureById(x.pictureCode).subscribe(succ=>{
+  //     this.pictures.push(succ)
+  //     console.log(this.pictures)
+  //     },err=>{console.log(err)})
+  //  });
+  //  }
    AddMenu(){
      const dialogRef = this.dialog.open(AddMenuComponent, {
      disableClose:true,
@@ -245,21 +248,69 @@ Category(x:Menu){
   return ca;
 }
 GetPictures(){
-  this.pictures=[]
-  this.serp.GetAllPictures().subscribe(succ=>{
-    this.pictures=succ
+  this.ELEMENT_DATA.forEach(element => { 
+  this.serp.GetPictureById(element.pictureCode).subscribe(succ=>{
+    this.pictures.push(succ) 
+  if(this.pictures.length==this.ELEMENT_DATA.length){
     console.log(this.pictures)
     this.GetAllMenus()
- },err=>{
-   console.log(err)
- })
+    this.loader=false
+  }
+},err=>{console.log(err)})
+});
 }
-GetPicture(x:number){
+checkPic(x:number){
   let url;
-  this.pictures.forEach(element => {
+ this.pictures.forEach(element => {
    if(element.pictureCode==x)
-      url= element.pictureName
+     url=element.pictureName
  });
- return url
+ return url;
 }
+// GetPictures(){
+//   this.pictures=[]
+//   this.serp.GetAllPictures().subscribe(succ=>{
+//     this.pictures=succ
+//     console.log(this.pictures)
+//     this.GetAllMenus()
+//  },err=>{
+//    console.log(err)
+//  })
+// }
+// GetPicture(x:number){
+//   let url;
+//   this.pictures.forEach(element => {
+//    if(element.pictureCode==x)
+//       url= element.pictureName
+//  });
+//  return url
+// }
+
+
+
+menu:Menu
+count
+meals
+products
+UnitMeasures
+category
+time
+level;
+
+download(x:Menu){
+  this.menu=x;
+
+  document.getElementById("d").style.display="block";
+  var data = document.getElementById('d')  
+  html2canvas(data).then(canvas => {  
+    var imgWidth = 208;   
+    var imgHeight = canvas.height * imgWidth / canvas.width;  
+    const contentDataURL = canvas.toDataURL('image/png')  
+    let pdf = new jspdf('p', 'mm', 'a4'); 
+    pdf.addImage(contentDataURL, 'PNG', 0, 0, imgWidth, imgHeight)  
+    pdf.save(this.menu.menuName+" -תפריט");  
+}); 
+}
+
+
  }

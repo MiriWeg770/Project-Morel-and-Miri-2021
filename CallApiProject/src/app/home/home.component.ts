@@ -17,8 +17,8 @@ export class HomeComponent implements OnInit {
  listMeals:Meal[]=[]
  listUsers:User[]=[]
  listMenus:Menu[]=[]
- Meals:Meal[]=[]
- Menus:Menu[]=[]
+//  Meals:Meal[]=[]
+//  Menus:Menu[]=[]
  urls:string[]=[
    "../../assets/slide1-1-ok.jpg",
    "../../assets/slide1-2-ok.jpg",
@@ -45,16 +45,16 @@ export class HomeComponent implements OnInit {
   
   }
 
-  continue(){   
-       this.router.navigate(["/MyHome/AllLists"])
-}
+//   continue(){   
+//        this.router.navigate(["/MyHome/AllLists"])
+// }
 
 GetAllMeals(){
   this.serm.GetAllMeals().subscribe(succ=>{
     this.listMeals=succ
-   for (let index = 0; index < 5; index++) {
-    this.Meals.push(this.listMeals[index])
-   }
+  //  for (let index = 0; index < 5; index++) {
+  //   this.Meals.push(this.listMeals[index])
+  //  }
   },err=>{console.log(err)})
 }
 GetAllUsers(){
@@ -63,9 +63,9 @@ GetAllUsers(){
 GetAllMenus(){
   this.sern.GetAllMenus().subscribe(succ=>{
     this.listMenus=succ
-    for (let index = 0; index < 5; index++) {
-     this.Menus.push(this.listMenus[index])
-    }
+    // for (let index = 0; index < 5; index++) {
+    //  this.Menus.push(this.listMenus[index])
+    // }
   },err=>{console.log(err)})
 }
 
@@ -87,7 +87,14 @@ startTimer() {
     },50)
   }
 
-
+  text:string=""
+  search(){
+     console.log(this.text)
+     this.router.navigate(["/Home/SearchResults",{text:this.text}]).then(() => {
+      window.location.reload();
+    });
+     
+  }
   
 
 

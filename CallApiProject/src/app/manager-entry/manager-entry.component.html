@@ -1,7 +1,7 @@
    <body *ngIf="manager">
    <header> 
       <div class="logo" ><img routerLink="/Home"  src="../../assets/img/logo.png"> </div>
-      <div><span (click)="out()">התנתק</span><span class="m">מנהל ראשי</span></div> 
+      <div><span (click)="out()">התנתק</span><span class="m">{{managerUser.userName}} -מנהל ראשי</span></div> 
   </header>
   <div class="button">
     <button (click)="check(1)" [ngClass]="user? 'focus' : 'notFocus'">({{Users.length}})משתמשים</button>
@@ -23,9 +23,15 @@
           <td>{{u.userCode}}</td>
           <td>{{u.userName}}</td>
           <td>{{u.mail}}</td>
+          
           <td>
-            <mat-icon title="מחק" (click)="DeletUser(u)">delete</mat-icon>
-            <mat-icon title="שלח הודעה" (click)="SendMessage(u)">email</mat-icon>
+            <button mat-icon-button [matMenuTriggerFor]="Menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #Menu="matMenu">
+              <mat-icon title="מחק" (click)="DeletUser(u)">delete</mat-icon>
+              <mat-icon title="שלח הודעה" (click)="SendMessage(u)">email</mat-icon>
+            </mat-menu>   
           </td>
         </tr>
       </table>
@@ -33,13 +39,13 @@
   <div class="container" *ngIf="menu">
     <div class="search-input"><input type="text" (keyup)="SearchMenu()" [(ngModel)]="MenuText" placeholder="חפש תפריט"/></div>   
       <table >
-        <button id="add" (click)="AddMenuCategory()" mat-button>
+        <button id="add" (click)="AddMenu()" mat-button>
           <mat-icon>add</mat-icon>הוספה  
         </button>
         <tr>
           <th *ngFor="let x of MenusTable">{{x}}</th>
         </tr>
-        <tr *ngFor="let menu of Menus" class="row" (click)="UpdateMenu(menu)">
+        <tr *ngFor="let menu of Menus" class="row" >
           <td>{{menu.menuCode}}</td>
           <td>{{menu.menuName}}</td>    
           <td>{{CategoryMenu(menu.menuCategoryCode)}}</td>
@@ -49,7 +55,16 @@
           <td><mat-checkbox [(ngModel)]="menu.publish" color="warn"  (click)="ShareMenu(menu)"></mat-checkbox></td>
           <td>{{menu.viewsNumber}}</td>
           <td>{{menu.userName}}</td>
-          <td><mat-icon title="מחק" (click)="DeletMenu(menu)">delete</mat-icon></td>
+          <td>
+            <!-- <mat-icon title="מחק" (click)="DeletMenu(menu)">delete</mat-icon> -->          
+            <button mat-icon-button [matMenuTriggerFor]="Menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #Menu="matMenu">
+                <mat-icon (click)="UpdateMenu(menu)">edit</mat-icon>
+                <mat-icon (click)="DeletMenu(menu)">delete</mat-icon>
+            </mat-menu>   
+          </td>
         </tr>
       </table>
   </div>
@@ -62,35 +77,46 @@
         <tr>
           <th *ngFor="let x of MealsTable">{{x}}</th>
         </tr>
-        <tr *ngFor="let meal of Meals" class="row" (click)="UpdateMeal(meal)">
+        <tr *ngFor="let meal of Meals" class="row" >
           <td class="img"><img src="{{GetPicture(meal.pictureCode)}}" alt=""></td>
           <td>{{meal.mealCode}}</td>
           <td>{{meal.mealName}}</td>
           <td>{{CategoryMeal(meal.mealCategoryCode)}}</td>
           <td>{{meal.numberOfDiners}}</td>
-          <td>{{meal.discription}}</td>
+          <!-- <td>{{meal.discription}}</td> -->
           <td>{{Level(meal.levelCode)}}</td>
           <td>{{meal.products.length}}</td>
           <td><mat-checkbox [(ngModel)]="meal.publish" (click)="ShareMeal(meal)" color="warn"></mat-checkbox></td>
           <td>{{meal.numberOfViews}}</td>
           <td>{{meal.userName}}</td>
-          <td ><mat-icon title="מחק" (click)="DeletMeal(meal)">delete</mat-icon>
-         </td>
+          <td>
+            <!-- <mat-icon title="מחק" (click)="DeletMenu(menu)">delete</mat-icon> -->          
+            <button mat-icon-button [matMenuTriggerFor]="Menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #Menu="matMenu">
+                <mat-icon (click)="UpdateMeal(meal)">edit</mat-icon>
+                <mat-icon (click)="DeletMeal(meal)">delete</mat-icon>
+            </mat-menu>   
+          </td>
         </tr>
       </table>
   </div>  
   <div class="container" *ngIf="product">
-    <div class="search-input"><input type="text" placeholder="חפש מוצר"/></div>   
+    <div class="search-input"><input type="text" (keyup)="SearchProduct()" [(ngModel)]="ProductText"  placeholder="חפש מוצר"/></div>   
       <table >
+          <button id="add" (click)="AddProduct()" mat-button>
+          <mat-icon>add</mat-icon>הוספה  
+         </button>
         <tr>
           <th *ngFor="let x of ProductTable">{{x}}</th>
         </tr>
         <tr *ngFor="let pro of Products;let i=index" class="row">
           <td>{{i+1}}</td>
           <td>{{pro.productName}}</td>
-          <td>{{pro.amountInMeal}}</td>
-          <td>{{GetUnit(pro.unitMeasureCode)}}</td>
-          <td><mat-icon title="מחק">delete</mat-icon></td>
+          <!-- <td>{{pro.amountInMeal}}</td> -->
+          <!-- <td>{{GetUnit(pro.unitMeasureCode)}}</td> -->
+          <td><mat-icon title="מחק" (click)="DeleteProduct(pro)">delete</mat-icon></td>
        
         </tr>
       </table>
@@ -107,7 +133,7 @@
           <td>{{unit.unitCode}}</td>
           <td>{{unit.unitName}}</td>
           <td>{{unit.convertionMeasureAmount}} {{GetUnit(unit.convertionMeasureCode)}}</td>
-          <td><mat-icon title="מחק">delete</mat-icon></td>
+          <td><mat-icon title="מחק" (click)="DeletUnit(unit)">delete</mat-icon></td>
         </tr>
       </table>
   </div>  
@@ -124,7 +150,18 @@
         <tr *ngFor="let ca of MenuCategories" class="row">
           <td>{{ca.menuCategoriesCode}}</td>
           <td>{{ca.menuCategoriesName}}</td>
-          <td><mat-icon title="מחק" (click)="DeleteMenuCategory(ca)">delete</mat-icon></td>
+          <td>{{GetAllMenuInCategory(ca)}}</td>
+          <td>
+            <!-- <mat-icon title="מחק" (click)="DeleteMenuCategory(ca)">delete</mat-icon> -->
+            <button mat-icon-button [matMenuTriggerFor]="Menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #Menu="matMenu">
+                <mat-icon (click)="UpdateMenuCategory(ca)">edit</mat-icon>
+                <mat-icon (click)="DeleteMenuCategory(ca)">delete</mat-icon>
+            </mat-menu>   
+          </td>
+          
         </tr>
       </table>
       <table>
@@ -138,7 +175,17 @@
         <tr *ngFor="let ca of MealCategories" class="row">
           <td>{{ca.mealCategoriesCode}}</td>
           <td>{{ca.mealCategoriesName}}</td>
-          <td><mat-icon title="מחק" (click)="DeleteMealCategory(ca)">delete</mat-icon></td>
+          <td>{{GetAllMealInCategory(ca)}}</td>
+          <td>
+            <!-- <mat-icon title="מחק" (click)="DeleteMealCategory(ca)">delete</mat-icon> -->
+            <button mat-icon-button [matMenuTriggerFor]="Menu">
+              <mat-icon>more_vert</mat-icon>
+            </button>
+            <mat-menu #Menu="matMenu">
+                <mat-icon (click)="UpdateMealCategory(ca)">edit</mat-icon>
+                <mat-icon (click)="DeleteMealCategory(ca)">delete</mat-icon>
+            </mat-menu>
+          </td>
         </tr>
       </table>
     </div>

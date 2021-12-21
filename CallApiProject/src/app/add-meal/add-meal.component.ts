@@ -68,11 +68,16 @@ export class AddMealComponent implements OnInit {
     if (data!= null) {
       this.edit=true
       this.newMeal = data
-      // serc.GetCategoryById(this.newMeal.mealCategoryCode).subscribe(succ => {
-      //   this.selectCa = succ.mealCategoriesName
-      // }, err => {
-      //   console.log(err)
-      // })
+      this.serl.GetLevelById(this.newMeal.levelCode).subscribe(succ => {
+        this.selectLe = succ.levelName
+      }, err => {
+        console.log(err)
+      })
+      serc.GetCategoryById(this.newMeal.mealCategoryCode).subscribe(succ => {
+        this.selectCa = succ.mealCategoriesName
+      }, err => {
+        console.log(err)
+      })
      
       ser.GetProductsMeal(this.newMeal.mealCode).subscribe(succ => {
         console.log(succ)
@@ -107,21 +112,7 @@ export class AddMealComponent implements OnInit {
     this.GetAllUnitMeasures()
   } 
 
-  c(){
-    this.serc.GetCategoryById(this.newMeal.mealCategoryCode).subscribe(succ => {
-      this.selectCa = succ.mealCategoriesName
-      console.log(this.selectCa)
-    }, err => {
-      console.log(err)
-    })
-  }
-  l(){
-    this.serl.GetLevelById(this.newMeal.levelCode).subscribe(succ => {
-      this.selectLe = succ.levelName
-    }, err => {
-      console.log(err)
-    })
-  }
+  
   
   interval
   openMessage(y:number){
@@ -150,9 +141,6 @@ export class AddMealComponent implements OnInit {
     document.getElementById("dialog").style.display="none"
     document.getElementById("dialog2").style.display="none"
     document.getElementById("dialog3").style.display="none"
-  }
-  doSomething(event){
-    event.source.selected.viewValue=Number(event.source.selected.viewValue);
   }
   details(){
     this.loader=true
@@ -273,8 +261,7 @@ export class AddMealComponent implements OnInit {
   GetLevels() {
     this.serl.GetAllLevels().subscribe(succ => {
       this.levels = succ
-      if(this.data!=null)
-        this.l()
+
     }, err => {
       console.log(err)
     })
@@ -336,7 +323,7 @@ export class AddMealComponent implements OnInit {
   this.options=[]
   if(x!=""){
   this.op.forEach(element => {
-   if(element.includes(x)){
+   if(element!=null && element.includes(x)){
      this.options.push(element)
    }
  });

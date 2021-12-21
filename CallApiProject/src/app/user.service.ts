@@ -12,9 +12,17 @@ import { Menu } from 'src/Models/Menu';
 })
 export class UserService {
 
+  User:User=null
+  Manager:User;
   constructor(private http:HttpClient) { }
 
-  user:User=new User(null,null,null,null,null,null)
+  setManager(u:User){
+    this.Manager=u;
+    console.log(this.Manager)
+   }
+   getManager(){
+     return this.Manager;
+    }
   GetAllUsers(): Observable<User[]>{
     return this.http.get<User[]>(environment.url +"/api/Users");
   }

@@ -1,0 +1,7 @@
+<div>
+    <h1 *ngIf="data==null">הוסף מרכיב</h1>
+    <h1 *ngIf="data!=null">עדכן מרכיב</h1>
+    <input type="text" [(ngModel)]="pro.productName">
+    <button mat-dialog-close (click)="Add()" *ngIf="data==null" >הוסף</button>
+    <button mat-dialog-close *ngIf="data!=null">עדכן</button>
+</div>

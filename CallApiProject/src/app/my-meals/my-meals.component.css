@@ -223,5 +223,17 @@ div.empty h1{
 color: rgb(0 0 0 / 63%);
 padding-left: 8px;}
 
+app-print-meal {
+  display: none;
+}
+@media print {
+ 
+  app-print-meal {
+    display: block;
+  }
 
+   #b {
+    display: none;
+  } 
+}
 

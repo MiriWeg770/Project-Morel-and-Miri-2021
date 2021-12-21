@@ -23,6 +23,10 @@ import { DeletPublishedMealComponent } from '../delet-published-meal/delet-publi
 import { PictureService } from '../picture.service';
 import { Picture } from 'src/Models/Picture';
 import { RemoveShareToUpdateComponent } from '../remove-share-to-update/remove-share-to-update.component';
+import html2canvas from 'html2canvas';
+import jsPDF from 'jspdf';
+import { UnitMeasureService } from '../unit-measure.service';
+import { UnitMeasure } from 'src/Models/UnitMeasure';
 
 @Component({
   selector: 'app-my-meals',
@@ -39,12 +43,12 @@ export class MyMealsComponent implements OnInit {
   text:string=""
   find:Meal[]=[]
   arr:Meal[]=[]
-  constructor(private dialog:MatDialog,private _snackBar: MatSnackBar,private serp:PictureService, private serc:MealCategoriesService,private ser:UserService,private serm:MealService,private serl:LevelService,private router:Router) {
+  constructor( private seru:UnitMeasureService, private dialog:MatDialog,private _snackBar: MatSnackBar,private serp:PictureService, private serc:MealCategoriesService,private ser:UserService,private serm:MealService,private serl:LevelService,private router:Router) {
          this.u= JSON.parse(localStorage.getItem("user") );
          this.GetCategories()
          this.GetAllMeals()
-         this.GetPictures() 
          this.GetLevels()
+         this.GetAllUnitMeasures()
            
    }
    ngOnInit(): void {
@@ -54,16 +58,37 @@ export class MyMealsComponent implements OnInit {
      this.ser.GetUserMeals(this.u.userCode).subscribe(succ => {
       this.ELEMENT_DATA = succ;   
       this.arr=succ;    
+      this.GetPictures()
       this.ELEMENT_DATA.forEach(element => {
         this.serm.GetProductsMeal(element.mealCode).subscribe(succ=>{
         element.products=succ
-        })
+        },err=>{console.log(err)})
       },err=>{
         console.log(err)
       });
     }, err => {
        console.log(err);
      }) 
+  }
+  GetPictures(){
+    this.ELEMENT_DATA.forEach(element => { 
+    this.serp.GetPictureById(element.pictureCode).subscribe(succ=>{
+      this.pictures.push(succ) 
+    if(this.pictures.length==this.ELEMENT_DATA.length){
+      console.log(this.pictures)
+      this.GetAllMeals()
+      this.loader=false
+    }
+  },err=>{console.log(err)})
+});
+  }
+  checkPic(x:number){
+    let url;
+   this.pictures.forEach(element => {
+     if(element.pictureCode==x)
+       url=element.pictureName
+   });
+   return url;
   }
   AddMeal(){
     const dialogRef = this.dialog.open(AddMealComponent, {
@@ -127,15 +152,23 @@ export class MyMealsComponent implements OnInit {
         }) }
       });
   }
+  downloadMeal:Meal=null
   download(x:Meal){
-    const dialogRef = this.dialog.open(DownloadComponent, {
-      data: x,
-      height:'100%',
-    });
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
-   }  
+    this.downloadMeal=x; 
+       console.log(this.downloadMeal)
+    this.UnitMeasure(x)
+    
+    document.getElementById("d").style.display="block";  
+  var data = document.getElementById('d')  
+     html2canvas(data).then(canvas=>{
+     const contentDataUrl = canvas.toDataURL('image/png')
+     let pdf =  new jsPDF('l','mm','a4')
+    pdf.addImage(contentDataUrl, 'PNG', 0, 0, 295, canvas.height*309/canvas.width)
+    pdf.save(x.mealName+"-מתכון");  
+    document.getElementById("d").style.display="none";
+  
+    }) 
+  }
  shareOne(x:Meal){
   x.publish=true,
   x.dateUplaod=new Date()
@@ -209,25 +242,6 @@ export class MyMealsComponent implements OnInit {
   });
   return le;
  }
- GetPictures(){
-    this.serp.GetAllPictures().subscribe(succ=>{
-      this.pictures=succ
-      console.log(this.pictures)
-      this.GetAllMeals()
-      this.loader=false
-   },err=>{
-     console.log(err)
-   })
-  }
-  GetPicture(x:number){
-    let url;
-    this.pictures.forEach(element => {
-     if(element.pictureCode==x)
-        url= element.pictureName
-   });
-   return url
-   
-  }
 search(){
   if(this.text==""){
     this.ELEMENT_DATA=this.arr
@@ -243,5 +257,35 @@ search(){
 });
  this.ELEMENT_DATA=this.find
 }}
+UnitMeasures:string[]=[]
+unit:UnitMeasure[]=[]
+
+GetAllUnitMeasures(){
+  this.seru.GetAllUnitMeasures().subscribe(succ=>{
+   this.unit=succ
+  },err=>{console.log(err)} ) 
+}
+UnitMeasure(x:Meal){
+  console.log(x.products)
+    x.products.forEach(element => {
+      for (let index = 0; index < this.unit.length; index++) {
+        if(element.unitMeasureCode==this.unit[index].unitCode){
+           let x=""
+            if(element.amountInMeal>1){
+             switch (this.unit[index].unitName) {        
+              case "יחידה":x="יחידות";break;
+              case "כף":x="כפות";break;                                 
+              case "כפית":x="כפיות";break;
+              case "ליטר":x="ליטרים";break;
+              case "כוס":x="כוסות";break;
+              default:x=this.unit[index].unitName;break;
+            }
+             this.UnitMeasures.push(x)       
+            }      
+            else{this.UnitMeasures.push(this.unit[index].unitName)}                                  
+        }         
+      }
+    }); 
+}
 }
 

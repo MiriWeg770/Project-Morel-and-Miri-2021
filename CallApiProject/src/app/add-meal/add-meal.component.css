@@ -173,6 +173,9 @@ input[name=css-tabs] {
 #radio1:checked ~ #content #content1, #radio2:checked ~ #content #content2, #radio3:checked ~ #content #content3, #radio4:checked ~ #content #content4 {
 	transform: translateY(0);
 	opacity: 1;
+  height: 566px;
+  overflow-y: auto;
+
 }
 .time-input{
   display: flex;

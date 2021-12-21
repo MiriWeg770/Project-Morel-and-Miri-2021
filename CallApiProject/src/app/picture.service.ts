@@ -11,7 +11,12 @@ import { Picture } from 'src/Models/Picture';
 })
 export class PictureService {
 
-  constructor(private http:HttpClient) { }
+  PICTURES:Picture[]=[]
+  constructor(private http:HttpClient) {
+    this.GetAllPictures().subscribe(succ=>{
+     this.PICTURES=succ;
+    },err=>{console.log(err)})
+   }
 
    AddPicture(p:Picture): Observable<Picture>{
     return this.http.post<Picture>(environment.url +"/api/Picture/AddPicture",p);

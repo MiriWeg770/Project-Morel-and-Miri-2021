@@ -531,3 +531,7 @@ background: red;
     
   }
   
+  form.f{  
+      padding: 0;
+      display: inline-block;
+  }

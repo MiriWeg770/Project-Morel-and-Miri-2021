@@ -71,6 +71,9 @@ import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import { PrintComponent } from './print/print.component';
 import { PrintMealComponent } from './print-meal/print-meal.component';
 import { PrintMenuComponent } from './print-menu/print-menu.component';
+import { DeletUnitComponent } from './delet-unit/delet-unit.component';
+import { DeletCategoryComponent } from './delet-category/delet-category.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 @NgModule({
   declarations: [
@@ -113,7 +116,10 @@ import { PrintMenuComponent } from './print-menu/print-menu.component';
     CheckProductsComponent,
     PrintComponent,
     PrintMealComponent,
-    PrintMenuComponent
+    PrintMenuComponent,
+    DeletUnitComponent,
+    DeletCategoryComponent,
+    AddProductComponent
     
   ],
   imports: [

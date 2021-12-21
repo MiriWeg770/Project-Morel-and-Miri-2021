@@ -92,8 +92,8 @@
     margin-top: -45px;
   }
   ul li{
-    font-size: 12px;
-      padding: 2px;
+    font-size: 20px;
+    padding: 11px;
       font-family: system-ui;
   }
   ul{
@@ -103,7 +103,14 @@
       display: flex;
       justify-content: center;
   }
-  
+  p{
+      font-size: 21px;
+      padding: 10px;
+  }
+  p span{
+    font-weight: 800;
+    margin-left: 9px;
+  }
   
   
   

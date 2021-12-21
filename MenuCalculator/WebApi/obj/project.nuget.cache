@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "lMyu/NAMbhBCDYuBTxhq/KSBM9bAThBIm1ZgDwTeTA3DdURWUo7xceIluaBFnMkAs1YEzUaowELwxFcY8QtRiw==",
+  "dgSpecHash": "HUco/+DwgaoreC+/r74WaJ0DQHuAOyXrQPTRh9Lj4ewhy4tk6Fv5Qc/2MkYn+UgmAW4vWhTBrUH43oIw0Ue+Rg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\מירי\\Desktop\\p (1)\\p\\MenuCalculator\\WebApi\\WebApi.csproj",
+  "projectFilePath": "C:\\Users\\מירי\\Desktop\\לימודים\\פרוייקט\\Git\\Project-Morel-and-Miri-2021\\MenuCalculator\\WebApi\\WebApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\מירי\\.nuget\\packages\\bouncycastle\\1.8.6.1\\bouncycastle.1.8.6.1.nupkg.sha512",
     "C:\\Users\\מירי\\.nuget\\packages\\chilkat-x64\\9.5.0.88\\chilkat-x64.9.5.0.88.nupkg.sha512",

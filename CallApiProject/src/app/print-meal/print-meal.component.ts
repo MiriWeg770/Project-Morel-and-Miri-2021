@@ -24,6 +24,7 @@ export class PrintMealComponent implements OnInit {
     ,private serp:PictureService) {   
       this.GetLevel()
       this.GetCategory()   
+      this.Instructions=[]
     // this.GetInstructions()
     // this.GetAllUnitMeasures()
    }
@@ -62,6 +63,7 @@ export class PrintMealComponent implements OnInit {
          return t.getHours()+" שעות "
    }
    GetInstructions(i){
+     if(i){
     let x:string=""
     for (let index = 0; index < i.length; index++) {
       if(i[index]=='#'){
@@ -71,6 +73,7 @@ export class PrintMealComponent implements OnInit {
      else
         x+=i[index]  
     }    
+  }
     console.log(this.Instructions)
   }
   // GetAllUnitMeasures(){

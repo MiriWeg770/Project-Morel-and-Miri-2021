@@ -17,7 +17,7 @@
   </select>
 </div>
         </div>
-        <div class="selectCa"><span *ngFor="let x of serc.checkListCategories">{{x.mealCategoriesName}}</span></div>
+        <div class="selectCa"><span *ngFor="let x of checkList">{{x.mealCategoriesName}}</span></div>
       <div class="list">
      <ul *ngIf="!choose">
       <li *ngFor="let x of listMeals"> <app-meal [meal]="x"></app-meal></li>

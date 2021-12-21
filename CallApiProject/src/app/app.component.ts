@@ -11,6 +11,19 @@ export class AppComponent {
 gnOnInit(){
 }
 
+ngOnInit(){
+
+  window.addEventListener("keyup", this.disableF5);
+
+  window.addEventListener("keydown", this.disableF5);
+}
+
+
+  disableF5(e) {
+
+    if ((e.which || e.keyCode) == 116) e.preventDefault(); 
+
+ };
 }
 
 

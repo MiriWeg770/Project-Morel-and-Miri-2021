@@ -13,8 +13,11 @@ import { AddCategoryComponent } from '../add-category/add-category.component';
 import { AddManagerComponent } from '../add-manager/add-manager.component';
 import { AddMealComponent } from '../add-meal/add-meal.component';
 import { AddMenuComponent } from '../add-menu/add-menu.component';
+import { AddProductComponent } from '../add-product/add-product.component';
 import { AddUnitComponent } from '../add-unit/add-unit.component';
+import { DeletCategoryComponent } from '../delet-category/delet-category.component';
 import { DeletManagerComponent } from '../delet-manager/delet-manager.component';
+import { DeletUnitComponent } from '../delet-unit/delet-unit.component';
 import { DeletUserComponent } from '../delet-user/delet-user.component';
 import { DeleteShareComponent } from '../delete-share/delete-share.component';
 import { DeleteComponent } from '../delete/delete.component';
@@ -59,10 +62,10 @@ export class ManagerEntryComponent implements OnInit {
 
   UsersTable:string[]=[" ","קוד משתמש","שם משתמש"," כתובת אימייל",""]
   MenusTable:string[]=["קוד תפריט","שם תפריט","קטגוריה","תיאור","רמת קושי","כמות מנות","שותף","כמות צפיות","שם משתמש",""]
-  MealsTable:string[]=[" ","קוד מנה","שם מנה","קטגוריה","כמות סועדים","תיאור","רמת קושי","מספר מרכיבים","שותף","כמות צפיות","שם משתמש"," "]
-  ProductTable:string[]=["קוד מוצר","שם מוצר","כמות","יחידת מידה",""]
-  MenuCategoriesTable:string[]=["קוד קטגוריה","שם קטגוריה",""]
-  MealCategoriesTable:string[]=["קוד קטגוריה","שם קטגוריה",""]
+  MealsTable:string[]=[" ","קוד מנה","שם מנה","קטגוריה","כמות סועדים","רמת קושי","מספר מרכיבים","שותף","כמות צפיות","שם משתמש"," "]
+  ProductTable:string[]=["קוד מוצר","שם מוצר",""]
+  MenuCategoriesTable:string[]=["קוד קטגוריה","שם קטגוריה","מספר תפריטים",""]
+  MealCategoriesTable:string[]=["קוד קטגוריה","שם קטגוריה","מספר מנות",""]
   UnitMeasuresTable:string[]=["קוד מידה","שם מידה","המרה",""]
   ManagerTable:string[]=[" ","קוד משתמש","שם משתמש"," כתובת אימייל",""]
 
@@ -70,6 +73,7 @@ export class ManagerEntryComponent implements OnInit {
   MealText=""
   MenuText=""
   UserText=""
+  ProductText=""
   constructor(private userSer:UserService,private mealSer:MealService,private menuSer:MenuService,private levSer:LevelService,private mealcaSer:MealCategoriesService,
     private unitSer:UnitMeasureService,private dialog:MatDialog,private picSer:PictureService) {
       this.managerUser= JSON.parse(localStorage.getItem("manager"))
@@ -81,6 +85,7 @@ export class ManagerEntryComponent implements OnInit {
         console.log("null")
        this.managerUser=new User(0,null,null,null,null,null)
       }
+    console.log(this.manager);
 
   }
 
@@ -126,7 +131,8 @@ export class ManagerEntryComponent implements OnInit {
       console.log(succ)
       if(succ){
       this.manager=true
-      this.managerUser= JSON.parse(localStorage.getItem("user"))
+      // this.managerUser= JSON.parse(localStorage.getItem("user"))
+      this.userSer.setManager(this.managerUser);
       localStorage.setItem("manager",JSON.stringify(this.managerUser))
       this.GetAll()
       }
@@ -170,7 +176,9 @@ export class ManagerEntryComponent implements OnInit {
   }
   GetAllProducts(){
     this.mealSer.GetAllUsersMealsProducts().subscribe(succ=>{
-      this.Products=succ
+      var mySet = new Set(succ);
+       this.Products = [...mySet];
+      this.arrProduct= [...mySet];
       console.log(succ)
     },err=>{console.log(err)
   })
@@ -392,6 +400,20 @@ ShareMeal(x:Meal){
       }
       
     }
+    AddMenu(){
+      const dialogRef = this.dialog.open(AddMenuComponent, {
+        disableClose:true,
+        autoFocus:false,
+        height:'100%',
+        width:'100%',
+        panelClass:'my-dialog'
+        });
+        dialogRef.afterClosed().subscribe(result => {
+          console.log('The dialog was closed');
+          this.GetAllMenus()
+          console.log(result)
+       });
+      }
     UpdateMenu(x:Menu){
       const dialogRef = this.dialog.open(AddMenuComponent, {
       disableClose:true,
@@ -472,6 +494,39 @@ SearchUser(){
     });
      this.Users=this.findUser
     }}
+    findProduct:Product[]=[]
+    arrProduct:Product[]=[]
+SearchProduct(){
+      if(this.ProductText==""){
+        this.Products=this.arrProduct
+      }
+      else{
+        console.log(this.ProductText)
+        this.findProduct.length=0;
+        this.Products=this.arrProduct
+        this.Products.forEach(element => {
+        if(element.productName.includes(this.ProductText)){ 
+        this.findProduct.push(element);  
+     }
+    });
+     this.Products=this.findProduct
+    }}
+    GetAllMealInCategory(x:MealCategories){
+      let count=0;
+      this.Meals.forEach(element => {
+        if(element.mealCategoryCode==x.mealCategoriesCode)
+        count++;
+      });
+      return count;
+    }
+    GetAllMenuInCategory(x:MenuCategories){
+      let count=0;
+      this.Menus.forEach(element => {
+        if(element.menuCategoryCode==x.menuCategoriesCode)
+        count++;
+      });
+      return count;
+    }
 AddMenuCategory(){
       let x:string=""
        const dialogRef = this.dialog.open(AddCategoryComponent, {
@@ -489,7 +544,9 @@ AddMenuCategory(){
         }
        })
     }
+   
 DeleteMenuCategory(x:MenuCategories){
+    if(this.GetAllMenuInCategory(x)==0){
       let s=" הקטגוריה "+ x.menuCategoriesName+ " תימחק "
       const dialogRef = this.dialog.open(DeleteComponent, {
       data:s
@@ -501,6 +558,27 @@ DeleteMenuCategory(x:MenuCategories){
         this.GetMenuCategories()
       },err=>{console.log(err)})
        })
+      }
+      else
+      {
+         this.dialog.open(DeletCategoryComponent);
+      }
+    }
+UpdateMenuCategory(x:MenuCategories){
+  const dialogRef = this.dialog.open(AddCategoryComponent, {
+   data:x.menuCategoriesName
+ });
+  dialogRef.afterClosed().subscribe(result => {
+    console.log(result)
+   if(result!=undefined){
+     x.menuCategoriesName=result
+   this.menuSer.UpdateMenuCategory(x).subscribe(succ=>{
+     console.log(succ)
+     this.GetMenuCategories()
+   },err=>{console.log(err)})
+   console.log(result)
+   }
+  })
     }
 AddMealCategory(){
       let x:string=""
@@ -520,6 +598,7 @@ AddMealCategory(){
       })
     }
 DeleteMealCategory(x:MealCategories){
+  if(this.GetAllMealInCategory(x)==0){
       let s=" הקטגוריה "+ x.mealCategoriesName+ " תימחק "
       const dialogRef = this.dialog.open(DeleteComponent, {
       data:s
@@ -531,6 +610,43 @@ DeleteMealCategory(x:MealCategories){
         this.GetMealCategories()
       },err=>{console.log(err)})
        })
+      }
+      else{
+        this.dialog.open(DeletCategoryComponent)
+      }
+    }
+
+UpdateMealCategory(x:MealCategories){
+      const dialogRef = this.dialog.open(AddCategoryComponent, {
+       data:x.mealCategoriesName
+     });
+      dialogRef.afterClosed().subscribe(result => {
+        console.log(result)
+        if(result!=undefined){
+          x.mealCategoriesName=result;
+        this.mealcaSer.UpdateMealCategory(x).subscribe(succ=>{
+          console.log(succ)
+          this.GetMealCategories()
+        },err=>{console.log(err)})
+        console.log(result)
+        }
+      })
+    }
+
+    AddProduct(){
+      let x:Product;
+      const dialogRef = this.dialog.open(AddProductComponent, {
+      data:x
+     });
+     dialogRef.afterClosed().subscribe(result=>{
+       this.GetAllProducts()
+     })
+    
+    }
+    DeleteProduct(x:Product){
+     this.mealSer.DeleteProduct(x).subscribe(succ=>{
+       console.log(succ)
+     },err=>{console.log(err)})
     }
 SendMessage(u:User){
       let dialogRef= this.dialog.open(SendMessageToUserComponent,{
@@ -606,4 +722,21 @@ UpdateUnit(x:UnitMeasure){
     }
   })
 }
+DeletUnit(x:UnitMeasure){
+  console.log(x)
+  const dialogRef = this.dialog.open(DeletUnitComponent, {
+   data:x
+ });
+  dialogRef.afterClosed().subscribe(result => {
+    console.log(result)
+    if(result!=undefined){
+      this.unitSer.DeleteUnitMeasure(x).subscribe(succ=>{
+      console.log(succ)
+      this.GetAllUnitMeasures()
+    },err=>{console.log(err)})
+    console.log(result)
+    }
+  })
+}
+
 }

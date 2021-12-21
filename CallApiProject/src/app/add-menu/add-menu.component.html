@@ -22,11 +22,11 @@
           <input type="text" name="MenuName" [(ngModel)]="newMenu.menuName" maxlength=25 #name="ngModel" required [ngStyle]="{'border-color': empty && name.hasError('required')? 'red' : '' }" />
     
           <label>קטגוריה</label>
-          <select name=" " [(ngModel)]="selectCa" [ngStyle]="{'border-color': empty && selectCa==null? 'red' : '' }">
+          <select name=" " [(ngModel)]="selectCa" [ngModelOptions]="{standalone: true}" [ngStyle]="{'border-color': empty && selectCa==null? 'red' : '' }">
             <option *ngFor="let x of categories; let i=index" value={{x.menuCategoriesName}} >{{x.menuCategoriesName}}</option>
           </select>
              <label>דרגת קושי</label>
-          <select name=" " [(ngModel)]="selectLe" [ngStyle]="{'border-color': empty && selectLe==null? 'red' : '' }">
+          <select name=" " [(ngModel)]="selectLe" [ngModelOptions]="{standalone: true}" [ngStyle]="{'border-color': empty && selectLe==null? 'red' : '' }">
           <option *ngFor="let x of levels; let i=index" value={{x.levelName}} >{{x.levelName}}</option>
           </select>
     

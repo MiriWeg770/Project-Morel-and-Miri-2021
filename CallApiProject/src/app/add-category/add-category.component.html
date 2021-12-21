@@ -1,5 +1,7 @@
 <div>
-    <h1>הוסף קטגוריה</h1>
+    <h1 *ngIf="ca== ''">הוסף קטגוריה</h1>
+    <h1 *ngIf="ca!= ''">עדכן קטגוריה</h1>
     <input type="text" [(ngModel)]="data">
-    <button [mat-dialog-close]="data" >הוסף</button>
+    <button [mat-dialog-close]="data" *ngIf="ca== '' " >הוסף</button>
+    <button [mat-dialog-close]="data" *ngIf="ca!= '' ">עדכן</button>
 </div>

@@ -446,3 +446,39 @@
   color: white;
 }
 
+#search-text{
+  position: absolute;
+  top: 410px;
+  right: 600px;
+  padding: 3px;
+  font-size: 13px;
+  border: 1px solid red;
+  font-family: system-ui;
+  direction: rtl;
+  display: flex;
+  align-items: center;
+  background: white;
+  border-radius: 20px;
+}
+#search-text input{
+  border: none;
+  outline: none;
+  margin: 0 10px;
+  width: 244px;
+}
+#search-text  mat-icon{
+  color: white;
+  font-size: 17px;
+    padding: 3px 0px;
+    width: 16px;
+}
+#search-text button{
+  background: #eb4747;
+  color: white;
+  cursor: pointer;
+  border-radius:50% ;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  border: 1px solid black;
+}

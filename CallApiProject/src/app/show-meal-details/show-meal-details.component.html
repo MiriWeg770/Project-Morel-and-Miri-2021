@@ -49,6 +49,13 @@
                          <div class="details">
                              <div class="close"><mat-icon (click)="close()"  >close</mat-icon></div>
                           <form>
+                            <form class="f">
+                                <input type="radio" id="url" name="fav_language" value="">
+                                <label for="html" >קישור</label><br>
+                                <input type="radio" id="recipe" name="fav_language" value="">
+                                <label for="css">מתכון</label><br>                         
+                              </form>
+                              <button (click)="Check()"></button>
                         <div class="row"> <input type="text" name="" [(ngModel)]="from" [ngModelOptions]="{standalone: true}" placeholder="שמך" required></div>
                        <div class="row"> <input type="email" name="" [(ngModel)]="to" [ngModelOptions]="{standalone: true}" placeholder="אימייל הנמען" required></div> 
                        <div class="submit">                  
@@ -109,7 +116,7 @@
     <p> !!המנה התווספה לרשימת המנות שלך </p>
   </dialog>
 
-<app-print-meal #printMeal id="d" [m]="MealChange()" [u]="UnitMeasures"></app-print-meal>
+<app-print-meal  id="d" [m]="MealChange()" [u]="UnitMeasures"></app-print-meal>
     
     
     
