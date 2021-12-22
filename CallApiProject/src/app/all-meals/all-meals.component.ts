@@ -13,7 +13,7 @@ import { UserService } from '../user.service';
 export class AllMealsComponent implements OnInit {
  
   listMeals:Meal[]=[]
-  sortBy:string[]=["ללא מיון","פופולרי","לפי תאריך עולה","לפי תאריך יורד"]
+  sortBy:string[]=["ללא מיון","לפי תאריך עולה","לפי תאריך יורד"]
   listCategories:MealCategories[]=[]
   notFound=false 
   choose=false

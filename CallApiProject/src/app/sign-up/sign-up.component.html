@@ -13,15 +13,15 @@
             <span *ngIf="userName.hasError('required') && userName.touched" class="popuptext" id="myPopup">זהו שדה
               חובה!</span>
             <span *ngIf="userName.hasError('pattern') && userName.touched" class="popuptext" id="myPopup">השדה חייב
-              להכיל 4-20 תווים ללא רווחים!</span>
+             להכיל 4-20 תווים ללא רווחים אותיות באנגלית בלבד !</span>
             <input class="input-group__input" type="text" placeholder="&nbsp;" name="username"
               pattern="[A-Za-z0-9]{4,20}" #userName="ngModel" [(ngModel)]="myUser.userName" id="username"
               autocomplete="off" required />
             <label class="input-group__label" for="username">שם משתמש</label>
           </div>
           <div class="input-group">
-            <span *ngIf="userMail.hasError('required') && userMail.touched" class="popuptext" id="myPopup">!זהו שדה
-              חובה</span>
+            <span *ngIf="userMail.hasError('required') && userMail.touched" class="popuptext" id="myPopup">זהו שדה
+              חובה!</span>
             <span *ngIf="userMail.hasError('pattern') && userMail.touched" class="popuptext" id="myPopup">השדה לא בתבנית
               המתאימה</span>
             <input class="input-group__input" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
@@ -29,15 +29,15 @@
             <label class="input-group__label" for="email">אימייל</label>
           </div>
           <div class="input-group">
-            <span *ngIf="userPassword.hasError('required') && userPassword.touched" class="popuptext" id="myPopup">!זהו
-              שדה חובה</span>
+            <span *ngIf="userPassword.hasError('required') && userPassword.touched" class="popuptext" id="myPopup">זהו שדה
+              חובה!</span>
             <input class="input-group__input" type="password" name="password" #userPassword="ngModel" maxlength="8"
               [(ngModel)]="myUser.password" placeholder="&nbsp;" id="password" required />
             <label class="input-group__label" for="password">סיסמה</label>
           </div>
           <div class="input-group">
-            <span *ngIf="userpassword.hasError('required') && userpassword.touched" class="popuptext" id="myPopup">!זהו
-              שדה חובה</span>
+            <span *ngIf="userpassword.hasError('required') && userpassword.touched" class="popuptext" id="myPopup">זהו שדה
+              חובה!</span>
             <span *ngIf="userpassword.value!=userPassword.value && userpassword.touched" class="popuptext"
               id="myPopup">סיסמאות לא תואמות</span>
             <input class="input-group__input" type="password" name="password2" maxlength="8" #userpassword="ngModel"
@@ -56,9 +56,9 @@
         <form class="form" #myForm2="ngForm" (ngSubmit)="SignIn()">
           <div class="input-group">
             <span *ngIf="userName2.hasError('required') && userName2.touched && userName2.untouched" class="popuptext"
-              id="myPopup">זהו שדה חובה!</span>
+              id="myPopup">!זהו שדה חובה</span>
             <span *ngIf="userName2.hasError('pattern') && userName2.touched" class="popuptext" id="myPopup">השדה חייב
-              להכיל 4-20 תווים ללא רווחים!</span>
+           להכיל 4-20 תווים ללא רווחים אותיות באנגלית בלבד</span>
             <input class="input-group__input" type="text" [(ngModel)]="myUser.UserName" #userName2="ngModel"
               pattern="[A-Za-z]{4,20}" placeholder="&nbsp;" name="username" id="username2" autocomplete="off"
               required />
@@ -105,8 +105,6 @@
             <button class="button" type="submit" [disabled]="!myForm4.valid">אישור</button>
           </form>
         </div>
-
-
         <div *ngIf="pass">
           <mat-icon (click)="pass=!pass">trending_flat</mat-icon>
           <form>
@@ -124,7 +122,6 @@
           </form>
         </div>
       </div>
-
     </div>
   </div>
 </div>

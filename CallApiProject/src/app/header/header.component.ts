@@ -16,7 +16,7 @@ import { UserService } from '../user.service';
 })
 export class HeaderComponent implements OnInit {
 
- sort:string[]=["הכל","פופולרי","לפי תאריך","לפי מנות","לפי תפריטים",]
+ sort:string[]=["הכל","לפי תאריך","לפי מנות","לפי תפריטים",]
   open=false
   u:User=new User(null,null,null,null,null,null);
   // name:string
